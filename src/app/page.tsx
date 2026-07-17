@@ -444,9 +444,7 @@ export default function Home() {
           transition={{ delay: 1.5, duration: 1 }}
           className="absolute bottom-12 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-3"
         >
-          <span className="text-[0.6rem] uppercase tracking-[0.3em] text-white/40">
-            Scroll to explore
-          </span>
+          
           <motion.div
             animate={{ height: ["0%", "100%", "0%"], top: ["0%", "0%", "100%"] }}
             transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}

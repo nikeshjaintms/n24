@@ -12,13 +12,13 @@ const perks = [
     icon: Trophy,
     title: "Achieve Your Goals",
     text: "Commit to a 30-day program designed to build strength and increase flexibility.",
-    color: "#00C8D7",
+    color: "#00AFC2",
   },
   {
     icon: Timer,
     title: "Unlimited Access",
     text: "Take as many classes as you want during your challenge period.",
-    color: "#7EE8FA",
+    color: "#00AFC2",
   },
   {
     icon: Target,

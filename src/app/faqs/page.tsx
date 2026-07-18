@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { SiteLayout, PageHero } from "@/components/SiteLayout";
 import { ChevronDown, MessageCircle, ArrowRight } from "lucide-react";
+import { TypewriterText } from "@/components/TypewriterText";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import type { Variants } from "framer-motion";
@@ -66,9 +67,7 @@ const answerVariants: Variants = {
   open: { height: "auto", opacity: 1, transition: { duration: 0.38, ease: "easeOut" } },
 };
 
-function AccordionItem({ q, a, index }: { q: string; a: string; index: number }) {
-  const [isOpen, setIsOpen] = useState(false);
-
+function AccordionItem({ q, a, index, isOpen, onToggle }: { q: string; a: string; index: number; isOpen: boolean; onToggle: () => void }) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 16 }}
@@ -85,7 +84,7 @@ function AccordionItem({ q, a, index }: { q: string; a: string; index: number })
       }}
     >
       <button
-        onClick={() => setIsOpen(!isOpen)}
+        onClick={onToggle}
         className="flex w-full items-center justify-between px-7 py-6 text-left focus:outline-none"
       >
         <span
@@ -120,7 +119,9 @@ function AccordionItem({ q, a, index }: { q: string; a: string; index: number })
             variants={answerVariants}
             className="overflow-hidden"
           >
-            <p className="px-7 pb-7 text-[0.9rem] leading-[1.9] text-[#4A606A] font-light">{a}</p>
+            <p className="px-7 pb-7 text-[0.9rem] leading-[1.9] text-[#4A606A] font-light">
+              <TypewriterText text={a} speed={25} />
+            </p>
           </motion.div>
         )}
       </AnimatePresence>
@@ -129,6 +130,8 @@ function AccordionItem({ q, a, index }: { q: string; a: string; index: number })
 }
 
 export default function Faqs() {
+  const [openId, setOpenId] = useState<string | null>(null);
+
   return (
     <SiteLayout>
       <PageHero
@@ -171,9 +174,19 @@ export default function Faqs() {
 
                 {/* Accordion items */}
                 <div className="flex flex-col gap-3">
-                  {cat.items.map((item, ii) => (
-                    <AccordionItem key={ii} q={item.q} a={item.a} index={ii} />
-                  ))}
+                  {cat.items.map((item, ii) => {
+                    const id = `${ci}-${ii}`;
+                    return (
+                      <AccordionItem 
+                        key={id} 
+                        q={item.q} 
+                        a={item.a} 
+                        index={ii} 
+                        isOpen={openId === id}
+                        onToggle={() => setOpenId(openId === id ? null : id)}
+                      />
+                    );
+                  })}
                 </div>
               </motion.div>
             ))}

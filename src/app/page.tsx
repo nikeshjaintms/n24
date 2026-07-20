@@ -426,7 +426,7 @@ export default function Home() {
           className="relative z-10 mx-auto max-w-4xl px-6 text-center"
         >
           <motion.p variants={fadeUp} className="eyebrow text-[#00C8D7] mb-6 tracking-[0.4em]">
-            New Client Offer
+            Intro Offer
           </motion.p>
           <motion.h2
             variants={fadeUp}

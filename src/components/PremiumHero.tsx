@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Variants, motion, MotionValue } from "framer-motion";
-import { ArrowRight, Star, Users, Award, TrendingUp } from "lucide-react";
+import { ArrowRight, Star, Users, Award, TrendingUp, User, Activity } from "lucide-react";
 import heroImg from "@/assets/fe2b586c-c331-44f0-8e7a-33a839238d76.png";
 
 function StatColumn({
@@ -32,7 +32,7 @@ function StatColumn({
         {/* Text Container */}
         <div className="flex flex-col">
           {/* Number */}
-          <span className="font-display text-[36px] md:text-[44px] xl:text-[48px] font-medium text-[#111827] leading-[1] transition-transform duration-300 group-hover:-translate-y-[2px]">
+          <span className="font-display text-[28px] md:text-[32px] xl:text-[36px] font-medium text-[#111827] leading-[1] transition-transform duration-300 group-hover:-translate-y-[2px]">
             {number}
           </span>
           {/* Label */}
@@ -288,33 +288,30 @@ export function PremiumHero({
             <motion.div variants={cardItemVariants} className="hidden lg:block w-px h-[120px] xl:h-[140px] bg-slate-100 shrink-0" />
 
             {/* Stats Grid */}
-            <div className="w-full lg:flex-1 grid grid-cols-1 sm:grid-cols-2 lg:flex lg:items-center gap-10 sm:gap-12 lg:gap-0 lg:justify-between">
+            <div className="w-full lg:flex-1 grid grid-cols-1 sm:grid-cols-2 gap-8 lg:gap-10 xl:gap-12 lg:pl-6 xl:pl-10">
               <StatColumn
                 icon={Star}
                 number="5.0"
                 label="Google Rating"
                 desc="Rated by our happy members."
               />
-              <motion.div variants={cardItemVariants} className="hidden lg:block w-px h-[64px] bg-slate-100 shrink-0 mx-2 xl:mx-4" />
+              <StatColumn
+                icon={User}
+                number="Sessions"
+                label="PRIVATE"
+                desc="1-on-1 personalized training."
+              />
               <StatColumn
                 icon={Users}
-                number="500+"
-                label="Happy Members"
-                desc="Growing wellness community."
+                number="Classes"
+                label="SMALL GROUP"
+                desc="Intimate focused workouts."
               />
-              <motion.div variants={cardItemVariants} className="hidden lg:block w-px h-[64px] bg-slate-100 shrink-0 mx-2 xl:mx-4" />
               <StatColumn
-                icon={Award}
-                number="4"
-                label="Expert Trainers"
-                desc="Certified Pilates specialists."
-              />
-              <motion.div variants={cardItemVariants} className="hidden lg:block w-px h-[64px] bg-slate-100 shrink-0 mx-2 xl:mx-4" />
-              <StatColumn
-                icon={TrendingUp}
-                number="3+"
-                label="Years Experience"
-                desc="Delivering proven results."
+                icon={Activity}
+                number="Pilates"
+                label="REFORMER"
+                desc="Dynamic body conditioning."
               />
             </div>
           </div>

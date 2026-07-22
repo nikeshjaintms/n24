@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Variants, motion, MotionValue } from "framer-motion";
-import { ArrowRight, Star, Users, Award, TrendingUp } from "lucide-react";
+import { ArrowRight, Star, Users, User, Activity } from "lucide-react";
 import heroImg from "@/assets/fe2b586c-c331-44f0-8e7a-33a839238d76.png";
 
 function StatColumn({
@@ -16,23 +16,24 @@ function StatColumn({
   icon: React.ElementType;
   number: string;
   label: string;
-  desc: string;
+  desc?: string;
 }) {
+  const isWord = number.length > 4;
   return (
     <motion.div
       variants={cardItemVariants}
-      className="group relative flex flex-col items-center sm:items-start w-full lg:w-auto lg:flex-1 px-2 sm:px-0 lg:px-2 xl:px-4"
+      className="group relative flex flex-col items-center sm:items-start w-full bg-slate-50/50 hover:bg-slate-50 transition-colors duration-300 border border-slate-100 rounded-2xl p-5 xl:p-6 justify-center h-full"
     >
       <div className="flex items-center gap-3 xl:gap-4 w-full justify-center sm:justify-start">
         {/* Icon */}
-        <div className="flex size-[44px] xl:size-[52px] shrink-0 items-center justify-center rounded-full bg-[#F0FBFC] group-hover:bg-[#E6FAFB] shadow-[0_4px_20px_rgba(42,141,150,0.08)] transition-all duration-300 group-hover:scale-[1.05]">
-          <Icon className="size-5 xl:size-6 text-[#2A8D96] stroke-[1.5]" />
+        <div className="flex size-[40px] xl:size-[48px] shrink-0 items-center justify-center rounded-full bg-[#F0FBFC] group-hover:bg-[#E6FAFB] shadow-[0_4px_20px_rgba(42,141,150,0.08)] transition-all duration-300 group-hover:scale-[1.05]">
+          <Icon className="size-4 xl:size-5 text-[#2A8D96] stroke-[1.5]" />
         </div>
 
         {/* Text Container */}
         <div className="flex flex-col">
-          {/* Number */}
-          <span className="font-display text-[36px] md:text-[44px] xl:text-[48px] font-medium text-[#111827] leading-[1] transition-transform duration-300 group-hover:-translate-y-[2px]">
+          {/* Number/Text */}
+          <span className={`font-display font-medium text-[#111827] leading-[1] transition-transform duration-300 group-hover:-translate-y-[2px] ${isWord ? 'text-[24px] sm:text-[28px] xl:text-[32px]' : 'text-[32px] sm:text-[36px] xl:text-[40px]'}`}>
             {number}
           </span>
           {/* Label */}
@@ -45,9 +46,11 @@ function StatColumn({
       </div>
 
       {/* Description */}
-      <p className="mt-3 text-[12px] xl:text-[13px] text-[#6B7280] font-sans font-normal text-center sm:text-left w-full max-w-[200px] xl:max-w-[220px] leading-relaxed">
-        {desc}
-      </p>
+      {desc && (
+        <p className="mt-4 text-[12px] xl:text-[13px] text-[#6B7280] font-sans font-normal text-center sm:text-left w-full leading-relaxed">
+          {desc}
+        </p>
+      )}
     </motion.div>
   );
 }
@@ -299,46 +302,31 @@ export function PremiumHero({
             {/* Divider */}
             <motion.div
               variants={cardItemVariants}
-              className="hidden lg:block w-px h-[120px] xl:h-[140px] bg-slate-100 shrink-0"
+              className="hidden lg:block w-px h-[160px] xl:h-[200px] bg-slate-100 shrink-0"
             />
 
             {/* Stats Grid */}
-            <div className="w-full lg:flex-1 grid grid-cols-1 sm:grid-cols-2 lg:flex lg:items-center gap-10 sm:gap-12 lg:gap-0 lg:justify-between">
+            <div className="w-full lg:flex-1 grid grid-cols-1 sm:grid-cols-2 gap-4 lg:gap-5">
               <StatColumn
                 icon={Star}
                 number="5.0"
                 label="Google Rating"
                 desc="Rated by our happy members."
               />
-              <motion.div
-                variants={cardItemVariants}
-                className="hidden lg:block w-px h-[64px] bg-slate-100 shrink-0 mx-2 xl:mx-4"
+              <StatColumn
+                icon={User}
+                number="Sessions"
+                label="PRIVATE"
               />
               <StatColumn
                 icon={Users}
-                number="500+"
-                label="Happy Members"
-                desc="Growing wellness community."
-              />
-              <motion.div
-                variants={cardItemVariants}
-                className="hidden lg:block w-px h-[64px] bg-slate-100 shrink-0 mx-2 xl:mx-4"
+                number="Classes"
+                label="SMALL GROUP"
               />
               <StatColumn
-                icon={Award}
-                number="4"
-                label="Expert Trainers"
-                desc="Certified Pilates specialists."
-              />
-              <motion.div
-                variants={cardItemVariants}
-                className="hidden lg:block w-px h-[64px] bg-slate-100 shrink-0 mx-2 xl:mx-4"
-              />
-              <StatColumn
-                icon={TrendingUp}
-                number="3+"
-                label="Years Experience"
-                desc="Delivering proven results."
+                icon={Activity}
+                number="Pilates"
+                label="REFORMER"
               />
             </div>
           </div>

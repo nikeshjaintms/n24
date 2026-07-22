@@ -19,8 +19,45 @@ const details = [
     label: "Visit",
     value: "Unit G3/3 Kintail Rd, Perth WA 6153",
     href: "https://maps.google.com/?q=N24+Pilates+Applecross",
+    className: "sm:col-span-2",
   },
-  { icon: Clock, label: "Hours", value: "Mon–Sat · 5am – 10pm", href: undefined },
+  {
+    icon: Clock,
+    label: "Hours",
+    value: "",
+    href: undefined,
+    className: "sm:col-span-2",
+    content: (
+      <div className="flex flex-col gap-3 text-[0.875rem] mt-4 w-full">
+        <div className="font-semibold text-[#111827] tracking-widest uppercase border-b border-[#00C8D7]/15 pb-2 text-[0.7rem]">
+          Staff Hours
+        </div>
+        
+        <div className="flex justify-between items-start pt-1">
+          <span className="font-medium text-[#111827]">Monday – Thursday</span>
+          <div className="text-right flex flex-col text-[#5B6B70] gap-0.5">
+            <span>7:00 AM – 11:00 AM</span>
+            <span>4:00 PM – 7:00 PM</span>
+          </div>
+        </div>
+
+        <div className="flex justify-between items-center pt-1 border-t border-slate-100/50">
+          <span className="font-medium text-[#111827]">Friday</span>
+          <span className="text-[#5B6B70] text-right">7:00 AM – 11:00 AM</span>
+        </div>
+
+        <div className="flex justify-between items-center pt-1 border-t border-slate-100/50">
+          <span className="font-medium text-[#111827]">Saturday</span>
+          <span className="text-[#5B6B70] text-right">8:00 AM – 11:00 AM</span>
+        </div>
+
+        <div className="flex justify-between items-center pt-1 border-t border-slate-100/50">
+          <span className="font-medium text-[#111827]">Sunday & Public</span>
+          <span className="text-[#5B6B70] text-right">Unstaffed</span>
+        </div>
+      </div>
+    ),
+  },
 ];
 
 const accentColors = ["#00C8D7", "#00AFC2", "#00AFC2", "#00C8D7"];
@@ -94,12 +131,12 @@ export default function Contact() {
                 {details.map((d, i) => {
                   const Wrapper = d.href ? "a" : "div";
                   return (
-                    <motion.div key={d.label} variants={fadeUp}>
+                    <motion.div key={d.label} variants={fadeUp} className={d.className || ""}>
                       <Wrapper
                         {...(d.href
                           ? { href: d.href, target: "_blank", rel: "noopener noreferrer" }
                           : {})}
-                        className="group block rounded-[1.5rem] border border-[#00C8D7]/20 p-6 transition-all duration-300 hover:border-[#00C8D7]/50 hover:-translate-y-1 hover:shadow-[0_8px_32px_rgba(0,200,215,0.15)]"
+                        className="group h-full block rounded-[1.5rem] border border-[#00C8D7]/20 p-6 transition-all duration-300 hover:border-[#00C8D7]/50 hover:-translate-y-1 hover:shadow-[0_8px_32px_rgba(0,200,215,0.15)]"
                         style={{
                           background: "rgba(255,255,255,0.85)",
                           backdropFilter: "blur(12px)",
@@ -109,9 +146,13 @@ export default function Contact() {
                         <p className="text-[0.65rem] uppercase tracking-[0.2em] text-[#5B6B70] mb-1">
                           {d.label}
                         </p>
-                        <p className="text-[0.875rem] font-medium text-[#111827] leading-relaxed">
-                          {d.value}
-                        </p>
+                        {d.content ? (
+                          d.content
+                        ) : (
+                          <p className="text-[0.875rem] font-medium text-[#111827] leading-relaxed">
+                            {d.value}
+                          </p>
+                        )}
                       </Wrapper>
                     </motion.div>
                   );

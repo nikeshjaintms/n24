@@ -22,11 +22,7 @@ import {
 import { SiteLayout } from "@/components/SiteLayout";
 import { GoogleReviews } from "@/components/GoogleReviews";
 import { PremiumHero } from "@/components/PremiumHero";
-import { pillars, instructors } from "@/data/studio";
-import heroImg from "@/assets/fe2b586c-c331-44f0-8e7a-33a839238d76.png";
-import communityImg from "@/assets/community.jpg";
-import offerImg from "@/assets/offer.jpg";
-import bbbbImg from "@/assets/ca4631d1-d18d-4b29-b0ea-297bfcce4495.png";
+import { pillars } from "@/data/studio";
 
 /* ─── animation variants ──────────────────────────────────────────── */
 const fadeUp: Variants = {
@@ -227,13 +223,18 @@ export default function Home() {
           className="flex flex-col lg:flex-row"
         >
           {/* Left: Cinematic image with parallax */}
-          <div className="lg:w-1/2 relative min-h-[500px] lg:min-h-[700px] overflow-hidden">
+          <div className="lg:w-1/2 relative min-h-[500px] lg:min-h-[700px] overflow-hidden rounded-[24px] shadow-soft group">
             <motion.div
               whileHover={{ scale: 1.05 }}
               transition={{ duration: 1.5, ease: "easeOut" }}
               className="absolute inset-0 w-full h-full"
             >
-              <Image src={communityImg} alt="N24 Community" fill className="object-cover" />
+              <Image
+                src="/n241.png"
+                alt="N24 Community"
+                fill
+                className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+              />
             </motion.div>
             <div className="absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-[#0A0F1E]" />
             <div className="absolute inset-0 bg-gradient-to-t from-[#0A0F1E] via-transparent to-transparent lg:hidden" />
@@ -241,9 +242,6 @@ export default function Home() {
 
           {/* Right: Premium dark editorial content */}
           <div className="lg:w-1/2 relative flex flex-col justify-center p-8 sm:p-12 lg:p-24">
-            <div className="absolute inset-0 opacity-5 mix-blend-overlay pointer-events-none">
-              <Image src={bbbbImg} alt="" fill className="object-cover" />
-            </div>
             <div className="absolute top-1/4 right-0 w-96 h-96 rounded-full bg-[#00C8D7]/10 blur-[100px] pointer-events-none" />
 
             <div className="relative z-10">
@@ -347,60 +345,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ═══════════════════════════════════════════
-          6. INSTRUCTORS — Premium profile cards
-      ═══════════════════════════════════════════ */}
-      <section className="bg-white py-14 sm:py-20">
-        <div className="mx-auto max-w-7xl px-5 sm:px-6 lg:px-10">
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
-            variants={stagger}
-            className="text-center mb-10 sm:mb-12"
-          >
-            <motion.p variants={fadeUp} className="eyebrow text-[#00C8D7] mb-4 tracking-[0.3em]">
-              Meet the Team
-            </motion.p>
-            <motion.h2
-              variants={fadeUp}
-              className="font-display text-[2rem] sm:text-[2.8rem] md:text-5xl lg:text-6xl text-[#0A0F1E]"
-            >
-              Guided by <em className="text-[#00C8D7] font-light">the best</em>
-            </motion.h2>
-          </motion.div>
-
-          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
-            {instructors.map((m, i) => (
-              <motion.div
-                key={m.name}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-50px" }}
-                transition={{ duration: 0.8, delay: i * 0.15 }}
-                className="group relative rounded-[28px] overflow-hidden bg-white border border-[#DDEAF2] shadow-soft hover:shadow-premium transition-all duration-500"
-              >
-                <div className="relative aspect-[3/4] overflow-hidden">
-                  <Image
-                    src={m.image}
-                    alt={m.name}
-                    fill
-                    className="object-cover transition-transform duration-1000 group-hover:scale-110 filter grayscale-[20%] group-hover:grayscale-0"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#0A0F1E] via-[#0A0F1E]/30 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-500" />
-
-                  <div className="absolute bottom-0 left-0 right-0 p-8 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-                    <h3 className="font-display text-3xl text-white mb-2">{m.name}</h3>
-                    <p className="text-[0.75rem] uppercase tracking-[0.2em] text-[#00C8D7] font-bold">
-                      {m.role}
-                    </p>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* ═══════════════════════════════════════════
           7. MEMBERSHIP OFFER — Premium glass card
@@ -408,7 +352,7 @@ export default function Home() {
       <section className="relative py-24 overflow-hidden bg-[#0A0F1E]">
         <div className="absolute inset-0">
           <Image
-            src={offerImg}
+            src="/2.png"
             alt="Special Offer"
             fill
             className="object-cover opacity-20 filter grayscale-[50%]"

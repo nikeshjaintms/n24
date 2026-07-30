@@ -39,9 +39,8 @@ export default function Classes() {
                 whileInView="visible"
                 viewport={{ once: true, margin: "-100px" }}
                 variants={stagger}
-                className={`flex flex-col items-center gap-12 lg:gap-24 ${
-                  !isEven ? "lg:flex-row-reverse" : "lg:flex-row"
-                }`}
+                className={`flex flex-col items-center gap-12 lg:gap-24 ${!isEven ? "lg:flex-row-reverse" : "lg:flex-row"
+                  }`}
               >
                 {/* Image with Parallax */}
                 <motion.div

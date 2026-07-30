@@ -4,7 +4,6 @@ import { SiteLayout, PageHero } from "@/components/SiteLayout";
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import communityImg from "@/assets/challenge-new.png";
 import { Check, Trophy, Timer, Target, ArrowRight } from "lucide-react";
 
 const perks = [
@@ -61,14 +60,14 @@ export default function ChallengePass() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.9 }}
-              className="group relative overflow-hidden rounded-[28px] shadow-[0_20px_60px_rgba(0,0,0,0.12)]"
+              className="group relative overflow-hidden rounded-[24px] shadow-soft"
             >
               <div className="aspect-[4/5] relative">
                 <Image
-                  src={communityImg}
+                  src="/6.png"
                   alt="Pilates Challenge"
                   fill
-                  className="object-cover transition-transform duration-700 group-hover:scale-105"
+                  className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#0F172A]/60 via-transparent to-transparent" />
               </div>

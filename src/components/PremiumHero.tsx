@@ -1,10 +1,9 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { Variants, motion, MotionValue } from "framer-motion";
 import { ArrowRight, Star, Users, User, Activity } from "lucide-react";
-import heroImg from "@/assets/fe2b586c-c331-44f0-8e7a-33a839238d76.png";
 
 function StatColumn({
   icon: Icon,
@@ -94,7 +93,10 @@ export function PremiumHero({
 }) {
   // Mouse parallax effect
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-  const [showIntro, setShowIntro] = useState(true);
+  const [activeVideo, setActiveVideo] = useState<"intro" | "main">("intro");
+  const video1Ref = useRef<HTMLVideoElement>(null);
+  const video2Ref = useRef<HTMLVideoElement>(null);
+  const isTransitioningRef = useRef(false);
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -106,6 +108,44 @@ export function PremiumHero({
     window.addEventListener("mousemove", handleMouseMove);
     return () => window.removeEventListener("mousemove", handleMouseMove);
   }, []);
+
+  const switchToMain = () => {
+    if (isTransitioningRef.current || activeVideo === "main") return;
+    isTransitioningRef.current = true;
+    const v2 = video2Ref.current;
+    if (v2) {
+      if (v2.currentTime < 50 || v2.currentTime >= 180) {
+        v2.currentTime = 51;
+      }
+      v2.play().catch(() => { });
+    }
+    setActiveVideo("main");
+    setTimeout(() => {
+      isTransitioningRef.current = false;
+      if (video1Ref.current) {
+        video1Ref.current.pause();
+      }
+    }, 800);
+  };
+
+  const switchToIntro = () => {
+    if (isTransitioningRef.current || activeVideo === "intro") return;
+    isTransitioningRef.current = true;
+    const v1 = video1Ref.current;
+    if (v1) {
+      v1.currentTime = 0;
+      v1.play().catch(() => { });
+    }
+    setActiveVideo("intro");
+    setTimeout(() => {
+      isTransitioningRef.current = false;
+      const v2 = video2Ref.current;
+      if (v2) {
+        v2.pause();
+        v2.currentTime = 51;
+      }
+    }, 800);
+  };
 
   return (
     <div className="w-full flex flex-col">
@@ -127,49 +167,59 @@ export function PremiumHero({
             transition={{ duration: 25, repeat: Infinity, ease: "easeInOut" }}
             className="absolute w-[105%] h-[105%] -left-[2.5%] -top-[2.5%] z-0"
           >
-            {showIntro ? (
-              <video
-                key="intro-video"
-                src="/videos/part.1.mp4"
-                poster={heroImg.src}
-                autoPlay
-                muted
-                playsInline
-                preload="auto"
-                onEnded={() => setShowIntro(false)}
-                onError={() => setShowIntro(false)}
-                className="absolute inset-0 w-full h-full object-cover filter contrast-[1.05] saturate-[1.1] opacity-100 transition-transform duration-700 ease-out 
-                  object-[50%_45%] scale-[1.15] 
-                  sm:object-[55%_50%] sm:scale-[1.12] 
-                  md:object-[60%_50%] md:scale-[1.10] 
-                  lg:object-[65%_50%] lg:scale-[1.08] 
-                  xl:object-[65%_48%] xl:scale-[1.06]"
-              />
-            ) : (
-              <video
-                key="main-video"
-                src="/videos/N24%2003.mp4#t=51"
-                poster={heroImg.src}
-                autoPlay
-                muted
-                playsInline
-                preload="auto"
-                onTimeUpdate={(e) => {
-                  const video = e.currentTarget;
-                  if (video.currentTime >= 180) {
-                    setShowIntro(true);
-                  } else if (video.currentTime < 51 && video.currentTime > 1) {
-                    video.currentTime = 51;
-                  }
-                }}
-                className="absolute inset-0 w-full h-full object-cover filter contrast-[1.05] saturate-[1.1] opacity-100 transition-transform duration-700 ease-out 
-                  object-[50%_45%] scale-[1.15] 
-                  sm:object-[55%_50%] sm:scale-[1.12] 
-                  md:object-[60%_50%] md:scale-[1.10] 
-                  lg:object-[65%_50%] lg:scale-[1.08] 
-                  xl:object-[65%_48%] xl:scale-[1.06]"
-              />
-            )}
+            <div
+              className="absolute inset-0 w-full h-full bg-cover bg-center filter contrast-[1.05] saturate-[1.1] z-0"
+              style={{ backgroundImage: 'url("/2.png")' }}
+            />
+
+            {/* Intro Video (part.1.mp4) */}
+            <video
+              ref={video1Ref}
+              src="/videos/part.1.mp4"
+              autoPlay
+              muted
+              playsInline
+              preload="auto"
+              onEnded={switchToMain}
+              onError={switchToMain}
+              className={`absolute inset-0 w-full h-full object-cover filter contrast-[1.05] saturate-[1.1] transition-opacity duration-700 ease-in-out z-10
+                object-[50%_45%] scale-[1.15] 
+                sm:object-[55%_50%] sm:scale-[1.12] 
+                md:object-[60%_50%] md:scale-[1.10] 
+                lg:object-[65%_50%] lg:scale-[1.08] 
+                xl:object-[65%_48%] xl:scale-[1.06] ${activeVideo === "intro" ? "opacity-100" : "opacity-0 pointer-events-none"
+                }`}
+            />
+
+            {/* Main Video (N24 03.mp4) */}
+            <video
+              ref={video2Ref}
+              src="/videos/N24%2003.mp4#t=51"
+              muted
+              playsInline
+              preload="auto"
+              onLoadedMetadata={(e) => {
+                if (e.currentTarget.currentTime < 51) {
+                  e.currentTarget.currentTime = 51;
+                }
+              }}
+              onTimeUpdate={(e) => {
+                const video = e.currentTarget;
+                if (video.currentTime >= 180) {
+                  switchToIntro();
+                } else if (video.currentTime < 50 && video.currentTime > 1 && activeVideo === "main") {
+                  video.currentTime = 51;
+                }
+              }}
+              onError={switchToIntro}
+              className={`absolute inset-0 w-full h-full object-cover filter contrast-[1.05] saturate-[1.1] transition-opacity duration-700 ease-in-out z-20
+                object-[50%_45%] scale-[1.15] 
+                sm:object-[55%_50%] sm:scale-[1.12] 
+                md:object-[60%_50%] md:scale-[1.10] 
+                lg:object-[65%_50%] lg:scale-[1.08] 
+                xl:object-[65%_48%] xl:scale-[1.06] ${activeVideo === "main" ? "opacity-100" : "opacity-0 pointer-events-none"
+                }`}
+            />
           </motion.div>
           {/* Subtle premium gradient overlay (30-50%) for readability while preserving rich video colors */}
           <div className="absolute inset-0 bg-gradient-to-r from-[#071321]/50 via-[#071321]/25 to-transparent" />

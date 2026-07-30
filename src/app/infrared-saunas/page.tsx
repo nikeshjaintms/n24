@@ -4,7 +4,6 @@ import { SiteLayout, PageHero } from "@/components/SiteLayout";
 import { BrandButton } from "@/components/BrandButton";
 import { Flame, Droplets, HeartPulse, Check, ArrowRight } from "lucide-react";
 import Image from "next/image";
-import studioImg from "@/assets/studio.jpg";
 
 export const metadata: Metadata = {
   title: "Infrared Saunas — Pilates Studio",
@@ -108,12 +107,12 @@ export default function InfraredSaunas() {
             </div>
 
             {/* Image */}
-            <div className="relative rounded-[28px] overflow-hidden aspect-[4/5] shadow-premium animate-in fade-in slide-in-from-right-10 duration-1000 fill-mode-both delay-300 group">
+            <div className="relative rounded-[24px] overflow-hidden aspect-[4/5] shadow-soft animate-in fade-in slide-in-from-right-10 duration-1000 fill-mode-both delay-300 group">
               <Image
-                src={studioImg}
+                src="/n242.png"
                 alt="Infrared Sauna"
                 fill
-                className="object-cover transition-transform duration-[1.5s] group-hover:scale-110 filter grayscale-[10%] group-hover:grayscale-0"
+                className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#0A0F1E]/60 via-transparent to-transparent opacity-80" />
             </div>
@@ -142,9 +141,8 @@ export default function InfraredSaunas() {
             {pricing.map((p, i) => (
               <div
                 key={p.title}
-                className={`relative rounded-[28px] glass-dark p-10 lg:p-12 border flex flex-col transition-transform duration-500 hover:-translate-y-2 animate-in fade-in slide-in-from-bottom-10 duration-1000 fill-mode-both shadow-premium-dark ${
-                  p.popular ? "border-[#00C8D7]/40" : "border-white/10"
-                }`}
+                className={`relative rounded-[28px] glass-dark p-10 lg:p-12 border flex flex-col transition-transform duration-500 hover:-translate-y-2 animate-in fade-in slide-in-from-bottom-10 duration-1000 fill-mode-both shadow-premium-dark ${p.popular ? "border-[#00C8D7]/40" : "border-white/10"
+                  }`}
                 style={{ animationDelay: `${i * 200}ms` }}
               >
                 {p.popular && (
@@ -176,11 +174,10 @@ export default function InfraredSaunas() {
 
                 <a
                   href="/pricing"
-                  className={`w-full flex items-center justify-center gap-3 rounded-full py-5 px-8 text-[0.75rem] font-bold uppercase tracking-[0.2em] transition-all duration-500 hover:scale-[1.02] ${
-                    p.popular
+                  className={`w-full flex items-center justify-center gap-3 rounded-full py-5 px-8 text-[0.75rem] font-bold uppercase tracking-[0.2em] transition-all duration-500 hover:scale-[1.02] ${p.popular
                       ? "bg-[#00C8D7] text-[#0A0F1E] shadow-[0_10px_30px_rgba(0,200,215,0.3)] hover:bg-[#00b5c4]"
                       : "bg-white/5 border border-white/20 text-white hover:bg-[#00C8D7] hover:text-[#0A0F1E] hover:border-[#00C8D7]"
-                  }`}
+                    }`}
                 >
                   Book Now
                   <ArrowRight

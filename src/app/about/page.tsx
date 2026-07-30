@@ -2,13 +2,10 @@
 
 import Link from "next/link";
 import { SiteLayout, PageHero } from "@/components/SiteLayout";
-import { instructors, pillars } from "@/data/studio";
+import { pillars } from "@/data/studio";
 import { Sparkles, Waves, Leaf, Heart, Star, ArrowRight, Quote } from "lucide-react";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import studioImg from "@/assets/studio.jpg";
-import communityImg from "@/assets/community.jpg";
-import bbbbImg from "@/assets/ca4631d1-d18d-4b29-b0ea-297bfcce4495.png";
 
 const icons = [Sparkles, Waves, Leaf, Heart];
 const accentColors = ["#00C8D7", "#7EE8FA", "#00AFC2", "#00C8D7"];
@@ -62,12 +59,13 @@ export default function About() {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 1.2, ease: "easeOut" }}
-              className="group relative overflow-hidden rounded-[28px] shadow-premium aspect-[4/5] lg:aspect-auto lg:h-[700px]"
+              className="group relative overflow-hidden rounded-[24px] shadow-soft aspect-[4/5] lg:aspect-auto lg:h-[700px]"
             >
               <Image
-                src={studioImg}
+                src="/5.png"
                 alt="N24 Pilates Studio interior"
-                className="h-full w-full object-cover transition-transform duration-1000 group-hover:scale-105"
+                fill
+                className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#0A0F1E]/80 via-transparent to-transparent opacity-80" />
 
@@ -133,9 +131,6 @@ export default function About() {
 
       {/* ── Philosophy / Values ───────────────────── */}
       <section className="py-32 relative overflow-hidden bg-[#0A0F1E]">
-        <div className="absolute inset-0 opacity-5 mix-blend-overlay pointer-events-none">
-          <Image src={bbbbImg} alt="" fill className="object-cover" />
-        </div>
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full bg-[#00C8D7]/10 blur-[150px] pointer-events-none mix-blend-screen" />
 
         <div className="mx-auto max-w-7xl px-6 lg:px-10 relative z-10">
@@ -192,57 +187,6 @@ export default function About() {
         </div>
       </section>
 
-      {/* ── Team ─────────────────────────────────── */}
-      <section className="bg-[#F1FAFB] py-32 relative overflow-hidden">
-        <div className="mx-auto max-w-7xl px-6 lg:px-10">
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
-            variants={stagger}
-            className="text-center mb-24"
-          >
-            <motion.p variants={fadeUp} className="eyebrow text-[#00C8D7] mb-6 tracking-[0.3em]">
-              Meet Our Instructors
-            </motion.p>
-            <motion.h2
-              variants={fadeUp}
-              className="font-display text-5xl md:text-7xl text-[#0A0F1E]"
-            >
-              Guided by <em className="text-[#00C8D7] font-light">the best</em>
-            </motion.h2>
-          </motion.div>
-          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
-            {instructors.map((m, i) => (
-              <motion.div
-                key={m.name}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-50px" }}
-                transition={{ duration: 0.8, delay: i * 0.15 }}
-                className="group relative rounded-[28px] overflow-hidden bg-white border border-[#00C8D7]/10 shadow-premium"
-              >
-                <div className="relative aspect-[3/4] overflow-hidden">
-                  <Image
-                    src={m.image}
-                    alt={m.name}
-                    fill
-                    className="object-cover transition-transform duration-1000 group-hover:scale-110 filter grayscale-[20%] group-hover:grayscale-0"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#0A0F1E] via-[#0A0F1E]/30 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-500" />
-
-                  <div className="absolute bottom-0 left-0 right-0 p-8 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-                    <h3 className="font-display text-3xl text-white mb-2">{m.name}</h3>
-                    <p className="text-[0.75rem] uppercase tracking-[0.2em] text-[#00C8D7] font-bold">
-                      {m.role}
-                    </p>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* ── Reviews ─────────────────────────────── */}
       <section className="py-32 relative overflow-hidden bg-[#0A0F1E]">
@@ -329,13 +273,13 @@ export default function About() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 1 }}
-            className="relative overflow-hidden rounded-[3rem] h-[400px] shadow-premium"
+            className="group relative overflow-hidden rounded-[24px] h-[400px] shadow-soft"
           >
             <Image
-              src={communityImg}
+              src="/1.png"
               alt=""
               fill
-              className="object-cover transition-transform duration-[20s] hover:scale-110"
+              className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
             />
             <div className="absolute inset-0 bg-gradient-to-r from-[#0A0F1E]/90 via-[#0A0F1E]/60 to-[#0A0F1E]/30" />
             <div className="absolute top-1/2 left-1/4 w-96 h-96 -translate-y-1/2 rounded-full bg-[#00C8D7]/20 blur-[100px] pointer-events-none mix-blend-screen" />

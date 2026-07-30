@@ -86,36 +86,38 @@ export const instructors = [
   { name: "Chloe", role: "Yoga Instructor", image: instructor4 },
 ] as const;
 
+export interface PricingPlan {
+  name: string;
+  price: string;
+  unit: string;
+  saveBadge?: string;
+  originalPrice?: string;
+  discountedPrice?: string;
+  iframeUrl?: string;
+  comingSoon?: boolean;
+  description: string;
+  features: readonly string[];
+  buttonText?: string;
+}
+
 export const specialOffers = [
   {
     name: "Gift Vouchers",
     price: "",
     unit: "",
-    url: "https://cart.mindbodyonline.com/sites/129220/cart/gift_cards/add?mbo_id=70&source=buy_now_link&link_type=gift_card",
+    iframeUrl: "",
+    comingSoon: true,
     description:
       "Give your loved ones gift of strength, balance & longevity and make them feel special as they are with a gift that nourishes from the inside out. Our Gift cards offer the perfect blend of physical challenge and mental restoration through the power of Pilates",
     features: [],
-    buttonText: "Give the gift of wellness",
-  },
-  {
-    name: "Intro Offer",
-    price: "$40",
-    unit: "4 for $40!",
-    url: "https://cart.mindbodyonline.com/sites/129220/cart/add_contract?mbo_item_id=117",
-    description: "",
-    features: [
-      "3X reformer classes for $40 (50 min.)",
-      "1 X Sauna access (30 min.)",
-      "Valid for 1 month · Available to new client",
-      "Special discount available when you sign up for a membership during the Intro offer period",
-    ],
-    buttonText: "Start Something New",
+    buttonText: "Coming Soon",
   },
   {
     name: "Reformer Pilates Casual",
     price: "$28",
     unit: "",
-    url: "https://cart.mindbodyonline.com/sites/129220/cart/add_service?mbo_item_id=100076",
+    iframeUrl:
+      "https://n24pilatesstudio.gymmasteronline.com/portal/signup/details/aed5ee27360968bdaae83ecc6ca49ec6",
     description: "Valid for 1 month from purchase date",
     features: [
       "Access studio from 5am - 10pm at your convenience",
@@ -132,7 +134,8 @@ export const weeklyMemberships = [
     unit: "/week",
     saveBadge: "Save 10%",
     originalPrice: "$52.25",
-    url: "https://cart.mindbodyonline.com/sites/129220/cart/add_contract?mbo_item_id=120",
+    iframeUrl:
+      "https://n24pilatesstudio.gymmasteronline.com/portal/signup/details/58fe897921eb2718a0a7de2a56c68e1e",
     description: "Unlimited Reformer, Mat, Yoga, HIIT Hybrid, Stretch + Strength and much more",
     features: [
       "Unlimited Infrared Sauna",
@@ -151,7 +154,8 @@ export const weeklyMemberships = [
     unit: "/week",
     saveBadge: "",
     originalPrice: "",
-    url: "https://cart.mindbodyonline.com/sites/129220/cart/add_contract?mbo_item_id=119",
+    iframeUrl:
+      "https://n24pilatesstudio.gymmasteronline.com/portal/signup/details/d0c08c72e55663e6493d8a42372e771f",
     description: "Unlimited Reformer, Mat, Yoga, HIIT Hybrid, Stretch + Strength and much more",
     features: [
       "Unlimited Infrared Sauna",
@@ -171,7 +175,8 @@ export const weeklyMemberships = [
     unit: "/week",
     saveBadge: "",
     originalPrice: "",
-    url: "https://cart.mindbodyonline.com/sites/129220/cart/add_contract?mbo_item_id=118",
+    iframeUrl:
+      "https://n24pilatesstudio.gymmasteronline.com/portal/signup/details/27011bdffcc5575799dc89fc8a390a3e",
     description: "Unlimited Reformer, Mat, Yoga, HIIT Hybrid, Stretch + Strength and much more",
     features: [
       "Unlimited Infrared Sauna",
@@ -195,7 +200,8 @@ export const pilatesSessionPacks = [
     saveBadge: "Save 14%",
     originalPrice: "$28 / session",
     discountedPrice: "$24.00 / session",
-    url: "https://cart.mindbodyonline.com/sites/129220/cart/add_service?mbo_item_id=100039",
+    iframeUrl:
+      "https://n24pilatesstudio.gymmasteronline.com/portal/signup/details/e628daba40a06bf6b3a7c7afb58a0623",
     description: "Digital Reformer, Mat, Yoga, HIIT Hybrid, Stretch + Strength and much more:",
     features: [
       "Access studio from 5am - 10pm at your convenience",
@@ -211,7 +217,8 @@ export const pilatesSessionPacks = [
     saveBadge: "Save 25%",
     originalPrice: "$28 / session",
     discountedPrice: "$21.00 / session",
-    url: "https://cart.mindbodyonline.com/sites/129220/cart/add_service?mbo_item_id=100040",
+    iframeUrl:
+      "https://n24pilatesstudio.gymmasteronline.com/portal/signup/details/6df24c5d5d9889b30959a0a711ca5b6c",
     description: "Digital Reformer, Mat, Yoga, HIIT Hybrid, Stretch + Strength and much more:",
     features: [
       "Access studio from 5am - 10pm at your convenience",
@@ -227,7 +234,8 @@ export const pilatesSessionPacks = [
     saveBadge: "Save 36%",
     originalPrice: "$28 / session",
     discountedPrice: "$18.00 / session",
-    url: "https://cart.mindbodyonline.com/sites/129220/cart/add_service?mbo_item_id=100041",
+    iframeUrl:
+      "https://n24pilatesstudio.gymmasteronline.com/portal/signup/details/9b6ba170db57a445f1f098333493b8ac",
     description: "Digital Reformer, Mat, Yoga, HIIT Hybrid, Stretch + Strength and much more:",
     features: [
       "Access studio from 5am - 10pm at your convenience",
@@ -246,7 +254,8 @@ export const infraredSaunaPacks = [
     saveBadge: "",
     originalPrice: "",
     discountedPrice: "",
-    url: "https://cart.mindbodyonline.com/sites/129220/cart/add_service?mbo_item_id=100044",
+    iframeUrl:
+      "https://n24pilatesstudio.gymmasteronline.com/portal/signup/details/921e4e44a8765f64d28966b697f4466a",
     description: "Access to the infrared sauna:",
     features: ["Valid for 1 month from purchase date"],
     buttonText: "Buy Now",
@@ -258,7 +267,8 @@ export const infraredSaunaPacks = [
     saveBadge: "Save 20%",
     originalPrice: "$25 / session",
     discountedPrice: "$20.00 / session",
-    url: "https://cart.mindbodyonline.com/sites/129220/cart/add_service?mbo_item_id=100048",
+    iframeUrl:
+      "https://n24pilatesstudio.gymmasteronline.com/portal/signup/details/12a2ffe9bf9da73eb99dec908042a0b3",
     description: "Access the Infrared Sauna:",
     features: ["Valid for 1 month from purchase date", "Applies for 2 people"],
     buttonText: "Connect and Relax",
@@ -270,7 +280,8 @@ export const infraredSaunaPacks = [
     saveBadge: "Save 12%",
     originalPrice: "$25 / session",
     discountedPrice: "$22.00 / session",
-    url: "https://cart.mindbodyonline.com/sites/129220/cart/add_service?mbo_item_id=100022",
+    iframeUrl:
+      "https://n24pilatesstudio.gymmasteronline.com/portal/signup/details/599d7ac72e7809746dad8a449fa11580",
     description: "Access the Infrared Sauna:",
     features: ["Valid for 2 months from purchase date"],
     buttonText: "Buy and Save",
@@ -282,7 +293,8 @@ export const infraredSaunaPacks = [
     saveBadge: "Save 16%",
     originalPrice: "$25 / session",
     discountedPrice: "$21.00 / session",
-    url: "https://cart.mindbodyonline.com/sites/129220/cart/add_service?mbo_item_id=100023",
+    iframeUrl:
+      "https://n24pilatesstudio.gymmasteronline.com/portal/signup/details/ee192da9025575f6986aaebfadb17a1e",
     description: "Access the Infrared Sauna:",
     features: ["Valid for 3 months from purchase date"],
     buttonText: "Buy and Save",
@@ -294,7 +306,8 @@ export const infraredSaunaPacks = [
     saveBadge: "Save 28%",
     originalPrice: "$25 / session",
     discountedPrice: "$18.00 / session",
-    url: "https://cart.mindbodyonline.com/sites/129220/cart/add_service?mbo_item_id=100024",
+    iframeUrl:
+      "https://n24pilatesstudio.gymmasteronline.com/portal/signup/details/6bbd0b6580ffa674092bd71d8db02b36",
     description: "Access the Infrared Sauna:",
     features: ["Valid for 6 months from purchase date"],
     buttonText: "Buy and Save",

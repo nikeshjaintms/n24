@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import Image from "next/image";
 import Link from "next/link";
 import { Variants, motion, MotionValue } from "framer-motion";
 import { ArrowRight, Star, Users, User, Activity } from "lucide-react";
@@ -95,6 +94,7 @@ export function PremiumHero({
 }) {
   // Mouse parallax effect
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [showIntro, setShowIntro] = useState(true);
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -112,7 +112,7 @@ export function PremiumHero({
       {/* =======================
           HERO SECTION
           ======================= */}
-      <section className="relative w-full min-h-[85svh] lg:min-h-[90svh] flex flex-col justify-center bg-[#071321] overflow-hidden pt-[120px] lg:pt-[160px] pb-32 lg:pb-48">
+      <section className="relative w-full min-h-screen flex flex-col justify-center bg-[#071321] overflow-hidden pt-[120px] lg:pt-[160px] pb-32 lg:pb-48">
         {/* CINEMATIC BACKGROUND */}
         <motion.div
           style={{
@@ -127,43 +127,77 @@ export function PremiumHero({
             transition={{ duration: 25, repeat: Infinity, ease: "easeInOut" }}
             className="absolute w-[105%] h-[105%] -left-[2.5%] -top-[2.5%] z-0"
           >
-            <Image
-              src={heroImg}
-              alt="Pilates Transformation"
-              fill
-              priority
-              className="object-cover object-[center_20%] lg:object-[center_10%] filter contrast-[1.05] saturate-[1.1] opacity-100"
-            />
+            {showIntro ? (
+              <video
+                key="intro-video"
+                src="/videos/part.1.mp4"
+                poster={heroImg.src}
+                autoPlay
+                muted
+                playsInline
+                preload="auto"
+                onEnded={() => setShowIntro(false)}
+                onError={() => setShowIntro(false)}
+                className="absolute inset-0 w-full h-full object-cover filter contrast-[1.05] saturate-[1.1] opacity-100 transition-transform duration-700 ease-out 
+                  object-[50%_45%] scale-[1.15] 
+                  sm:object-[55%_50%] sm:scale-[1.12] 
+                  md:object-[60%_50%] md:scale-[1.10] 
+                  lg:object-[65%_50%] lg:scale-[1.08] 
+                  xl:object-[65%_48%] xl:scale-[1.06]"
+              />
+            ) : (
+              <video
+                key="main-video"
+                src="/videos/N24%2003.mp4#t=51"
+                poster={heroImg.src}
+                autoPlay
+                muted
+                playsInline
+                preload="auto"
+                onTimeUpdate={(e) => {
+                  const video = e.currentTarget;
+                  if (video.currentTime >= 180) {
+                    setShowIntro(true);
+                  } else if (video.currentTime < 51 && video.currentTime > 1) {
+                    video.currentTime = 51;
+                  }
+                }}
+                className="absolute inset-0 w-full h-full object-cover filter contrast-[1.05] saturate-[1.1] opacity-100 transition-transform duration-700 ease-out 
+                  object-[50%_45%] scale-[1.15] 
+                  sm:object-[55%_50%] sm:scale-[1.12] 
+                  md:object-[60%_50%] md:scale-[1.10] 
+                  lg:object-[65%_50%] lg:scale-[1.08] 
+                  xl:object-[65%_48%] xl:scale-[1.06]"
+              />
+            )}
           </motion.div>
-          {/* Layered gradients for text readability but keeping image clear */}
-          <div className="absolute inset-0 bg-gradient-to-r from-[#071321] via-[#071321]/70 to-transparent" />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#071321] via-transparent to-[#071321]/20" />
-
-          {/* Soft vignette */}
-          <div className="absolute inset-0 shadow-[inset_0_0_150px_rgba(7,19,33,1)]" />
+          {/* Subtle premium gradient overlay (30-50%) for readability while preserving rich video colors */}
+          <div className="absolute inset-0 bg-gradient-to-r from-[#071321]/50 via-[#071321]/25 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#071321]/35 via-transparent to-[#071321]/15" />
+          <div className="absolute inset-0 bg-black/10" />
         </motion.div>
 
         {/* Floating Orbs / Glows */}
         <motion.div
           animate={{
             scale: [1, 1.2, 1],
-            opacity: [0.3, 0.5, 0.3],
+            opacity: [0.15, 0.25, 0.15],
           }}
           transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute top-[20%] left-[10%] w-[500px] h-[500px] bg-[#16D9F5]/15 rounded-full blur-[120px] pointer-events-none z-0"
+          className="absolute top-[20%] left-[10%] w-[500px] h-[500px] bg-[#16D9F5]/10 rounded-full blur-[120px] pointer-events-none z-0"
         />
         <motion.div
           animate={{
             scale: [1, 1.3, 1],
-            opacity: [0.2, 0.4, 0.2],
+            opacity: [0.1, 0.2, 0.1],
           }}
           transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-          className="absolute bottom-[20%] right-[10%] w-[600px] h-[600px] bg-[#0082c8]/20 rounded-full blur-[140px] pointer-events-none z-0"
+          className="absolute bottom-[20%] right-[10%] w-[600px] h-[600px] bg-[#0082c8]/10 rounded-full blur-[140px] pointer-events-none z-0"
         />
 
         {/* Noise Texture */}
         <div
-          className="pointer-events-none absolute inset-0 opacity-[0.04] mix-blend-overlay z-10"
+          className="pointer-events-none absolute inset-0 opacity-[0.02] mix-blend-overlay z-10"
           style={{
             backgroundImage:
               "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E\")",
@@ -197,7 +231,7 @@ export function PremiumHero({
             {/* Headline */}
             <motion.h1
               variants={fadeUp}
-              className="font-display text-[4.5rem] sm:text-[6rem] md:text-[7rem] lg:text-[8.5rem] xl:text-[9.5rem] leading-[0.9] text-white tracking-tight mb-8"
+              className="font-display text-[4.5rem] sm:text-[6rem] md:text-[7rem] lg:text-[8.5rem] xl:text-[9.5rem] leading-[0.9] text-white tracking-tight mb-8 drop-shadow-[0_4px_16px_rgba(0,0,0,0.85)]"
             >
               Move{" "}
               <span className="italic relative inline-block">
@@ -226,7 +260,7 @@ export function PremiumHero({
             {/* Paragraph */}
             <motion.p
               variants={fadeUp}
-              className="text-[1.1rem] sm:text-[1.25rem] leading-relaxed text-white/80 font-light max-w-xl mb-12 drop-shadow-md"
+              className="text-[1.1rem] sm:text-[1.25rem] leading-relaxed text-white font-light max-w-xl mb-12 drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]"
             >
               Perth&apos;s premier boutique Pilates studio. Reformer classes, infrared saunas, and
               expert coaching — designed to transform you.

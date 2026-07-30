@@ -175,9 +175,7 @@ export default function InfraredSaunas() {
                 </ul>
 
                 <a
-                  href="https://cart.mindbodyonline.com/sites/129220/cart"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href="/pricing"
                   className={`w-full flex items-center justify-center gap-3 rounded-full py-5 px-8 text-[0.75rem] font-bold uppercase tracking-[0.2em] transition-all duration-500 hover:scale-[1.02] ${
                     p.popular
                       ? "bg-[#00C8D7] text-[#0A0F1E] shadow-[0_10px_30px_rgba(0,200,215,0.3)] hover:bg-[#00b5c4]"

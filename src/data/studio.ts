@@ -262,7 +262,7 @@ export const infraredSaunaPacks = [
   },
   {
     name: "Infrared Sauna Casual for Two (45 Mins)",
-    price: "$40",
+    price: "$45",
     unit: "",
     saveBadge: "Save 20%",
     originalPrice: "$25 / session",

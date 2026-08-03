@@ -95,8 +95,10 @@ export default function Classes() {
                   </motion.div>
 
                   <motion.div variants={fadeUp}>
-                    <Link
-                      href="/schedule"
+                    <a
+                      href="https://n24pilatesstudio.gymmasteronline.com/portal/classcalendar"
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="group relative overflow-hidden inline-flex items-center gap-3 rounded-full bg-[#0A0F1E] px-10 py-5 text-[0.75rem] font-bold uppercase tracking-[0.2em] text-white shadow-premium-dark transition-all duration-500 hover:scale-[1.02]"
                     >
                       <span className="relative z-10 flex items-center gap-3">
@@ -104,7 +106,7 @@ export default function Classes() {
                         <ArrowRight className="size-4 transition-transform group-hover:translate-x-1 text-[#00C8D7]" />
                       </span>
                       <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#00C8D7]/20 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" />
-                    </Link>
+                    </a>
                   </motion.div>
                 </div>
               </motion.div>

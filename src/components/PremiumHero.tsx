@@ -1,86 +1,15 @@
 "use client";
 
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { Variants, motion, MotionValue } from "framer-motion";
 import { ArrowRight, Star, Users, User, Activity } from "lucide-react";
-
-function StatColumn({
-  icon: Icon,
-  number,
-  label,
-  desc,
-}: {
-  icon: React.ElementType;
-  number: string;
-  label: string;
-  desc?: string;
-}) {
-  const isWord = number.length > 4;
-  return (
-    <motion.div
-      variants={cardItemVariants}
-      className="group relative flex flex-col items-center sm:items-start w-full bg-slate-50/50 hover:bg-slate-50 transition-colors duration-300 border border-slate-100 rounded-2xl p-5 xl:p-6 justify-center h-full"
-    >
-      <div className="flex items-center gap-3 xl:gap-4 w-full justify-center sm:justify-start">
-        {/* Icon */}
-        <div className="flex size-[40px] xl:size-[48px] shrink-0 items-center justify-center rounded-full bg-[#F0FBFC] group-hover:bg-[#E6FAFB] shadow-[0_4px_20px_rgba(42,141,150,0.08)] transition-all duration-300 group-hover:scale-[1.05]">
-          <Icon className="size-4 xl:size-5 text-[#2A8D96] stroke-[1.5]" />
-        </div>
-
-        {/* Text Container */}
-        <div className="flex flex-col">
-          {/* Number/Text */}
-          <span className={`font-display font-medium text-[#111827] leading-[1] transition-transform duration-300 group-hover:-translate-y-[2px] ${isWord ? 'text-[24px] sm:text-[28px] xl:text-[32px]' : 'text-[32px] sm:text-[36px] xl:text-[40px]'}`}>
-            {number}
-          </span>
-          {/* Label */}
-          <div className="relative inline-flex mt-1">
-            <span className="font-sans text-[9px] xl:text-[10px] font-bold uppercase tracking-[0.2em] text-[#6B7280]">
-              {label}
-            </span>
-          </div>
-        </div>
-      </div>
-
-      {/* Description */}
-      {desc && (
-        <p className="mt-4 text-[12px] xl:text-[13px] text-[#6B7280] font-sans font-normal text-center sm:text-left w-full leading-relaxed">
-          {desc}
-        </p>
-      )}
-    </motion.div>
-  );
-}
 
 const fadeUp: Variants = {
   hidden: { opacity: 0, y: 40 },
   visible: { opacity: 1, y: 0, transition: { duration: 1.2, ease: [0.16, 1, 0.3, 1] } },
 };
 const stagger = { visible: { transition: { staggerChildren: 0.15 } } };
-
-const cardVariants: Variants = {
-  hidden: { opacity: 0, y: 50 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 1,
-      ease: [0.16, 1, 0.3, 1],
-      staggerChildren: 0.08,
-      delayChildren: 0.1,
-    },
-  },
-};
-
-const cardItemVariants: Variants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] },
-  },
-};
 
 export function PremiumHero({
   heroY,
@@ -93,10 +22,6 @@ export function PremiumHero({
 }) {
   // Mouse parallax effect
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-  const [activeVideo, setActiveVideo] = useState<"intro" | "main">("intro");
-  const video1Ref = useRef<HTMLVideoElement>(null);
-  const video2Ref = useRef<HTMLVideoElement>(null);
-  const isTransitioningRef = useRef(false);
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -108,44 +33,6 @@ export function PremiumHero({
     window.addEventListener("mousemove", handleMouseMove);
     return () => window.removeEventListener("mousemove", handleMouseMove);
   }, []);
-
-  const switchToMain = () => {
-    if (isTransitioningRef.current || activeVideo === "main") return;
-    isTransitioningRef.current = true;
-    const v2 = video2Ref.current;
-    if (v2) {
-      if (v2.currentTime < 50 || v2.currentTime >= 180) {
-        v2.currentTime = 51;
-      }
-      v2.play().catch(() => { });
-    }
-    setActiveVideo("main");
-    setTimeout(() => {
-      isTransitioningRef.current = false;
-      if (video1Ref.current) {
-        video1Ref.current.pause();
-      }
-    }, 800);
-  };
-
-  const switchToIntro = () => {
-    if (isTransitioningRef.current || activeVideo === "intro") return;
-    isTransitioningRef.current = true;
-    const v1 = video1Ref.current;
-    if (v1) {
-      v1.currentTime = 0;
-      v1.play().catch(() => { });
-    }
-    setActiveVideo("intro");
-    setTimeout(() => {
-      isTransitioningRef.current = false;
-      const v2 = video2Ref.current;
-      if (v2) {
-        v2.pause();
-        v2.currentTime = 51;
-      }
-    }, 800);
-  };
 
   return (
     <div className="w-full flex flex-col">
@@ -172,59 +59,22 @@ export function PremiumHero({
               style={{ backgroundImage: 'url("/2.png")' }}
             />
 
-            {/* Intro Video (part.1.mp4) */}
+            {/* Hero Video (IMG_0186.MP4) */}
             <video
-              ref={video1Ref}
-              src="/videos/part.1.mp4"
+              src="/IMG_0186.MP4"
               autoPlay
+              loop
               muted
               playsInline
               preload="auto"
-              onEnded={switchToMain}
-              onError={switchToMain}
-              className={`absolute inset-0 w-full h-full object-cover filter contrast-[1.05] saturate-[1.1] transition-opacity duration-700 ease-in-out z-10
+              className="absolute inset-0 w-full h-full object-cover filter contrast-[1.05] saturate-[1.1] z-10
                 object-[50%_45%] scale-[1.15] 
                 sm:object-[55%_50%] sm:scale-[1.12] 
                 md:object-[60%_50%] md:scale-[1.10] 
                 lg:object-[65%_50%] lg:scale-[1.08] 
-                xl:object-[65%_48%] xl:scale-[1.06] ${activeVideo === "intro" ? "opacity-100" : "opacity-0 pointer-events-none"
-                }`}
-            />
-
-            {/* Main Video (N24 03.mp4) */}
-            <video
-              ref={video2Ref}
-              src="/videos/N24%2003.mp4#t=51"
-              muted
-              playsInline
-              preload="auto"
-              onLoadedMetadata={(e) => {
-                if (e.currentTarget.currentTime < 51) {
-                  e.currentTarget.currentTime = 51;
-                }
-              }}
-              onTimeUpdate={(e) => {
-                const video = e.currentTarget;
-                if (video.currentTime >= 180) {
-                  switchToIntro();
-                } else if (video.currentTime < 50 && video.currentTime > 1 && activeVideo === "main") {
-                  video.currentTime = 51;
-                }
-              }}
-              onError={switchToIntro}
-              className={`absolute inset-0 w-full h-full object-cover filter contrast-[1.05] saturate-[1.1] transition-opacity duration-700 ease-in-out z-20
-                object-[50%_45%] scale-[1.15] 
-                sm:object-[55%_50%] sm:scale-[1.12] 
-                md:object-[60%_50%] md:scale-[1.10] 
-                lg:object-[65%_50%] lg:scale-[1.08] 
-                xl:object-[65%_48%] xl:scale-[1.06] ${activeVideo === "main" ? "opacity-100" : "opacity-0 pointer-events-none"
-                }`}
+                xl:object-[65%_48%] xl:scale-[1.06]"
             />
           </motion.div>
-          {/* Subtle premium gradient overlay (30-50%) for readability while preserving rich video colors */}
-          <div className="absolute inset-0 bg-gradient-to-r from-[#071321]/50 via-[#071321]/25 to-transparent" />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#071321]/35 via-transparent to-[#071321]/15" />
-          <div className="absolute inset-0 bg-black/10" />
         </motion.div>
 
         {/* Floating Orbs / Glows */}
@@ -343,79 +193,7 @@ export function PremiumHero({
         </motion.div>
       </section>
 
-      {/* =======================
-          STUDIO ACHIEVEMENTS SECTION
-          ======================= */}
-      <section className="relative w-full bg-[#F8FAFC] z-20 pb-20 lg:pb-32">
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-50px" }}
-          variants={cardVariants}
-          className="relative mx-auto w-full px-4 lg:px-8 xl:px-12 max-w-[1440px] mt-0 md:-mt-[60px] lg:-mt-[100px]"
-        >
-          {/* Subtle blue glow around outer edges */}
-          <div className="absolute inset-0 bg-[#16D9F5]/5 blur-[80px] rounded-[40px] scale-[1.02] -z-10" />
 
-          {/* Container */}
-          <div className="relative bg-white border border-slate-100 rounded-[32px] md:rounded-[40px] shadow-[0_20px_80px_-15px_rgba(0,0,0,0.05)] py-12 px-6 sm:px-8 lg:py-12 lg:px-10 xl:py-16 xl:px-14 flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-8 xl:gap-10">
-            {/* Column 1 (Content) */}
-            <div className="w-full lg:flex-[0.85] lg:max-w-[340px] xl:max-w-[380px] text-center sm:text-left shrink-0 flex flex-col">
-              <motion.span
-                variants={cardItemVariants}
-                className="block text-[10px] md:text-[11px] font-bold uppercase tracking-[0.25em] text-[#9CA3AF] mb-3 lg:mb-4"
-              >
-                Studio Achievements
-              </motion.span>
-              <motion.h2
-                variants={cardItemVariants}
-                className="font-display text-[32px] sm:text-[36px] xl:text-[42px] font-medium text-[#111827] leading-[1.15] mb-4"
-              >
-                Not just a workout. <br className="hidden sm:block" />A way of{" "}
-                <span className="text-[#13B5C8]">life.</span>
-              </motion.h2>
-              <motion.p
-                variants={cardItemVariants}
-                className="text-[13px] xl:text-[14px] text-[#6B7280] font-sans leading-relaxed max-w-[400px] mx-auto sm:mx-0"
-              >
-                Discover a premium Pilates experience designed to build strength, improve mobility,
-                and create lasting wellness for every stage of your fitness journey.
-              </motion.p>
-            </div>
-
-            {/* Divider */}
-            <motion.div
-              variants={cardItemVariants}
-              className="hidden lg:block w-px h-[160px] xl:h-[200px] bg-slate-100 shrink-0"
-            />
-
-            {/* Stats Grid */}
-            <div className="w-full lg:flex-1 grid grid-cols-1 sm:grid-cols-2 gap-4 lg:gap-5">
-              <StatColumn
-                icon={Star}
-                number="5.0"
-                label="Google Rating"
-                desc="Rated by our happy members."
-              />
-              <StatColumn
-                icon={User}
-                number="Sessions"
-                label="PRIVATE"
-              />
-              <StatColumn
-                icon={Users}
-                number="Classes"
-                label="SMALL GROUP"
-              />
-              <StatColumn
-                icon={Activity}
-                number="Pilates"
-                label="REFORMER"
-              />
-            </div>
-          </div>
-        </motion.div>
-      </section>
     </div>
   );
 }

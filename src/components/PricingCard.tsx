@@ -68,7 +68,7 @@ export function PricingCard({
           <div className="mt-3 flex items-end gap-2 flex-wrap">
             <span
               className={clsx(
-                "font-display text-5xl font-bold leading-none transition-colors",
+                "font-body text-5xl font-medium tracking-tight leading-none transition-colors",
                 textMain,
               )}
             >

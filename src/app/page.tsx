@@ -69,7 +69,7 @@ const videos = [
   { src: "/videos/3-wa.mp4", title: "Infrared Sauna Session", sub: "Recovery & relaxation" },
   { src: "/videos/1.mp4", title: "Supine Pilates Ring Series", sub: "Core & ring activation" },
   { src: "/videos/5.mp4", title: "Side Kneeling Arm Series", sub: "Arm strength & posture" },
-  { src: "/videos/4.mp4", title: "Glute Bridging", sub: "Glute & core engagement" },
+  { src: "/Glute Bridging.mp4", title: "Glute Bridging", sub: "Glute & core engagement" },
   { src: "/videos/6.mp4", title: "Footwork Series", sub: "Lower body alignment" },
   { src: "/videos/7.mp4", title: "Single Leg Carriage Press", sub: "Hip stability & leg strength" },
   { src: "/videos/8.mp4", title: "Core Series", sub: "Deep core activation" },
@@ -223,7 +223,7 @@ export default function Home() {
           className="flex flex-col lg:flex-row"
         >
           {/* Left: Cinematic image with parallax */}
-          <div className="lg:w-1/2 relative min-h-[500px] lg:min-h-[700px] overflow-hidden rounded-[24px] shadow-soft group">
+          <div className="lg:w-1/2 relative min-h-[500px] lg:min-h-[700px] overflow-hidden group">
             <motion.div
               whileHover={{ scale: 1.05 }}
               transition={{ duration: 1.5, ease: "easeOut" }}
@@ -236,8 +236,7 @@ export default function Home() {
                 className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
               />
             </motion.div>
-            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-[#0A0F1E]" />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#0A0F1E] via-transparent to-transparent lg:hidden" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#0A0F1E] via-transparent to-transparent opacity-80" />
           </div>
 
           {/* Right: Premium dark editorial content */}

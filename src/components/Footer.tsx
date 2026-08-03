@@ -51,7 +51,7 @@ export function Footer() {
 
         <div className="relative z-10 mx-auto max-w-7xl grid grid-cols-1 sm:grid-cols-2 gap-10 sm:gap-12 lg:grid-cols-12 lg:gap-16">
           {/* Col 1 — Brand */}
-          <div className="sm:col-span-2 lg:col-span-4">
+          <div className="sm:col-span-2 lg:col-span-5 lg:pr-8">
             <div className="mb-6">
               <Logo />
             </div>
@@ -82,7 +82,7 @@ export function Footer() {
           </div>
 
           {/* Col 2 — Explore */}
-          <div className="lg:col-span-2 lg:col-start-6">
+          <div className="lg:col-span-3">
             <h4 className="text-[0.72rem] sm:text-[0.75rem] font-bold uppercase tracking-[0.2em] text-white">
               Explore
             </h4>
@@ -107,28 +107,8 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Col 3 — Legal */}
-          <div className="lg:col-span-2">
-            <h4 className="text-[0.72rem] sm:text-[0.75rem] font-bold uppercase tracking-[0.2em] text-white">
-              Legal
-            </h4>
-            <ul className="mt-5 sm:mt-8 space-y-3 sm:space-y-4 text-[0.82rem] sm:text-[0.85rem] text-white/60 font-light">
-              {["Terms & Conditions", "Privacy Policy", "Studio Policies"].map((label) => (
-                <li key={label}>
-                  <Link
-                    href="/pricing"
-                    className="group flex items-center gap-2 transition-colors hover:text-white"
-                  >
-                    <span className="h-px w-0 bg-[#00C8D7] transition-all duration-300 group-hover:w-3" />
-                    {label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Col 4 — Contact */}
-          <div className="lg:col-span-3">
+          {/* Col 3 — Contact */}
+          <div className="lg:col-span-4">
             <h4 className="text-[0.72rem] sm:text-[0.75rem] font-bold uppercase tracking-[0.2em] text-white">
               Contact
             </h4>

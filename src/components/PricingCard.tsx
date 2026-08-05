@@ -91,29 +91,6 @@ export function PricingCard({
           </div>
         )}
 
-        {/* Save badge */}
-        {plan.saveBadge && (
-          <span
-            className="mt-3 self-start rounded-full px-3 py-1 text-[0.58rem] font-bold uppercase tracking-widest border transition-colors group-hover:border-white/30 group-hover:bg-white/20 group-hover:text-white"
-            style={{ color: accent, borderColor: `${accent}50`, background: `${accent}15` }}
-          >
-            {plan.saveBadge}
-          </span>
-        )}
-
-        {/* Original / discounted */}
-        {plan.originalPrice && (
-          <div className="mt-2 flex items-center gap-2 text-[0.78rem]">
-            <span className={clsx("line-through opacity-40 transition-colors", textSub)}>
-              {plan.originalPrice}
-            </span>
-            {plan.discountedPrice && (
-              <span className="font-semibold text-[#00AFC2] group-hover:text-white transition-colors">
-                {plan.discountedPrice}
-              </span>
-            )}
-          </div>
-        )}
 
         {/* Divider */}
         <div

@@ -18,10 +18,10 @@ export default function Classes() {
   return (
     <SiteLayout>
       <PageHero
-        eyebrow="Our Classes"
-        title="Find your"
-        accent="practice."
-        subtitle="From dynamic reformer sessions to restorative meditation, every class is designed to help you move better and feel stronger."
+        eyebrow="Self-Guided Digital Classes"
+        title="800+ On-Demand"
+        accent="Masterclasses."
+        subtitle="From gentle beginner rehabilitation to athletic core conditioning, access our complete library of technology-enhanced reformer sessions on your individual touchscreen."
       />
 
       {/* ── Class list — Premium editorial alternating layout ──────── */}
@@ -39,20 +39,32 @@ export default function Classes() {
                 whileInView="visible"
                 viewport={{ once: true, margin: "-100px" }}
                 variants={stagger}
-                className={`flex flex-col items-center gap-12 lg:gap-24 ${!isEven ? "lg:flex-row-reverse" : "lg:flex-row"
-                  }`}
+                className={`flex flex-col items-center gap-12 lg:gap-24 ${
+                  !isEven ? "lg:flex-row-reverse" : "lg:flex-row"
+                }`}
               >
                 {/* Image with Parallax */}
                 <motion.div
                   variants={fadeUp}
                   className="group relative w-full lg:w-1/2 aspect-[4/5] lg:aspect-[3/4] overflow-hidden rounded-[28px] shadow-premium"
                 >
-                  <Image
-                    src={c.image}
-                    alt={c.name}
-                    fill
-                    className="object-cover transition-transform duration-[1.5s] group-hover:scale-110 filter grayscale-[15%] group-hover:grayscale-0"
-                  />
+                  {c.video ? (
+                    <video
+                      src={c.video}
+                      autoPlay
+                      loop
+                      muted
+                      playsInline
+                      className="absolute inset-0 w-full h-full object-cover transition-transform duration-[1.5s] group-hover:scale-110 filter grayscale-[15%] group-hover:grayscale-0"
+                    />
+                  ) : (
+                    <Image
+                      src={c.image}
+                      alt={c.name}
+                      fill
+                      className="object-cover transition-transform duration-[1.5s] group-hover:scale-110 filter grayscale-[15%] group-hover:grayscale-0"
+                    />
+                  )}
                   <div className="absolute inset-0 bg-gradient-to-t from-[#0A0F1E]/80 via-transparent to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-700" />
 
                   {/* Premium Number badge */}
@@ -96,13 +108,13 @@ export default function Classes() {
 
                   <motion.div variants={fadeUp}>
                     <a
-                      href="https://n24pilatesstudio.gymmasteronline.com/portal/classcalendar"
+                      href={c.bookingUrl || "https://n24pilatesstudio.gymmasteronline.com/portal/classcalendar"}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="group relative overflow-hidden inline-flex items-center gap-3 rounded-full bg-[#0A0F1E] px-10 py-5 text-[0.75rem] font-bold uppercase tracking-[0.2em] text-white shadow-premium-dark transition-all duration-500 hover:scale-[1.02]"
                     >
                       <span className="relative z-10 flex items-center gap-3">
-                        Book This Class
+                        Book class
                         <ArrowRight className="size-4 transition-transform group-hover:translate-x-1 text-[#00C8D7]" />
                       </span>
                       <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#00C8D7]/20 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" />
@@ -128,34 +140,36 @@ export default function Classes() {
           className="relative z-10 mx-auto max-w-4xl px-6 text-center"
         >
           <motion.p variants={fadeUp} className="eyebrow text-[#00C8D7] mb-8 tracking-[0.4em]">
-            New to Pilates?
+            Beginner Reassurance
           </motion.p>
           <motion.h2
             variants={fadeUp}
             className="font-display text-5xl md:text-7xl text-white mb-8"
           >
-            Not sure where
+            Never used a
             <br />
-            <em className="text-[#00C8D7] font-light">to start?</em>
+            <em className="text-[#00C8D7] font-light">reformer before?</em>
           </motion.h2>
           <motion.p
             variants={fadeUp}
             className="text-[1.1rem] text-white/60 font-light mb-14 leading-relaxed max-w-2xl mx-auto"
           >
-            Try three classes for $79 and discover which practice feels right for you. Experience
-            our premium studio environment and expert instruction.
+            Many beginners find our digital format far less intimidating than traditional classes.
+            Try four sessions for $40—pause, adjust, and move at a pace that honours your body.
           </motion.p>
           <motion.div variants={fadeUp}>
-            <Link
-              href="/pricing"
+            <a
+              href="https://n24pilatesstudio.gymmasteronline.com/portal/signup/details/9470d85507491296a31c643e990c513d"
+              target="_blank"
+              rel="noopener noreferrer"
               className="group relative overflow-hidden inline-flex items-center gap-3 rounded-full bg-[#00C8D7] px-12 py-5 text-[0.8rem] font-bold uppercase tracking-[0.2em] text-[#0A0F1E] shadow-[0_10px_30px_rgba(0,200,215,0.4)] transition-all duration-500 hover:scale-[1.03]"
             >
               <span className="relative z-10 flex items-center gap-3">
-                View New Client Offer{" "}
+                Claim Introductory Offer — $40{" "}
                 <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
               </span>
               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/50 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" />
-            </Link>
+            </a>
           </motion.div>
         </motion.div>
       </section>

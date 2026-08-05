@@ -3,9 +3,12 @@
 import Link from "next/link";
 import { SiteLayout, PageHero } from "@/components/SiteLayout";
 import { pillars } from "@/data/studio";
-import { Sparkles, Waves, Leaf, Heart, Star, ArrowRight, Quote } from "lucide-react";
+import { Sparkles, Waves, Leaf, Heart, ArrowRight, Phone } from "lucide-react";
 import Image from "next/image";
 import { motion } from "framer-motion";
+
+// ── Studio / Personal Phone Contact (Easily change to personal number, e.g. "tel:0412345678") ──
+const TRAINER_PHONE_TEL = "tel:0478336630";
 
 const icons = [Sparkles, Waves, Leaf, Heart];
 const accentColors = ["#00C8D7", "#7EE8FA", "#00AFC2", "#00C8D7"];
@@ -16,35 +19,14 @@ const fadeUp = {
 };
 const stagger = { visible: { transition: { staggerChildren: 0.15 } } };
 
-const reviews = [
-  {
-    name: "Aline Marchioro",
-    date: "June 2026",
-    text: "Really lovely place! Owner was very friendly and helpful. Highly recommend to everyone looking for a great pilates session.",
-    initial: "A",
-  },
-  {
-    name: "Paul K",
-    date: "June 2026",
-    text: "Outstanding ambient.. the training session is so polite and professional. Best studio in town hands down.",
-    initial: "P",
-  },
-  {
-    name: "Joe Angel",
-    date: "June 2026",
-    text: "I'm loving the whole experience. The environment is so calming and the instructors are top notch.",
-    initial: "J",
-  },
-];
-
 export default function About() {
   return (
     <SiteLayout>
       <PageHero
-        eyebrow="About Us"
-        title="Stronger from"
-        accent="within."
-        subtitle="N24 is a boutique Pilates studio in Perth where thoughtful movement meets a warm, welcoming community."
+        eyebrow="About N24 Pilates Studio"
+        title="Freedom in movement,"
+        accent="strength for life."
+        subtitle="N24 is Australia's premier self-guided Digital Reformer Pilates and Infrared Sauna studio in Applecross—where cutting-edge technology meets a warm, uncrowded sanctuary."
       />
 
       {/* ── Story ─────────────────────────────────── */}
@@ -68,14 +50,6 @@ export default function About() {
                 className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#0A0F1E]/80 via-transparent to-transparent opacity-80" />
-
-              {/* Corner accent */}
-              <div className="absolute bottom-8 left-8 glass-dark rounded-[1.5rem] px-6 py-4 border border-white/20 shadow-premium-dark backdrop-blur-md transition-transform duration-500 group-hover:-translate-y-2">
-                <p className="text-[0.7rem] font-bold uppercase tracking-[0.2em] text-[#00C8D7]">
-                  Est. 2023
-                </p>
-                <p className="text-white font-light mt-1">Applecross, WA</p>
-              </div>
             </motion.div>
 
             {/* Text */}
@@ -87,38 +61,46 @@ export default function About() {
               className="lg:pl-8"
             >
               <motion.p variants={fadeUp} className="eyebrow text-[#00C8D7] mb-6 tracking-[0.3em]">
-                Our Story
+                Who We Are &amp; Why We Exist
               </motion.p>
               <motion.h2
                 variants={fadeUp}
                 className="font-display text-5xl md:text-7xl text-[#0A0F1E] leading-[1.0] mb-8"
               >
-                A space to feel
+                A sanctuary built for
                 <br />
-                <em className="text-[#00C8D7] font-light">your strongest</em>
+                <em className="text-[#00C8D7] font-light">your individual rhythm</em>
               </motion.h2>
               <motion.div
                 variants={fadeUp}
                 className="space-y-6 text-[1.1rem] leading-[1.9] text-[#5B6B70] font-light mb-12"
               >
                 <p>
-                  N24 Pilates was founded on a simple belief — that movement should feel good. We
-                  created a calm, light-filled studio where every body is welcome and every session
-                  is an invitation to reconnect with yourself.
+                  Traditional fitness studios often demand that you fit their schedule, compete in
+                  crowded rooms, or move at a pace that doesn&apos;t honour your body. N24 Pilates
+                  was born from a transformative vision: to create a calm, light-filled sanctuary
+                  where you have complete autonomy over your wellness journey.
                 </p>
                 <p>
-                  From reformer to mat, yoga to meditation, our classes are designed to build
-                  strength from the inside out. Small class sizes mean personal attention, so you
-                  always move with confidence and care.
+                  We pioneered self-guided Digital Reformer Pilates to remove class intimidation and
+                  rigid timetable barriers. With visual touchscreen guidance and private studio
+                  suites, you move at your own tempo—whether you are an athlete conditioning your
+                  core, a busy professional grabbing a 6:00 AM workout, or a beginner discovering
+                  movement for the first time.
+                </p>
+                <p>
+                  Every detail of our Applecross studio—from professional-grade reformers to private
+                  infrared sauna suites—is designed to help you build resilient physical strength
+                  while calming your nervous system.
                 </p>
               </motion.div>
               <motion.div variants={fadeUp}>
                 <Link
-                  href="/schedule"
+                  href="/pricing"
                   className="group relative overflow-hidden inline-flex items-center gap-3 rounded-full bg-[#00C8D7] px-10 py-5 text-[0.75rem] font-bold uppercase tracking-[0.2em] text-[#0A0F1E] shadow-[0_10px_30px_rgba(0,200,215,0.3)] transition-all duration-500 hover:scale-[1.02]"
                 >
                   <span className="relative z-10 flex items-center gap-3">
-                    Book a Class{" "}
+                    Discover Our Memberships{" "}
                     <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
                   </span>
                   <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" />
@@ -142,10 +124,10 @@ export default function About() {
             className="text-center mb-24"
           >
             <motion.p variants={fadeUp} className="eyebrow text-[#00C8D7] mb-6 tracking-[0.3em]">
-              Our Philosophy
+              Our Guiding Philosophy
             </motion.p>
             <motion.h2 variants={fadeUp} className="font-display text-5xl md:text-7xl text-white">
-              What <em className="text-[#00C8D7] font-light">guides us</em>
+              Why our approach <em className="text-[#00C8D7] font-light">feels different</em>
             </motion.h2>
           </motion.div>
 
@@ -187,84 +169,6 @@ export default function About() {
         </div>
       </section>
 
-
-      {/* ── Reviews ─────────────────────────────── */}
-      <section className="py-32 relative overflow-hidden bg-[#0A0F1E]">
-        <div className="absolute bottom-0 left-0 w-[600px] h-[600px] rounded-full bg-[#00C8D7]/5 blur-[120px] pointer-events-none" />
-
-        <div className="mx-auto max-w-7xl px-6 lg:px-10 relative z-10">
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
-            variants={stagger}
-            className="text-center mb-20"
-          >
-            <motion.p variants={fadeUp} className="eyebrow text-[#00C8D7] mb-6 tracking-[0.3em]">
-              Community Love
-            </motion.p>
-            <motion.h2
-              variants={fadeUp}
-              className="font-display text-5xl md:text-6xl text-white mb-8"
-            >
-              Customer feedback
-              <br />
-              <em className="text-[#00C8D7] font-light">that inspires</em>
-            </motion.h2>
-            <motion.div
-              variants={fadeUp}
-              className="inline-flex items-center gap-4 bg-white/5 shadow-premium-dark rounded-full px-8 py-3.5 border border-white/10 backdrop-blur-md"
-            >
-              <div className="flex text-yellow-400 gap-1.5">
-                {[1, 2, 3, 4, 5].map((s) => (
-                  <Star key={s} className="size-5 fill-current" />
-                ))}
-              </div>
-              <span className="text-white font-display text-xl font-bold">5.0</span>
-              <span className="text-[0.65rem] text-white/50 uppercase tracking-[0.2em]">
-                Based on 10+ Reviews
-              </span>
-            </motion.div>
-          </motion.div>
-
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-50px" }}
-            variants={stagger}
-            className="grid md:grid-cols-3 gap-8"
-          >
-            {reviews.map((r, i) => (
-              <motion.div
-                key={i}
-                variants={fadeUp}
-                className="group relative overflow-hidden rounded-[28px] border border-white/10 p-10 flex flex-col glass-dark shadow-premium-dark transition-transform duration-500 hover:-translate-y-2"
-              >
-                <div className="absolute top-0 right-0 w-24 h-24 bg-[#00C8D7]/10 rounded-full blur-[20px] opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
-                <Quote className="size-10 text-[#00C8D7]/40 mb-6" />
-                <p className="text-[1.05rem] leading-relaxed text-white/80 font-light italic flex-1 mb-8">
-                  &ldquo;{r.text}&rdquo;
-                </p>
-                <div className="flex text-yellow-400 gap-1.5 mb-6">
-                  {[1, 2, 3, 4, 5].map((s) => (
-                    <Star key={s} className="size-4 fill-current" />
-                  ))}
-                </div>
-                <div className="flex items-center gap-4 pt-6 border-t border-white/10">
-                  <div className="size-12 rounded-full bg-gradient-to-br from-[#00C8D7] to-[#00AFC2] flex items-center justify-center font-display text-xl text-white shadow-[0_4px_15px_rgba(0,200,215,0.4)]">
-                    {r.initial}
-                  </div>
-                  <div>
-                    <p className="text-white text-[0.95rem] font-bold">{r.name}</p>
-                    <p className="text-white/50 text-[0.75rem] mt-0.5">{r.date}</p>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </motion.div>
-        </div>
-      </section>
-
       {/* ── CTA Banner ─────────────────────────── */}
       <section className="relative overflow-hidden bg-white py-24">
         <div className="mx-auto max-w-7xl px-6 lg:px-10">
@@ -286,33 +190,37 @@ export default function About() {
 
             <div className="relative z-10 flex flex-col items-center justify-center px-6 py-20 text-center min-h-[400px]">
               <p className="eyebrow text-[#00C8D7] mb-6 tracking-[0.4em] drop-shadow-md">
-                Join the Movement
+                Begin Your Transformation
               </p>
               <h2 className="font-display text-5xl md:text-7xl text-white mb-6 drop-shadow-lg">
-                Come move with us
+                Experience N24 for yourself
               </h2>
-              
+
               <p className="text-white/80 text-lg md:text-xl font-light max-w-2xl mx-auto mb-8 leading-relaxed">
-                Whether you&apos;re just getting started or looking to take your Pilates practice further, our experienced instructors are here to help you move better and feel stronger every day.
+                Join our Applecross community with our exclusive Introductory Offer—4 full
+                sessions (2 digital reformer classes, 2 infrared sauna sessions) over 15 days for just $40. Special discount available for membership sign-ups!
               </p>
 
               {/* Highlight Offer Badge */}
               <div className="mb-10">
                 <div className="inline-flex items-center gap-3 px-6 py-2 rounded-full border border-white/20 bg-white/10 backdrop-blur-md">
                   <span className="text-xl">✨</span>
-                  <span className="text-white font-medium text-sm">Claim Your Complimentary Pass</span>
+                  <span className="text-white font-medium text-sm">
+                    Claim Your Introductory Offer — 4 Sessions for $40
+                  </span>
                 </div>
               </div>
 
               {/* Buttons Container */}
               <div className="flex flex-col sm:flex-row items-center justify-center gap-6 w-full">
-                {/* Button 1: Call Us */}
+                {/* Button 1: Call Studio Team (Direct call) */}
                 <a
-                  href="tel:+61478336630"
+                  href={TRAINER_PHONE_TEL}
                   className="group relative overflow-hidden inline-flex items-center gap-3 rounded-full bg-[#00C8D7] px-12 py-5 text-[0.8rem] font-bold uppercase tracking-[0.2em] text-[#0A0F1E] shadow-[0_10px_30px_rgba(0,200,215,0.4)] transition-all duration-500 hover:scale-[1.03]"
                 >
                   <span className="relative z-10 flex items-center gap-3">
-                    📞 Call Us
+                    <Phone className="size-4 transition-transform group-hover:scale-110" />
+                    Call Studio Team
                   </span>
                   <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/50 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" />
                 </a>
@@ -326,9 +234,9 @@ export default function About() {
                 >
                   <span className="relative z-10 flex items-center gap-3">
                     <svg className="size-4" viewBox="0 0 24 24" fill="currentColor">
-                      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.888-.788-1.489-1.761-1.663-2.06-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.82 9.82 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/>
+                      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.888-.788-1.489-1.761-1.663-2.06-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.82 9.82 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z" />
                     </svg>
-                    WhatsApp
+                    WhatsApp Our Team
                   </span>
                   <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/50 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" />
                 </a>

@@ -17,10 +17,10 @@ export function Footer() {
             </div>
             <div>
               <h3 className="text-[0.75rem] sm:text-[0.8rem] font-bold uppercase tracking-[0.2em] text-white">
-                Stay Connected
+                Join The Inner Circle
               </h3>
               <p className="mt-1 text-[0.8rem] sm:text-[0.85rem] text-white/60 font-light">
-                Exclusive offers, wellness tips, and studio news.
+                Receive private introductory offers, movement tips, and Applecross studio updates.
               </p>
             </div>
           </div>
@@ -45,21 +45,21 @@ export function Footer() {
       </div>
 
       {/* Main Footer */}
-      <div className="bg-[#0A0F1E] relative py-14 sm:py-20 px-5 sm:px-6 lg:px-10">
+      <div className="bg-[#0A0F1E] relative py-10 sm:py-12 px-5 sm:px-6 lg:px-10">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] max-w-full h-px bg-gradient-to-r from-transparent via-[#00C8D7]/30 to-transparent" />
         <div className="absolute bottom-0 right-0 w-[400px] sm:w-[600px] h-[400px] sm:h-[600px] bg-[#00C8D7]/5 blur-[150px] rounded-full pointer-events-none" />
 
-        <div className="relative z-10 mx-auto max-w-7xl grid grid-cols-1 sm:grid-cols-2 gap-10 sm:gap-12 lg:grid-cols-12 lg:gap-16">
+        <div className="relative z-10 mx-auto max-w-7xl grid grid-cols-1 sm:grid-cols-2 gap-8 sm:gap-10 lg:grid-cols-12 lg:gap-12">
           {/* Col 1 — Brand */}
           <div className="sm:col-span-2 lg:col-span-5 lg:pr-8">
-            <div className="mb-6">
+            <div className="mb-4">
               <Logo />
             </div>
-            <p className="mt-4 text-[0.9rem] sm:text-[0.95rem] leading-relaxed text-white/60 font-light max-w-sm">
-              Perth&apos;s premier boutique Pilates studio. Elevating your wellness journey through
-              movement, mindfulness, and community.
+            <p className="mt-3 text-[0.9rem] sm:text-[0.95rem] leading-relaxed text-white/60 font-light max-w-sm">
+              Australia&apos;s premier self-guided Digital Reformer Pilates &amp; Infrared Sauna
+              studio in Applecross. Empowering your body and mind on your own schedule.
             </p>
-            <div className="mt-6 sm:mt-8 flex gap-3 sm:gap-4">
+            <div className="mt-5 sm:mt-6 flex gap-3 sm:gap-4">
               <a
                 href="https://www.instagram.com/n24pilatesstudio?igsh=NmdibHZqODJtYXJv&utm_source=qr"
                 target="_blank"
@@ -86,7 +86,7 @@ export function Footer() {
             <h4 className="text-[0.72rem] sm:text-[0.75rem] font-bold uppercase tracking-[0.2em] text-white">
               Explore
             </h4>
-            <ul className="mt-5 sm:mt-8 space-y-3 sm:space-y-4 text-[0.82rem] sm:text-[0.85rem] text-white/60 font-light">
+            <ul className="mt-4 space-y-2.5 text-[0.85rem] text-white/70 font-light">
               {[
                 ["Our Classes", "/classes"],
                 ["Infrared Saunas", "/infrared-saunas"],
@@ -97,7 +97,7 @@ export function Footer() {
                 <li key={href}>
                   <Link
                     href={href}
-                    className="group flex items-center gap-2 transition-colors hover:text-white"
+                    className="group inline-flex items-center gap-2 py-0.5 transition-colors hover:text-white"
                   >
                     <span className="h-px w-0 bg-[#00C8D7] transition-all duration-300 group-hover:w-3" />
                     {label}
@@ -112,26 +112,26 @@ export function Footer() {
             <h4 className="text-[0.72rem] sm:text-[0.75rem] font-bold uppercase tracking-[0.2em] text-white">
               Contact
             </h4>
-            <ul className="mt-5 sm:mt-8 space-y-4 sm:space-y-5 text-[0.82rem] sm:text-[0.85rem] text-white/60 font-light">
-              <li className="flex items-start gap-3 sm:gap-4 group cursor-pointer">
-                <div className="mt-0.5 flex size-8 shrink-0 items-center justify-center rounded-full bg-white/5 border border-white/10 group-hover:border-[#00C8D7]/50 transition-colors">
+            <ul className="mt-4 space-y-3.5 text-[0.85rem] text-white/70 font-light">
+              <li className="flex items-center gap-3 sm:gap-4 group cursor-pointer">
+                <div className="flex size-8 shrink-0 items-center justify-center rounded-full bg-white/5 border border-white/10 group-hover:border-[#00C8D7]/50 transition-colors">
                   <Phone className="size-3.5 text-[#00C8D7]" strokeWidth={2} />
                 </div>
-                <span className="group-hover:text-white transition-colors pt-1">0478 336 630</span>
+                <span className="group-hover:text-white transition-colors">0478 336 630</span>
               </li>
-              <li className="flex items-start gap-3 sm:gap-4 group cursor-pointer">
-                <div className="mt-0.5 flex size-8 shrink-0 items-center justify-center rounded-full bg-white/5 border border-white/10 group-hover:border-[#00C8D7]/50 transition-colors">
+              <li className="flex items-center gap-3 sm:gap-4 group cursor-pointer">
+                <div className="flex size-8 shrink-0 items-center justify-center rounded-full bg-white/5 border border-white/10 group-hover:border-[#00C8D7]/50 transition-colors">
                   <Mail className="size-3.5 text-[#00C8D7]" strokeWidth={2} />
                 </div>
-                <span className="group-hover:text-white transition-colors pt-1 break-all sm:break-normal">
-                  hello@n24pilates.com.au
+                <span className="group-hover:text-white transition-colors break-all sm:break-normal">
+                  Info@n24pilatesstudio.com
                 </span>
               </li>
               <li className="flex items-start gap-3 sm:gap-4 group cursor-pointer">
                 <div className="mt-0.5 flex size-8 shrink-0 items-center justify-center rounded-full bg-white/5 border border-white/10 group-hover:border-[#00C8D7]/50 transition-colors">
                   <MapPin className="size-3.5 text-[#00C8D7]" strokeWidth={2} />
                 </div>
-                <span className="group-hover:text-white transition-colors leading-relaxed pt-1">
+                <span className="group-hover:text-white transition-colors leading-relaxed pt-0.5">
                   Unit G3/3 Kintail Rd,
                   <br />
                   Applecross WA 6153

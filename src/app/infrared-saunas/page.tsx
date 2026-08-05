@@ -3,28 +3,28 @@ import Link from "next/link";
 import { SiteLayout, PageHero } from "@/components/SiteLayout";
 import { BrandButton } from "@/components/BrandButton";
 import { Flame, Droplets, HeartPulse, Check, ArrowRight } from "lucide-react";
-import Image from "next/image";
 
 export const metadata: Metadata = {
-  title: "Infrared Saunas — Pilates Studio",
-  description: "Experience our premium infrared saunas in Applecross, Perth.",
+  title: "Private Infrared Saunas | N24 Digital Pilates Studio Applecross",
+  description:
+    "Experience private 2-capacity infrared saunas in Applecross, Perth. Full-spectrum heat therapy, medical-grade chromotherapy, and deep cellular muscle recovery.",
 };
 
 const benefits = [
   {
     icon: Droplets,
     title: "Deep Detoxification",
-    desc: "Infrared heat penetrates deeper than traditional saunas, helping flush out toxins and heavy metals from your body.",
+    desc: "Penetrating wavelengths warm deep muscle tissue directly, accelerating cellular toxin elimination and flushing heavy metals without oppressive ambient heat.",
   },
   {
     icon: Flame,
     title: "Muscle Recovery",
-    desc: "Accelerate your healing process after an intense Pilates session. The deep heat relieves muscle tension and joint pain.",
+    desc: "The ultimate complement to Reformer Pilates. Relieve joint stiffness, melt post-workout muscle soreness, and stimulate circulation for rapid recovery.",
   },
   {
     icon: HeartPulse,
-    title: "Stress Relief",
-    desc: "Promote relaxation, balance cortisol levels, and enjoy a quiet, meditative space dedicated entirely to your well-being.",
+    title: "Cortisol & Stress Balance",
+    desc: "Quiet your nervous system in a dedicated sanctuary. Regular sessions help regulate cortisol, lower blood pressure, and restore deep sleep cycles.",
   },
 ];
 
@@ -33,21 +33,21 @@ const pricing = [
     title: "30 Minute Session",
     price: "$35",
     features: [
-      "Private 2-capacity sauna room",
-      "Complimentary towels provided",
-      "Shower facilities available",
-      "Access to premium wellness amenities",
+      "Private suite for up to 2 guests",
+      "Full-spectrum infrared therapy",
+      "Complimentary luxury shower towel",
+      "Access to premium sanctuary amenities",
     ],
   },
   {
     title: "45 Minute Session",
     price: "$45",
     features: [
-      "Private 2-capacity sauna room",
-      "Complimentary towels provided",
-      "Shower facilities available",
-      "Deep heat tissue therapy",
-      "Access to premium wellness amenities",
+      "Private suite for up to 2 guests",
+      "Full-spectrum infrared therapy",
+      "Complimentary luxury shower towel",
+      "Medical-grade chromotherapy lighting",
+      "Access to premium sanctuary amenities",
     ],
     popular: true,
   },
@@ -57,10 +57,10 @@ export default function InfraredSaunas() {
   return (
     <SiteLayout>
       <PageHero
-        eyebrow="Infrared Saunas"
+        eyebrow="Private Sauna Suites"
         title="Restore and"
         accent="recover."
-        subtitle="Unwind, detoxify, and accelerate your recovery with our state-of-the-art private infrared saunas."
+        subtitle="Unwind, detoxify, and accelerate cellular repair in our private full-spectrum infrared saunas, designed to complement your reformer practice."
       />
 
       {/* ── Experience Section ─────────────────────────────────── */}
@@ -81,10 +81,10 @@ export default function InfraredSaunas() {
                 <em className="text-[#00C8D7] font-light">stress and tension.</em>
               </h2>
               <p className="text-[#5B6B70] leading-[1.8] text-[1.1rem] font-light mb-12">
-                Our premium 2-capacity infrared saunas offer a tranquil escape designed to
-                rejuvenate your mind and body. Whether you are recovering from a challenging
-                reformer class or simply taking a moment for yourself, the deep, penetrating heat
-                will leave you feeling completely renewed.
+                Our private 2-capacity infrared sauna suites offer an immersive sanctuary designed
+                to rejuvenate mind and body. Whether you are accelerating recovery after a 6:00 AM
+                digital reformer session or seeking quiet solace from daily stress, full-spectrum
+                heat and medical-grade chromotherapy leave you profoundly restored.
               </p>
 
               <div className="grid sm:grid-cols-2 gap-x-8 gap-y-12">
@@ -106,15 +106,17 @@ export default function InfraredSaunas() {
               </div>
             </div>
 
-            {/* Image */}
+            {/* Video */}
             <div className="relative rounded-[24px] overflow-hidden aspect-[4/5] shadow-soft animate-in fade-in slide-in-from-right-10 duration-1000 fill-mode-both delay-300 group">
-              <Image
-                src="/n242.png"
-                alt="Infrared Sauna"
-                fill
-                className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+              <video
+                src="/sauna.mp4"
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0A0F1E]/60 via-transparent to-transparent opacity-80" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0A0F1E]/60 via-transparent to-transparent opacity-80 pointer-events-none" />
             </div>
           </div>
         </div>
@@ -127,13 +129,13 @@ export default function InfraredSaunas() {
 
         <div className="mx-auto max-w-7xl px-6 lg:px-10 relative z-10">
           <div className="text-center max-w-2xl mx-auto mb-20 animate-in fade-in slide-in-from-bottom-10 duration-1000 fill-mode-both">
-            <p className="eyebrow text-[#00C8D7] tracking-[0.3em] mb-6">Pricing & Packs</p>
+            <p className="eyebrow text-[#00C8D7] tracking-[0.3em] mb-6">Sauna Pricing</p>
             <h2 className="font-display text-5xl md:text-6xl text-white mb-6">
-              Book your <em className="text-[#00C8D7] font-light">session</em>
+              Single &amp; Dual <em className="text-[#00C8D7] font-light">Sessions</em>
             </h2>
             <p className="text-white/60 font-light leading-relaxed text-[1.05rem]">
-              Select the duration that fits your schedule. Bring a friend along to share your
-              2-capacity private sauna session.
+              All sauna sessions include private suite access for up to two guests—unwind in
+              solitude or share your recovery journey.
             </p>
           </div>
 
@@ -192,14 +194,14 @@ export default function InfraredSaunas() {
 
           <div className="mt-20 text-center animate-in fade-in duration-1000 fill-mode-both delay-500">
             <p className="text-[0.75rem] uppercase font-bold tracking-[0.2em] text-white/50 mb-4">
-              Looking for sauna packs or memberships?
+              Interested in multi-session sauna passes or memberships?
             </p>
             <Link
               href="/pricing"
               className="group inline-flex items-center gap-2 text-[#00C8D7] hover:text-white transition-colors duration-300 text-[0.85rem] font-bold tracking-widest uppercase"
             >
               <span className="relative">
-                View all pricing options
+                Explore Sauna Passes &amp; Memberships
                 <span className="absolute -bottom-1 left-0 w-0 h-px bg-[#00C8D7] transition-all duration-300 group-hover:w-full group-hover:bg-white" />
               </span>
               <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />

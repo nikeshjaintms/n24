@@ -54,14 +54,9 @@ export function PremiumHero({
             transition={{ duration: 25, repeat: Infinity, ease: "easeInOut" }}
             className="absolute w-[105%] h-[105%] -left-[2.5%] -top-[2.5%] z-0"
           >
-            <div
-              className="absolute inset-0 w-full h-full bg-cover bg-center filter contrast-[1.05] saturate-[1.1] z-0"
-              style={{ backgroundImage: 'url("/2.png")' }}
-            />
-
-            {/* Hero Video (IMG_0186.MP4) */}
+            {/* Hero Video */}
             <video
-              src="/IMG_0186.MP4"
+              src="/videos/hero video.mp4"
               autoPlay
               loop
               muted
@@ -122,8 +117,8 @@ export function PremiumHero({
             <motion.div variants={fadeUp} className="flex items-center gap-4 mb-8 lg:mb-12">
               <div className="h-[2px] w-12 bg-gradient-to-r from-[#16D9F5] to-transparent rounded-full hidden lg:block" />
               <div className="h-[2px] w-12 bg-gradient-to-l from-[#16D9F5] to-transparent rounded-full lg:hidden" />
-              <span className="text-[0.65rem] font-bold uppercase tracking-[0.3em] text-[#16D9F5] drop-shadow-[0_0_8px_rgba(22,217,245,0.4)]">
-                Applecross · Perth
+              <span className="text-[0.65rem] font-bold uppercase tracking-[0.25em] text-[#16D9F5] drop-shadow-[0_0_8px_rgba(22,217,245,0.4)]">
+                Perth&apos;s Premier Digital Reformer &amp; Sauna Sanctuary
               </span>
               <div className="h-[2px] w-12 bg-gradient-to-r from-[#16D9F5] to-transparent rounded-full lg:hidden" />
             </motion.div>
@@ -133,26 +128,26 @@ export function PremiumHero({
               variants={fadeUp}
               className="font-display text-[4.5rem] sm:text-[6rem] md:text-[7rem] lg:text-[8.5rem] xl:text-[9.5rem] leading-[0.9] text-white tracking-tight mb-8 drop-shadow-[0_4px_16px_rgba(0,0,0,0.85)]"
             >
-              Move{" "}
+              Intelligent{" "}
               <span className="italic relative inline-block">
                 <span className="absolute inset-0 bg-gradient-to-r from-[#16D9F5] to-[#7EE8FA] bg-clip-text text-transparent blur-[20px] opacity-40 animate-pulse-slow">
-                  Better.
+                  Pilates.
                 </span>
                 <span className="relative text-transparent bg-clip-text bg-gradient-to-r from-[#16D9F5] via-[#7EE8FA] to-[#16D9F5] bg-[length:200%_auto] animate-shimmer">
-                  Better.
+                  Pilates.
                 </span>
               </span>
               <br />
-              Live{" "}
+              Elevated{" "}
               <span className="italic relative inline-block">
                 <span className="absolute inset-0 bg-gradient-to-r from-[#16D9F5] to-[#7EE8FA] bg-clip-text text-transparent blur-[20px] opacity-40 animate-pulse-slow delay-150">
-                  Lighter.
+                  Movement.
                 </span>
                 <span
                   className="relative text-transparent bg-clip-text bg-gradient-to-r from-[#16D9F5] via-[#7EE8FA] to-[#16D9F5] bg-[length:200%_auto] animate-shimmer"
                   style={{ animationDelay: "1s" }}
                 >
-                  Lighter.
+                  Movement.
                 </span>
               </span>
             </motion.h1>
@@ -162,8 +157,10 @@ export function PremiumHero({
               variants={fadeUp}
               className="text-[1.1rem] sm:text-[1.25rem] leading-relaxed text-white font-light max-w-xl mb-12 drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]"
             >
-              Perth&apos;s premier boutique Pilates studio. Reformer classes, infrared saunas, and
-              expert coaching — designed to transform you.
+              Welcome to a new era of movement in Applecross. Experience Australia&apos;s most
+              advanced self-guided Digital Reformer Pilates studio and restorative Infrared Sauna
+              therapy. Enjoy 800+ on-demand masterclasses, complete privacy, and a schedule tailored
+              to your life—open 5:00 AM to 10:00 PM daily.
             </motion.p>
 
             {/* CTA Buttons */}
@@ -176,7 +173,7 @@ export function PremiumHero({
                 className="group relative flex items-center justify-center gap-3 overflow-hidden rounded-full bg-gradient-to-r from-[#16D9F5] to-[#0cb8d2] px-10 py-5 text-[0.85rem] font-bold uppercase tracking-[0.2em] text-[#071321] transition-all duration-500 hover:-translate-y-1.5 hover:shadow-[0_15px_35px_-5px_rgba(22,217,245,0.4)] w-full sm:w-auto"
               >
                 <span className="relative z-10 flex items-center gap-2">
-                  Book a Class
+                  Book Your First Session
                   <ArrowRight className="size-5 transition-transform duration-300 group-hover:translate-x-1.5" />
                 </span>
                 <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out" />
@@ -186,14 +183,49 @@ export function PremiumHero({
                 href="/pricing"
                 className="group flex items-center justify-center rounded-full border border-white/20 bg-white/5 px-10 py-5 text-[0.85rem] font-bold uppercase tracking-[0.2em] text-white transition-all duration-500 hover:-translate-y-1.5 hover:border-white/50 hover:bg-white/10 hover:shadow-[0_15px_35px_-5px_rgba(255,255,255,0.1)] backdrop-blur-md w-full sm:w-auto"
               >
-                View Pricing
+                Explore Membership Value
               </Link>
+            </motion.div>
+
+            {/* Trust & Highlights Bar */}
+            <motion.div
+              variants={fadeUp}
+              className="mt-10 flex flex-wrap items-center justify-center lg:justify-start gap-3 sm:gap-5 text-white/80 text-[0.8rem] font-light"
+            >
+              <div className="flex items-center gap-1.5">
+                <div className="flex text-[#16D9F5]">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="size-3.5 fill-current" />
+                  ))}
+                </div>
+                <span className="font-semibold text-white">5.0 Google Rated Studio</span>
+              </div>
+              <span className="text-white/30">•</span>
+              <span>800+ On-Demand Workouts</span>
+              <span className="text-white/30">•</span>
+              <span>100% Beginner Friendly</span>
+              <span className="text-white/30">•</span>
+              <span>No Crowded Classes</span>
+            </motion.div>
+
+            {/* New Client Value Highlight */}
+            <motion.div variants={fadeUp} className="mt-4">
+              <a
+                href="https://n24pilatesstudio.gymmasteronline.com/portal/signup/details/9470d85507491296a31c643e990c513d"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2.5 rounded-full border border-[#16D9F5]/30 bg-[#16D9F5]/10 px-5 py-2 text-[0.75rem] text-[#7EE8FA] backdrop-blur-md transition-all hover:border-[#16D9F5]/80 hover:bg-[#16D9F5]/20 hover:scale-[1.02]"
+              >
+                <span className="size-2 rounded-full bg-[#16D9F5] animate-pulse" />
+                <span>
+                  <strong className="font-semibold text-white">New Client Exclusive:</strong> 4
+                  Intro Sessions for $40 — Start your transformation today.
+                </span>
+              </a>
             </motion.div>
           </motion.div>
         </motion.div>
       </section>
-
-
     </div>
   );
 }

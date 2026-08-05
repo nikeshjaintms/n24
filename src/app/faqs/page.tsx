@@ -10,53 +10,49 @@ import type { Variants } from "framer-motion";
 
 const faqs = [
   {
-    category: "General",
+    category: "Digital Reformer Pilates",
     items: [
       {
-        q: "What is Reformer Pilates?",
-        a: "Reformer Pilates is a low-impact, full-body workout performed on a specialized piece of equipment called a reformer. It uses spring resistance to build strength, flexibility, and balance without putting unnecessary strain on your joints.",
+        q: "What is self-guided Digital Reformer Pilates?",
+        a: "Digital Reformer Pilates combines professional studio reformers with high-definition, interactive touchscreens at every carriage. Instead of following a crowded class at a single pace, you select from 800+ masterclasses and follow step-by-step visual and audio guidance at your own individual tempo.",
       },
       {
-        q: "Do I need any previous experience?",
-        a: "Not at all! We welcome all fitness levels. If you're new to Pilates, we recommend starting with our Foundation or Beginner classes so our instructors can introduce you to the equipment and basic movements safely.",
+        q: "Will I be left alone, or is there support if I need help?",
+        a: "You are never left without guidance! Every session features crystal-clear visual demonstrations, audio cues, and intuitive equipment setup guides. Plus, during staffed hours, our friendly studio concierges and master trainers are on hand to assist with equipment adjustments, form tips, and recommendations.",
       },
       {
-        q: "What should I wear and bring?",
-        a: "Wear comfortable, form-fitting activewear so your instructor can check your alignment. Grip socks are mandatory for safety and hygiene (available for purchase at the studio). Bring a water bottle and a small towel.",
+        q: "Is Digital Pilates safe and suitable for complete beginners?",
+        a: "Absolutely. In fact, many beginners find our digital format far less intimidating than traditional group classes. You can pause, rewind, or choose gentle Foundation sessions that introduce you to carriage resistance, footbar settings, and breathing mechanics without class pressure.",
       },
     ],
   },
   {
-    category: "Bookings & Policies",
+    category: "Membership, Bookings & Access",
     items: [
       {
-        q: "How do I book a class?",
-        a: "All bookings can be made directly through our website or via the booking app. We recommend booking in advance as classes are small and fill up quickly.",
+        q: "How do I book a reformer session or infrared sauna?",
+        a: "Our member portal and booking app allow you to reserve your preferred reformer console or private infrared sauna suite in seconds. With our extended 5:00 AM to 10:00 PM schedule, you have total freedom to book sessions that fit your daily routine.",
       },
       {
-        q: "What is your cancellation policy?",
-        a: "We have a strict 12-hour cancellation policy to ensure everyone has a fair chance to book a class. Cancellations made less than 12 hours before class will result in a forfeited pass or a late cancellation fee.",
+        q: "What is your cancellation and rescheduling policy?",
+        a: "To ensure all members enjoy seamless access to our boutique sanctuary, we require a 12-hour notice for cancellations or rescheduling. This allows fellow members to claim open reformer consoles or sauna suites.",
       },
       {
-        q: "When should I arrive for class?",
-        a: "Please arrive 10 minutes early, especially if it's your first time. This gives you time to store your belongings, meet your instructor, and get settled. Late arrivals may not be permitted to enter once the class has started.",
+        q: "What should I wear and bring to my session?",
+        a: "We recommend comfortable, form-fitting activewear so you can move freely. For hygiene and carriage grip, Pilates grip socks are mandatory on all reformers (available at our studio reception). Please also bring a water bottle and a small sweat towel.",
       },
     ],
   },
   {
-    category: "Infrared Saunas",
+    category: "Private Infrared Saunas",
     items: [
       {
-        q: "What are the benefits of an infrared sauna?",
-        a: "Unlike traditional saunas that heat the air, infrared saunas use light to heat your body directly. This deep penetrating heat promotes detoxification, muscle recovery, reduced inflammation, improved circulation, and profound relaxation.",
+        q: "How does infrared heat therapy complement Pilates?",
+        a: "Unlike traditional rock saunas that heat the ambient air, our private infrared saunas use therapeutic infrared light to warm your tissues directly. This accelerates post-workout muscle recovery, flushes cellular toxins, reduces inflammation, and leaves you deeply relaxed.",
       },
       {
-        q: "What should I wear in the sauna?",
-        a: "We recommend wearing swimwear or your underwear. We provide clean towels for you to sit on and use during your session.",
-      },
-      {
-        q: "Can I bring a friend?",
-        a: "Yes! Our saunas are 2-capacity, meaning you can bring a friend or partner to share your session. It's a great way to recover and unwind together.",
+        q: "What should I wear inside the infrared sauna suite?",
+        a: "We recommend wearing swimwear or clean undergarments during your sauna session. We provide plush towels for sitting, and our suites are private 2-capacity rooms so you can recover in total comfort or share the session with a friend.",
       },
     ],
   },
@@ -147,10 +143,10 @@ export default function Faqs() {
   return (
     <SiteLayout>
       <PageHero
-        eyebrow="FAQs"
-        title="Everything you"
-        accent="need to know."
-        subtitle="Got questions? We've got answers. If you can't find what you're looking for, feel free to reach out to our team."
+        eyebrow="Frequently Asked Questions"
+        title="Clear answers for your"
+        accent="wellness journey."
+        subtitle="Everything you need to know about Australia's premier self-guided Digital Reformer Pilates and Infrared Sauna studio in Applecross."
       />
 
       {/* Main FAQ content — clean white background */}
@@ -217,15 +213,17 @@ export default function Faqs() {
             }}
           >
             <MessageCircle className="size-12 text-[#00C8D7]/50 mx-auto mb-5" />
-            <h3 className="font-display text-3xl text-[#0C1A2E] mb-3">Still have questions?</h3>
+            <h3 className="font-display text-3xl text-[#0C1A2E] mb-3">
+              Still have questions about N24?
+            </h3>
             <p className="text-[#4A606A] text-sm font-light mb-8">
-              Our friendly team is here to help.
+              Our Applecross studio concierge team is always here to guide you.
             </p>
             <Link
               href="/contact"
               className="inline-flex items-center gap-2 rounded-full bg-[#00C8D7] px-8 py-3.5 text-[0.7rem] font-bold uppercase tracking-[0.18em] text-white shadow-[0_4px_20px_rgba(0,200,215,0.4)] transition-all duration-300 hover:bg-[#00b5c4] hover:scale-[1.03]"
             >
-              Get in Touch <ArrowRight className="size-4" />
+              Contact Studio Concierge <ArrowRight className="size-4" />
             </Link>
           </motion.div>
         </div>

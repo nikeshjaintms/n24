@@ -18,10 +18,26 @@ import {
   ChevronLeft,
   ChevronRight,
   Quote,
+  Sparkles,
+  Flame,
+  ShieldCheck,
+  Heart,
+  Laptop,
+  Repeat,
+  Activity,
+  Smile,
+  CheckCircle2,
 } from "lucide-react";
 import { SiteLayout } from "@/components/SiteLayout";
-import { GoogleReviews } from "@/components/GoogleReviews";
 import { PremiumHero } from "@/components/PremiumHero";
+import { PricingModal } from "@/components/PricingModal";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 import { pillars } from "@/data/studio";
 
 /* ─── animation variants ──────────────────────────────────────────── */
@@ -34,30 +50,73 @@ const stagger: Variants = { visible: { transition: { staggerChildren: 0.15 } } }
 /* ─── features ─────────────────────────────────────────────────────── */
 const features = [
   {
-    title: "Expert Instructors",
-    desc: "Certified professionals delivering personalised guidance every session.",
-    icon: Award,
+    title: "Digital Reformer Pilates",
+    desc: "Technology-enhanced Reformer Pilates that puts precision, visual demonstrations, and personalized pacing at your fingertips without class pressure.",
+    icon: Laptop,
     color: "from-[#00C8D7]/20 to-[#00C8D7]/5",
     accent: "#00C8D7",
   },
   {
-    title: "Boutique Setting",
-    desc: "Intimate class sizes so every body gets the attention it deserves.",
+    title: "Self-Guided Workouts",
+    desc: "Enjoy absolute freedom to pause, rewind, or progress at your own tempo. Master proper form and technique with zero intimidation.",
+    icon: Smile,
+    color: "from-[#00AFC2]/20 to-[#00AFC2]/5",
+    accent: "#00AFC2",
+  },
+  {
+    title: "800+ On-Demand Classes",
+    desc: "From gentle beginner rehabilitation to high-intensity athletic conditioning—access a vast library of professional masterclasses anytime.",
+    icon: Sparkles,
+    color: "from-[#00AFC2]/20 to-[#00AFC2]/5",
+    accent: "#00AFC2",
+  },
+  {
+    title: "No Crowded Classes",
+    desc: "Say goodbye to packed 30-person rooms and competing for equipment. Relish an intimate, tranquil sanctuary where you have space to breathe and focus.",
     icon: Users,
+    color: "from-[#00C8D7]/20 to-[#00C8D7]/5",
+    accent: "#00C8D7",
+  },
+  {
+    title: "100% Beginner Friendly",
+    desc: "Step-by-step visual guidance and intuitive equipment setup. Designed so anyone, at any age or fitness level, feels confident from day one.",
+    icon: ShieldCheck,
+    color: "from-[#00C8D7]/20 to-[#00C8D7]/5",
+    accent: "#00C8D7",
+  },
+  {
+    title: "Infrared Sauna Recovery",
+    desc: "Deep-tissue infrared heat therapy designed to melt muscle tension, accelerate cellular recovery, detoxify your body, and promote deep relaxation.",
+    icon: Flame,
     color: "from-[#00AFC2]/20 to-[#00AFC2]/5",
     accent: "#00AFC2",
   },
   {
-    title: "Premium Equipment",
-    desc: "State-of-the-art Digital Reformers and professional-grade studio gear.",
-    icon: TrendingUp,
-    color: "from-[#00AFC2]/20 to-[#00AFC2]/5",
-    accent: "#00AFC2",
-  },
-  {
-    title: "Holistic Wellness",
-    desc: "Pilates, Yoga, Stretch & Infrared Sauna — a complete mind-body ecosystem.",
+    title: "Flexible 5am–10pm Schedule",
+    desc: "Your wellness shouldn't revolve around rigid timetable slots. Train whenever it suits your morning routine, work break, or evening wind-down.",
     icon: Clock,
+    color: "from-[#00AFC2]/20 to-[#00AFC2]/5",
+    accent: "#00AFC2",
+  },
+  {
+    title: "Professional Programming",
+    desc: "Every session is scientifically structured by master Pilates practitioners and physiotherapists to enhance mobility, posture, and core strength.",
+    icon: Award,
+    color: "from-[#00C8D7]/20 to-[#00C8D7]/5",
+    accent: "#00C8D7",
+  },
+
+  {
+    title: "Personal Progress Tracking",
+    desc: "Monitor your consistency, session milestones, and strength evolution over time. Celebrate every measurable step in your movement journey.",
+    icon: Repeat,
+    color: "from-[#00AFC2]/20 to-[#00AFC2]/5",
+    accent: "#00AFC2",
+  },
+  {
+    title: "Suitable For Every Body",
+    desc: "Whether recovering from injury, managing chronic back pain, or seeking peak athletic conditioning, N24 adapts seamlessly to your unique goals.",
+    icon: Heart,
     color: "from-[#00C8D7]/20 to-[#00C8D7]/5",
     accent: "#00C8D7",
   },
@@ -65,14 +124,46 @@ const features = [
 
 /* ─── gallery videos ─────────────────────────────────────────────────── */
 const videos = [
-  { src: "/videos/2-wa.mp4", title: "Standing Lunge with Hand Weights", sub: "Leg strength & balance" },
-  { src: "/videos/3-wa.mp4", title: "Infrared Sauna Session", sub: "Recovery & relaxation" },
-  { src: "/videos/1.mp4", title: "Supine Pilates Ring Series", sub: "Core & ring activation" },
-  { src: "/videos/5.mp4", title: "Side Kneeling Arm Series", sub: "Arm strength & posture" },
-  { src: "/Glute Bridging.mp4", title: "Glute Bridging", sub: "Glute & core engagement" },
-  { src: "/videos/6.mp4", title: "Footwork Series", sub: "Lower body alignment" },
-  { src: "/videos/7.mp4", title: "Single Leg Carriage Press", sub: "Hip stability & leg strength" },
-  { src: "/videos/8.mp4", title: "Core Series", sub: "Deep core activation" },
+  {
+    src: "/videos/2-wa.mp4",
+    title: "Standing Carriage Lunge",
+    sub: "Dynamic Lower-Body Strength & Postural Balance",
+  },
+  {
+    src: "https://res.cloudinary.com/lxz3wn2z/video/upload/v1785915313/3-wa_y3uqmc.mp4",
+    title: "Private Infrared Sauna Suite",
+    sub: "Cellular Detoxification & Muscle Tension Relief",
+  },
+  {
+    src: "/videos/1.mp4",
+    title: "Supine Magic Circle Series",
+    sub: "Deep Transverse Abdominal & Core Activation",
+  },
+  {
+    src: "/videos/5.mp4",
+    title: "Kneeling Arm & Shoulder Series",
+    sub: "Upper-Body Conditioning & Spinal Alignment",
+  },
+  {
+    src: "/Glute Bridging.mp4",
+    title: "Articulating Glute Bridge",
+    sub: "Hamstring Length, Glute Strength & Pelvic Stability",
+  },
+  {
+    src: "/videos/6.mp4",
+    title: "Reformer Footwork Flow",
+    sub: "Lower-Extremity Alignment & Ankle Mobility",
+  },
+  {
+    src: "/videos/7.mp4",
+    title: "Single-Leg Carriage Press",
+    sub: "Hip Stability, Core Control & Unilateral Power",
+  },
+  {
+    src: "/videos/8.mp4",
+    title: "Advanced Core Articulation",
+    sub: "Spinal Decompression & Lumbar Resilience",
+  },
 ];
 
 /* ─── animated counter hook ────────────────────────────────────────── */
@@ -92,6 +183,27 @@ function useCounter(target: number, duration = 1800, start = false) {
   }, [target, duration, start]);
   return count;
 }
+
+const reviews = [
+  {
+    name: "Aline Marchioro",
+    date: "Verified Member · Applecross",
+    text: "The self-guided Digital Reformer concept is a game changer. I used to feel intimidated in packed classes, but here I can pause, focus on my form, and work at my own pace in a stunning, uncrowded space.",
+    initial: "A",
+  },
+  {
+    name: "Paul K.",
+    date: "Verified Member · Perth",
+    text: "Being able to train at 6:00 AM before work without booking weeks in advance is incredible. Combining a 45-minute reformer session with the infrared sauna has completely transformed my recovery and sleep.",
+    initial: "P",
+  },
+  {
+    name: "Joe Angel",
+    date: "Verified Member · Applecross",
+    text: "N24 feels like a private luxury club rather than a gym. The studio ambiance is serene, the equipment is state of the art, and my chronic lower back stiffness has vanished within a month.",
+    initial: "J",
+  },
+];
 
 /* ═══════════════════════════════════════════════════════════════════ */
 export default function Home() {
@@ -163,17 +275,25 @@ export default function Home() {
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
             variants={stagger}
-            className="text-center mb-12"
+            className="text-center mb-16"
           >
-            <motion.p variants={fadeUp} className="eyebrow text-[#00C8D7] mb-4">
-              Why N24
+            <motion.p variants={fadeUp} className="eyebrow text-[#00C8D7] mb-4 tracking-[0.3em]">
+              Why Choose N24 Pilates
             </motion.p>
             <motion.h2
               variants={fadeUp}
-              className="font-display text-[2rem] sm:text-[2.8rem] md:text-5xl lg:text-6xl text-[#0A0F1E]"
+              className="font-display text-[2rem] sm:text-[2.8rem] md:text-5xl lg:text-6xl text-[#0A0F1E] mb-4"
             >
-              A studio built for <em className="text-[#00C8D7]">real transformation</em>
+              A sanctuary built for <em className="text-[#00C8D7]">real transformation</em>
             </motion.h2>
+            <motion.p
+              variants={fadeUp}
+              className="text-[1.05rem] text-[#5B6B70] font-light max-w-2xl mx-auto leading-relaxed"
+            >
+              We combine the autonomy of self-guided touchscreen reformers, the restorative power of
+              private infrared saunas, and 100% flexible 5:00 AM – 10:00 PM access to give you an
+              elevated wellness experience.
+            </motion.p>
           </motion.div>
 
           <motion.div
@@ -181,32 +301,144 @@ export default function Home() {
             whileInView="visible"
             viewport={{ once: true, margin: "-50px" }}
             variants={stagger}
-            className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4"
+            className="w-full"
           >
-            {features.map((f) => {
-              const Icon = f.icon;
-              return (
-                <motion.div
-                  key={f.title}
-                  variants={fadeUp}
-                  className="group relative rounded-[28px] bg-white border border-[#DDEAF2] p-8 shadow-soft transition-all duration-500 hover:shadow-premium hover:-translate-y-2 overflow-hidden"
-                >
-                  <div className="absolute inset-0 bg-gradient-to-br from-white/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            <Carousel
+              opts={{
+                align: "start",
+                loop: true,
+              }}
+              className="w-full relative"
+            >
+              <CarouselContent className="-ml-4 sm:-ml-6 lg:-ml-8">
+                {features.map((f) => {
+                  const Icon = f.icon;
+                  return (
+                    <CarouselItem key={f.title} className="pl-4 sm:pl-6 lg:pl-8 sm:basis-1/2 lg:basis-1/3">
+                      <motion.div
+                        variants={fadeUp}
+                        className="group relative rounded-[28px] bg-white border border-[#DDEAF2] p-8 shadow-soft transition-all duration-500 hover:shadow-premium hover:-translate-y-2 overflow-hidden flex flex-col justify-between h-full"
+                      >
+                        <div className="absolute inset-0 bg-gradient-to-br from-white/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
-                  <div
-                    className={`relative z-10 flex size-14 items-center justify-center rounded-2xl bg-gradient-to-br ${f.color} mb-8 transition-transform duration-500 group-hover:scale-110 group-hover:rotate-3 shadow-inner`}
-                  >
-                    <Icon className="size-6" style={{ color: f.accent }} />
+                        <div>
+                          <div
+                            className={`relative z-10 flex size-14 items-center justify-center rounded-2xl bg-gradient-to-br ${f.color} mb-8 transition-transform duration-500 group-hover:scale-110 group-hover:rotate-3 shadow-inner`}
+                          >
+                            <Icon className="size-6" style={{ color: f.accent }} />
+                          </div>
+                          <h3 className="relative z-10 font-display text-2xl text-[#0A0F1E] mb-4">
+                            {f.title}
+                          </h3>
+                          <p className="relative z-10 text-[0.9rem] leading-relaxed text-[#5B6B70] font-light">
+                            {f.desc}
+                          </p>
+                        </div>
+                      </motion.div>
+                    </CarouselItem>
+                  );
+                })}
+              </CarouselContent>
+              <div className="flex items-center justify-center gap-4 mt-12">
+                <CarouselPrevious className="static translate-y-0 h-12 w-12 border-[#DDEAF2] bg-white hover:bg-[#F1FAFB] hover:text-[#00C8D7]" />
+                <CarouselNext className="static translate-y-0 h-12 w-12 border-[#DDEAF2] bg-white hover:bg-[#F1FAFB] hover:text-[#00C8D7]" />
+              </div>
+            </Carousel>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* ═══════════════════════════════════════════
+          3. HOW IT WORKS — The Step-by-Step Journey
+      ═══════════════════════════════════════════ */}
+      <section className="bg-white py-20 sm:py-28 relative overflow-hidden border-t border-[#00C8D7]/15">
+        <div className="mx-auto max-w-7xl px-6 lg:px-10 relative z-10">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            variants={stagger}
+            className="text-center mb-16"
+          >
+            <motion.p variants={fadeUp} className="eyebrow text-[#00C8D7] mb-4 tracking-[0.3em]">
+              How It Works
+            </motion.p>
+            <motion.h2
+              variants={fadeUp}
+              className="font-display text-[2rem] sm:text-[2.8rem] md:text-5xl lg:text-6xl text-[#0A0F1E]"
+            >
+              Your effortless <em className="text-[#00C8D7]">N24 journey</em>
+            </motion.h2>
+            <motion.p
+              variants={fadeUp}
+              className="mt-4 text-[1.05rem] text-[#5B6B70] font-light max-w-xl mx-auto leading-relaxed"
+            >
+              From reserving your reformer session to leaving the studio feeling stronger and more
+              balanced, every step is designed for seamless convenience.
+            </motion.p>
+          </motion.div>
+
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+            variants={stagger}
+            className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3"
+          >
+            {[
+              {
+                step: "01",
+                title: "Book & Schedule",
+                desc: "Reserve your Reformer session or private infrared sauna suite online in seconds via our intuitive member portal or our mobile app.",
+              },
+              {
+                step: "02",
+                title: "Arrive at Studio",
+                desc: "Step into our serene, light-filled Applecross sanctuary—uncrowded, tranquil, and equipped for your comfort.",
+              },
+              {
+                step: "03",
+                title: "Select Workout",
+                desc: "Explore 800+ on-demand masterclasses on your personal touchscreen console, selecting your desired level and focus.",
+              },
+              {
+                step: "04",
+                title: "Follow Guidance",
+                desc: "Watch crystal-clear visual demonstrations and listen to expert cues, progressing at your own individual tempo.",
+              },
+              {
+                step: "05",
+                title: "Sauna Recovery",
+                desc: "Unwind in our private 2-capacity infrared saunas for deep-tissue detoxification, warmth, and muscle repair.",
+              },
+              {
+                step: "06",
+                title: "Track & Repeat",
+                desc: "Celebrate your consistency and watch your posture, flexibility, and core resilience transform week after week.",
+              },
+            ].map((item) => (
+              <motion.div
+                key={item.step}
+                variants={fadeUp}
+                className="group relative rounded-[28px] bg-[#F1FAFB] border border-[#DDEAF2] p-8 shadow-soft transition-all duration-500 hover:shadow-premium hover:-translate-y-2 overflow-hidden flex flex-col justify-between"
+              >
+                <div>
+                  <div className="flex items-center justify-between mb-6">
+                    <span className="text-[0.7rem] font-bold uppercase tracking-[0.2em] text-[#00C8D7] px-3.5 py-1.5 rounded-full bg-white border border-[#00C8D7]/20">
+                      Step {item.step}
+                    </span>
+                    <span className="text-[1.8rem] font-display font-light text-[#00C8D7]/25 group-hover:text-[#00C8D7]/60 transition-colors">
+                      {item.step}
+                    </span>
                   </div>
-                  <h3 className="relative z-10 font-display text-2xl text-[#0A0F1E] mb-4">
-                    {f.title}
-                  </h3>
-                  <p className="relative z-10 text-[0.9rem] leading-relaxed text-[#5B6B70] font-light">
-                    {f.desc}
+                  <h3 className="font-display text-2xl text-[#0A0F1E] mb-3">{item.title}</h3>
+                  <p className="text-[0.9rem] leading-relaxed text-[#5B6B70] font-light">
+                    {item.desc}
                   </p>
-                </motion.div>
-              );
-            })}
+                </div>
+                <div className="mt-6 h-px w-full bg-gradient-to-r from-[#00C8D7]/20 to-transparent group-hover:from-[#00C8D7] transition-all duration-500" />
+              </motion.div>
+            ))}
           </motion.div>
         </div>
       </section>
@@ -244,13 +476,14 @@ export default function Home() {
             <div className="absolute top-1/4 right-0 w-96 h-96 rounded-full bg-[#00C8D7]/10 blur-[100px] pointer-events-none" />
 
             <div className="relative z-10">
-              <p className="eyebrow text-[#00C8D7] mb-6 tracking-[0.3em]">Join Our Community</p>
+              <p className="eyebrow text-[#00C8D7] mb-6 tracking-[0.3em]">Who Is N24 For?</p>
               <h2 className="font-display text-[2rem] sm:text-[2.8rem] md:text-5xl lg:text-6xl text-white leading-[1.1] mb-6 sm:mb-8">
-                The N24 <em className="text-[#00C8D7] font-light">Pilates Family</em>
+                Designed for <em className="text-[#00C8D7] font-light">Every Body</em> &amp; Rhythm
               </h2>
-              <p className="text-[1.05rem] leading-relaxed text-white/60 font-light max-w-md mb-12">
-                We believe in movement, connection, and becoming the strongest version of you. Join
-                a community that lifts each other — on and off the reformer.
+              <p className="text-[1.05rem] leading-relaxed text-white/70 font-light max-w-lg mb-12">
+                Whether you are a busy professional craving a 6:00 AM workout, a parent needing
+                midday stress relief, an athlete seeking core conditioning, or a beginner looking
+                for low-impact rehabilitation—N24 Pilates adapts seamlessly to your lifestyle.
               </p>
 
               <div className="flex flex-wrap gap-4 mb-12">
@@ -268,7 +501,7 @@ export default function Home() {
                 href="/about"
                 className="group inline-flex items-center gap-3 rounded-full bg-[#00C8D7]/10 border border-[#00C8D7]/30 px-10 py-4 text-[0.75rem] font-bold uppercase tracking-[0.2em] text-[#00C8D7] transition-all duration-300 hover:bg-[#00C8D7] hover:text-white"
               >
-                Our Story
+                Discover Our Story
                 <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
               </Link>
             </div>
@@ -290,13 +523,13 @@ export default function Home() {
           >
             <div>
               <motion.p variants={fadeUp} className="eyebrow text-[#00C8D7] mb-4 tracking-[0.3em]">
-                Studio in Motion
+                The Digital Reformer Experience
               </motion.p>
               <motion.h2
                 variants={fadeUp}
                 className="font-display text-[2rem] sm:text-[2.8rem] md:text-5xl lg:text-6xl text-[#0A0F1E]"
               >
-                Experience <em>N24 Live</em>
+                Experience <em>N24 in Motion</em>
               </motion.h2>
             </div>
           </motion.div>
@@ -344,6 +577,98 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ═══════════════════════════════════════════
+          6. TRANSFORMATIONAL RESULTS & BENEFITS
+      ═══════════════════════════════════════════ */}
+      <section className="bg-white py-20 sm:py-28 relative overflow-hidden border-t border-[#00C8D7]/15">
+        <div className="mx-auto max-w-7xl px-6 lg:px-10 relative z-10">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            variants={stagger}
+            className="text-center mb-16"
+          >
+            <motion.p variants={fadeUp} className="eyebrow text-[#00C8D7] mb-4 tracking-[0.3em]">
+              Transformational Benefits
+            </motion.p>
+            <motion.h2
+              variants={fadeUp}
+              className="font-display text-[2rem] sm:text-[2.8rem] md:text-5xl lg:text-6xl text-[#0A0F1E]"
+            >
+              What changes with <em className="text-[#00C8D7]">consistent movement</em>
+            </motion.h2>
+            <motion.p
+              variants={fadeUp}
+              className="mt-4 text-[1.05rem] text-[#5B6B70] font-light max-w-xl mx-auto leading-relaxed"
+            >
+              Beyond physical strength, our method restores balance to your nervous system, elevates
+              your posture, and supports lifelong vitality.
+            </motion.p>
+          </motion.div>
+
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+            variants={stagger}
+            className="grid gap-8 md:grid-cols-2 lg:grid-cols-3"
+          >
+            {[
+              {
+                title: "Move Better, Without Pain",
+                desc: "Re-educate your neuromuscular system, relieve chronic lower-back stiffness, and lubricate joints for fluid daily movement.",
+                badge: "Mobility",
+              },
+              {
+                title: "Feel Effortlessly Stronger",
+                desc: "Develop lean, functional muscle tone that supports your spine and enhances everyday physical endurance.",
+                badge: "Strength",
+              },
+              {
+                title: "Elevated Posture & Presence",
+                desc: "Counteract desk slumping and modern posture habits. Walk taller with open shoulders and a naturally aligned spine.",
+                badge: "Posture",
+              },
+              {
+                title: "Enhanced Core & Balance",
+                desc: "Strengthen your deepest stabilizing muscles—the true powerhouse of athletic stability, balance, and injury prevention.",
+                badge: "Stability",
+              },
+              {
+                title: "Accelerated Recovery & Sleep",
+                desc: "Combine Reformer Pilates with infrared heat therapy to flush metabolic waste, soothe cortisol, and promote deep, restorative sleep.",
+                badge: "Recovery",
+              },
+              {
+                title: "Sustainable, Joyful Habit",
+                desc: "With no class intimidation or rigid schedules, building a lifelong movement routine becomes natural, empowering, and enjoyable.",
+                badge: "Consistency",
+              },
+            ].map((res) => (
+              <motion.div
+                key={res.title}
+                variants={fadeUp}
+                className="group relative rounded-[28px] bg-[#F1FAFB] border border-[#DDEAF2] p-8 shadow-soft transition-all duration-500 hover:shadow-premium hover:-translate-y-2 overflow-hidden flex flex-col justify-between"
+              >
+                <div>
+                  <div className="flex items-center justify-between mb-6">
+                    <span className="text-[0.7rem] font-bold uppercase tracking-[0.2em] text-[#00C8D7] px-3.5 py-1.5 rounded-full bg-white border border-[#00C8D7]/20">
+                      {res.badge}
+                    </span>
+                    <CheckCircle2 className="size-5 text-[#00C8D7]" />
+                  </div>
+                  <h3 className="font-display text-2xl text-[#0A0F1E] mb-3">{res.title}</h3>
+                  <p className="text-[0.9rem] leading-relaxed text-[#5B6B70] font-light">
+                    {res.desc}
+                  </p>
+                </div>
+                <div className="mt-6 h-px w-full bg-gradient-to-r from-[#00C8D7]/20 to-transparent group-hover:from-[#00C8D7] transition-all duration-500" />
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+      </section>
 
       {/* ═══════════════════════════════════════════
           7. MEMBERSHIP OFFER — Premium glass card
@@ -369,67 +694,123 @@ export default function Home() {
           className="relative z-10 mx-auto max-w-4xl px-6 text-center"
         >
           <motion.p variants={fadeUp} className="eyebrow text-[#00C8D7] mb-6 tracking-[0.4em]">
-            New Client Offer
+            Exclusive Introductory Offer
           </motion.p>
           <motion.h2
             variants={fadeUp}
             className="font-display text-[5rem] md:text-[7rem] leading-[0.9] text-white mb-4"
           >
-            3 Classes <span className="text-[#00C8D7] italic">for $79</span>
+            4 Intro Classes <span className="text-[#00C8D7] italic">for $40</span>
           </motion.h2>
           <motion.p
             variants={fadeUp}
             className="text-[1.1rem] text-white/70 font-light max-w-xl mx-auto mb-14 leading-relaxed"
           >
-            Discover the studio with three classes in your first two weeks — Reformer, Mat or Yoga,
-            the choice is yours. Begin your transformation today.
+            Experience Australia&apos;s premier self-guided Digital Reformer studio in Applecross.
+            Enjoy 2 digital reformer classes and 2 infrared sauna sessions (30 mins) over 15 days.
+            Available to new clients. Special discount available when you sign up for a membership
+            during the intro offer period.
           </motion.p>
           <motion.div
             variants={fadeUp}
             className="flex flex-col sm:flex-row items-center justify-center gap-6"
           >
-            <Link
-              href="/pricing"
-              className="group relative overflow-hidden rounded-full bg-[#00C8D7] px-12 py-5 text-[0.8rem] font-bold uppercase tracking-[0.2em] text-[#0A0F1E] shadow-[0_0_40px_rgba(0,200,215,0.4)] transition-all duration-500 hover:scale-[1.02]"
+            <a
+              href="https://n24pilatesstudio.gymmasteronline.com/portal/signup/details/9470d85507491296a31c643e990c513d"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group relative overflow-hidden rounded-full bg-[#00C8D7] px-12 py-5 text-[0.8rem] font-bold uppercase tracking-[0.2em] text-[#0A0F1E] shadow-[0_0_40px_rgba(0,200,215,0.4)] transition-all duration-500 hover:scale-[1.02] inline-block"
             >
               <span className="relative z-10 flex items-center gap-3">
-                Claim Offer
+                Claim Introductory Offer
                 <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
               </span>
               <div className="absolute inset-0 bg-gradient-to-r from-[#00C8D7] via-white to-[#00C8D7] opacity-0 group-hover:opacity-50 transition-opacity duration-500 mix-blend-overlay" />
-            </Link>
+            </a>
           </motion.div>
         </motion.div>
       </section>
 
       {/* ═══════════════════════════════════════════
-          8. TESTIMONIALS — Sleek Google Review Slider
+          8. TESTIMONIALS — Real Member Transformation (Light Luxury Theme)
       ═══════════════════════════════════════════ */}
-      <section className="bg-[#F1FAFB] py-20 overflow-hidden relative">
-        <div className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full bg-[#00C8D7]/5 blur-[100px] pointer-events-none" />
+      <section className="py-28 relative overflow-hidden bg-gradient-to-b from-[#F8FBFC] via-[#F1FAFB] to-white border-t border-b border-[#00C8D7]/15">
+        <div className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full bg-[#00C8D7]/10 blur-[140px] pointer-events-none" />
+        <div className="absolute bottom-0 left-0 w-[500px] h-[500px] rounded-full bg-[#00C8D7]/5 blur-[120px] pointer-events-none" />
 
-        <div className="mx-auto max-w-7xl px-6 lg:px-10">
+        <div className="mx-auto max-w-7xl px-6 lg:px-10 relative z-10">
           <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
             variants={stagger}
-            className="text-center mb-12"
+            className="text-center mb-16"
           >
-            <motion.p variants={fadeUp} className="eyebrow text-[#00C8D7] mb-4 tracking-[0.3em]">
-              Community Love
+            <motion.p
+              variants={fadeUp}
+              className="eyebrow text-[#00C8D7] mb-4 tracking-[0.3em] font-bold"
+            >
+              Real Member Transformation
             </motion.p>
             <motion.h2
               variants={fadeUp}
-              className="font-display text-5xl md:text-6xl text-[#0A0F1E] mb-6"
+              className="font-display text-5xl md:text-6xl text-[#0A0F1E] mb-8"
             >
-              Real stories, <em className="text-[#00C8D7] font-light">real results</em>
+              Stories of strength,
+              <br />
+              <em className="text-[#00C8D7] font-light">balance &amp; renewal</em>
             </motion.h2>
+            <motion.div
+              variants={fadeUp}
+              className="inline-flex items-center gap-4 bg-white shadow-soft rounded-full px-8 py-3.5 border border-[#00C8D7]/20 backdrop-blur-md"
+            >
+              <div className="flex text-yellow-400 gap-1.5">
+                {[1, 2, 3, 4, 5].map((s) => (
+                  <Star key={s} className="size-5 fill-current" />
+                ))}
+              </div>
+              <span className="text-[#0A0F1E] font-display text-xl font-bold">5.0</span>
+              <span className="text-[0.65rem] text-[#5B6B70] font-bold uppercase tracking-[0.2em]">
+                Based on Verified Reviews
+              </span>
+            </motion.div>
           </motion.div>
 
-          <div className="relative max-w-5xl mx-auto mt-12">
-            <GoogleReviews />
-          </div>
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+            variants={stagger}
+            className="grid md:grid-cols-3 gap-8"
+          >
+            {reviews.map((r, i) => (
+              <motion.div
+                key={i}
+                variants={fadeUp}
+                className="group relative overflow-hidden rounded-[28px] border border-[#00C8D7]/15 bg-white p-10 flex flex-col shadow-soft transition-all duration-500 hover:-translate-y-2 hover:shadow-premium hover:border-[#00C8D7]/40"
+              >
+                <div className="absolute top-0 right-0 w-28 h-28 bg-[#00C8D7]/10 rounded-full blur-[25px] opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+                <Quote className="size-10 text-[#00C8D7] mb-6 transition-transform duration-300 group-hover:scale-110" />
+                <p className="text-[1.05rem] leading-relaxed text-[#111827] font-light italic flex-1 mb-8">
+                  &ldquo;{r.text}&rdquo;
+                </p>
+                <div className="flex text-yellow-400 gap-1.5 mb-6">
+                  {[1, 2, 3, 4, 5].map((s) => (
+                    <Star key={s} className="size-4 fill-current" />
+                  ))}
+                </div>
+                <div className="flex items-center gap-4 pt-6 border-t border-[#00C8D7]/15">
+                  <div className="size-12 rounded-full bg-gradient-to-br from-[#00C8D7] to-[#00AFC2] flex items-center justify-center font-display text-xl text-white shadow-[0_4px_15px_rgba(0,200,215,0.3)]">
+                    {r.initial}
+                  </div>
+                  <div>
+                    <p className="text-[#0A0F1E] text-[0.95rem] font-bold">{r.name}</p>
+                    <p className="text-[#5B6B70] text-[0.75rem] mt-0.5">{r.date}</p>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
         </div>
       </section>
 
@@ -445,7 +826,7 @@ export default function Home() {
             variants={fadeUp}
             className="eyebrow text-[#00C8D7] mb-6 tracking-[0.3em]"
           >
-            Find Us
+            Applecross · Perth
           </motion.p>
           <motion.h2
             initial="hidden"
@@ -454,7 +835,7 @@ export default function Home() {
             variants={fadeUp}
             className="font-display text-5xl md:text-6xl text-[#0A0F1E] mb-8"
           >
-            Come find your <em className="text-[#00C8D7] font-light">balance</em>
+            Come find your <em className="text-[#00C8D7] font-light">sanctuary</em>
           </motion.h2>
           <motion.p
             initial="hidden"
@@ -482,7 +863,7 @@ export default function Home() {
               className="group flex items-center gap-3 rounded-full bg-[#00C8D7] px-10 py-5 text-[0.75rem] font-bold uppercase tracking-[0.2em] text-white shadow-[0_10px_30px_rgba(0,200,215,0.4)] transition-all duration-300 hover:scale-[1.03] hover:bg-[#00b5c4]"
             >
               <MessageCircle className="size-5" />
-              WhatsApp Us
+              WhatsApp Our Team
             </motion.a>
             <motion.a
               variants={fadeUp}
@@ -490,7 +871,7 @@ export default function Home() {
               className="group flex items-center gap-3 rounded-full border border-[#00C8D7]/30 bg-white px-10 py-5 text-[0.75rem] font-bold uppercase tracking-[0.2em] text-[#0A0F1E] transition-all duration-300 hover:border-[#00C8D7] hover:bg-[#F1FAFB] shadow-premium"
             >
               <Mail className="size-5 text-[#00C8D7]" />
-              Email Us
+              Email Studio Team
             </motion.a>
           </motion.div>
         </div>

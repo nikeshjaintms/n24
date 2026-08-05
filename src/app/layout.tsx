@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import "../styles.css";
 
 export const metadata: Metadata = {
-  title: "Pilates Studio — Move Better. Feel Stronger. Live Lighter.",
+  title: "N24 Pilates & Wellness Studio | Premium Digital Reformer & Infrared Sauna in Applecross",
   description:
-    "Boutique Pilates studio in Perth. Reformer, mat, yoga and meditation classes designed to transform your body and elevate your everyday.",
+    "Experience Applecross, Perth's premier self-guided Digital Reformer Pilates & Infrared Sauna studio. Build core strength, mobility, and recovery with 800+ on-demand classes. Open 5am–10pm daily.",
 };
 
 export default function RootLayout({

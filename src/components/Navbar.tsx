@@ -88,10 +88,14 @@ export function Navbar() {
                   )}
                 >
                   {l.label}
-                  <span className={clsx(
-                    "absolute -bottom-1 left-0 h-[2px] bg-[#00C8D7] rounded-full transition-all duration-300",
-                    isActive ? "w-full opacity-100" : "w-0 opacity-0 group-hover:w-full group-hover:opacity-100"
-                  )} />
+                  <span
+                    className={clsx(
+                      "absolute -bottom-1 left-0 h-[2px] bg-[#00C8D7] rounded-full transition-all duration-300",
+                      isActive
+                        ? "w-full opacity-100"
+                        : "w-0 opacity-0 group-hover:w-full group-hover:opacity-100",
+                    )}
+                  />
                 </Link>
               );
             })}

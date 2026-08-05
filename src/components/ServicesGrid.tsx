@@ -48,13 +48,24 @@ export function ServicesGrid() {
                 className="group flex h-full flex-col overflow-hidden rounded-[2rem] glass-card shadow-soft hover:shadow-card transition-all duration-500 hover:-translate-y-2 border border-transparent hover:border-[#00C9D8]/20"
               >
                 <div className="relative overflow-hidden">
-                  <Image
-                    src={c.image}
-                    alt={c.name}
-                    width={800}
-                    height={700}
-                    className="h-64 w-full object-cover transition-transform duration-700 group-hover:scale-105"
-                  />
+                  {c.video ? (
+                    <video
+                      src={c.video}
+                      autoPlay
+                      loop
+                      muted
+                      playsInline
+                      className="h-64 w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    />
+                  ) : (
+                    <Image
+                      src={c.image}
+                      alt={c.name}
+                      width={800}
+                      height={700}
+                      className="h-64 w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    />
+                  )}
                 </div>
                 <div className="flex flex-1 flex-col p-8">
                   <h3 className="text-[0.8rem] font-bold uppercase tracking-[0.16em] text-[#1E2E32]">

@@ -11,13 +11,13 @@ const details = [
   {
     icon: Mail,
     label: "Email",
-    value: "hello@n24pilates.com.au",
-    href: "mailto:hello@n24pilates.com.au",
+    value: "Info@n24pilatesstudio.com",
+    href: "mailto:Info@n24pilatesstudio.com",
   },
   {
     icon: MapPin,
     label: "Visit",
-    value: "Unit G3/3 Kintail Rd, Perth WA 6153",
+    value: "Unit G3/3 Kintail Rd, Applecross WA 6153",
     href: "https://maps.google.com/?q=N24+Pilates+Applecross",
     className: "sm:col-span-2",
   },
@@ -32,7 +32,7 @@ const details = [
         <div className="font-semibold text-[#111827] tracking-widest uppercase border-b border-[#00C8D7]/15 pb-2 text-[0.7rem]">
           Staff Hours
         </div>
-        
+
         <div className="flex justify-between items-start pt-1">
           <span className="font-medium text-[#111827]">Monday – Thursday</span>
           <div className="text-right flex flex-col text-[#5B6B70] gap-0.5">
@@ -54,6 +54,13 @@ const details = [
         <div className="flex justify-between items-center pt-1 border-t border-slate-100/50">
           <span className="font-medium text-[#111827]">Sunday & Public</span>
           <span className="text-[#5B6B70] text-right">Unstaffed</span>
+        </div>
+
+        <div className="mt-2 pt-3 border-t border-[#00C8D7]/15 text-[0.78rem] text-[#5B6B70] leading-relaxed flex items-start gap-2.5">
+          <span className="inline-block w-1.5 h-1.5 rounded-full bg-[#00C8D7] mt-1.5 shrink-0" />
+          <span>
+            If you need any staff assistance outside of the listed staffed hours, please call or email us and we will do our best to accommodate you.
+          </span>
         </div>
       </div>
     ),
@@ -94,10 +101,10 @@ export default function Contact() {
   return (
     <SiteLayout>
       <PageHero
-        eyebrow="Contact"
-        title="Let's"
-        accent="connect."
-        subtitle="Questions about classes, memberships or getting started? We're here to help."
+        eyebrow="Studio Concierge &amp; Location"
+        title="We are here"
+        accent="to guide you."
+        subtitle="Whether you are curious about our self-guided Digital Reformer Pilates model, membership options, or private infrared sauna bookings, our Applecross studio concierge team is delighted to assist."
       />
 
       {/* ── Main content ─────────────────────────── */}
@@ -118,13 +125,13 @@ export default function Contact() {
               variants={stagger}
             >
               <motion.p variants={fadeUp} className="eyebrow text-[#00AFC2] mb-4">
-                Studio Details
+                Applecross Studio Sanctuary
               </motion.p>
               <motion.h2
                 variants={fadeUp}
                 className="font-display text-5xl md:text-6xl text-[#0F172A] leading-tight mb-12"
               >
-                Come say <em className="text-[#00C8D7]">hello</em>
+                Visit our <em className="text-[#00C8D7]">sanctuary</em>
               </motion.h2>
 
               <div className="grid gap-4 sm:grid-cols-2">
@@ -170,7 +177,7 @@ export default function Contact() {
                   WhatsApp Us
                 </a>
                 <a
-                  href="mailto:hello@n24pilates.com.au"
+                  href="mailto:Info@n24pilatesstudio.com"
                   className="flex items-center gap-2 rounded-full border border-[#00C8D7]/40 bg-white px-5 py-2.5 text-[0.7rem] font-semibold uppercase tracking-[0.15em] text-[#00AFC2] transition-all hover:border-[#00C8D7] hover:bg-[#00C8D7] hover:text-white"
                 >
                   Email Us

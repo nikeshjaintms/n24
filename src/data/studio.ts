@@ -1,89 +1,114 @@
-import reformer from "@/assets/class-reformer-new.png";
-import mat from "@/assets/class-clinical-new.png";
-import yoga from "@/assets/class-yoga-new.png";
-import meditation from "@/assets/class-sauna-new.png";
-import stretch from "@/assets/class-stretch-new.png";
-import digital from "@/assets/class-digital-new.png";
 import instructor1 from "@/assets/instructor-1.jpg";
 import instructor2 from "@/assets/instructor-2.jpg";
 import instructor3 from "@/assets/instructor-3.jpg";
 import instructor4 from "@/assets/instructor-4.jpg";
 
-export const classes = [
+export interface ClassItem {
+  slug: string;
+  name: string;
+  image: string;
+  video?: string;
+  short: string;
+  long: string;
+  duration: string;
+  level: string;
+  bookingUrl?: string;
+}
+
+export const classes: readonly ClassItem[] = [
   {
     slug: "reformer-pilates",
     name: "Reformer Pilates",
-    image: reformer,
+    image: "/1.png",
+    video: "/videos/6.mp4",
     short:
-      "Build core strength, improve posture, increase flexibility, and develop full-body control using reformer equipment.",
-    long: "Build core strength, improve posture, increase flexibility, and develop full-body control using reformer equipment.",
+      "Precision spring-resistance training designed to lengthen tight muscles, build deep core stability, improve posture, and enhance total-body control.",
+    long: "Our Reformer Pilates sessions combine classic Pilates principles with modern functional movement. Using progressive spring resistance, every exercise strengthens your deep postural stabilizers, aligns your spine, and enhances joint mobility without unwanted impact. Perfect for beginners and experienced practitioners alike.",
     duration: "50 min",
-    level: "All levels",
+    level: "All Levels",
   },
   {
     slug: "digital-reformer-classes",
-    name: "Digital Reformer Classes",
-    image: digital,
+    name: "Digital Reformer Pilates",
+    image: "/2.png",
+    video: "/videos/2-wa.mp4",
     short:
-      "Technology-enhanced reformer sessions that provide precision, performance tracking, and an engaging workout experience.",
-    long: "Technology-enhanced reformer sessions that provide precision, performance tracking, and an engaging workout experience.",
+      "Australia’s premier self-guided Reformer experience. Access 800+ on-demand masterclasses on personal touchscreens, progressing at your own tempo.",
+    long: "Step into the future of Pilates. Our cutting-edge Digital Reformer consoles give you instant access to over 800 professionally choreographed workouts—ranging from Beginner Foundations and Core Stretch to HIIT Hybrid, Athletic Conditioning, Women's Health, and Active Ageing. Enjoy crystal-clear visual guidance, zero class pressure, and the freedom to train whenever it suits your schedule between 5:00 AM and 10:00 PM daily.",
     duration: "45 min",
-    level: "All levels",
+    level: "800+ Workouts · All Levels",
   },
   {
     slug: "clinical-pilates",
-    name: "Clinical Pilates",
-    image: mat,
+    name: "Clinical & Rehab Pilates",
+    image: "/3.png",
+    video: "/Glute Bridging.mp4",
     short:
-      "Personalized Pilates programs designed to support rehabilitation, injury prevention, and long-term movement health.",
-    long: "Personalized Pilates programs designed to support rehabilitation, injury prevention, and long-term movement health.",
+      "Anatomically focused movement programs tailored for injury rehabilitation, chronic back pain relief, spinal alignment, and joint longevity.",
+    long: "Whether you are recovering from an injury, managing back pain, or seeking safe prenatal and postnatal movement, our Clinical Pilates programs offer targeted, therapeutic strengthening. Built around low-impact spinal articulation and controlled resistance, every session promotes safe recovery and long-term joint resilience.",
     duration: "50 min",
     level: "Rehab & Recovery",
   },
   {
     slug: "stretch-strength",
     name: "Stretch + Strength",
-    image: stretch,
+    image: "/4.png",
+    video: "/videos/5.mp4",
     short:
-      "Improve flexibility, mobility, balance, and functional strength through guided movement sessions.",
-    long: "Improve flexibility, mobility, balance, and functional strength through guided movement sessions.",
+      "A harmonious fusion of deep myofascial release, dynamic mobility flow, and functional resistance to lengthen and strengthen your entire body.",
+    long: "Release chronic tension while building resilient muscle. Stretch + Strength sessions focus on opening tight hip flexors, hamstrings, and thoracic spines while reinforcing core control and postural balance. Leave every session feeling lighter, taller, and effortlessly revitalized.",
     duration: "45 min",
-    level: "All levels",
+    level: "All Levels",
   },
   {
     slug: "yoga",
-    name: "Yoga",
-    image: yoga,
+    name: "Yoga & Mindfulness",
+    image: "/5.png",
+    video: "/videos/8.mp4",
     short:
-      "Restore balance through mindful movement, breathing exercises, and flexibility-focused yoga classes.",
-    long: "Restore balance through mindful movement, breathing exercises, and flexibility-focused yoga classes.",
+      "Restore inner balance through breathwork, mindful vinyasa flow, and restorative flexibility practices in our serene Applecross studio.",
+    long: "Cultivate physical balance and mental serenity. Our Yoga sessions guide you through intentional breathwork and fluid postures designed to quiet the nervous system, release bodily stiffness, and restore vitality from the inside out.",
     duration: "60 min",
-    level: "All levels",
+    level: "All Levels",
   },
   {
     slug: "infrared-sauna",
-    name: "Infrared Sauna",
-    image: meditation,
+    name: "Private Infrared Sauna",
+    image: "/n242.png",
+    video: "https://res.cloudinary.com/lxz3wn2z/video/upload/v1785915313/3-wa_y3uqmc.mp4",
     short:
-      "Relax and recover with infrared heat therapy to reduce muscle tension, improve circulation, and enhance recovery.",
-    long: "Relax and recover with infrared heat therapy to reduce muscle tension, improve circulation, and enhance recovery.",
-    duration: "30 min",
-    level: "Recovery",
+      "Deep-tissue infrared heat therapy designed to melt muscle soreness, accelerate cellular recovery, detoxify your body, and promote deep relaxation.",
+    long: "The ultimate complement to Reformer Pilates. Our private 2-capacity infrared saunas use penetrating wavelengths to warm muscle tissue directly—increasing circulation, relieving joint stiffness, supporting cardiovascular health, and promoting profound stress relief after class.",
+    duration: "30 / 45 min",
+    level: "Restorative Recovery",
+    bookingUrl: "https://n24pilatesstudio.gymmasteronline.com/portal/book/service",
+  },
+];
+
+export const pillars = [
+  {
+    title: "Stronger",
+    desc: "Build functional core strength, spinal stability, and lean muscle tone without high-impact strain.",
+  },
+  {
+    title: "Balanced",
+    desc: "Enhance flexibility, joint mobility, and postural awareness to move gracefully through everyday life.",
+  },
+  {
+    title: "Rejuvenated",
+    desc: "Melt away muscle tension and accelerate recovery through restorative infrared heat therapy.",
+  },
+  {
+    title: "Mindful",
+    desc: "Enjoy self-guided autonomy, zero class intimidation, and a calm sanctuary tailored to your schedule.",
   },
 ] as const;
 
-export const pillars = [
-  { title: "Stronger", desc: "Build core strength, improve posture & stability." },
-  { title: "Balanced", desc: "Enhance flexibility, mobility and body awareness." },
-  { title: "Rejuvenated", desc: "Reduce stress and restore energy from within." },
-  { title: "Mindful", desc: "Feel more connected, focused and empowered." },
-] as const;
-
 export const instructors = [
-  { name: "Tayla", role: "Founder & Instructor", image: instructor1 },
-  { name: "Lauren", role: "Pilates Instructor", image: instructor2 },
-  { name: "Maddison", role: "Pilates Instructor", image: instructor3 },
-  { name: "Chloe", role: "Yoga Instructor", image: instructor4 },
+  { name: "Tayla", role: "Founder & Master Instructor", image: instructor1 },
+  { name: "Lauren", role: "Lead Pilates Instructor", image: instructor2 },
+  { name: "Maddison", role: "Pilates & Mobility Specialist", image: instructor3 },
+  { name: "Chloe", role: "Yoga & Mindfulness Instructor", image: instructor4 },
 ] as const;
 
 export interface PricingPlan {
@@ -102,28 +127,49 @@ export interface PricingPlan {
 
 export const specialOffers = [
   {
-    name: "Gift Vouchers",
+    name: "New Client Intro Offer",
+    price: "$40",
+    unit: "4 Classes",
+    saveBadge: "New Client Special",
+    originalPrice: "$84 value",
+    iframeUrl:
+      "https://n24pilatesstudio.gymmasteronline.com/portal/signup/details/9470d85507491296a31c643e990c513d",
+    description:
+      "Experience Australia's premier self-guided Digital Reformer Pilates sanctuary in Applecross over 15 days.",
+    features: [
+      "2x Digital reformer classes & 2x Infrared sauna (30 mins)",
+      "Studio access from 5:00 AM – 10:00 PM daily at your convenience",
+      "Valid for 15 days from purchase — zero membership commitment",
+      "Special discount available when you sign up for membership during the intro offer",
+    ],
+    buttonText: "Claim Intro Offer",
+  },
+  {
+    name: "Casual Reformer Pass",
+    price: "$28",
+    unit: "",
+    iframeUrl:
+      "https://n24pilatesstudio.gymmasteronline.com/portal/signup/details/aed5ee27360968bdaae83ecc6ca49ec6",
+    description:
+      "Experience the freedom of a single self-guided Reformer session — valid for 30 days from purchase.",
+    features: [
+      "Studio access from 5:00 AM – 10:00 PM daily at your convenience",
+      "First On-boarding session must be booked during the staff hours",
+      "Access to 800+ on-demand Digital Reformer & Mat masterclasses",
+      "Zero membership commitment or contracts required",
+    ],
+    buttonText: "Book Casual Class",
+  },
+  {
+    name: "Digital Gift Vouchers",
     price: "",
     unit: "",
     iframeUrl: "",
     comingSoon: true,
     description:
-      "Give your loved ones gift of strength, balance & longevity and make them feel special as they are with a gift that nourishes from the inside out. Our Gift cards offer the perfect blend of physical challenge and mental restoration through the power of Pilates",
+      "Share the gift of strength, balance, and vitality. Our digital gift vouchers offer loved ones a sanctuary of physical rejuvenation and restorative infrared recovery in Applecross—a thoughtful experience that nourishes from the inside out.",
     features: [],
     buttonText: "Coming Soon",
-  },
-  {
-    name: "Reformer Pilates Casual",
-    price: "$28",
-    unit: "",
-    iframeUrl:
-      "https://n24pilatesstudio.gymmasteronline.com/portal/signup/details/aed5ee27360968bdaae83ecc6ca49ec6",
-    description: "Valid for 1 month from purchase date",
-    features: [
-      "Access studio from 5am - 10pm at your convenience",
-      "First On-boarding session must be booked during the staff hours",
-    ],
-    buttonText: "Get Moving",
   },
 ] as const;
 
@@ -136,17 +182,17 @@ export const weeklyMemberships = [
     originalPrice: "$52.25",
     iframeUrl:
       "https://n24pilatesstudio.gymmasteronline.com/portal/signup/details/58fe897921eb2718a0a7de2a56c68e1e",
-    description: "Unlimited Reformer, Mat, Yoga, HIIT Hybrid, Stretch + Strength and much more",
+    description:
+      "Unlimited daily access to Digital Reformer, Mat, Yoga, Stretch + Strength, and our complete 800+ on-demand class library.",
     features: [
-      "Unlimited Infrared Sauna",
-      "10% off on Weekly Direct Debit (Month Special)",
-      "Welcome Pack Included",
-      "Access studio from 5am - 10pm at your convenience",
-      "No joining fee",
-      "Auto Renewing until cancelled",
-      "First On-boarding session must be booked during the staff hours",
+      "Unlimited Reformer Pilates & Private Infrared Sauna Therapy included",
+      "10% off Weekly Direct Debit (Exclusive Monthly Special)",
+      "Complimentary N24 Welcome Pack Included",
+      "Unlimited studio access from 5:00 AM – 10:00 PM, 7 days a week",
+      "Seamless auto-renewal with total membership flexibility",
+      "1 on 1 personal training session included",
     ],
-    buttonText: "Jump In",
+    buttonText: "Start Weekly Plan",
   },
   {
     name: "6 Month Value Commitment",
@@ -156,37 +202,35 @@ export const weeklyMemberships = [
     originalPrice: "",
     iframeUrl:
       "https://n24pilatesstudio.gymmasteronline.com/portal/signup/details/d0c08c72e55663e6493d8a42372e771f",
-    description: "Unlimited Reformer, Mat, Yoga, HIIT Hybrid, Stretch + Strength and much more",
+    description:
+      "Our most popular membership for consistent movement, core strength, and restorative recovery at an exceptional weekly value.",
     features: [
-      "Unlimited Infrared Sauna",
-      "2 Weeks Free",
-      "Welcome Pack Included",
-      "Access studio from 5am - 10pm at your convenience",
-      "No joining fee",
-      "Auto Renewing",
-      "6-Month Contract",
-      "First On-boarding session must be booked during the staff hours",
+      "Unlimited Reformer Pilates & Private Infrared Sauna Therapy included",
+      "2 Weeks Free Membership added to your commitment",
+      "Complimentary N24 Welcome Pack Included",
+      "Unlimited studio access from 5:00 AM – 10:00 PM, 7 days a week",
+      "6-Month Membership for sustained physical transformation",
+      "1 on 1 personal training session included",
     ],
-    buttonText: "Start 6-Month Plan",
+    buttonText: "Commit to 6 Months",
   },
   {
-    name: "12 Month Value commitment",
+    name: "12 Month Value Commitment",
     price: "$42.50",
     unit: "/week",
     saveBadge: "",
     originalPrice: "",
     iframeUrl:
       "https://n24pilatesstudio.gymmasteronline.com/portal/signup/details/27011bdffcc5575799dc89fc8a390a3e",
-    description: "Unlimited Reformer, Mat, Yoga, HIIT Hybrid, Stretch + Strength and much more",
+    description:
+      "The ultimate investment in long-term movement health, spinal longevity, and daily stress relief at our lowest weekly rate.",
     features: [
-      "Unlimited Infrared Sauna",
-      "5 Weeks Free",
-      "Welcome Pack Included",
-      "Access studio from 5am - 10pm at your convenience",
-      "No joining fee",
-      "Auto Renewing",
-      "12-Month Contract",
-      "First On-boarding session must be booked during the staff hours",
+      "Unlimited Reformer Pilates & Private Infrared Sauna Therapy included",
+      "5 Weeks Free Membership added to your commitment",
+      "Complimentary N24 Welcome Pack Included",
+      "Unlimited studio access from 5:00 AM – 10:00 PM, 7 days a week",
+      "12-Month Membership for enduring wellness and vitality",
+      "1 on 1 personal training session included",
     ],
     buttonText: "Start Year of Wellness",
   },
@@ -202,13 +246,15 @@ export const pilatesSessionPacks = [
     discountedPrice: "$24.00 / session",
     iframeUrl:
       "https://n24pilatesstudio.gymmasteronline.com/portal/signup/details/e628daba40a06bf6b3a7c7afb58a0623",
-    description: "Digital Reformer, Mat, Yoga, HIIT Hybrid, Stretch + Strength and much more:",
+    description:
+      "Enjoy 5 self-guided Digital Reformer, Mat, Yoga, or Stretch sessions with total booking freedom:",
     features: [
-      "Access studio from 5am - 10pm at your convenience",
+      "Unlimited studio access from 5:00 AM – 10:00 PM daily",
       "First On-boarding session must be booked during the staff hours",
-      "Valid for 2 months from purchase date",
+      "Valid for 2 full months from purchase date",
+      "Access to 800+ on-demand classes across all fitness levels",
     ],
-    buttonText: "Buy and Save",
+    buttonText: "Purchase 5 Pack",
   },
   {
     name: "10 Pack Digital Reformer Pilates",
@@ -219,13 +265,15 @@ export const pilatesSessionPacks = [
     discountedPrice: "$21.00 / session",
     iframeUrl:
       "https://n24pilatesstudio.gymmasteronline.com/portal/signup/details/6df24c5d5d9889b30959a0a711ca5b6c",
-    description: "Digital Reformer, Mat, Yoga, HIIT Hybrid, Stretch + Strength and much more:",
+    description:
+      "Our most popular session pack—10 self-guided Digital Reformer or Mat classes with extended validity:",
     features: [
-      "Access studio from 5am - 10pm at your convenience",
+      "Unlimited studio access from 5:00 AM – 10:00 PM daily",
       "First On-boarding session must be booked during the staff hours",
-      "Valid for 3 months from purchase date",
+      "Valid for 3 full months from purchase date",
+      "Access to 800+ on-demand classes across all fitness levels",
     ],
-    buttonText: "Buy and Save",
+    buttonText: "Purchase 10 Pack",
   },
   {
     name: "20 Pack Digital Reformer Pilates",
@@ -236,13 +284,15 @@ export const pilatesSessionPacks = [
     discountedPrice: "$18.00 / session",
     iframeUrl:
       "https://n24pilatesstudio.gymmasteronline.com/portal/signup/details/9b6ba170db57a445f1f098333493b8ac",
-    description: "Digital Reformer, Mat, Yoga, HIIT Hybrid, Stretch + Strength and much more:",
+    description:
+      "Our best per-session value—20 self-guided Digital Reformer or Mat classes for dedicated practitioners:",
     features: [
-      "Access studio from 5am - 10pm at your convenience",
+      "Unlimited studio access from 5:00 AM – 10:00 PM daily",
       "First On-boarding session must be booked during the staff hours",
-      "Valid for 6 months from purchase date",
+      "Valid for 6 full months from purchase date",
+      "Access to 800+ on-demand classes across all fitness levels",
     ],
-    buttonText: "Buy and Save",
+    buttonText: "Purchase 20 Pack",
   },
 ] as const;
 
@@ -256,9 +306,14 @@ export const infraredSaunaPacks = [
     discountedPrice: "",
     iframeUrl:
       "https://n24pilatesstudio.gymmasteronline.com/portal/signup/details/921e4e44a8765f64d28966b697f4466a",
-    description: "Access to the infrared sauna:",
-    features: ["Valid for 1 month from purchase date"],
-    buttonText: "Buy Now",
+    description:
+      "Private 45-minute infrared sauna heat therapy session for muscle recovery and detoxification:",
+    features: [
+      "Private luxury 2-capacity sauna suite",
+      "Valid for 1 month from purchase date",
+      "Complimentary shower facilities & wellness amenities",
+    ],
+    buttonText: "Book Sauna Session",
   },
   {
     name: "Infrared Sauna Casual for Two (45 Mins)",
@@ -269,9 +324,14 @@ export const infraredSaunaPacks = [
     discountedPrice: "$20.00 / session",
     iframeUrl:
       "https://n24pilatesstudio.gymmasteronline.com/portal/signup/details/12a2ffe9bf9da73eb99dec908042a0b3",
-    description: "Access the Infrared Sauna:",
-    features: ["Valid for 1 month from purchase date", "Applies for 2 people"],
-    buttonText: "Connect and Relax",
+    description:
+      "Share a private 45-minute infrared sauna recovery session with a partner or friend:",
+    features: [
+      "Private luxury 2-capacity sauna suite (applies for 2 people)",
+      "Valid for 1 month from purchase date",
+      "Complimentary shower facilities & wellness amenities",
+    ],
+    buttonText: "Book Sauna for Two",
   },
   {
     name: "5 Pack Infrared Sauna (45 Mins)",
@@ -282,9 +342,14 @@ export const infraredSaunaPacks = [
     discountedPrice: "$22.00 / session",
     iframeUrl:
       "https://n24pilatesstudio.gymmasteronline.com/portal/signup/details/599d7ac72e7809746dad8a449fa11580",
-    description: "Access the Infrared Sauna:",
-    features: ["Valid for 2 months from purchase date"],
-    buttonText: "Buy and Save",
+    description:
+      "5 private 45-minute infrared sauna sessions to accelerate muscle recovery and relieve tension:",
+    features: [
+      "Private luxury 2-capacity sauna suite",
+      "Valid for 2 months from purchase date",
+      "Complimentary shower facilities & wellness amenities",
+    ],
+    buttonText: "Purchase 5 Pack",
   },
   {
     name: "10 Pack Infrared Sauna (45 Mins)",
@@ -295,9 +360,14 @@ export const infraredSaunaPacks = [
     discountedPrice: "$21.00 / session",
     iframeUrl:
       "https://n24pilatesstudio.gymmasteronline.com/portal/signup/details/ee192da9025575f6986aaebfadb17a1e",
-    description: "Access the Infrared Sauna:",
-    features: ["Valid for 3 months from purchase date"],
-    buttonText: "Buy and Save",
+    description:
+      "10 private 45-minute infrared sauna sessions for regular detoxification and stress relief:",
+    features: [
+      "Private luxury 2-capacity sauna suite",
+      "Valid for 3 months from purchase date",
+      "Complimentary shower facilities & wellness amenities",
+    ],
+    buttonText: "Purchase 10 Pack",
   },
   {
     name: "20 Pack Infrared Sauna (45 Mins)",
@@ -308,9 +378,14 @@ export const infraredSaunaPacks = [
     discountedPrice: "$18.00 / session",
     iframeUrl:
       "https://n24pilatesstudio.gymmasteronline.com/portal/signup/details/6bbd0b6580ffa674092bd71d8db02b36",
-    description: "Access the Infrared Sauna:",
-    features: ["Valid for 6 months from purchase date"],
-    buttonText: "Buy and Save",
+    description:
+      "20 private 45-minute infrared sauna sessions for dedicated athletes and wellness seekers:",
+    features: [
+      "Private luxury 2-capacity sauna suite",
+      "Valid for 6 months from purchase date",
+      "Complimentary shower facilities & wellness amenities",
+    ],
+    buttonText: "Purchase 20 Pack",
   },
 ] as const;
 
@@ -328,7 +403,7 @@ export const schedule = [
     sessions: [
       ["6:30", "Yoga Flow", "Chloe"],
       ["10:00", "Reformer Pilates", "Tayla"],
-      ["18:00", "Meditation", "Chloe"],
+      ["18:00", "Meditation & Breathwork", "Chloe"],
     ],
   },
   {
@@ -351,7 +426,7 @@ export const schedule = [
     day: "Friday",
     sessions: [
       ["6:00", "Reformer Pilates", "Tayla"],
-      ["9:30", "Meditation", "Chloe"],
+      ["9:30", "Restorative Yoga", "Chloe"],
       ["17:00", "Mat Pilates", "Maddison"],
     ],
   },

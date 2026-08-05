@@ -139,12 +139,7 @@
     line-height: 1.2;
   }
 
-  /* Touch-friendly tap targets */
-  button, a {
-    min-height: 44px;
-    display: inline-flex;
-    align-items: center;
-  }
+
 
   /* Prevent image overflow */
   img, video {

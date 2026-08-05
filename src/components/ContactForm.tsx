@@ -1,58 +1,57 @@
 "use client";
 
-import { useState } from "react";
-import { BrandButton } from "@/components/BrandButton";
+import { useEffect, useState } from "react";
+import Script from "next/script";
 
 export function ContactForm() {
-  const [sent, setSent] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
-  if (sent) {
-    return (
-      <div className="mt-8 rounded-2xl bg-primary/10 p-6 text-center text-primary">
-        Thank you — we'll be in touch shortly.
-      </div>
-    );
-  }
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      const win = window as any;
+      if (typeof win.iFrameResize === "function") {
+        try {
+          win.iFrameResize(
+            {
+              checkOrigin: false,
+              interval: 50,
+            },
+            "#gmiframe, .gmiframe",
+          );
+        } catch (e) {
+          console.error("iFrameResize init error:", e);
+        }
+      }
+    }, 100);
+
+    return () => clearTimeout(timer);
+  }, []);
 
   return (
-    <form
-      className="mt-6 space-y-4"
-      onSubmit={(e) => {
-        e.preventDefault();
-        setSent(true);
-      }}
-    >
-      <div className="grid gap-4 sm:grid-cols-2">
-        <input
-          required
-          placeholder="First name"
-          className="h-12 w-full rounded-full border border-[#00C8D7]/25 bg-white px-5 text-sm text-[#111827] placeholder:text-[#9CA3AF] outline-none focus:border-[#00C8D7] focus:ring-2 focus:ring-[#00C8D7]/15 transition-all"
-        />
-        <input
-          required
-          placeholder="Last name"
-          className="h-12 w-full rounded-full border border-[#00C8D7]/25 bg-white px-5 text-sm text-[#111827] placeholder:text-[#9CA3AF] outline-none focus:border-[#00C8D7] focus:ring-2 focus:ring-[#00C8D7]/15 transition-all"
+    <>
+      <Script
+        src="https://n24pilatesstudio.gymmasteronline.com/portal/static/js/hostpage.js"
+        strategy="afterInteractive"
+      />
+      <div className="relative w-full min-h-[600px]">
+        {isLoading && (
+          <div className="absolute inset-0 flex flex-col items-center justify-center bg-white/90 backdrop-blur-sm z-10 transition-opacity rounded-2xl">
+            <div className="size-10 rounded-full border-4 border-[#00C8D7]/20 border-t-[#00C8D7] animate-spin mb-3" />
+            <p className="text-sm font-light text-[#5B6B70] tracking-wide">
+              Loading secure inquiry form...
+            </p>
+          </div>
+        )}
+        <iframe
+          id="gmiframe"
+          className="gmiframe w-full min-h-[650px] border-0 rounded-2xl bg-white shadow-sm"
+          src="https://n24pilatesstudio.gymmasteronline.com/portal/enquiry"
+          title="Contact N24 Pilates Studio"
+          allow="camera *; microphone *"
+          onLoad={() => setIsLoading(false)}
         />
       </div>
-      <input
-        required
-        type="email"
-        placeholder="Email address"
-        className="h-12 w-full rounded-full border border-[#00C8D7]/25 bg-white px-5 text-sm text-[#111827] placeholder:text-[#9CA3AF] outline-none focus:border-[#00C8D7] focus:ring-2 focus:ring-[#00C8D7]/15 transition-all"
-      />
-      <input
-        placeholder="Phone (optional)"
-        className="h-12 w-full rounded-full border border-[#00C8D7]/25 bg-white px-5 text-sm text-[#111827] placeholder:text-[#9CA3AF] outline-none focus:border-[#00C8D7] focus:ring-2 focus:ring-[#00C8D7]/15 transition-all"
-      />
-      <textarea
-        required
-        rows={5}
-        placeholder="How can we help?"
-        className="w-full rounded-3xl border border-[#00C8D7]/25 bg-white px-5 py-4 text-sm text-[#111827] placeholder:text-[#9CA3AF] outline-none focus:border-[#00C8D7] focus:ring-2 focus:ring-[#00C8D7]/15 transition-all"
-      />
-      <BrandButton type="submit" size="md" className="w-full">
-        Send Message
-      </BrandButton>
-    </form>
+    </>
   );
 }

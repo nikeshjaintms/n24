@@ -18,10 +18,10 @@ export default function Schedule() {
   return (
     <SiteLayout>
       <PageHero
-        eyebrow="Weekly Schedule"
-        title="Book your"
-        accent="spot."
-        subtitle="Spaces are limited to keep classes intimate. Reserve your place and arrive ten minutes early to settle in."
+        eyebrow="Digital Studio Hours"
+        title="Open 5:00 AM"
+        accent="to 10:00 PM."
+        subtitle="No rigid timetables, no waitlists, and zero booking friction. Access 800+ on-demand reformer masterclasses on your individual touchscreen 7 days a week, 365 days a year."
       />
 
       <section className="py-32" style={{ background: "#0F172A" }}>
@@ -35,67 +35,62 @@ export default function Schedule() {
             whileInView="visible"
             viewport={{ once: true }}
             variants={stagger}
-            className="mb-14"
+            className="mb-16 flex flex-col sm:flex-row sm:items-end justify-between gap-6"
           >
-            <motion.p variants={fadeUp} className="eyebrow text-[#00C8D7] mb-4">
-              Timetable
+            <div>
+              <motion.p variants={fadeUp} className="eyebrow text-[#00C8D7] mb-3">
+                Concierge Staff Hours
+              </motion.p>
+              <motion.h2
+                variants={fadeUp}
+                className="font-display text-4xl md:text-5xl text-white leading-tight"
+              >
+                Weekly <em className="text-[#00C8D7]">availability</em>
+              </motion.h2>
+            </div>
+            <motion.p variants={fadeUp} className="text-white/50 text-sm max-w-xs font-light">
+              Our studio is accessible from 5:00 AM to 10:00 PM daily. Below are our staffed
+              concierge hours for personalized assistance and tours.
             </motion.p>
-            <motion.h2 variants={fadeUp} className="font-display text-5xl md:text-6xl text-white">
-              This Week&apos;s <em className="text-[#7EE8FA]">Classes</em>
-            </motion.h2>
           </motion.div>
 
-          {/* Schedule grid */}
-          <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+          {/* Grid */}
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {schedule.map((day, di) => (
               <motion.div
                 key={day.day}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.7, delay: di * 0.08 }}
-                whileHover={{ y: -4 }}
-                className="relative overflow-hidden rounded-[28px] border border-white/8 p-7 transition-shadow duration-300 hover:shadow-[0_8px_32px_rgba(0,200,215,0.12)]"
-                style={{ background: "rgba(255,255,255,0.04)", backdropFilter: "blur(12px)" }}
+                transition={{ duration: 0.6, delay: di * 0.08 }}
+                className="rounded-[28px] border border-white/10 p-8 flex flex-col justify-between transition-all duration-300 hover:border-white/20 hover:-translate-y-1"
+                style={{ background: "rgba(255,255,255,0.03)", backdropFilter: "blur(16px)" }}
               >
-                {/* Day header */}
-                <div className="flex items-center justify-between mb-6">
-                  <h3
-                    className="font-display text-2xl"
-                    style={{ color: dayColors[di % dayColors.length] }}
-                  >
-                    {day.day}
-                  </h3>
-                  <Calendar className="size-4 text-white/20" />
-                </div>
+                <div>
+                  {/* Day header */}
+                  <div className="flex items-center justify-between mb-8 pb-6 border-b border-white/10">
+                    <h3 className="font-display text-2xl text-white">{day.day}</h3>
+                    <div
+                      className="size-3 rounded-full"
+                      style={{ background: dayColors[di % dayColors.length] }}
+                    />
+                  </div>
 
-                {/* Accent line */}
-                <div
-                  className="mb-6 h-px w-full"
-                  style={{
-                    background: `linear-gradient(90deg, ${dayColors[di % dayColors.length]}50, transparent)`,
-                  }}
-                />
-
-                {/* Sessions */}
-                <ul className="space-y-4">
-                  {day.sessions.map(([time, name, coach]) => (
-                    <li key={time + name} className="flex items-center justify-between gap-3">
-                      <div>
-                        <p className="text-[0.875rem] font-semibold text-white">{name}</p>
-                        <p className="mt-0.5 text-[0.65rem] uppercase tracking-[0.18em] text-white/40">
-                          {coach}
-                        </p>
-                      </div>
-                      <span
-                        className="font-display text-2xl leading-none shrink-0"
-                        style={{ color: dayColors[di % dayColors.length] }}
+                  {/* Sessions */}
+                  <ul className="space-y-4">
+                    {day.sessions.map(([time, name, instructor], si) => (
+                      <li
+                        key={si}
+                        className="flex items-center justify-between text-[0.875rem] py-2.5 border-b border-white/5 last:border-none"
                       >
-                        {time}
-                      </span>
-                    </li>
-                  ))}
-                </ul>
+                        <span className="font-medium text-white/90">{name}</span>
+                        <span className="text-white/40 font-light text-xs">
+                          {time} · {instructor}
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </motion.div>
             ))}
           </div>
@@ -111,10 +106,11 @@ export default function Schedule() {
           >
             <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-[#00C8D7]/5 via-transparent to-[#7EE8FA]/5" />
             <h2 className="font-display text-4xl md:text-5xl text-white mb-4 relative z-10">
-              Ready when you are
+              Ready to move at your own tempo?
             </h2>
             <p className="text-white/50 font-light mb-8 max-w-md mx-auto relative z-10">
-              New to the studio? Start with three classes for $79 and find your flow.
+              No rigid schedules, no class anxiety. Enjoy self-guided Digital Reformer Pilates and
+              Private Infrared Saunas whenever your lifestyle demands.
             </p>
             <div className="relative z-10 flex flex-wrap justify-center gap-4">
               <Link

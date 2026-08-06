@@ -61,37 +61,50 @@ export default function About() {
               className="lg:pl-8"
             >
               <motion.p variants={fadeUp} className="eyebrow text-[#00C8D7] mb-6 tracking-[0.3em]">
-                Who We Are &amp; Why We Exist
+                Who We Are
               </motion.p>
               <motion.h2
                 variants={fadeUp}
-                className="font-display text-5xl md:text-7xl text-[#0A0F1E] leading-[1.0] mb-8"
+                className="font-display text-4xl md:text-5xl text-[#0A0F1E] leading-[1.2] mb-6"
               >
-                A sanctuary built for
-                <br />
-                <em className="text-[#00C8D7] font-light">your individual rhythm</em>
+                Our Story
               </motion.h2>
               <motion.div
                 variants={fadeUp}
-                className="space-y-6 text-[1.1rem] leading-[1.9] text-[#5B6B70] font-light mb-12"
+                className="space-y-4 text-[1.05rem] leading-[1.8] text-[#5B6B70] font-light mb-10"
               >
                 <p>
-                  Traditional fitness studios often demand that you fit their schedule, compete in
-                  crowded rooms, or move at a pace that doesn&apos;t honour your body. N24 Pilates
-                  was born from a transformative vision: to create a calm, light-filled sanctuary
-                  where you have complete autonomy over your wellness journey.
+                  Our studio was born from a desire to create a wellness space that truly puts people first. After years of witnessing the drawbacks of traditional fitness environments where the focus is often on crowded classes and one-size-fits-all routines, we knew there had to be a better way. We envisioned a place where the journey to health is personal, supportive, and focused on genuine mind-body connection.
                 </p>
+              </motion.div>
+
+              <motion.h2
+                variants={fadeUp}
+                className="font-display text-4xl md:text-5xl text-[#0A0F1E] leading-[1.2] mb-6"
+              >
+                Our Studio
+              </motion.h2>
+              <motion.div
+                variants={fadeUp}
+                className="space-y-4 text-[1.05rem] leading-[1.8] text-[#5B6B70] font-light mb-10"
+              >
                 <p>
-                  We pioneered self-guided Digital Reformer Pilates to remove class intimidation and
-                  rigid timetable barriers. With visual touchscreen guidance and private studio
-                  suites, you move at your own tempo—whether you are an athlete conditioning your
-                  core, a busy professional grabbing a 6:00 AM workout, or a beginner discovering
-                  movement for the first time.
+                  We built this studio to give you a space where you can move at your own pace and choose the workout your body needs. Our extensive Digital Library offers over 800 expert-designed programs in Reformer, Mat Pilates, Yoga, HIIT Hybrid, Stretch + Strength and much more. You'll find more than 20 different styles, from beginner fundamentals and expert-level challenges to specialized clinical Pilates and physiotherapy-focused routines. Every program is carefully created to be safe and effective and our onsite instructors are here to help you during the staff hours 6 days a week.
                 </p>
+              </motion.div>
+
+              <motion.h2
+                variants={fadeUp}
+                className="font-display text-4xl md:text-5xl text-[#0A0F1E] leading-[1.2] mb-6"
+              >
+                Our Vision
+              </motion.h2>
+              <motion.div
+                variants={fadeUp}
+                className="space-y-4 text-[1.05rem] leading-[1.8] text-[#5B6B70] font-light mb-12"
+              >
                 <p>
-                  Every detail of our Applecross studio—from professional-grade reformers to private
-                  infrared sauna suites—is designed to help you build resilient physical strength
-                  while calming your nervous system.
+                  We believe wellness means movement and recovery, so our studio includes infrared sauna facilities. After your workout, you can relax and enjoy benefits like muscle recovery, detoxification and healthier skin. Our goal is for you to leave each session feeling stronger, more centered and confident you're getting real value. It's a complete wellness experience from building strength to restoring your body, all in one place.
                 </p>
               </motion.div>
               <motion.div variants={fadeUp}>
@@ -170,7 +183,7 @@ export default function About() {
       </section>
 
       {/* ── CTA Banner ─────────────────────────── */}
-      <section className="relative overflow-hidden bg-white py-24">
+      <section id="complimentary-pass" className="relative overflow-hidden bg-white py-24">
         <div className="mx-auto max-w-7xl px-6 lg:px-10">
           <motion.div
             initial={{ opacity: 0, y: 40 }}
@@ -193,12 +206,11 @@ export default function About() {
                 Begin Your Transformation
               </p>
               <h2 className="font-display text-5xl md:text-7xl text-white mb-6 drop-shadow-lg">
-                Experience N24 for yourself
+                Claim Your Complimentary Pass
               </h2>
 
               <p className="text-white/80 text-lg md:text-xl font-light max-w-2xl mx-auto mb-8 leading-relaxed">
-                Join our Applecross community with our exclusive Introductory Offer—4 full
-                sessions (2 digital reformer classes, 2 infrared sauna sessions) over 15 days for just $40. Special discount available for membership sign-ups!
+                Join our Applecross community with an exclusive complimentary pass. Experience our premium self-guided Digital Reformer Pilates or restorative Infrared Sauna sessions and start your transformation on us today.
               </p>
 
               {/* Highlight Offer Badge */}
@@ -206,7 +218,7 @@ export default function About() {
                 <div className="inline-flex items-center gap-3 px-6 py-2 rounded-full border border-white/20 bg-white/10 backdrop-blur-md">
                   <span className="text-xl">✨</span>
                   <span className="text-white font-medium text-sm">
-                    Claim Your Introductory Offer — 4 Sessions for $40
+                    Claim Your Free Studio Pass Today
                   </span>
                 </div>
               </div>

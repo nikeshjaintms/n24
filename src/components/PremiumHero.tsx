@@ -173,56 +173,21 @@ export function PremiumHero({
                 className="group relative flex items-center justify-center gap-3 overflow-hidden rounded-full bg-gradient-to-r from-[#16D9F5] to-[#0cb8d2] px-10 py-5 text-[0.85rem] font-bold uppercase tracking-[0.2em] text-[#071321] transition-all duration-500 hover:-translate-y-1.5 hover:shadow-[0_15px_35px_-5px_rgba(22,217,245,0.4)] w-full sm:w-auto"
               >
                 <span className="relative z-10 flex items-center gap-2">
-                  Book Your First Session
+                  Book Your Class
                   <ArrowRight className="size-5 transition-transform duration-300 group-hover:translate-x-1.5" />
                 </span>
                 <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out" />
               </Link>
 
               <Link
-                href="/pricing"
+                href="/about#complimentary-pass"
                 className="group flex items-center justify-center rounded-full border border-white/20 bg-white/5 px-10 py-5 text-[0.85rem] font-bold uppercase tracking-[0.2em] text-white transition-all duration-500 hover:-translate-y-1.5 hover:border-white/50 hover:bg-white/10 hover:shadow-[0_15px_35px_-5px_rgba(255,255,255,0.1)] backdrop-blur-md w-full sm:w-auto"
               >
-                Explore Membership Value
+                Claim Your Complimentary Pass
               </Link>
             </motion.div>
 
-            {/* Trust & Highlights Bar */}
-            <motion.div
-              variants={fadeUp}
-              className="mt-10 flex flex-wrap items-center justify-center lg:justify-start gap-3 sm:gap-5 text-white/80 text-[0.8rem] font-light"
-            >
-              <div className="flex items-center gap-1.5">
-                <div className="flex text-[#16D9F5]">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="size-3.5 fill-current" />
-                  ))}
-                </div>
-                <span className="font-semibold text-white">5.0 Google Rated Studio</span>
-              </div>
-              <span className="text-white/30">•</span>
-              <span>800+ On-Demand Workouts</span>
-              <span className="text-white/30">•</span>
-              <span>100% Beginner Friendly</span>
-              <span className="text-white/30">•</span>
-              <span>No Crowded Classes</span>
-            </motion.div>
 
-            {/* New Client Value Highlight */}
-            <motion.div variants={fadeUp} className="mt-4">
-              <a
-                href="https://n24pilatesstudio.gymmasteronline.com/portal/signup/details/9470d85507491296a31c643e990c513d"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2.5 rounded-full border border-[#16D9F5]/30 bg-[#16D9F5]/10 px-5 py-2 text-[0.75rem] text-[#7EE8FA] backdrop-blur-md transition-all hover:border-[#16D9F5]/80 hover:bg-[#16D9F5]/20 hover:scale-[1.02]"
-              >
-                <span className="size-2 rounded-full bg-[#16D9F5] animate-pulse" />
-                <span>
-                  <strong className="font-semibold text-white">New Client Exclusive:</strong> 4
-                  Intro Sessions for $40 — Start your transformation today.
-                </span>
-              </a>
-            </motion.div>
           </motion.div>
         </motion.div>
       </section>

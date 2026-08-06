@@ -28,6 +28,7 @@ import {
   Smile,
   CheckCircle2,
 } from "lucide-react";
+import Script from "next/script";
 import { SiteLayout } from "@/components/SiteLayout";
 import { PremiumHero } from "@/components/PremiumHero";
 import { PricingModal } from "@/components/PricingModal";
@@ -254,8 +255,31 @@ export default function Home() {
     };
   }, []);
 
+  const [isOfferModalOpen, setIsOfferModalOpen] = useState(false);
+  const offerPlan = {
+    name: "4 Intro Classes for $40",
+    price: "$40",
+    iframeUrl: "https://n24pilatesstudio.gymmasteronline.com/portal/signup/details/9470d85507491296a31c643e990c513d"
+  };
+
   return (
     <SiteLayout>
+      {/* GymMaster External Scripts for iframes */}
+      <Script id="gymmaster-jq-conflict-pre" strategy="afterInteractive">
+        {`if (typeof jQuery !== 'undefined') var oldJQuery = jQuery.noConflict(true);`}
+      </Script>
+      <Script
+        src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"
+        strategy="afterInteractive"
+      />
+      <Script id="gymmaster-jq-conflict-post" strategy="afterInteractive">
+        {`if (typeof jQuery !== 'undefined') { jQueryX = jQuery.noConflict(true); } if (typeof oldJQuery !== 'undefined') { jQuery = oldJQuery; }`}
+      </Script>
+      <Script
+        src="https://n24pilatesstudio.gymmasteronline.com/portal/static/js/hostpage.js"
+        strategy="lazyOnload"
+      />
+
       {/* ═══════════════════════════════════════════
           1. HERO — Cinematic full-screen with refined animations
       ═══════════════════════════════════════════ */}
@@ -715,10 +739,8 @@ export default function Home() {
             variants={fadeUp}
             className="flex flex-col sm:flex-row items-center justify-center gap-6"
           >
-            <a
-              href="https://n24pilatesstudio.gymmasteronline.com/portal/signup/details/9470d85507491296a31c643e990c513d"
-              target="_blank"
-              rel="noopener noreferrer"
+            <button
+              onClick={() => setIsOfferModalOpen(true)}
               className="group relative overflow-hidden rounded-full bg-[#00C8D7] px-12 py-5 text-[0.8rem] font-bold uppercase tracking-[0.2em] text-[#0A0F1E] shadow-[0_0_40px_rgba(0,200,215,0.4)] transition-all duration-500 hover:scale-[1.02] inline-block"
             >
               <span className="relative z-10 flex items-center gap-3">
@@ -726,7 +748,7 @@ export default function Home() {
                 <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
               </span>
               <div className="absolute inset-0 bg-gradient-to-r from-[#00C8D7] via-white to-[#00C8D7] opacity-0 group-hover:opacity-50 transition-opacity duration-500 mix-blend-overlay" />
-            </a>
+            </button>
           </motion.div>
         </motion.div>
       </section>
@@ -889,6 +911,15 @@ export default function Home() {
           <div className="absolute inset-0 bg-[#00C8D7]/5 pointer-events-none mix-blend-color" />
         </div>
       </section>
+
+      {/* ═══════════════════════════════════════════
+          MODALS
+      ═══════════════════════════════════════════ */}
+      <PricingModal
+        isOpen={isOfferModalOpen}
+        onClose={() => setIsOfferModalOpen(false)}
+        plan={offerPlan}
+      />
     </SiteLayout>
   );
 }

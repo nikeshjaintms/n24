@@ -20,7 +20,7 @@ export function Footer() {
                 Join The Inner Circle
               </h3>
               <p className="mt-1 text-[0.8rem] sm:text-[0.85rem] text-white/60 font-light">
-                Receive private introductory offers, movement tips, and Applecross studio updates.
+                Elevate your movement journey. Receive private offers, wellness insights, and studio updates.
               </p>
             </div>
           </div>
@@ -56,8 +56,7 @@ export function Footer() {
               <Logo />
             </div>
             <p className="mt-3 text-[0.9rem] sm:text-[0.95rem] leading-relaxed text-white/60 font-light max-w-sm">
-              Australia&apos;s premier self-guided Digital Reformer Pilates &amp; Infrared Sauna
-              studio in Applecross. Empowering your body and mind on your own schedule.
+              A premium sanctuary for self-guided Digital Reformer Pilates and Infrared Sauna therapy in Applecross. Empowering your body and mind, entirely on your schedule.
             </p>
             <div className="mt-5 sm:mt-6 flex gap-3 sm:gap-4">
               <a
@@ -124,7 +123,7 @@ export function Footer() {
                   <Mail className="size-3.5 text-[#00C8D7]" strokeWidth={2} />
                 </div>
                 <span className="group-hover:text-white transition-colors break-all sm:break-normal">
-                  Info@n24pilatesstudio.com
+                  info@n24pilatesstudio.com
                 </span>
               </li>
               <li className="flex items-start gap-3 sm:gap-4 group cursor-pointer">

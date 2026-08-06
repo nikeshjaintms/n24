@@ -4,7 +4,6 @@ import * as React from "react";
 import { useState } from "react";
 import Script from "next/script";
 import Image from "next/image";
-import communityImg from "@/assets/community.jpg";
 import {
   specialOffers,
   weeklyMemberships,
@@ -124,7 +123,7 @@ export function PricingContent() {
               <div className="flex flex-col gap-8">
                 <div className="w-full aspect-[21/9] rounded-2xl overflow-hidden relative shadow-lg">
                   <Image 
-                    src={communityImg}
+                    src="/imgo.jpg"
                     alt="Group Pilates Events"
                     fill
                     className="object-cover"

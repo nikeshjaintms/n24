@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Variants, motion, MotionValue } from "framer-motion";
 import { ArrowRight, Star, Users, User, Activity } from "lucide-react";
 
@@ -20,20 +21,6 @@ export function PremiumHero({
   heroOpacity: MotionValue<number>;
   heroScale: MotionValue<number>;
 }) {
-  // Mouse parallax effect
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-
-  useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      const { innerWidth, innerHeight } = window;
-      const x = (e.clientX / innerWidth - 0.5) * 10;
-      const y = (e.clientY / innerHeight - 0.5) * 10;
-      setMousePosition({ x, y });
-    };
-    window.addEventListener("mousemove", handleMouseMove);
-    return () => window.removeEventListener("mousemove", handleMouseMove);
-  }, []);
-
   return (
     <div className="w-full flex flex-col">
       {/* =======================
@@ -41,36 +28,23 @@ export function PremiumHero({
           ======================= */}
       <section className="relative w-full min-h-screen flex flex-col justify-center bg-[#071321] overflow-hidden pt-[120px] lg:pt-[160px] pb-32 lg:pb-48">
         {/* CINEMATIC BACKGROUND */}
-        <motion.div
-          style={{
-            scale: heroScale,
-            x: mousePosition.x * -1,
-            y: mousePosition.y * -1,
-          }}
-          className="absolute inset-0 z-0 overflow-hidden transition-transform duration-[2000ms] ease-out pointer-events-none"
-        >
-          <motion.div
-            animate={{ x: ["-2%", "2%", "-2%"] }}
-            transition={{ duration: 25, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute w-[105%] h-[105%] -left-[2.5%] -top-[2.5%] z-0"
-          >
-            {/* Hero Video */}
-            <video
-              src="/videos/hero video.mp4"
-              autoPlay
-              loop
-              muted
-              playsInline
-              preload="auto"
-              className="absolute inset-0 w-full h-full object-cover filter contrast-[1.05] saturate-[1.1] z-10
-                object-[50%_45%] scale-[1.15] 
-                sm:object-[55%_50%] sm:scale-[1.12] 
-                md:object-[60%_50%] md:scale-[1.10] 
-                lg:object-[65%_50%] lg:scale-[1.08] 
-                xl:object-[65%_48%] xl:scale-[1.06]"
-            />
-          </motion.div>
-        </motion.div>
+        <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+          <Image 
+            src="/8e3d8b9b-f347-461e-9aa2-b3dc929a703c.png" 
+            alt="N24 Pilates Studio" 
+            fill 
+            className="object-cover object-center" 
+            priority
+          />
+          {/* Top gradient for Navbar visibility */}
+          <div className="absolute top-0 inset-x-0 h-40 bg-gradient-to-b from-[#071321]/90 via-[#071321]/60 to-transparent" />
+          
+          {/* Overall overlay to keep hero text readable but image bright */}
+          <div className="absolute inset-0 bg-[#071321]/40" />
+          
+          {/* Bottom gradient to blend smoothly into the next section */}
+          <div className="absolute bottom-0 inset-x-0 h-48 bg-gradient-to-t from-[#071321] to-transparent" />
+        </div>
 
         {/* Floating Orbs / Glows */}
         <motion.div

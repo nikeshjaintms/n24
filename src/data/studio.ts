@@ -17,17 +17,6 @@ export interface ClassItem {
 
 export const classes: readonly ClassItem[] = [
   {
-    slug: "reformer-pilates",
-    name: "Reformer Pilates",
-    image: "/1.png",
-    video: "/videos/6.mp4",
-    short:
-      "Precision spring-resistance training designed to lengthen tight muscles, build deep core stability, improve posture, and enhance total-body control.",
-    long: "Our Reformer Pilates sessions combine classic Pilates principles with modern functional movement. Using progressive spring resistance, every exercise strengthens your deep postural stabilizers, aligns your spine, and enhances joint mobility without unwanted impact. Perfect for beginners and experienced practitioners alike.",
-    duration: "50 min",
-    level: "All Levels",
-  },
-  {
     slug: "digital-reformer-classes",
     name: "Digital Reformer Pilates",
     image: "/2.png",
@@ -37,6 +26,17 @@ export const classes: readonly ClassItem[] = [
     long: "Step into the future of Pilates. Our cutting-edge Digital Reformer consoles give you instant access to over 800 professionally choreographed workouts—ranging from Beginner Foundations and Core Stretch to HIIT Hybrid, Athletic Conditioning, Women's Health, and Active Ageing. Enjoy crystal-clear visual guidance, zero class pressure, and the freedom to train whenever it suits your schedule between 5:00 AM and 10:00 PM daily.",
     duration: "45 min",
     level: "800+ Workouts · All Levels",
+  },
+  {
+    slug: "hiit-hybrid-series",
+    name: "HIIT Hybrid Series",
+    image: "/1.png",
+    video: "/videos/6.mp4",
+    short:
+      "A high-intensity fusion of dynamic reformer sequences and cardiovascular intervals designed to maximize calorie burn and build explosive strength.",
+    long: "Elevate your heart rate and redefine your fitness with our HIIT Hybrid Series. This energetic class blends the precision and resistance of reformer Pilates with high-intensity interval training (HIIT). Expect fast-paced sequences, explosive movements, and full-body conditioning designed to challenge your endurance, sculpt lean muscle, and leave you feeling powerful and invigorated.",
+    duration: "50 min",
+    level: "All Levels",
   },
   {
     slug: "clinical-pilates",
@@ -164,12 +164,12 @@ export const specialOffers = [
     name: "Digital Gift Vouchers",
     price: "",
     unit: "",
-    iframeUrl: "",
-    comingSoon: true,
+    iframeUrl: "https://n24pilatesstudio.gymmasteronline.com/portal/shop",
+    comingSoon: false,
     description:
       "Share the gift of strength, balance, and vitality. Our digital gift vouchers offer loved ones a sanctuary of physical rejuvenation and restorative infrared recovery in Applecross—a thoughtful experience that nourishes from the inside out.",
     features: [],
-    buttonText: "Coming Soon",
+    buttonText: "Buy Gift Voucher",
   },
 ] as const;
 

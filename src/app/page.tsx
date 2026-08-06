@@ -259,6 +259,9 @@ export default function Home() {
   const offerPlan = {
     name: "4 Intro Classes for $40",
     price: "$40",
+    unit: "",
+    description: "New Client Exclusive Offer",
+    features: ["4 Intro Sessions"],
     iframeUrl: "https://n24pilatesstudio.gymmasteronline.com/portal/signup/details/9470d85507491296a31c643e990c513d"
   };
 

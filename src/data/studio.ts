@@ -23,7 +23,7 @@ export const classes: readonly ClassItem[] = [
     video: "/videos/2-wa.mp4",
     short:
       "Australia’s premier self-guided Reformer experience. Access 800+ on-demand masterclasses on personal touchscreens, progressing at your own tempo.",
-    long: "Step into the future of Pilates. Our cutting-edge Digital Reformer consoles give you instant access to over 800 professionally choreographed workouts—ranging from Beginner Foundations and Core Stretch to HIIT Hybrid, Athletic Conditioning, Women's Health, and Active Ageing. Enjoy crystal-clear visual guidance, zero class pressure, and the freedom to train whenever it suits your schedule between 5:00 AM and 10:00 PM daily.",
+    long: "Enjoy Pilates at your own pace with our Digital Reformers. Use the built-in screens to choose from over 800 workouts for all fitness levels—from beginner basics to high-intensity training. Follow clear video instructions with zero class pressure, and train whenever you want between 5:00 AM and 10:00 PM.",
     duration: "45 min",
     level: "800+ Workouts · All Levels",
   },
@@ -78,7 +78,7 @@ export const classes: readonly ClassItem[] = [
     video: "https://res.cloudinary.com/lxz3wn2z/video/upload/v1785915313/3-wa_y3uqmc.mp4",
     short:
       "Deep-tissue infrared heat therapy designed to melt muscle soreness, accelerate cellular recovery, detoxify your body, and promote deep relaxation.",
-    long: "The ultimate complement to Reformer Pilates. Our private 2-capacity infrared saunas use penetrating wavelengths to warm muscle tissue directly—increasing circulation, relieving joint stiffness, supporting cardiovascular health, and promoting profound stress relief after class.",
+    long: "The ultimate complement to Reformer Pilates. Our private infrared saunas use penetrating wavelengths to warm muscle tissue directly—increasing circulation, relieving joint stiffness, supporting cardiovascular health, and promoting profound stress relief after class.",
     duration: "30 / 45 min",
     level: "Restorative Recovery",
     bookingUrl: "https://n24pilatesstudio.gymmasteronline.com/portal/book/service",
@@ -118,6 +118,7 @@ export interface PricingPlan {
   saveBadge?: string;
   originalPrice?: string;
   discountedPrice?: string;
+  dailyEquivalent?: string;
   iframeUrl?: string;
   comingSoon?: boolean;
   description: string;
@@ -138,7 +139,6 @@ export const specialOffers = [
       "Experience Australia's premier self-guided Digital Reformer Pilates sanctuary in Applecross over 15 days.",
     features: [
       "2x Digital reformer classes & 2x Infrared sauna (30 mins)",
-      "Studio access from 5:00 AM – 10:00 PM daily at your convenience",
       "Valid for 15 days from purchase — zero membership commitment",
       "Special discount available when you sign up for membership during the intro offer",
     ],
@@ -178,6 +178,7 @@ export const weeklyMemberships = [
     name: "Seamless Weekly Membership",
     price: "$47.25",
     unit: "/week",
+    dailyEquivalent: "6.75",
     saveBadge: "Save 10%",
     originalPrice: "$52.25",
     iframeUrl:
@@ -198,6 +199,7 @@ export const weeklyMemberships = [
     name: "6 Month Value Commitment",
     price: "$45.50",
     unit: "/week",
+    dailyEquivalent: "6.50",
     saveBadge: "",
     originalPrice: "",
     iframeUrl:
@@ -218,6 +220,7 @@ export const weeklyMemberships = [
     name: "12 Month Value Commitment",
     price: "$42.50",
     unit: "/week",
+    dailyEquivalent: "6.07",
     saveBadge: "",
     originalPrice: "",
     iframeUrl:
@@ -309,7 +312,7 @@ export const infraredSaunaPacks = [
     description:
       "Private 45-minute infrared sauna heat therapy session for muscle recovery and detoxification:",
     features: [
-      "Private luxury 2-capacity sauna suite",
+      "Private luxury sauna suite",
       "Valid for 1 month from purchase date",
       "Complimentary shower facilities & wellness amenities",
     ],
@@ -327,7 +330,7 @@ export const infraredSaunaPacks = [
     description:
       "Share a private 45-minute infrared sauna recovery session with a partner or friend:",
     features: [
-      "Private luxury 2-capacity sauna suite (applies for 2 people)",
+      "Private luxury sauna suite (applies for 2 people)",
       "Valid for 1 month from purchase date",
       "Complimentary shower facilities & wellness amenities",
     ],
@@ -345,7 +348,7 @@ export const infraredSaunaPacks = [
     description:
       "5 private 45-minute infrared sauna sessions to accelerate muscle recovery and relieve tension:",
     features: [
-      "Private luxury 2-capacity sauna suite",
+      "Private luxury sauna suite",
       "Valid for 2 months from purchase date",
       "Complimentary shower facilities & wellness amenities",
     ],
@@ -363,7 +366,7 @@ export const infraredSaunaPacks = [
     description:
       "10 private 45-minute infrared sauna sessions for regular detoxification and stress relief:",
     features: [
-      "Private luxury 2-capacity sauna suite",
+      "Private luxury sauna suite",
       "Valid for 3 months from purchase date",
       "Complimentary shower facilities & wellness amenities",
     ],
@@ -381,7 +384,7 @@ export const infraredSaunaPacks = [
     description:
       "20 private 45-minute infrared sauna sessions for dedicated athletes and wellness seekers:",
     features: [
-      "Private luxury 2-capacity sauna suite",
+      "Private luxury sauna suite",
       "Valid for 6 months from purchase date",
       "Complimentary shower facilities & wellness amenities",
     ],

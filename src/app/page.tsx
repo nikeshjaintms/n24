@@ -394,7 +394,7 @@ export default function Home() {
               },
               {
                 title: "On-Site Support & Staffing",
-                desc: "While sessions can be done independently, staff are available during set morning and afternoon hours (Monday through Saturday) to provide orientations, assist with equipment settings, and guide newcomers.",
+                desc: "While sessions can be done independently, staff are available during set morning and afternoon hours (Monday through Saturday) to provide orientations, assist with equipment settings, and offer hands-on form correction.",
                 icon: Users,
               },
             ].map((feature, i) => (
@@ -486,13 +486,10 @@ export default function Home() {
 
               <Link
                 href="/about"
-                className="group relative inline-flex items-center justify-center gap-3 overflow-hidden rounded-full bg-[#00C8D7] px-10 py-5 text-[0.75rem] font-bold uppercase tracking-[0.2em] text-[#0A0F1E] transition-all duration-500 hover:-translate-y-1.5 hover:shadow-[0_15px_35px_-5px_rgba(0,200,215,0.4)]"
+                className="group inline-flex items-center gap-3 rounded-full bg-[#00C8D7]/10 border border-[#00C8D7]/30 px-10 py-4 text-[0.75rem] font-bold uppercase tracking-[0.2em] text-[#00C8D7] transition-all duration-300 hover:bg-[#00C8D7] hover:text-white"
               >
-                <span className="relative z-10 flex items-center gap-2">
-                  Discover Our Story
-                  <ArrowRight className="size-4 transition-transform duration-300 group-hover:translate-x-1.5" />
-                </span>
-                <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out" />
+                Discover Our Story
+                <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
               </Link>
             </div>
           </div>
@@ -616,13 +613,13 @@ export default function Home() {
           >
             <button
               onClick={() => setIsOfferModalOpen(true)}
-              className="group relative flex items-center justify-center gap-3 overflow-hidden rounded-full bg-[#00C8D7] px-12 py-5 text-[0.8rem] font-bold uppercase tracking-[0.2em] text-[#0A0F1E] transition-all duration-500 hover:-translate-y-1.5 hover:shadow-[0_15px_35px_-5px_rgba(0,200,215,0.4)]"
+              className="group relative overflow-hidden rounded-full bg-[#00C8D7] px-12 py-5 text-[0.8rem] font-bold uppercase tracking-[0.2em] text-[#0A0F1E] shadow-[0_0_40px_rgba(0,200,215,0.4)] transition-all duration-500 hover:scale-[1.02] inline-block"
             >
-              <span className="relative z-10 flex items-center gap-2">
+              <span className="relative z-10 flex items-center gap-3">
                 Claim Introductory Offer
-                <ArrowRight className="size-4 transition-transform duration-300 group-hover:translate-x-1.5" />
+                <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
               </span>
-              <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out" />
+              <div className="absolute inset-0 bg-gradient-to-r from-[#00C8D7] via-white to-[#00C8D7] opacity-0 group-hover:opacity-50 transition-opacity duration-500 mix-blend-overlay" />
             </button>
           </motion.div>
         </motion.div>
@@ -757,24 +754,18 @@ export default function Home() {
               href="https://wa.me/61000000000"
               target="_blank"
               rel="noopener noreferrer"
-              className="group relative flex items-center justify-center gap-3 overflow-hidden rounded-full bg-[#00C8D7] px-10 py-5 text-[0.75rem] font-bold uppercase tracking-[0.2em] text-[#0A0F1E] transition-all duration-500 hover:-translate-y-1.5 hover:shadow-[0_15px_35px_-5px_rgba(0,200,215,0.4)]"
+              className="group flex items-center gap-3 rounded-full bg-[#00C8D7] px-10 py-5 text-[0.75rem] font-bold uppercase tracking-[0.2em] text-white shadow-[0_10px_30px_rgba(0,200,215,0.4)] transition-all duration-300 hover:scale-[1.03] hover:bg-[#00b5c4]"
             >
-              <span className="relative z-10 flex items-center gap-2">
-                <MessageCircle className="size-5" />
-                WhatsApp Our Team
-              </span>
-              <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out" />
+              <MessageCircle className="size-5" />
+              WhatsApp Our Team
             </motion.a>
             <motion.a
               variants={fadeUp}
               href="mailto:hello@n24pilates.com"
-              className="group relative flex items-center justify-center gap-3 overflow-hidden rounded-full bg-[#00C8D7] px-10 py-5 text-[0.75rem] font-bold uppercase tracking-[0.2em] text-[#0A0F1E] transition-all duration-500 hover:-translate-y-1.5 hover:shadow-[0_15px_35px_-5px_rgba(0,200,215,0.4)]"
+              className="group flex items-center gap-3 rounded-full border border-[#00C8D7]/30 bg-white px-10 py-5 text-[0.75rem] font-bold uppercase tracking-[0.2em] text-[#0A0F1E] transition-all duration-300 hover:border-[#00C8D7] hover:bg-[#F1FAFB] shadow-premium"
             >
-              <span className="relative z-10 flex items-center gap-2">
-                <Mail className="size-5" />
-                Email Studio Team
-              </span>
-              <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out" />
+              <Mail className="size-5 text-[#00C8D7]" />
+              Email Studio Team
             </motion.a>
           </motion.div>
         </div>

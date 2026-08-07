@@ -91,6 +91,12 @@ export function PricingCard({
           </div>
         )}
 
+        {/* Daily Equivalent Box */}
+        {plan.dailyEquivalent && (
+          <div className="mt-4 self-start border border-[#00AFC2]/20 bg-[#00AFC2]/5 rounded-md px-3 py-1.5 text-[0.75rem] font-medium text-[#00AFC2] group-hover:text-white group-hover:bg-white/20 group-hover:border-white/30 transition-colors">
+            Only ${plan.dailyEquivalent} per Reformer + Infrared sauna
+          </div>
+        )}
 
         {/* Divider */}
         <div

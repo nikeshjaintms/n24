@@ -63,7 +63,7 @@ const faqs = [
   },
   {
     q: "What should I wear inside the infrared sauna suite?",
-    a: "We recommend wearing swimwear or clean undergarments during your sauna session. We provide plush towels for sitting, and our suites are private 2-capacity rooms so you can recover in total comfort or share the session with a friend.",
+    a: "We recommend wearing swimwear or clean undergarments during your sauna session. We provide plush towels for sitting, and our suites are private rooms so you can recover in total comfort or share the session with a friend.",
   },
 ];
 

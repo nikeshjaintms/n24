@@ -66,7 +66,7 @@ export function PricingContent() {
       />
 
       <Section
-        title="Introductory &amp; Private Offers"
+        title="Introductory &amp; Special Offers"
         subtitle="Exclusive opportunities to experience Australia's premier digital reformer sanctuary."
       >
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -101,7 +101,7 @@ export function PricingContent() {
 
       <Section
         title="Private Infrared Sauna Suites"
-        subtitle="Deep tissue cellular recovery in private 2-capacity sauna suites."
+        subtitle="Deep tissue cellular recovery in private sauna suites."
         alt
       >
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">

@@ -7,7 +7,7 @@ import { Flame, Droplets, HeartPulse, Check, ArrowRight } from "lucide-react";
 export const metadata: Metadata = {
   title: "Private Infrared Saunas | N24 Digital Pilates Studio Applecross",
   description:
-    "Experience private 2-capacity infrared saunas in Applecross, Perth. Full-spectrum heat therapy, medical-grade chromotherapy, and deep cellular muscle recovery.",
+    "Experience private infrared saunas in Applecross, Perth. Full-spectrum heat therapy, medical-grade chromotherapy, and deep cellular muscle recovery.",
 };
 
 const benefits = [
@@ -57,7 +57,7 @@ export default function InfraredSaunas() {
                 <em className="text-[#00C8D7] font-light">stress and tension.</em>
               </h2>
               <p className="text-[#5B6B70] leading-[1.8] text-[1.1rem] font-light mb-12">
-                Our private 2-capacity infrared sauna suites offer an immersive sanctuary designed
+                Our private infrared sauna suites offer an immersive sanctuary designed
                 to rejuvenate mind and body. Whether you are accelerating recovery after a 6:00 AM
                 digital reformer session or seeking quiet solace from daily stress, full-spectrum
                 heat and medical-grade chromotherapy leave you profoundly restored.

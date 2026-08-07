@@ -144,7 +144,7 @@ export function PremiumHero({
             >
               <Link
                 href="/schedule"
-                className="group relative flex items-center justify-center gap-3 overflow-hidden rounded-full bg-gradient-to-r from-[#16D9F5] to-[#0cb8d2] px-10 py-5 text-[0.85rem] font-bold uppercase tracking-[0.2em] text-[#071321] transition-all duration-500 hover:-translate-y-1.5 hover:shadow-[0_15px_35px_-5px_rgba(22,217,245,0.4)] w-full sm:w-auto"
+                className="group relative flex items-center justify-center gap-3 overflow-hidden rounded-full bg-[#00C8D7] px-10 py-5 text-[0.85rem] font-bold uppercase tracking-[0.2em] text-[#0A0F1E] transition-all duration-500 hover:-translate-y-1.5 hover:shadow-[0_15px_35px_-5px_rgba(0,200,215,0.4)] w-full sm:w-auto"
               >
                 <span className="relative z-10 flex items-center gap-2">
                   Book Your Class

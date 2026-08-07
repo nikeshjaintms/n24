@@ -325,10 +325,17 @@ export default function Home() {
 
             <motion.div
               style={{ opacity: videoTextOpacity, y: videoTextY }}
-              className="absolute bottom-8 left-8 sm:bottom-16 sm:left-16 pointer-events-none z-20"
+              className="absolute bottom-20 left-8 sm:bottom-28 sm:left-16 lg:bottom-32 lg:left-24 pointer-events-none z-20"
             >
-              <span className="text-white uppercase tracking-[0.3em] text-[0.7rem] sm:text-[0.8rem] font-bold block mb-2 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">Experience The Flow</span>
-              <h3 className="font-display text-white text-3xl sm:text-5xl lg:text-7xl drop-shadow-[0_4px_8px_rgba(0,0,0,0.8)]">Elevated Movement.</h3>
+              <div className="flex items-center gap-4 mb-4">
+                <div className="h-[2px] w-12 bg-gradient-to-r from-[#00C8D7] to-transparent rounded-full" />
+                <span className="text-white uppercase tracking-[0.3em] text-[0.75rem] sm:text-[0.85rem] font-bold drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
+                  Experience The Flow
+                </span>
+              </div>
+              <h3 className="font-display text-white text-4xl sm:text-5xl lg:text-[6rem] leading-[1] drop-shadow-[0_4px_12px_rgba(0,0,0,0.8)]">
+                Elevated <em className="text-[#00C8D7] font-light">Movement.</em>
+              </h3>
             </motion.div>
           </motion.div>
         </div>
@@ -479,10 +486,13 @@ export default function Home() {
 
               <Link
                 href="/about"
-                className="group inline-flex items-center gap-3 rounded-full bg-[#00C8D7]/10 border border-[#00C8D7]/30 px-10 py-4 text-[0.75rem] font-bold uppercase tracking-[0.2em] text-[#00C8D7] transition-all duration-300 hover:bg-[#00C8D7] hover:text-white"
+                className="group relative inline-flex items-center justify-center gap-3 overflow-hidden rounded-full bg-[#00C8D7] px-10 py-5 text-[0.75rem] font-bold uppercase tracking-[0.2em] text-[#0A0F1E] transition-all duration-500 hover:-translate-y-1.5 hover:shadow-[0_15px_35px_-5px_rgba(0,200,215,0.4)]"
               >
-                Discover Our Story
-                <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
+                <span className="relative z-10 flex items-center gap-2">
+                  Discover Our Story
+                  <ArrowRight className="size-4 transition-transform duration-300 group-hover:translate-x-1.5" />
+                </span>
+                <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out" />
               </Link>
             </div>
           </div>
@@ -606,13 +616,13 @@ export default function Home() {
           >
             <button
               onClick={() => setIsOfferModalOpen(true)}
-              className="group relative overflow-hidden rounded-full bg-[#00C8D7] px-12 py-5 text-[0.8rem] font-bold uppercase tracking-[0.2em] text-[#0A0F1E] shadow-[0_0_40px_rgba(0,200,215,0.4)] transition-all duration-500 hover:scale-[1.02] inline-block"
+              className="group relative flex items-center justify-center gap-3 overflow-hidden rounded-full bg-[#00C8D7] px-12 py-5 text-[0.8rem] font-bold uppercase tracking-[0.2em] text-[#0A0F1E] transition-all duration-500 hover:-translate-y-1.5 hover:shadow-[0_15px_35px_-5px_rgba(0,200,215,0.4)]"
             >
-              <span className="relative z-10 flex items-center gap-3">
+              <span className="relative z-10 flex items-center gap-2">
                 Claim Introductory Offer
-                <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
+                <ArrowRight className="size-4 transition-transform duration-300 group-hover:translate-x-1.5" />
               </span>
-              <div className="absolute inset-0 bg-gradient-to-r from-[#00C8D7] via-white to-[#00C8D7] opacity-0 group-hover:opacity-50 transition-opacity duration-500 mix-blend-overlay" />
+              <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out" />
             </button>
           </motion.div>
         </motion.div>
@@ -747,18 +757,24 @@ export default function Home() {
               href="https://wa.me/61000000000"
               target="_blank"
               rel="noopener noreferrer"
-              className="group flex items-center gap-3 rounded-full bg-[#00C8D7] px-10 py-5 text-[0.75rem] font-bold uppercase tracking-[0.2em] text-white shadow-[0_10px_30px_rgba(0,200,215,0.4)] transition-all duration-300 hover:scale-[1.03] hover:bg-[#00b5c4]"
+              className="group relative flex items-center justify-center gap-3 overflow-hidden rounded-full bg-[#00C8D7] px-10 py-5 text-[0.75rem] font-bold uppercase tracking-[0.2em] text-[#0A0F1E] transition-all duration-500 hover:-translate-y-1.5 hover:shadow-[0_15px_35px_-5px_rgba(0,200,215,0.4)]"
             >
-              <MessageCircle className="size-5" />
-              WhatsApp Our Team
+              <span className="relative z-10 flex items-center gap-2">
+                <MessageCircle className="size-5" />
+                WhatsApp Our Team
+              </span>
+              <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out" />
             </motion.a>
             <motion.a
               variants={fadeUp}
               href="mailto:hello@n24pilates.com"
-              className="group flex items-center gap-3 rounded-full border border-[#00C8D7]/30 bg-white px-10 py-5 text-[0.75rem] font-bold uppercase tracking-[0.2em] text-[#0A0F1E] transition-all duration-300 hover:border-[#00C8D7] hover:bg-[#F1FAFB] shadow-premium"
+              className="group relative flex items-center justify-center gap-3 overflow-hidden rounded-full bg-[#00C8D7] px-10 py-5 text-[0.75rem] font-bold uppercase tracking-[0.2em] text-[#0A0F1E] transition-all duration-500 hover:-translate-y-1.5 hover:shadow-[0_15px_35px_-5px_rgba(0,200,215,0.4)]"
             >
-              <Mail className="size-5 text-[#00C8D7]" />
-              Email Studio Team
+              <span className="relative z-10 flex items-center gap-2">
+                <Mail className="size-5" />
+                Email Studio Team
+              </span>
+              <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out" />
             </motion.a>
           </motion.div>
         </div>

@@ -142,27 +142,28 @@ export function PricingCard({
             }
           }}
           className={clsx(
-            "mt-8 flex items-center justify-center gap-2 rounded-full py-3.5 px-6 text-[0.7rem] font-bold uppercase tracking-[0.18em] text-white transition-all duration-300 shadow-soft",
+            "group/btn relative mt-8 flex items-center justify-center overflow-hidden rounded-full py-3.5 px-6 text-[0.7rem] font-bold uppercase tracking-[0.18em] transition-all duration-500",
             plan.comingSoon || !plan.iframeUrl
-              ? "cursor-not-allowed opacity-80 bg-[#4A606A]/40"
-              : "hover:scale-[1.03] active:scale-100 brand-gradient group-hover:!bg-none group-hover:!bg-white group-hover:!text-[#00AFC2] group-hover:shadow-premium cursor-pointer",
+              ? "cursor-not-allowed opacity-80 bg-[#4A606A]/40 text-white"
+              : "bg-[#00C8D7] text-[#0A0F1E] hover:-translate-y-1 hover:shadow-[0_15px_35px_-5px_rgba(0,200,215,0.4)] group-hover:bg-white group-hover:text-[#00AFC2] cursor-pointer",
           )}
         >
-          {plan.buttonText || "Buy Now"}
+          <span className="relative z-10 flex items-center gap-2">
+            {plan.buttonText || "Buy Now"}
+            {!plan.comingSoon && plan.iframeUrl && (
+              <svg
+                className="size-3 transition-transform duration-300 group-hover/btn:translate-x-1"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth={2.5}
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+              </svg>
+            )}
+          </span>
           {!plan.comingSoon && plan.iframeUrl && (
-            <svg
-              className="size-3"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              strokeWidth={2.5}
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
-              />
-            </svg>
+            <div className="absolute inset-0 bg-white/30 group-hover:bg-[#00AFC2]/10 translate-y-full group-hover/btn:translate-y-0 transition-transform duration-500 ease-out" />
           )}
         </button>
       </div>

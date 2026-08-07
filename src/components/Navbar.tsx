@@ -105,9 +105,10 @@ export function Navbar() {
           <div className="hidden lg:block">
             <Link
               href="/schedule"
-              className="rounded-full px-7 py-3 text-[0.7rem] font-bold uppercase tracking-[0.18em] transition-all duration-300 hover:-translate-y-0.5 bg-[#00C8D7] text-white shadow-[0_0_15px_rgba(0,200,215,0.4)] hover:shadow-[0_0_25px_rgba(0,200,215,0.6)] hover:bg-[#00b5c4]"
+              className="group relative flex items-center justify-center overflow-hidden rounded-full bg-[#00C8D7] px-7 py-3 text-[0.7rem] font-bold uppercase tracking-[0.18em] text-[#0A0F1E] transition-all duration-500 hover:-translate-y-0.5 hover:shadow-[0_0_25px_rgba(0,200,215,0.6)]"
             >
-              Book a Class
+              <span className="relative z-10 flex items-center gap-2">Book a Class</span>
+              <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out" />
             </Link>
           </div>
 
@@ -224,9 +225,10 @@ export function Navbar() {
                   <Link
                     href="/schedule"
                     onClick={() => setOpen(false)}
-                    className="flex items-center justify-center w-full rounded-full bg-[#00C8D7] py-4 text-[0.72rem] font-bold uppercase tracking-[0.2em] text-white shadow-[0_6px_20px_rgba(0,200,215,0.4)] hover:bg-[#00b5c4] transition-all"
+                    className="group relative flex items-center justify-center w-full overflow-hidden rounded-full bg-[#00C8D7] py-4 text-[0.72rem] font-bold uppercase tracking-[0.2em] text-[#0A0F1E] transition-all duration-500 hover:shadow-[0_6px_20px_rgba(0,200,215,0.6)]"
                   >
-                    Book a Class
+                    <span className="relative z-10 flex items-center gap-2">Book a Class</span>
+                    <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out" />
                   </Link>
                 </div>
               </div>

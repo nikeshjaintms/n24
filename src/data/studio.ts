@@ -187,7 +187,6 @@ export const weeklyMemberships = [
       "Unlimited daily access to Digital Reformer, Mat, Yoga, Stretch + Strength, and our complete 800+ on-demand class library.",
     features: [
       "Unlimited Reformer Pilates & Private Infrared Sauna Therapy included",
-      "10% off Weekly Direct Debit (Exclusive Monthly Special)",
       "Complimentary N24 Welcome Pack Included",
       "Unlimited studio access from 5:00 AM – 10:00 PM, 7 days a week",
       "Seamless auto-renewal with total membership flexibility",

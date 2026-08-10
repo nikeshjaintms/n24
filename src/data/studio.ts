@@ -199,7 +199,6 @@ export const weeklyMemberships = [
     name: "6 Month Value Commitment",
     price: "$45.50",
     unit: "/week",
-    dailyEquivalent: "6.50",
     saveBadge: "",
     originalPrice: "",
     iframeUrl:
@@ -220,7 +219,6 @@ export const weeklyMemberships = [
     name: "12 Month Value Commitment",
     price: "$42.50",
     unit: "/week",
-    dailyEquivalent: "6.07",
     saveBadge: "",
     originalPrice: "",
     iframeUrl:

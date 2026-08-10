@@ -30,7 +30,7 @@ export function PremiumHero({
         {/* CINEMATIC BACKGROUND */}
         <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
           <Image 
-            src="/8e3d8b9b-f347-461e-9aa2-b3dc929a703c.png" 
+            src="/n241.png" 
             alt="N24 Pilates Studio" 
             fill 
             className="object-cover object-center" 

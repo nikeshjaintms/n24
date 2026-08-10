@@ -22,7 +22,18 @@ export default function Classes() {
         title="800+ On-Demand"
         accent="Masterclasses."
         subtitle="From gentle beginner rehabilitation to athletic core conditioning, access our complete library of technology-enhanced reformer sessions on your individual touchscreen."
-      />
+      >
+        <Link
+          href="/schedule"
+          className="group relative overflow-hidden inline-flex items-center gap-3 rounded-full bg-[#00C8D7] px-10 py-4 sm:px-12 sm:py-5 text-[0.75rem] sm:text-[0.8rem] font-bold uppercase tracking-[0.2em] text-white shadow-[0_10px_30px_rgba(0,200,215,0.4)] transition-all duration-500 hover:scale-[1.03]"
+        >
+          <span className="relative z-10 flex items-center gap-3">
+            Book Your Session
+            <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
+          </span>
+          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/50 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" />
+        </Link>
+      </PageHero>
 
       {/* ── Class list — Premium editorial alternating layout ──────── */}
       <section className="bg-white py-32 relative overflow-hidden">
@@ -145,7 +156,18 @@ export default function Classes() {
               </div>
 
               {/* Buttons Container */}
-              <div className="flex flex-col sm:flex-row items-center justify-center gap-6 w-full">
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-6 w-full flex-wrap">
+                <Link
+                  href="/schedule"
+                  className="group relative overflow-hidden inline-flex items-center gap-3 rounded-full bg-[#00C8D7] px-12 py-5 text-[0.8rem] font-bold uppercase tracking-[0.2em] text-white shadow-[0_10px_30px_rgba(0,200,215,0.4)] transition-all duration-500 hover:scale-[1.03]"
+                >
+                  <span className="relative z-10 flex items-center gap-3">
+                    Book Your Session
+                    <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
+                  </span>
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/50 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" />
+                </Link>
+                
                 {/* Button 1: Call Studio Team (Direct call) */}
                 <a
                   href="tel:0478336630"

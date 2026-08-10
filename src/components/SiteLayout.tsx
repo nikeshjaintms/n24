@@ -18,11 +18,13 @@ export function PageHero({
   title,
   accent,
   subtitle,
+  children,
 }: {
   eyebrow: string;
   title: string;
   accent?: string;
   subtitle?: string;
+  children?: ReactNode;
 }) {
   return (
     <section
@@ -64,6 +66,12 @@ export function PageHero({
           <p className="mx-auto mt-5 sm:mt-8 max-w-xs sm:max-w-sm md:max-w-xl text-[0.9rem] sm:text-[1rem] leading-relaxed text-white/70 font-light px-2 sm:px-0">
             {subtitle}
           </p>
+        )}
+        
+        {children && (
+          <div className="mt-8 flex justify-center">
+            {children}
+          </div>
         )}
       </div>
     </section>

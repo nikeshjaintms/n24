@@ -675,35 +675,47 @@ export default function Home() {
             whileInView="visible"
             viewport={{ once: true, margin: "-50px" }}
             variants={stagger}
-            className="grid md:grid-cols-3 gap-8"
+            className="mt-8"
           >
-            {reviews.map((r, i) => (
-              <motion.div
-                key={i}
-                variants={fadeUp}
-                className="group relative overflow-hidden rounded-[28px] border border-[#00C8D7]/15 bg-white p-10 flex flex-col shadow-soft transition-all duration-500 hover:-translate-y-2 hover:shadow-premium hover:border-[#00C8D7]/40"
-              >
-                <div className="absolute top-0 right-0 w-28 h-28 bg-[#00C8D7]/10 rounded-full blur-[25px] opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
-                <Quote className="size-10 text-[#00C8D7] mb-6 transition-transform duration-300 group-hover:scale-110" />
-                <p className="text-[1.05rem] leading-relaxed text-[#111827] font-light italic flex-1 mb-8">
-                  &ldquo;{r.text}&rdquo;
-                </p>
-                <div className="flex text-yellow-400 gap-1.5 mb-6">
-                  {[1, 2, 3, 4, 5].map((s) => (
-                    <Star key={s} className="size-4 fill-current" />
-                  ))}
-                </div>
-                <div className="flex items-center gap-4 pt-6 border-t border-[#00C8D7]/15">
-                  <div className="size-12 rounded-full bg-gradient-to-br from-[#00C8D7] to-[#00AFC2] flex items-center justify-center font-display text-xl text-white shadow-[0_4px_15px_rgba(0,200,215,0.3)]">
-                    {r.initial}
-                  </div>
-                  <div>
-                    <p className="text-[#0A0F1E] text-[0.95rem] font-bold">{r.name}</p>
-                    <p className="text-[#5B6B70] text-[0.75rem] mt-0.5">{r.date}</p>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
+            <Carousel
+              opts={{ align: "start", loop: true }}
+              className="w-full relative"
+            >
+              <CarouselContent className="-ml-4 md:-ml-8">
+                {reviews.map((r, i) => (
+                  <CarouselItem key={i} className="pl-4 md:pl-8 md:basis-1/2 lg:basis-1/3">
+                    <motion.div
+                      variants={fadeUp}
+                      className="group relative overflow-hidden rounded-[28px] border border-[#00C8D7]/15 bg-white p-10 flex flex-col shadow-soft transition-all duration-500 hover:-translate-y-2 hover:shadow-premium hover:border-[#00C8D7]/40 h-full"
+                    >
+                      <div className="absolute top-0 right-0 w-28 h-28 bg-[#00C8D7]/10 rounded-full blur-[25px] opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+                      <Quote className="size-10 text-[#00C8D7] mb-6 transition-transform duration-300 group-hover:scale-110" />
+                      <p className="text-[1.05rem] leading-relaxed text-[#111827] font-light italic flex-1 mb-8">
+                        &ldquo;{r.text}&rdquo;
+                      </p>
+                      <div className="flex text-yellow-400 gap-1.5 mb-6">
+                        {[1, 2, 3, 4, 5].map((s) => (
+                          <Star key={s} className="size-4 fill-current" />
+                        ))}
+                      </div>
+                      <div className="flex items-center gap-4 pt-6 border-t border-[#00C8D7]/15">
+                        <div className="size-12 rounded-full bg-gradient-to-br from-[#00C8D7] to-[#00AFC2] flex items-center justify-center font-display text-xl text-white shadow-[0_4px_15px_rgba(0,200,215,0.3)]">
+                          {r.initial}
+                        </div>
+                        <div>
+                          <p className="text-[#0A0F1E] text-[0.95rem] font-bold">{r.name}</p>
+                          <p className="text-[#5B6B70] text-[0.75rem] mt-0.5">{r.date}</p>
+                        </div>
+                      </div>
+                    </motion.div>
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+              <div className="flex justify-center gap-4 mt-12">
+                <CarouselPrevious className="static transform-none h-12 w-12 border-[#00C8D7] text-[#00C8D7] hover:bg-[#00C8D7] hover:text-white" />
+                <CarouselNext className="static transform-none h-12 w-12 border-[#00C8D7] text-[#00C8D7] hover:bg-[#00C8D7] hover:text-white" />
+              </div>
+            </Carousel>
           </motion.div>
         </div>
       </section>

@@ -298,7 +298,7 @@ export const pilatesSessionPacks = [
 
 export const infraredSaunaPacks = [
   {
-    name: "Infrared Sauna Casual (45 Mins)",
+    name: "Infrared Sauna Casual (30 Mins)",
     price: "$25",
     unit: "",
     saveBadge: "",
@@ -306,6 +306,24 @@ export const infraredSaunaPacks = [
     discountedPrice: "",
     iframeUrl:
       "https://n24pilatesstudio.gymmasteronline.com/portal/signup/details/921e4e44a8765f64d28966b697f4466a",
+    description:
+      "Private 30-minute infrared sauna heat therapy session for muscle recovery and detoxification:",
+    features: [
+      "Private luxury sauna suite",
+      "Valid for 1 month from purchase date",
+      "Complimentary shower facilities & wellness amenities",
+    ],
+    buttonText: "Book Sauna Session",
+  },
+  {
+    name: "Infrared Sauna Casual (45 Mins)",
+    price: "$30",
+    unit: "",
+    saveBadge: "",
+    originalPrice: "",
+    discountedPrice: "",
+    iframeUrl:
+      "https://n24pilatesstudio.gymmasteronline.com/portal/signup/details/bda2ebcab382163ef7e2b7af1d384d03",
     description:
       "Private 45-minute infrared sauna heat therapy session for muscle recovery and detoxification:",
     features: [

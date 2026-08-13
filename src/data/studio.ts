@@ -184,11 +184,11 @@ export const weeklyMemberships = [
     iframeUrl:
       "https://n24pilatesstudio.gymmasteronline.com/portal/signup/details/58fe897921eb2718a0a7de2a56c68e1e",
     description:
-      "Unlimited daily access to Digital Reformer, Mat, Yoga, Stretch + Strength, and our complete 800+ on-demand class library.",
+      "Daily full access to Digital Reformer, Mat, Yoga, Stretch + Strength, and our complete 800+ on-demand class library.",
     features: [
-      "Unlimited Reformer Pilates & Private Infrared Sauna Therapy included",
+      "Full access to Reformer Pilates & Private Infrared Sauna Therapy included",
       "Complimentary N24 Welcome Pack Included",
-      "Unlimited studio access from 5:00 AM – 10:00 PM, 7 days a week",
+      "Full studio access from 5:00 AM – 10:00 PM, 7 days a week",
       "Seamless auto-renewal with total membership flexibility",
       "1 on 1 personal training session included",
     ],
@@ -203,12 +203,12 @@ export const weeklyMemberships = [
     iframeUrl:
       "https://n24pilatesstudio.gymmasteronline.com/portal/signup/details/d0c08c72e55663e6493d8a42372e771f",
     description:
-      "Our most popular membership for consistent movement, core strength, and restorative recovery at an exceptional weekly value.",
+      "Daily full access to Digital Reformer, Mat, Yoga, Stretch + Strength, and our complete 800+ on-demand class library.",
     features: [
-      "Unlimited Reformer Pilates & Private Infrared Sauna Therapy included",
+      "Full access to Reformer Pilates & Private Infrared Sauna Therapy included",
       "2 Weeks Free Membership added to your commitment",
       "Complimentary N24 Welcome Pack Included",
-      "Unlimited studio access from 5:00 AM – 10:00 PM, 7 days a week",
+      "Full studio access from 5:00 AM – 10:00 PM, 7 days a week",
       "6-Month Membership for sustained physical transformation",
       "1 on 1 personal training session included",
     ],
@@ -223,12 +223,12 @@ export const weeklyMemberships = [
     iframeUrl:
       "https://n24pilatesstudio.gymmasteronline.com/portal/signup/details/27011bdffcc5575799dc89fc8a390a3e",
     description:
-      "The ultimate investment in long-term movement health, spinal longevity, and daily stress relief at our lowest weekly rate.",
+      "Daily full access to Digital Reformer, Mat, Yoga, Stretch + Strength, and our complete 800+ on-demand class library.",
     features: [
-      "Unlimited Reformer Pilates & Private Infrared Sauna Therapy included",
+      "Full access to Reformer Pilates & Private Infrared Sauna Therapy included",
       "5 Weeks Free Membership added to your commitment",
       "Complimentary N24 Welcome Pack Included",
-      "Unlimited studio access from 5:00 AM – 10:00 PM, 7 days a week",
+      "Full studio access from 5:00 AM – 10:00 PM, 7 days a week",
       "12-Month Membership for enduring wellness and vitality",
       "1 on 1 personal training session included",
     ],
@@ -249,7 +249,7 @@ export const pilatesSessionPacks = [
     description:
       "Enjoy 5 self-guided Digital Reformer, Mat, Yoga, or Stretch sessions with total booking freedom:",
     features: [
-      "Unlimited studio access from 5:00 AM – 10:00 PM daily",
+      "Full studio access from 5:00 AM – 10:00 PM daily",
       "First On-boarding session must be booked during the staff hours",
       "Valid for 2 full months from purchase date",
       "Access to 800+ on-demand classes across all fitness levels",
@@ -268,7 +268,7 @@ export const pilatesSessionPacks = [
     description:
       "Our most popular session pack—10 self-guided Digital Reformer or Mat classes with extended validity:",
     features: [
-      "Unlimited studio access from 5:00 AM – 10:00 PM daily",
+      "Full studio access from 5:00 AM – 10:00 PM daily",
       "First On-boarding session must be booked during the staff hours",
       "Valid for 3 full months from purchase date",
       "Access to 800+ on-demand classes across all fitness levels",
@@ -287,7 +287,7 @@ export const pilatesSessionPacks = [
     description:
       "Our best per-session value—20 self-guided Digital Reformer or Mat classes for dedicated practitioners:",
     features: [
-      "Unlimited studio access from 5:00 AM – 10:00 PM daily",
+      "Full studio access from 5:00 AM – 10:00 PM daily",
       "First On-boarding session must be booked during the staff hours",
       "Valid for 6 full months from purchase date",
       "Access to 800+ on-demand classes across all fitness levels",

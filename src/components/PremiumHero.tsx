@@ -29,11 +29,20 @@ export function PremiumHero({
       <section className="relative w-full min-h-screen flex flex-col justify-center bg-[#071321] overflow-hidden pt-[120px] lg:pt-[160px] pb-32 lg:pb-48">
         {/* CINEMATIC BACKGROUND */}
         <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+          {/* Mobile Image (Portrait) */}
           <Image 
-            src="/n241.png" 
+            src="/pilates_hero_mobile.png" 
             alt="N24 Pilates Studio" 
             fill 
-            className="object-cover object-center" 
+            className="object-cover object-center md:hidden" 
+            priority
+          />
+          {/* Desktop Image (Landscape) */}
+          <Image 
+            src="/Copilot_20260710_105525.png" 
+            alt="N24 Pilates Studio" 
+            fill 
+            className="object-cover object-center hidden md:block" 
             priority
           />
           {/* Top gradient for Navbar visibility */}

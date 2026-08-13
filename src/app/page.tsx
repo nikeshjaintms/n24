@@ -202,7 +202,7 @@ const reviews = [
   {
     name: "Elias Santimano",
     date: "Verified Member · Applecross",
-    text: "I joined N24 Pilates& Wellness based on my surgeon suggesting I give it a go as no physio/chiro could help with my back pain and my knee. AS they were based on the GF of my apartment building and based on convinience I gave it a go and found the beginer class pretty easy and the exercises on the mat and the reformer seem to relieve some of the pain. I have been attending here for about 6 weeks 2 classes a week supervised and 1 day unsupervised. Besides the bonus of a infra-red suana is helpfull. Currently my pain in the back and knee is managable with little in convenience and I can Saftley attribute this to Pilates. The environment is clean and healthy and I am enjoying it.",
+    text: "I joined N24 Pilates & Wellness based on my surgeon suggesting I give it a go as no physio/chiro could help with my back pain and my knee. As they were based on the ground floor of my apartment building and based on convenience I gave it a go and found the beginner class pretty easy, and the exercises on the mat and the reformer seem to relieve some of the pain. I have been attending here for about 6 weeks, 2 classes a week supervised and 1 day unsupervised. Besides, the bonus of an infrared sauna is helpful. Currently my pain in the back and knee is manageable with little inconvenience and I can safely attribute this to Pilates. The environment is clean and healthy and I am enjoying it.",
     initial: "E",
   },
   {

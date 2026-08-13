@@ -184,13 +184,13 @@ export const weeklyMemberships = [
     iframeUrl:
       "https://n24pilatesstudio.gymmasteronline.com/portal/signup/details/58fe897921eb2718a0a7de2a56c68e1e",
     description:
-      "Daily full access to Digital Reformer, Mat, Yoga, Stretch + Strength, and our complete 800+ on-demand class library.",
+      "Experience total flexibility with week-to-week access to our premium digital studio and recovery facilities.",
     features: [
-      "Full access to Reformer Pilates & Private Infrared Sauna Therapy included",
-      "Complimentary N24 Welcome Pack Included",
-      "Full studio access from 5:00 AM – 10:00 PM, 7 days a week",
-      "Seamless auto-renewal with total membership flexibility",
-      "1 on 1 personal training session included",
+      "Unlimited Digital Reformer, Yoga, and Mat Pilates",
+      "Daily Private Infrared Sauna sessions included",
+      "Studio access 7 days a week, 5:00 AM – 10:00 PM",
+      "No lock-in contracts with seamless auto-renewal",
+      "Exclusive N24 Welcome Pack & 1-on-1 PT session",
     ],
     buttonText: "Start Weekly Plan",
   },
@@ -203,14 +203,14 @@ export const weeklyMemberships = [
     iframeUrl:
       "https://n24pilatesstudio.gymmasteronline.com/portal/signup/details/d0c08c72e55663e6493d8a42372e771f",
     description:
-      "Daily full access to Digital Reformer, Mat, Yoga, Stretch + Strength, and our complete 800+ on-demand class library.",
+      "Commit to half a year of wellness and receive a discounted weekly rate for your dedication to physical transformation.",
     features: [
-      "Full access to Reformer Pilates & Private Infrared Sauna Therapy included",
-      "2 Weeks Free Membership added to your commitment",
-      "Complimentary N24 Welcome Pack Included",
-      "Full studio access from 5:00 AM – 10:00 PM, 7 days a week",
-      "6-Month Membership for sustained physical transformation",
-      "1 on 1 personal training session included",
+      "Full access to our 800+ on-demand class library",
+      "Complimentary Private Infrared Sauna Therapy",
+      "Bonus: 2 Weeks Free Membership added to your term",
+      "Extended daily studio hours from 5:00 AM – 10:00 PM",
+      "6-month commitment for sustained, measurable results",
+      "Welcome Pack and a 1-on-1 personal training session",
     ],
     buttonText: "Commit to 6 Months",
   },
@@ -223,14 +223,14 @@ export const weeklyMemberships = [
     iframeUrl:
       "https://n24pilatesstudio.gymmasteronline.com/portal/signup/details/27011bdffcc5575799dc89fc8a390a3e",
     description:
-      "Daily full access to Digital Reformer, Mat, Yoga, Stretch + Strength, and our complete 800+ on-demand class library.",
+      "Secure our lowest weekly rate by dedicating a full year to your holistic health, enduring wellness, and vitality.",
     features: [
-      "Full access to Reformer Pilates & Private Infrared Sauna Therapy included",
-      "5 Weeks Free Membership added to your commitment",
-      "Complimentary N24 Welcome Pack Included",
-      "Full studio access from 5:00 AM – 10:00 PM, 7 days a week",
-      "12-Month Membership for enduring wellness and vitality",
-      "1 on 1 personal training session included",
+      "Unlimited Reformer Pilates, Stretch & Strength sessions",
+      "Unrestricted access to luxury Infrared Sauna Suites",
+      "Bonus: 5 Weeks Free Membership added to your term",
+      "Everyday studio access from 5:00 AM – 10:00 PM",
+      "12-month journey to peak fitness and rejuvenation",
+      "Includes N24 Welcome Pack & 1-on-1 PT onboarding",
     ],
     buttonText: "Start Year of Wellness",
   },

@@ -15,7 +15,7 @@ const perks = [
   },
   {
     icon: Timer,
-    title: "Unlimited Access",
+    title: "Daily Full Access",
     text: "Take as many classes as you want during your challenge period.",
     color: "#00AFC2",
   },
@@ -28,7 +28,7 @@ const perks = [
 ];
 
 const features = [
-  "Unlimited Reformer Classes",
+  "Daily Full Access to Reformer Classes",
   "1 Complimentary Sauna Session",
   "Goal Tracking Worksheet",
   "Priority Waitlist Access",

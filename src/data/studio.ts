@@ -186,7 +186,7 @@ export const weeklyMemberships = [
     description:
       "Experience total flexibility with week-to-week access to our premium digital studio and recovery facilities.",
     features: [
-      "Unlimited Digital Reformer, Yoga, and Mat Pilates",
+      "Daily full access to Digital Reformer, Yoga, and Mat Pilates",
       "Daily Private Infrared Sauna sessions included",
       "Studio access 7 days a week, 5:00 AM – 10:00 PM",
       "No lock-in contracts with seamless auto-renewal",
@@ -225,7 +225,7 @@ export const weeklyMemberships = [
     description:
       "Secure our lowest weekly rate by dedicating a full year to your holistic health, enduring wellness, and vitality.",
     features: [
-      "Unlimited Reformer Pilates, Stretch & Strength sessions",
+      "Daily full access to Reformer Pilates, Stretch & Strength sessions",
       "Unrestricted access to luxury Infrared Sauna Suites",
       "Bonus: 5 Weeks Free Membership added to your term",
       "Everyday studio access from 5:00 AM – 10:00 PM",

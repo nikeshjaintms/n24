@@ -83,12 +83,13 @@ export function AutoPlayVideo({
 
   return (
     <div ref={containerRef} className={`relative overflow-hidden ${className}`} style={style}>
+      {/* Poster image ON TOP of video (z-10) until video is ready & playing */}
       {poster && (
         <img
           src={poster}
           alt=""
-          className={`absolute inset-0 size-full object-cover z-0 transition-opacity duration-700 pointer-events-none ${
-            isLoaded ? "opacity-0" : "opacity-100"
+          className={`absolute inset-0 size-full object-cover z-10 transition-opacity duration-700 pointer-events-none ${
+            isLoaded ? "opacity-0 pointer-events-none" : "opacity-100"
           }`}
           loading={priority ? "eager" : "lazy"}
         />
@@ -106,9 +107,8 @@ export function AutoPlayVideo({
         preload={priority ? "metadata" : isInView ? "metadata" : "none"}
         onLoadedData={() => setIsLoaded(true)}
         onPlaying={() => setIsLoaded(true)}
-        className={`size-full object-cover transition-opacity duration-500 ${
-          isLoaded || !poster ? "opacity-100" : "opacity-90"
-        }`}
+        onCanPlay={() => setIsLoaded(true)}
+        className="relative z-0 size-full object-cover"
         {...rest}
       />
     </div>

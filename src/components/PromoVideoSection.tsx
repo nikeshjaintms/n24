@@ -16,14 +16,14 @@ export function PromoVideoSection() {
   const videoTextY = useTransform(videoScroll, [0.5, 1], [40, 0]);
 
   return (
-    <section ref={videoContainerRef} className="bg-slate-50 md:h-[150vh] relative py-12 md:py-0">
-      <div className="md:sticky top-0 w-full md:h-[100dvh] flex items-center justify-center overflow-hidden">
+    <section ref={videoContainerRef} className="bg-[#071321] md:h-[150vh] relative py-12 md:py-0">
+      <div className="md:sticky top-0 w-full md:h-[100dvh] flex items-center justify-center overflow-hidden px-4 sm:px-6 md:px-0">
         {/* Cinematic ambient backlight for the video */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80%] h-[80%] bg-gradient-to-r from-[#00C8D7]/15 to-[#00AFC2]/10 blur-[140px] pointer-events-none mix-blend-multiply translate-z-0" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80%] h-[80%] bg-gradient-to-r from-[#00C8D7]/15 to-[#00AFC2]/10 blur-[140px] pointer-events-none mix-blend-screen translate-z-0" />
 
         <motion.div
           style={{ width: videoWidth, borderRadius: videoRadius }}
-          className="group relative aspect-[4/3] sm:aspect-video overflow-hidden shadow-[0_20px_50px_-10px_rgba(0,200,215,0.15)] bg-[#071321] border border-[#00C8D7]/10"
+          className="group relative aspect-[4/3] sm:aspect-video w-full overflow-hidden shadow-[0_20px_50px_-10px_rgba(0,200,215,0.15)] bg-[#071321] border border-[#00C8D7]/10"
         >
           <AutoPlayVideo
             src="/videos/hero video.mp4"

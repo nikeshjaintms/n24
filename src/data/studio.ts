@@ -313,6 +313,7 @@ export const infraredSaunaPacks = [
       "Private 30-minute infrared sauna heat therapy session for muscle recovery and detoxification:",
     features: [
       "Private luxury sauna suite",
+      "Valid for 1 person per booking",
       "Valid for 1 month from purchase date",
       "Complimentary shower facilities & wellness amenities",
     ],
@@ -331,6 +332,7 @@ export const infraredSaunaPacks = [
       "Private 45-minute infrared sauna heat therapy session for muscle recovery and detoxification:",
     features: [
       "Private luxury sauna suite",
+      "Valid for 1 person per booking",
       "Valid for 1 month from purchase date",
       "Complimentary shower facilities & wellness amenities",
     ],
@@ -342,7 +344,7 @@ export const infraredSaunaPacks = [
     unit: "",
     saveBadge: "Save 20%",
     originalPrice: "$25 / session",
-    discountedPrice: "$20.00 / session",
+    discountedPrice: "",
     iframeUrl:
       "https://n24pilatesstudio.gymmasteronline.com/portal/signup/details/12a2ffe9bf9da73eb99dec908042a0b3",
     description:

@@ -15,14 +15,14 @@ export default function Schedule() {
         <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-10">
           
           {/* GymMaster External Scripts for iframes */}
-          <Script id="gymmaster-jq-conflict-pre-schedule" strategy="afterInteractive">
+          <Script id="gymmaster-jq-conflict-pre-schedule" strategy="lazyOnload">
             {`if (typeof jQuery !== 'undefined') var oldJQuery = jQuery.noConflict(true);`}
           </Script>
           <Script
             src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"
-            strategy="afterInteractive"
+            strategy="lazyOnload"
           />
-          <Script id="gymmaster-jq-conflict-post-schedule" strategy="afterInteractive">
+          <Script id="gymmaster-jq-conflict-post-schedule" strategy="lazyOnload">
             {`if (typeof jQuery !== 'undefined') { jQueryX = jQuery.noConflict(true); } if (typeof oldJQuery !== 'undefined') { jQuery = oldJQuery; }`}
           </Script>
           <Script

@@ -13,14 +13,14 @@ export default function Home() {
   return (
     <SiteLayout>
       {/* GymMaster External Scripts for iframes */}
-      <Script id="gymmaster-jq-conflict-pre" strategy="afterInteractive">
+      <Script id="gymmaster-jq-conflict-pre" strategy="lazyOnload">
         {`if (typeof jQuery !== 'undefined') var oldJQuery = jQuery.noConflict(true);`}
       </Script>
       <Script
         src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"
-        strategy="afterInteractive"
+        strategy="lazyOnload"
       />
-      <Script id="gymmaster-jq-conflict-post" strategy="afterInteractive">
+      <Script id="gymmaster-jq-conflict-post" strategy="lazyOnload">
         {`if (typeof jQuery !== 'undefined') { jQueryX = jQuery.noConflict(true); } if (typeof oldJQuery !== 'undefined') { jQuery = oldJQuery; }`}
       </Script>
       <Script

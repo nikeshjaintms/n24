@@ -88,26 +88,23 @@ export function PremiumHero() {
           className="relative z-20 w-full max-w-7xl mx-auto px-6 lg:px-12 flex flex-col items-center lg:items-start justify-center h-full"
         >
           {/* TYPOGRAPHY */}
-          <motion.div
-            initial="hidden"
-            animate="visible"
-            variants={stagger}
+          {/* TYPOGRAPHY */}
+          <div
             className="w-full flex flex-col text-center lg:text-left items-center lg:items-start"
           >
             {/* Eyebrow */}
-            <motion.div variants={fadeUp} className="flex items-center gap-4 mb-8 lg:mb-12">
+            <div className="animate-in fade-in slide-in-from-bottom-10 duration-1000 fill-mode-both flex items-center gap-4 mb-8 lg:mb-12">
               <div className="h-[2px] w-12 bg-gradient-to-r from-[#16D9F5] to-transparent rounded-full hidden lg:block" />
               <div className="h-[2px] w-12 bg-gradient-to-l from-[#16D9F5] to-transparent rounded-full lg:hidden" />
               <span className="text-[0.65rem] font-bold uppercase tracking-[0.25em] text-[#16D9F5] drop-shadow-[0_0_8px_rgba(22,217,245,0.4)]">
                 Perth&apos;s Premier Digital Reformer &amp; Sauna Sanctuary
               </span>
               <div className="h-[2px] w-12 bg-gradient-to-r from-[#16D9F5] to-transparent rounded-full lg:hidden" />
-            </motion.div>
+            </div>
 
             {/* Headline */}
-            <motion.h1
-              variants={fadeUp}
-              className="font-display text-[4.5rem] sm:text-[6rem] md:text-[7rem] lg:text-[8.5rem] xl:text-[9.5rem] leading-[0.9] text-white tracking-tight mb-8 drop-shadow-[0_4px_16px_rgba(0,0,0,0.85)]"
+            <h1
+              className="animate-in fade-in slide-in-from-bottom-10 duration-1000 fill-mode-both delay-150 font-display text-[4.5rem] sm:text-[6rem] md:text-[7rem] lg:text-[8.5rem] xl:text-[9.5rem] leading-[0.9] text-white tracking-tight mb-8 drop-shadow-[0_4px_16px_rgba(0,0,0,0.85)]"
             >
               Intelligent{" "}
               <span className="italic relative inline-block">
@@ -131,23 +128,21 @@ export function PremiumHero() {
                   Movement.
                 </span>
               </span>
-            </motion.h1>
+            </h1>
 
             {/* Paragraph */}
-            <motion.p
-              variants={fadeUp}
-              className="text-[1.1rem] sm:text-[1.25rem] leading-relaxed text-white font-light max-w-xl mb-12 drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]"
+            <p
+              className="animate-in fade-in slide-in-from-bottom-10 duration-1000 fill-mode-both delay-300 text-[1.1rem] sm:text-[1.25rem] leading-relaxed text-white font-light max-w-xl mb-12 drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]"
             >
               Welcome to a new era of movement in Applecross. Experience Australia&apos;s most
               advanced self-guided Digital Reformer Pilates studio and restorative Infrared Sauna
               therapy. Enjoy 800+ on-demand masterclasses, complete privacy, and a schedule tailored
               to your life—open 5:00 AM to 10:00 PM daily.
-            </motion.p>
+            </p>
 
             {/* CTA Buttons */}
-            <motion.div
-              variants={fadeUp}
-              className="flex flex-col sm:flex-row gap-5 w-full sm:w-auto"
+            <div
+              className="animate-in fade-in slide-in-from-bottom-10 duration-1000 fill-mode-both delay-500 flex flex-col sm:flex-row gap-5 w-full sm:w-auto"
             >
               <Link
                 href="/schedule"
@@ -166,8 +161,8 @@ export function PremiumHero() {
               >
                 Claim Your Complimentary Pass
               </Link>
-            </motion.div>
-          </motion.div>
+            </div>
+          </div>
         </motion.div>
       </section>
     </div>

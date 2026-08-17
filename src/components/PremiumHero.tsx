@@ -22,7 +22,7 @@ export function PremiumHero() {
       {/* =======================
           HERO SECTION
           ======================= */}
-      <section className="relative w-full min-h-[100vh] sm:min-h-[100dvh] flex flex-col justify-center bg-[#071321] overflow-hidden pt-28 sm:pt-36 lg:pt-48 pb-20 sm:pb-32 lg:pb-48">
+      <section className="relative w-full min-h-[100svh] sm:min-h-[100dvh] flex flex-col justify-center bg-[#071321] overflow-hidden pt-28 sm:pt-36 lg:pt-48 pb-20 sm:pb-32 lg:pb-48">
         {/* CINEMATIC BACKGROUND */}
         <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
           {/* Mobile Image (Portrait) */}

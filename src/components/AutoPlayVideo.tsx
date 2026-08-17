@@ -1,41 +1,60 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 interface AutoPlayVideoProps extends React.VideoHTMLAttributes<HTMLVideoElement> {
   src: string;
   poster?: string;
+  priority?: boolean;
 }
 
 export function AutoPlayVideo({
   src,
   autoPlay = true,
   poster,
+  priority = false,
   className = "",
   style,
   ...rest
 }: AutoPlayVideoProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
-  const [isInView, setIsInView] = useState(false);
+
+  // Priority videos load immediately (isInView starts true)
+  const [isInView, setIsInView] = useState(priority);
   const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
+    // Priority videos load immediately without IntersectionObserver
+    if (priority) {
+      setIsInView(true);
+      if (videoRef.current) {
+        videoRef.current.muted = true;
+        if (autoPlay) {
+          videoRef.current.play().catch(() => {});
+        }
+      }
+      return;
+    }
+
     const el = containerRef.current;
     if (!el) return;
 
-    // Use IntersectionObserver to delay video loading until near viewport
-    const observer = new IntersectionObserver(
+    let observer: IntersectionObserver | null = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             setIsInView(true);
-            if (videoRef.current && autoPlay) {
-              videoRef.current.play().catch(() => {});
-            }
-          } else {
             if (videoRef.current) {
-              videoRef.current.pause();
+              videoRef.current.muted = true;
+              if (autoPlay) {
+                videoRef.current.load();
+                videoRef.current.play().catch(() => {});
+              }
+            }
+            if (observer) {
+              observer.disconnect();
+              observer = null;
             }
           }
         });
@@ -44,42 +63,56 @@ export function AutoPlayVideo({
     );
 
     observer.observe(el);
-    return () => observer.disconnect();
-  }, [autoPlay]);
 
+    return () => {
+      if (observer) {
+        observer.disconnect();
+      }
+    };
+  }, [priority, autoPlay]);
+
+  // Ensure DOM element has muted property explicitly set for iOS Safari
   useEffect(() => {
-    if (isInView && videoRef.current && autoPlay) {
-      videoRef.current.play().catch(() => {});
+    if (videoRef.current) {
+      videoRef.current.muted = true;
+      if ((priority || isInView) && autoPlay) {
+        videoRef.current.play().catch(() => {});
+      }
     }
-  }, [isInView, autoPlay]);
+  }, [priority, isInView, autoPlay]);
 
   return (
     <div ref={containerRef} className={`relative overflow-hidden ${className}`} style={style}>
-      {poster && !isLoaded && (
+      {poster && (
         <img
           src={poster}
           alt=""
-          className="absolute inset-0 size-full object-cover z-0 transition-opacity duration-500"
-          loading="lazy"
+          className={`absolute inset-0 size-full object-cover z-0 transition-opacity duration-700 pointer-events-none ${
+            isLoaded ? "opacity-0" : "opacity-100"
+          }`}
+          loading={priority ? "eager" : "lazy"}
         />
       )}
       <video
         ref={videoRef}
-        src={isInView ? src : undefined}
+        src={priority || isInView ? src : undefined}
         poster={poster}
         muted
+        autoPlay={autoPlay}
         loop
         playsInline
-        // @ts-ignore
+        // @ts-ignore iOS WebKit playsInline support
         webkit-playsinline="true"
-        preload={isInView ? "metadata" : "none"}
+        preload={priority ? "metadata" : isInView ? "metadata" : "none"}
         onLoadedData={() => setIsLoaded(true)}
+        onPlaying={() => setIsLoaded(true)}
         className={`size-full object-cover transition-opacity duration-500 ${
-          isLoaded || !poster ? "opacity-100" : "opacity-0"
+          isLoaded || !poster ? "opacity-100" : "opacity-90"
         }`}
         {...rest}
       />
     </div>
   );
 }
+
 

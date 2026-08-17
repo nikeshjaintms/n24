@@ -1,5 +1,41 @@
 import type { Metadata } from "next";
+import { Cormorant_Garamond, Playfair_Display, Manrope, Inter, Sacramento } from "next/font/google";
 import "../styles.css";
+
+const cormorant = Cormorant_Garamond({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
+  variable: "--font-cormorant",
+  display: "swap",
+});
+
+const playfair = Playfair_Display({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-playfair",
+  display: "swap",
+});
+
+const manrope = Manrope({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600"],
+  variable: "--font-manrope",
+  display: "swap",
+});
+
+const inter = Inter({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600"],
+  variable: "--font-inter",
+  display: "swap",
+});
+
+const sacramento = Sacramento({
+  subsets: ["latin"],
+  weight: ["400"],
+  variable: "--font-sacramento",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: "N24 Pilates & Wellness Studio | Premium Digital Reformer & Infrared Sauna in Applecross",
@@ -14,15 +50,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Inter:wght@300;400;500;600&family=Manrope:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Sacramento&display=swap"
-          rel="stylesheet"
-        />
-      </head>
-      <body>{children}</body>
+      <body className={`${cormorant.variable} ${playfair.variable} ${manrope.variable} ${inter.variable} ${sacramento.variable}`}>
+        {children}
+      </body>
     </html>
   );
 }

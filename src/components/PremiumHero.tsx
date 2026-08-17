@@ -1,10 +1,10 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Variants, motion, MotionValue } from "framer-motion";
-import { ArrowRight, Star, Users, User, Activity } from "lucide-react";
+import { Variants, motion, useScroll, useTransform } from "framer-motion";
+import { ArrowRight } from "lucide-react";
 
 const fadeUp: Variants = {
   hidden: { opacity: 0, y: 40 },
@@ -12,21 +12,17 @@ const fadeUp: Variants = {
 };
 const stagger = { visible: { transition: { staggerChildren: 0.15 } } };
 
-export function PremiumHero({
-  heroY,
-  heroOpacity,
-  heroScale,
-}: {
-  heroY: MotionValue<string>;
-  heroOpacity: MotionValue<number>;
-  heroScale: MotionValue<number>;
-}) {
+export function PremiumHero() {
+  const heroRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({ target: heroRef, offset: ["start start", "end start"] });
+  const heroOpacity = useTransform(scrollYProgress, [0, 0.7], [1, 0]);
+
   return (
-    <div className="w-full flex flex-col">
+    <div className="w-full flex flex-col" ref={heroRef}>
       {/* =======================
           HERO SECTION
           ======================= */}
-      <section className="relative w-full min-h-screen flex flex-col justify-center bg-[#071321] overflow-hidden pt-[120px] lg:pt-[160px] pb-32 lg:pb-48">
+      <section className="relative w-full min-h-[100dvh] flex flex-col justify-center bg-[#071321] overflow-hidden pt-[120px] lg:pt-[160px] pb-32 lg:pb-48">
         {/* CINEMATIC BACKGROUND */}
         <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
           {/* Mobile Image (Portrait) */}
@@ -36,6 +32,7 @@ export function PremiumHero({
             fill 
             className="object-cover object-center md:hidden" 
             priority
+            sizes="100vw"
           />
           {/* Desktop Image (Landscape) */}
           <Image 
@@ -44,6 +41,7 @@ export function PremiumHero({
             fill 
             className="object-cover object-center hidden md:block" 
             priority
+            sizes="100vw"
           />
           {/* Top gradient for Navbar visibility */}
           <div className="absolute top-0 inset-x-0 h-40 bg-gradient-to-b from-[#071321]/90 via-[#071321]/60 to-transparent" />
@@ -62,7 +60,7 @@ export function PremiumHero({
             opacity: [0.15, 0.25, 0.15],
           }}
           transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute top-[20%] left-[10%] w-[500px] h-[500px] bg-[#16D9F5]/10 rounded-full blur-[120px] pointer-events-none z-0"
+          className="absolute top-[20%] left-[10%] w-[500px] h-[500px] bg-[#16D9F5]/10 rounded-full blur-[120px] pointer-events-none z-0 translate-z-0"
         />
         <motion.div
           animate={{
@@ -70,7 +68,7 @@ export function PremiumHero({
             opacity: [0.1, 0.2, 0.1],
           }}
           transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-          className="absolute bottom-[20%] right-[10%] w-[600px] h-[600px] bg-[#0082c8]/10 rounded-full blur-[140px] pointer-events-none z-0"
+          className="absolute bottom-[20%] right-[10%] w-[600px] h-[600px] bg-[#0082c8]/10 rounded-full blur-[140px] pointer-events-none z-0 translate-z-0"
         />
 
         {/* Noise Texture */}
@@ -169,8 +167,6 @@ export function PremiumHero({
                 Claim Your Complimentary Pass
               </Link>
             </motion.div>
-
-
           </motion.div>
         </motion.div>
       </section>

@@ -1,5 +1,3 @@
-"use client";
-
 import { SiteLayout, PageHero } from "@/components/SiteLayout";
 import Script from "next/script";
 
@@ -41,6 +39,8 @@ export default function Schedule() {
                 scrolling="no"
                 frameBorder="0"
                 allow="camera *"
+                loading="lazy"
+                title="Class Calendar"
               />
             </figure>
           </div>

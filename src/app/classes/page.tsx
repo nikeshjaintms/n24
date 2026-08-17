@@ -66,6 +66,7 @@ export default function Classes() {
                       loop
                       muted
                       playsInline
+                      preload="none"
                       className="absolute inset-0 w-full h-full object-cover transition-transform duration-[1.5s] group-hover:scale-110 filter grayscale-[15%] group-hover:grayscale-0"
                     />
                   ) : (

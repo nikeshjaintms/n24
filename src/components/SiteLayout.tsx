@@ -4,7 +4,7 @@ import { Footer } from "./Footer";
 
 export function SiteLayout({ children }: { children: ReactNode }) {
   return (
-    <div className="flex min-h-screen flex-col overflow-x-clip">
+    <div className="flex min-h-dvh flex-col overflow-x-clip">
       <Navbar />
       <main className="flex-1">{children}</main>
       <Footer />

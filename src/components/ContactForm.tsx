@@ -49,6 +49,7 @@ export function ContactForm() {
           src="https://n24pilatesstudio.gymmasteronline.com/portal/enquiry"
           title="Contact N24 Pilates Studio"
           allow="camera *; microphone *"
+          loading="lazy"
           onLoad={() => setIsLoading(false)}
         />
       </div>

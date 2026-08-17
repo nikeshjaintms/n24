@@ -62,7 +62,7 @@ export function AutoPlayVideo({
           io.disconnect();
         }
       },
-      { rootMargin: "300px 0px" }
+      { rootMargin: "100px 0px" }
     );
     io.observe(el);
     return () => io.disconnect();

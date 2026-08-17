@@ -100,11 +100,6 @@ export default function InfraredSaunas() {
             <div className="relative rounded-[24px] overflow-hidden aspect-[4/5] shadow-soft animate-in fade-in slide-in-from-right-10 duration-1000 fill-mode-both delay-300 group">
               <AutoPlayVideo
                 src="/sauna.mp4"
-                autoPlay
-                loop
-                muted
-                playsInline
-                preload="metadata"
                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#0A0F1E]/60 via-transparent to-transparent opacity-80 pointer-events-none" />

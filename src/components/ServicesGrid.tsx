@@ -52,11 +52,6 @@ export function ServicesGrid() {
                   {c.video ? (
                     <AutoPlayVideo
                       src={c.video}
-                      autoPlay
-                      loop
-                      muted
-                      playsInline
-                      preload="none"
                       className="h-64 w-full object-cover transition-transform duration-700 group-hover:scale-105"
                     />
                   ) : (

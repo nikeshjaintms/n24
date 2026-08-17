@@ -22,7 +22,7 @@ export function PremiumHero() {
       {/* =======================
           HERO SECTION
           ======================= */}
-      <section className="relative w-full min-h-[100dvh] flex flex-col justify-center bg-[#071321] overflow-hidden pt-[120px] lg:pt-[160px] pb-32 lg:pb-48">
+      <section className="relative w-full min-h-[100vh] sm:min-h-[100dvh] flex flex-col justify-center bg-[#071321] overflow-hidden pt-28 sm:pt-36 lg:pt-48 pb-20 sm:pb-32 lg:pb-48">
         {/* CINEMATIC BACKGROUND */}
         <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
           {/* Mobile Image (Portrait) */}
@@ -44,10 +44,10 @@ export function PremiumHero() {
             sizes="100vw"
           />
           {/* Top gradient for Navbar visibility */}
-          <div className="absolute top-0 inset-x-0 h-40 bg-gradient-to-b from-[#071321]/90 via-[#071321]/60 to-transparent" />
+          <div className="absolute top-0 inset-x-0 h-40 bg-gradient-to-b from-[#071321]/95 via-[#071321]/70 to-transparent" />
           
           {/* Overall overlay to keep hero text readable but image bright */}
-          <div className="absolute inset-0 bg-[#071321]/40" />
+          <div className="absolute inset-0 bg-[#071321]/50" />
           
           {/* Bottom gradient to blend smoothly into the next section */}
           <div className="absolute bottom-0 inset-x-0 h-48 bg-gradient-to-t from-[#071321] to-transparent" />
@@ -85,26 +85,25 @@ export function PremiumHero() {
             ======================= */}
         <motion.div
           style={{ opacity: heroOpacity }}
-          className="relative z-20 w-full max-w-7xl mx-auto px-6 lg:px-12 flex flex-col items-center lg:items-start justify-center h-full"
+          className="relative z-20 w-full max-w-7xl mx-auto px-5 sm:px-6 lg:px-12 flex flex-col items-center lg:items-start justify-center h-full"
         >
-          {/* TYPOGRAPHY */}
           {/* TYPOGRAPHY */}
           <div
             className="w-full flex flex-col text-center lg:text-left items-center lg:items-start"
           >
             {/* Eyebrow */}
-            <div className="animate-in fade-in slide-in-from-bottom-10 duration-1000 fill-mode-both flex items-center gap-4 mb-8 lg:mb-12">
-              <div className="h-[2px] w-12 bg-gradient-to-r from-[#16D9F5] to-transparent rounded-full hidden lg:block" />
-              <div className="h-[2px] w-12 bg-gradient-to-l from-[#16D9F5] to-transparent rounded-full lg:hidden" />
-              <span className="text-[0.65rem] font-bold uppercase tracking-[0.25em] text-[#16D9F5] drop-shadow-[0_0_8px_rgba(22,217,245,0.4)]">
+            <div className="animate-in fade-in slide-in-from-bottom-10 duration-1000 fill-mode-both flex items-center gap-3 sm:gap-4 mb-4 sm:mb-8 lg:mb-12">
+              <div className="h-[2px] w-8 sm:w-12 bg-gradient-to-r from-[#16D9F5] to-transparent rounded-full hidden lg:block" />
+              <div className="h-[2px] w-8 sm:w-12 bg-gradient-to-l from-[#16D9F5] to-transparent rounded-full lg:hidden" />
+              <span className="text-[0.6rem] sm:text-[0.65rem] font-bold uppercase tracking-[0.2em] sm:tracking-[0.25em] text-[#16D9F5] drop-shadow-[0_0_8px_rgba(22,217,245,0.4)]">
                 Perth&apos;s Premier Digital Reformer &amp; Sauna Sanctuary
               </span>
-              <div className="h-[2px] w-12 bg-gradient-to-r from-[#16D9F5] to-transparent rounded-full lg:hidden" />
+              <div className="h-[2px] w-8 sm:w-12 bg-gradient-to-r from-[#16D9F5] to-transparent rounded-full lg:hidden" />
             </div>
 
             {/* Headline */}
             <h1
-              className="animate-in fade-in slide-in-from-bottom-10 duration-1000 fill-mode-both delay-150 font-display text-[4.5rem] sm:text-[6rem] md:text-[7rem] lg:text-[8.5rem] xl:text-[9.5rem] leading-[0.9] text-white tracking-tight mb-8 drop-shadow-[0_4px_16px_rgba(0,0,0,0.85)]"
+              className="animate-in fade-in slide-in-from-bottom-10 duration-1000 fill-mode-both delay-150 font-display text-[2.8rem] xs:text-[3.5rem] sm:text-[5.5rem] md:text-[7rem] lg:text-[8.5rem] xl:text-[9.5rem] leading-[0.95] text-white tracking-tight mb-6 sm:mb-8 drop-shadow-[0_4px_16px_rgba(0,0,0,0.85)]"
             >
               Intelligent{" "}
               <span className="italic relative inline-block">

@@ -5,6 +5,7 @@ import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
 import { classes } from "@/data/studio";
+import { AutoPlayVideo } from "./AutoPlayVideo";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -49,12 +50,13 @@ export function ServicesGrid() {
               >
                 <div className="relative overflow-hidden">
                   {c.video ? (
-                    <video
+                    <AutoPlayVideo
                       src={c.video}
                       autoPlay
                       loop
                       muted
                       playsInline
+                      preload="none"
                       className="h-64 w-full object-cover transition-transform duration-700 group-hover:scale-105"
                     />
                   ) : (

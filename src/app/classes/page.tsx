@@ -7,6 +7,7 @@ import { Clock, Signal, ArrowRight, Phone } from "lucide-react";
 import Image from "next/image";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
+import { AutoPlayVideo } from "@/components/AutoPlayVideo";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 50 },
@@ -60,7 +61,7 @@ export default function Classes() {
                   className="group relative w-full lg:w-1/2 aspect-[4/5] lg:aspect-[3/4] overflow-hidden rounded-[28px] shadow-premium"
                 >
                   {c.video ? (
-                    <video
+                    <AutoPlayVideo
                       src={c.video}
                       autoPlay
                       loop

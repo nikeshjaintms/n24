@@ -4,6 +4,7 @@ import { useRef, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Play } from "lucide-react";
 import type { Variants } from "framer-motion";
+import { AutoPlayVideo } from "./AutoPlayVideo";
 
 const fadeUp: Variants = {
   hidden: { opacity: 0, y: 50 },
@@ -129,7 +130,7 @@ export function GallerySection() {
               transition={{ duration: 0.8, delay: (i % 4) * 0.1 }}
               className="group relative w-[85vw] sm:w-[45vw] md:w-[35vw] lg:w-[28vw] max-w-[400px] flex-shrink-0 aspect-[9/16] sm:aspect-[4/5] overflow-hidden rounded-[28px] shadow-soft hover:shadow-premium transition-all duration-500"
             >
-              <video
+              <AutoPlayVideo
                 src={item.src}
                 autoPlay
                 loop

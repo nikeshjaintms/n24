@@ -2,6 +2,7 @@
 
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
+import { AutoPlayVideo } from "./AutoPlayVideo";
 
 export function PromoVideoSection() {
   const videoContainerRef = useRef<HTMLDivElement>(null);
@@ -24,7 +25,7 @@ export function PromoVideoSection() {
           style={{ width: videoWidth, borderRadius: videoRadius }}
           className="group relative aspect-[4/3] sm:aspect-video overflow-hidden shadow-[0_20px_50px_-10px_rgba(0,200,215,0.15)] bg-[#071321] border border-[#00C8D7]/10"
         >
-          <video
+          <AutoPlayVideo
             src="/videos/hero video.mp4"
             autoPlay
             loop

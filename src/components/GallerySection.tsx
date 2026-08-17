@@ -2,7 +2,6 @@
 
 import { useRef, useEffect } from "react";
 import { motion } from "framer-motion";
-import { Play } from "lucide-react";
 import type { Variants } from "framer-motion";
 import { AutoPlayVideo } from "./AutoPlayVideo";
 
@@ -132,20 +131,11 @@ export function GallerySection() {
             >
               <AutoPlayVideo
                 src={item.src}
-                autoPlay
-                loop
-                muted
-                playsInline
-                preload="metadata"
                 className="absolute inset-0 size-full object-cover transition-transform duration-[1.5s] group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#0A0F1E]/90 via-[#0A0F1E]/20 to-transparent opacity-80 group-hover:opacity-100 transition-opacity duration-500" />
 
-              <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                <div className="size-16 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center border border-white/20 opacity-0 group-hover:opacity-100 transition-all duration-500 scale-75 group-hover:scale-100 shadow-[0_0_30px_rgba(0,200,215,0.3)]">
-                  <Play className="size-6 text-white ml-1" fill="currentColor" />
-                </div>
-              </div>
+
 
               <div className="absolute bottom-8 left-8 right-8 transform translate-y-3 group-hover:translate-y-0 transition-transform duration-500">
                 <h3 className="font-display text-3xl text-white leading-tight mb-3">

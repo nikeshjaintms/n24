@@ -2,117 +2,114 @@
 
 import React, { useEffect, useRef, useState } from "react";
 
-interface AutoPlayVideoProps extends React.VideoHTMLAttributes<HTMLVideoElement> {
+interface AutoPlayVideoProps {
   src: string;
   poster?: string;
+  /** Load & play immediately (above-the-fold). Without this, the video lazy-loads. */
   priority?: boolean;
+  className?: string;
+  style?: React.CSSProperties;
 }
 
+/**
+ * AutoPlayVideo
+ *
+ * – priority=true  → src assigned immediately; works on iOS Safari + Chrome
+ * – priority=false → lazy: src only assigned once element is near viewport
+ *
+ * CRITICAL iOS notes:
+ *  1. `muted` must be set as a DOM *property* (videoEl.muted = true), not just
+ *     the React prop, because Safari ignores the attribute for autoplay gating.
+ *  2. The video element itself is always rendered (never conditionally removed)
+ *     so Safari does not lose its media session context between renders.
+ *  3. We use a plain <img> poster layer on top (z-index) and fade it out once
+ *     the video fires `canplay`, hiding Safari's native black placeholder frame.
+ *  4. preload="auto" for priority videos tells Safari to load enough data to
+ *     start playing without a user gesture (combined with muted).
+ */
 export function AutoPlayVideo({
   src,
-  autoPlay = true,
   poster,
   priority = false,
   className = "",
   style,
-  ...rest
 }: AutoPlayVideoProps) {
-  const containerRef = useRef<HTMLDivElement>(null);
+  const wrapRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
+  const [srcReady, setSrcReady] = useState(priority);   // true → attach src to <video>
+  const [videoReady, setVideoReady] = useState(false);  // true → hide poster overlay
 
-  // Priority videos load immediately (isInView starts true)
-  const [isInView, setIsInView] = useState(priority);
-  const [isLoaded, setIsLoaded] = useState(false);
-
+  /* ── 1. Priority: kick off immediately after mount ────────────── */
   useEffect(() => {
-    // Priority videos load immediately without IntersectionObserver
-    if (priority) {
-      setIsInView(true);
-      if (videoRef.current) {
-        videoRef.current.muted = true;
-        if (autoPlay) {
-          videoRef.current.play().catch(() => {});
-        }
-      }
-      return;
-    }
+    if (!priority) return;
+    const v = videoRef.current;
+    if (!v) return;
+    v.muted = true;          // DOM property – required by iOS for autoplay
+    v.load();
+    v.play().catch(() => {});
+  }, [priority]);
 
-    const el = containerRef.current;
+  /* ── 2. Lazy: IntersectionObserver, disconnect after first load ─ */
+  useEffect(() => {
+    if (priority) return;    // skip for priority videos
+    const el = wrapRef.current;
     if (!el) return;
 
-    let observer: IntersectionObserver | null = new IntersectionObserver(
+    const io = new IntersectionObserver(
       (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setIsInView(true);
-            if (videoRef.current) {
-              videoRef.current.muted = true;
-              if (autoPlay) {
-                videoRef.current.load();
-                videoRef.current.play().catch(() => {});
-              }
-            }
-            if (observer) {
-              observer.disconnect();
-              observer = null;
-            }
-          }
-        });
+        if (entries[0].isIntersecting) {
+          setSrcReady(true);
+          io.disconnect();
+        }
       },
       { rootMargin: "300px 0px" }
     );
+    io.observe(el);
+    return () => io.disconnect();
+  }, [priority]);
 
-    observer.observe(el);
-
-    return () => {
-      if (observer) {
-        observer.disconnect();
-      }
-    };
-  }, [priority, autoPlay]);
-
-  // Ensure DOM element has muted property explicitly set for iOS Safari
+  /* ── 3. Once srcReady + src assigned, ensure muted & play ───── */
   useEffect(() => {
-    if (videoRef.current) {
-      videoRef.current.muted = true;
-      if ((priority || isInView) && autoPlay) {
-        videoRef.current.play().catch(() => {});
-      }
-    }
-  }, [priority, isInView, autoPlay]);
+    if (!srcReady) return;
+    const v = videoRef.current;
+    if (!v) return;
+    v.muted = true;
+    v.load();
+    v.play().catch(() => {});
+  }, [srcReady]);
 
   return (
-    <div ref={containerRef} className={`relative overflow-hidden ${className}`} style={style}>
-      {/* Poster image ON TOP of video (z-10) until video is ready & playing */}
+    <div ref={wrapRef} className={`relative overflow-hidden ${className}`} style={style}>
+      {/* ── Video element (always present in DOM) ── */}
+      <video
+        ref={videoRef}
+        src={srcReady ? src : undefined}
+        muted            /* HTML attribute (for SSR / hydration) */
+        autoPlay
+        loop
+        playsInline
+        // @ts-ignore webkit-specific attribute not in React's type definitions
+        webkit-playsinline="true"
+        preload={priority ? "auto" : srcReady ? "metadata" : "none"}
+        onCanPlay={() => setVideoReady(true)}
+        onPlaying={() => setVideoReady(true)}
+        className="absolute inset-0 w-full h-full object-cover"
+      />
+
+      {/* ── Poster overlay: sits on top until video is ready ── */}
       {poster && (
         <img
           src={poster}
           alt=""
-          className={`absolute inset-0 size-full object-cover z-10 transition-opacity duration-700 pointer-events-none ${
-            isLoaded ? "opacity-0 pointer-events-none" : "opacity-100"
-          }`}
+          aria-hidden="true"
           loading={priority ? "eager" : "lazy"}
+          className={[
+            "absolute inset-0 w-full h-full object-cover pointer-events-none",
+            "transition-opacity duration-700",
+            videoReady ? "opacity-0" : "opacity-100",
+          ].join(" ")}
         />
       )}
-      <video
-        ref={videoRef}
-        src={priority || isInView ? src : undefined}
-        poster={poster}
-        muted
-        autoPlay={autoPlay}
-        loop
-        playsInline
-        // @ts-ignore iOS WebKit playsInline support
-        webkit-playsinline="true"
-        preload={priority ? "metadata" : isInView ? "metadata" : "none"}
-        onLoadedData={() => setIsLoaded(true)}
-        onPlaying={() => setIsLoaded(true)}
-        onCanPlay={() => setIsLoaded(true)}
-        className="relative z-0 size-full object-cover"
-        {...rest}
-      />
     </div>
   );
 }
-
-

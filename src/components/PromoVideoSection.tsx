@@ -29,11 +29,7 @@ export function PromoVideoSection() {
             src="/videos/hero video.mp4"
             poster="/pilates_hero_mobile.png"
             priority
-            autoPlay
-            loop
-            muted
-            playsInline
-            className="absolute inset-0 w-full h-full object-cover scale-[1.02] transition-transform duration-[2000ms] group-hover:scale-100 z-0"
+            className="absolute inset-0 w-full h-full object-cover scale-[1.02] transition-transform duration-[2000ms] group-hover:scale-100"
           />
 
           <motion.div

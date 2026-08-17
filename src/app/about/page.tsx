@@ -39,7 +39,7 @@ export default function About() {
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true, margin: "-100px" }}
+              viewport={{ once: true, margin: "0px", amount: 0.1 }}
               transition={{ duration: 1.2, ease: "easeOut" }}
               className="group relative overflow-hidden rounded-[24px] shadow-soft aspect-[4/5] lg:aspect-auto lg:h-[700px]"
             >
@@ -56,7 +56,7 @@ export default function About() {
             <motion.div
               initial="hidden"
               whileInView="visible"
-              viewport={{ once: true, margin: "-100px" }}
+              viewport={{ once: true, margin: "0px", amount: 0.1 }}
               variants={stagger}
               className="lg:pl-8"
             >
@@ -132,7 +132,7 @@ export default function About() {
           <motion.div
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
+            viewport={{ once: true, margin: "0px", amount: 0.1 }}
             variants={stagger}
             className="text-center mb-24"
           >
@@ -147,7 +147,7 @@ export default function About() {
           <motion.div
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, margin: "-50px" }}
+            viewport={{ once: true, margin: "0px", amount: 0.1 }}
             variants={stagger}
             className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4"
           >
@@ -188,7 +188,7 @@ export default function About() {
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
+            viewport={{ once: true, margin: "0px", amount: 0.1 }}
             transition={{ duration: 1 }}
             className="group relative overflow-hidden rounded-[24px] shadow-soft"
           >

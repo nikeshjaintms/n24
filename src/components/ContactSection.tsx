@@ -17,7 +17,7 @@ export function ContactSection() {
         <motion.p
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
+          viewport={{ once: true, margin: "0px", amount: 0.1 }}
           variants={fadeUp}
           className="eyebrow text-[#00C8D7] mb-6 tracking-[0.3em]"
         >
@@ -26,7 +26,7 @@ export function ContactSection() {
         <motion.h2
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
+          viewport={{ once: true, margin: "0px", amount: 0.1 }}
           variants={fadeUp}
           className="font-display text-5xl md:text-6xl text-[#0A0F1E] mb-8"
         >
@@ -35,7 +35,7 @@ export function ContactSection() {
         <motion.p
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
+          viewport={{ once: true, margin: "0px", amount: 0.1 }}
           variants={fadeUp}
           className="text-[1.1rem] text-[#5B6B70] font-light mb-14 flex items-center justify-center gap-3"
         >
@@ -46,7 +46,7 @@ export function ContactSection() {
         <motion.div
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
+          viewport={{ once: true, margin: "0px", amount: 0.1 }}
           variants={stagger}
           className="flex flex-col sm:flex-row items-center justify-center gap-5 mb-20"
         >

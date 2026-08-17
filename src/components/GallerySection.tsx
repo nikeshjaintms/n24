@@ -99,7 +99,7 @@ export function GallerySection() {
         <motion.div
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
+          viewport={{ once: true, margin: "0px", amount: 0.1 }}
           variants={stagger}
           className="flex flex-col md:flex-row md:items-end md:justify-between px-2 mb-12 gap-6"
         >
@@ -125,7 +125,7 @@ export function GallerySection() {
               key={i}
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true, margin: "-50px" }}
+              viewport={{ once: true, margin: "0px", amount: 0.1 }}
               transition={{ duration: 0.8, delay: (i % 4) * 0.1 }}
               className="group relative w-[85vw] sm:w-[45vw] md:w-[35vw] lg:w-[28vw] max-w-[400px] flex-shrink-0 aspect-[9/16] sm:aspect-[4/5] overflow-hidden rounded-[28px] shadow-soft hover:shadow-premium transition-all duration-500"
             >
@@ -135,7 +135,7 @@ export function GallerySection() {
                 loop
                 muted
                 playsInline
-                preload="none"
+                preload="metadata"
                 className="absolute inset-0 size-full object-cover transition-transform duration-[1.5s] group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#0A0F1E]/90 via-[#0A0F1E]/20 to-transparent opacity-80 group-hover:opacity-100 transition-opacity duration-500" />

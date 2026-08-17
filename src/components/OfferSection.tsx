@@ -44,7 +44,7 @@ export function OfferSection() {
         <motion.div
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
+          viewport={{ once: true, margin: "0px", amount: 0.1 }}
           variants={stagger}
           className="relative z-10 mx-auto max-w-4xl px-6 text-center"
         >

@@ -141,14 +141,27 @@ export function PricingModal({ isOpen, onClose, plan }: PricingModalProps) {
               )}
 
               {plan.iframeUrl ? (
-                <iframe
-                  id="gmiframe"
-                  className="gmiframe w-full min-h-[650px] md:min-h-[750px] border-0 rounded-2xl bg-white shadow-sm"
-                  src={plan.iframeUrl}
-                  title={`Sign up for ${plan.name}`}
-                  allow="camera *; microphone *; payment *"
-                  onLoad={() => setIsLoading(false)}
-                />
+                <div className="flex flex-col h-full w-full">
+                  <div className="md:hidden w-full text-center py-4 px-2 border-b border-[#DDEAF2] bg-[#F1FAFB]">
+                    <p className="text-xs text-[#4A606A] mb-2">Are you on a mobile device and unable to see the form?</p>
+                    <a 
+                      href={plan.iframeUrl} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center justify-center rounded-full bg-[#00AFC2] px-5 py-2 text-[0.7rem] font-bold uppercase tracking-wider text-white shadow-sm"
+                    >
+                      Open Booking Form Directly
+                    </a>
+                  </div>
+                  <iframe
+                    id="gmiframe"
+                    className="gmiframe w-full min-h-[650px] md:min-h-[750px] border-0 rounded-2xl bg-white shadow-sm"
+                    src={plan.iframeUrl}
+                    title={`Sign up for ${plan.name}`}
+                    allow="camera *; microphone *; payment *"
+                    onLoad={() => setIsLoading(false)}
+                  />
+                </div>
               ) : (
                 <div className="flex flex-col items-center justify-center min-h-[300px] text-center p-8">
                   <p className="font-display text-2xl text-[#0C1A2E] font-bold mb-2">Coming Soon</p>

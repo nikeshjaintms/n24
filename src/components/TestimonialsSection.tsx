@@ -100,7 +100,7 @@ export function TestimonialsSection() {
           <motion.div
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
+            viewport={{ once: true, margin: "0px", amount: 0.1 }}
             variants={stagger}
             className="text-center mb-16"
           >
@@ -137,7 +137,7 @@ export function TestimonialsSection() {
           <motion.div
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, margin: "-50px" }}
+            viewport={{ once: true, margin: "0px", amount: 0.1 }}
             variants={stagger}
             className="mt-8"
           >

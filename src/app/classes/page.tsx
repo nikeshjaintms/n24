@@ -48,7 +48,7 @@ export default function Classes() {
                 key={c.slug}
                 initial="hidden"
                 whileInView="visible"
-                viewport={{ once: true, margin: "-100px" }}
+                viewport={{ once: true, margin: "0px", amount: 0.1 }}
                 variants={stagger}
                 className={`flex flex-col items-center gap-12 lg:gap-24 ${
                   !isEven ? "lg:flex-row-reverse" : "lg:flex-row"
@@ -66,7 +66,7 @@ export default function Classes() {
                       loop
                       muted
                       playsInline
-                      preload="none"
+                      preload="metadata"
                       className="absolute inset-0 w-full h-full object-cover transition-transform duration-[1.5s] group-hover:scale-110 filter grayscale-[15%] group-hover:grayscale-0"
                     />
                   ) : (
@@ -121,7 +121,7 @@ export default function Classes() {
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
+            viewport={{ once: true, margin: "0px", amount: 0.1 }}
             transition={{ duration: 1 }}
             className="group relative overflow-hidden rounded-[24px] shadow-soft"
           >

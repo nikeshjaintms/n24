@@ -15,8 +15,8 @@ export function PromoVideoSection() {
   const videoTextY = useTransform(videoScroll, [0.5, 1], [40, 0]);
 
   return (
-    <section ref={videoContainerRef} className="bg-slate-50 h-[150vh] relative">
-      <div className="sticky top-0 w-full h-[100dvh] flex items-center justify-center overflow-hidden">
+    <section ref={videoContainerRef} className="bg-slate-50 md:h-[150vh] relative py-12 md:py-0">
+      <div className="md:sticky top-0 w-full md:h-[100dvh] flex items-center justify-center overflow-hidden">
         {/* Cinematic ambient backlight for the video */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80%] h-[80%] bg-gradient-to-r from-[#00C8D7]/15 to-[#00AFC2]/10 blur-[140px] pointer-events-none mix-blend-multiply translate-z-0" />
 
@@ -30,7 +30,8 @@ export function PromoVideoSection() {
             loop
             muted
             playsInline
-            preload="none"
+            preload="metadata"
+            poster="/shared image.jpg"
             className="absolute inset-0 w-full h-full object-cover scale-[1.02] transition-transform duration-[2000ms] group-hover:scale-100 z-0"
           />
 

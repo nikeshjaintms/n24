@@ -22,7 +22,7 @@ export function FeaturesSection() {
         <motion.div
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
+          viewport={{ once: true, margin: "0px", amount: 0.1 }}
           variants={stagger}
           className="text-center mb-16"
         >
@@ -40,7 +40,7 @@ export function FeaturesSection() {
         <motion.div
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: "-50px" }}
+          viewport={{ once: true, margin: "0px", amount: 0.1 }}
           variants={stagger}
           className="grid gap-6 sm:grid-cols-2 lg:gap-8"
         >

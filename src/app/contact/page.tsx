@@ -4,7 +4,7 @@ import { useState } from "react";
 import { SiteLayout, PageHero } from "@/components/SiteLayout";
 import { Phone, Mail, MapPin, Clock } from "lucide-react";
 import { ContactForm } from "@/components/ContactForm";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 
 const details = [
   { icon: Phone, label: "Call Us", value: "0478 336 630", href: "tel:0478336630" },
@@ -118,27 +118,27 @@ export default function Contact() {
         <div className="mx-auto max-w-7xl px-6 lg:px-10">
           <div className="grid gap-16 lg:grid-cols-2">
             {/* Left — Info */}
-            <motion.div
+            <m.div
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
               variants={stagger}
             >
-              <motion.p variants={fadeUp} className="eyebrow text-[#00AFC2] mb-4">
+              <m.p variants={fadeUp} className="eyebrow text-[#00AFC2] mb-4">
                 Applecross Studio Sanctuary
-              </motion.p>
-              <motion.h2
+              </m.p>
+              <m.h2
                 variants={fadeUp}
                 className="font-display text-5xl md:text-6xl text-[#0F172A] leading-tight mb-12"
               >
                 Visit our <em className="text-[#00C8D7]">sanctuary</em>
-              </motion.h2>
+              </m.h2>
 
               <div className="grid gap-4 sm:grid-cols-2">
                 {details.map((d, i) => {
                   const Wrapper = d.href ? "a" : "div";
                   return (
-                    <motion.div key={d.label} variants={fadeUp} className={d.className || ""}>
+                    <m.div key={d.label} variants={fadeUp} className={d.className || ""}>
                       <Wrapper
                         {...(d.href
                           ? { href: d.href, target: "_blank", rel: "noopener noreferrer" }
@@ -161,13 +161,13 @@ export default function Contact() {
                           </p>
                         )}
                       </Wrapper>
-                    </motion.div>
+                    </m.div>
                   );
                 })}
               </div>
 
               {/* Quick actions */}
-              <motion.div variants={fadeUp} className="mt-10 flex gap-3">
+              <m.div variants={fadeUp} className="mt-10 flex gap-3">
                 <a
                   href="https://wa.me/61478336630"
                   target="_blank"
@@ -182,11 +182,11 @@ export default function Contact() {
                 >
                   Email Us
                 </a>
-              </motion.div>
-            </motion.div>
+              </m.div>
+            </m.div>
 
             {/* Right — Form */}
-            <motion.div
+            <m.div
               initial={{ opacity: 0, x: 40 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
@@ -211,7 +211,7 @@ export default function Contact() {
                 </h3>
                 <ContactForm />
               </div>
-            </motion.div>
+            </m.div>
           </div>
         </div>
       </section>

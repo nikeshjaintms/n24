@@ -3,7 +3,7 @@
 import * as React from "react";
 import { useEffect, useState } from "react";
 import { X, ShieldCheck } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
+import { m, AnimatePresence } from "framer-motion";
 import type { PricingPlan } from "@/data/studio";
 
 interface PricingModalProps {
@@ -74,7 +74,7 @@ export function PricingModal({ isOpen, onClose, plan }: PricingModalProps) {
       {isOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 md:p-10 overflow-y-auto">
           {/* Backdrop */}
-          <motion.div
+          <m.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -84,7 +84,7 @@ export function PricingModal({ isOpen, onClose, plan }: PricingModalProps) {
           />
 
           {/* Modal Card */}
-          <motion.div
+          <m.div
             initial={{ opacity: 0, scale: 0.96, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.96, y: 20 }}
@@ -180,7 +180,7 @@ export function PricingModal({ isOpen, onClose, plan }: PricingModalProps) {
               </span>
               <span className="hidden sm:inline font-light">Powered by GymMaster</span>
             </div>
-          </motion.div>
+          </m.div>
         </div>
       )}
     </AnimatePresence>

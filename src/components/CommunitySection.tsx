@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { pillars } from "@/data/studio";
 
@@ -11,7 +11,7 @@ export function CommunitySection() {
     <section className="bg-[#040812] py-0 overflow-hidden border-y border-white/5 relative">
       <div className="absolute inset-0 bg-gradient-to-br from-[#071321] via-[#040812] to-[#0A1324] z-0 pointer-events-none" />
 
-      <motion.div
+      <m.div
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true, margin: "0px", amount: 0.1 }}
@@ -19,7 +19,7 @@ export function CommunitySection() {
         className="flex flex-col lg:flex-row"
       >
         <div className="lg:w-1/2 relative min-h-[500px] lg:min-h-[700px] overflow-hidden group z-10">
-          <motion.div
+          <m.div
             whileHover={{ scale: 1.05 }}
             transition={{ duration: 1.5, ease: "easeOut" }}
             className="absolute inset-0 w-full h-full"
@@ -30,7 +30,7 @@ export function CommunitySection() {
               fill
               className="object-cover opacity-90 contrast-125 saturate-50 transition-transform duration-700 group-hover:scale-[1.03]"
             />
-          </motion.div>
+          </m.div>
           <div className="absolute inset-0 bg-gradient-to-t from-[#040812] via-transparent to-transparent opacity-90" />
           <div className="absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-[#040812] opacity-0 lg:opacity-90" />
         </div>
@@ -69,7 +69,7 @@ export function CommunitySection() {
             </Link>
           </div>
         </div>
-      </motion.div>
+      </m.div>
     </section>
   );
 }

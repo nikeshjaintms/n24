@@ -3,7 +3,7 @@
 import { SiteLayout, PageHero } from "@/components/SiteLayout";
 import Link from "next/link";
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { Check, Trophy, Timer, Target, ArrowRight } from "lucide-react";
 
 const perks = [
@@ -55,7 +55,7 @@ export default function ChallengePass() {
         <div className="mx-auto max-w-7xl px-6 lg:px-10">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             {/* Image column */}
-            <motion.div
+            <m.div
               initial={{ opacity: 0, x: -40 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
@@ -84,30 +84,30 @@ export default function ChallengePass() {
                   — Sarah M., Member
                 </p>
               </div>
-            </motion.div>
+            </m.div>
 
             {/* Text column */}
-            <motion.div
+            <m.div
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
               variants={stagger}
             >
-              <motion.p variants={fadeUp} className="eyebrow text-[#00C8D7] mb-4">
+              <m.p variants={fadeUp} className="eyebrow text-[#00C8D7] mb-4">
                 What&apos;s Included
-              </motion.p>
-              <motion.h2
+              </m.p>
+              <m.h2
                 variants={fadeUp}
                 className="font-display text-5xl md:text-6xl text-[#111827] leading-tight mb-12"
               >
                 The Ultimate
                 <br />
                 <em className="text-[#00C8D7]">Pass.</em>
-              </motion.h2>
+              </m.h2>
 
               <div className="space-y-8">
                 {perks.map((p, i) => (
-                  <motion.div key={p.title} variants={fadeUp} className="flex gap-6 group">
+                  <m.div key={p.title} variants={fadeUp} className="flex gap-6 group">
                     <div
                       className="flex size-14 shrink-0 items-center justify-center rounded-2xl transition-transform duration-300 group-hover:scale-110"
                       style={{ background: `${p.color}18` }}
@@ -122,10 +122,10 @@ export default function ChallengePass() {
                         {p.text}
                       </p>
                     </div>
-                  </motion.div>
+                  </m.div>
                 ))}
               </div>
-            </motion.div>
+            </m.div>
           </div>
         </div>
       </section>
@@ -137,7 +137,7 @@ export default function ChallengePass() {
         <div className="pointer-events-none absolute top-0 right-0 w-64 h-64 rounded-full bg-[#7EE8FA]/6 blur-[80px]" />
 
         <div className="relative z-10 mx-auto max-w-xl px-6 text-center">
-          <motion.p
+          <m.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -145,8 +145,8 @@ export default function ChallengePass() {
             className="eyebrow text-[#00C8D7] mb-4"
           >
             Ready to start?
-          </motion.p>
-          <motion.h2
+          </m.p>
+          <m.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -156,10 +156,10 @@ export default function ChallengePass() {
             30-Day Challenge
             <br />
             <em className="text-[#7EE8FA]">Pass</em>
-          </motion.h2>
+          </m.h2>
 
           {/* Price */}
-          <motion.div
+          <m.div
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
@@ -167,10 +167,10 @@ export default function ChallengePass() {
             className="font-display text-7xl text-[#00C8D7] mb-2"
           >
             $199
-          </motion.div>
+          </m.div>
 
           {/* Card */}
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -197,7 +197,7 @@ export default function ChallengePass() {
               Purchase Pass{" "}
               <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
             </Link>
-          </motion.div>
+          </m.div>
         </div>
       </section>
     </SiteLayout>

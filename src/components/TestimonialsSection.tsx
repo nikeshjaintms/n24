@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { m, AnimatePresence } from "framer-motion";
 import { Star, Quote, X } from "lucide-react";
 import {
   Carousel,
@@ -97,28 +97,28 @@ export function TestimonialsSection() {
         <div className="absolute bottom-0 left-0 w-[500px] h-[500px] rounded-full bg-[#00C8D7]/5 blur-[120px] pointer-events-none translate-z-0" />
 
         <div className="mx-auto max-w-7xl px-6 lg:px-10 relative z-10">
-          <motion.div
+          <m.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "0px", amount: 0.1 }}
             variants={stagger}
             className="text-center mb-16"
           >
-            <motion.p
+            <m.p
               variants={fadeUp}
               className="eyebrow text-[#00C8D7] mb-4 tracking-[0.3em] font-bold"
             >
               Real Member Transformation
-            </motion.p>
-            <motion.h2
+            </m.p>
+            <m.h2
               variants={fadeUp}
               className="font-display text-5xl md:text-6xl text-[#0A0F1E] mb-8"
             >
               Stories of strength,
               <br />
               <em className="text-[#00C8D7] font-light">balance &amp; renewal</em>
-            </motion.h2>
-            <motion.div
+            </m.h2>
+            <m.div
               variants={fadeUp}
               className="inline-flex items-center gap-4 bg-white shadow-soft rounded-full px-8 py-3.5 border border-[#00C8D7]/20 backdrop-blur-md"
             >
@@ -131,10 +131,10 @@ export function TestimonialsSection() {
               <span className="text-[0.65rem] text-[#5B6B70] font-bold uppercase tracking-[0.2em]">
                 Based on Verified Reviews
               </span>
-            </motion.div>
-          </motion.div>
+            </m.div>
+          </m.div>
 
-          <motion.div
+          <m.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "0px", amount: 0.1 }}
@@ -150,7 +150,7 @@ export function TestimonialsSection() {
                   const isLong = r.text.length > 150;
                   return (
                     <CarouselItem key={i} className="pl-4 md:pl-8 md:basis-1/2 lg:basis-1/3">
-                      <motion.div
+                      <m.div
                         variants={fadeUp}
                         className="group relative overflow-hidden rounded-[28px] border border-[#00C8D7]/15 bg-white p-10 flex flex-col shadow-soft transition-all duration-500 hover:-translate-y-2 hover:shadow-premium hover:border-[#00C8D7]/40 h-full"
                       >
@@ -186,7 +186,7 @@ export function TestimonialsSection() {
                             </div>
                           </div>
                         </div>
-                      </motion.div>
+                      </m.div>
                     </CarouselItem>
                   );
                 })}
@@ -196,14 +196,14 @@ export function TestimonialsSection() {
                 <CarouselNext className="static transform-none h-12 w-12 border-[#00C8D7] text-[#00C8D7] hover:bg-[#00C8D7] hover:text-white" />
               </div>
             </Carousel>
-          </motion.div>
+          </m.div>
         </div>
       </section>
 
       <AnimatePresence>
         {selectedReviewIndex !== null && (
           <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6">
-            <motion.div
+            <m.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
@@ -211,7 +211,7 @@ export function TestimonialsSection() {
               className="absolute inset-0 bg-[#0C1A2E]/80 backdrop-blur-md cursor-pointer"
               onClick={() => setSelectedReviewIndex(null)}
             />
-            <motion.div
+            <m.div
               initial={{ opacity: 0, scale: 0.96, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.96, y: 20 }}
@@ -256,7 +256,7 @@ export function TestimonialsSection() {
                   </div>
                 </div>
               </div>
-            </motion.div>
+            </m.div>
           </div>
         )}
       </AnimatePresence>

@@ -1,7 +1,8 @@
 import type { ReactNode } from "react";
+import dynamic from "next/dynamic";
 import { Navbar } from "./Navbar";
-import { Footer } from "./Footer";
 
+const Footer = dynamic(() => import("./Footer").then((mod) => mod.Footer));
 export function SiteLayout({ children }: { children: ReactNode }) {
   return (
     <div className="flex min-h-dvh flex-col overflow-x-clip">

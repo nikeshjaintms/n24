@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { Laptop, Flame, Clock, Users } from "lucide-react";
 import type { Variants } from "framer-motion";
 
@@ -14,30 +14,30 @@ export function FeaturesSection() {
   return (
     <section className="bg-slate-50 py-20 sm:py-28 relative overflow-hidden">
       <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#00C8D7]/20 to-transparent" />
-      {/* Ambient background glows for glassmorphism */}
-      <div className="absolute top-0 left-0 w-[800px] h-[800px] bg-[#00C8D7]/[0.03] rounded-full blur-[120px] pointer-events-none -translate-x-1/2 -translate-y-1/2 translate-z-0" />
-      <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-[#00AFC2]/[0.04] rounded-full blur-[100px] pointer-events-none translate-x-1/3 translate-y-1/3 translate-z-0" />
+      {/* Ambient background glows for glassmorphism (Optimized) */}
+      <div className="absolute top-0 left-0 w-[800px] h-[800px] bg-[radial-gradient(circle,rgba(0,200,215,0.04)_0%,transparent_60%)] pointer-events-none -translate-x-1/2 -translate-y-1/2 translate-z-0" />
+      <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-[radial-gradient(circle,rgba(0,175,194,0.05)_0%,transparent_60%)] pointer-events-none translate-x-1/3 translate-y-1/3 translate-z-0" />
 
       <div className="mx-auto max-w-7xl px-6 lg:px-10 relative z-10">
-        <motion.div
+        <m.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "0px", amount: 0.1 }}
           variants={stagger}
           className="text-center mb-16"
         >
-          <motion.p variants={fadeUp} className="eyebrow text-[#00C8D7] mb-4 tracking-[0.3em]">
+          <m.p variants={fadeUp} className="eyebrow text-[#00C8D7] mb-4 tracking-[0.3em]">
             The N24 Standard
-          </motion.p>
-          <motion.h2
+          </m.p>
+          <m.h2
             variants={fadeUp}
             className="font-display text-[2rem] sm:text-[2.8rem] md:text-5xl lg:text-6xl text-[#0A0F1E] mb-4"
           >
             A modern approach to <em className="text-[#00C8D7]">holistic wellness</em>
-          </motion.h2>
-        </motion.div>
+          </m.h2>
+        </m.div>
 
-        <motion.div
+        <m.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "0px", amount: 0.1 }}
@@ -66,7 +66,7 @@ export function FeaturesSection() {
               icon: Users,
             },
           ].map((feature) => (
-            <motion.div
+            <m.div
               key={feature.title}
               variants={fadeUp}
               className="group relative rounded-[32px] bg-white/70 backdrop-blur-xl border border-white/80 p-8 sm:p-10 shadow-[0_8px_30px_rgb(0,0,0,0.04)] transition-all duration-500 hover:shadow-[0_20px_40px_rgba(0,200,215,0.12)] hover:-translate-y-3 hover:border-[#00C8D7]/30 overflow-hidden flex flex-col h-full translate-z-0"
@@ -87,9 +87,9 @@ export function FeaturesSection() {
                 </p>
               </div>
               <div className="mt-8 h-px w-full bg-gradient-to-r from-[#00C8D7]/20 to-transparent group-hover:from-[#00C8D7] transition-all duration-500" />
-            </motion.div>
+            </m.div>
           ))}
-        </motion.div>
+        </m.div>
       </div>
     </section>
   );

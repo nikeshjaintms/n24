@@ -1,33 +1,19 @@
+import dynamic from "next/dynamic";
 import { SiteLayout } from "@/components/SiteLayout";
 import { PremiumHero } from "@/components/PremiumHero";
-import { PromoVideoSection } from "@/components/PromoVideoSection";
-import { FeaturesSection } from "@/components/FeaturesSection";
-import { CommunitySection } from "@/components/CommunitySection";
-import { GallerySection } from "@/components/GallerySection";
-import { OfferSection } from "@/components/OfferSection";
-import { TestimonialsSection } from "@/components/TestimonialsSection";
-import { ContactSection } from "@/components/ContactSection";
+
+const PromoVideoSection = dynamic(() => import("@/components/PromoVideoSection").then(mod => mod.PromoVideoSection));
+const FeaturesSection = dynamic(() => import("@/components/FeaturesSection").then(mod => mod.FeaturesSection));
+const CommunitySection = dynamic(() => import("@/components/CommunitySection").then(mod => mod.CommunitySection));
+const GallerySection = dynamic(() => import("@/components/GallerySection").then(mod => mod.GallerySection));
+const OfferSection = dynamic(() => import("@/components/OfferSection").then(mod => mod.OfferSection));
+const TestimonialsSection = dynamic(() => import("@/components/TestimonialsSection").then(mod => mod.TestimonialsSection));
+const ContactSection = dynamic(() => import("@/components/ContactSection").then(mod => mod.ContactSection));
 import Script from "next/script";
 
 export default function Home() {
   return (
     <SiteLayout>
-      {/* GymMaster External Scripts for iframes */}
-      <Script id="gymmaster-jq-conflict-pre" strategy="lazyOnload">
-        {`if (typeof jQuery !== 'undefined') var oldJQuery = jQuery.noConflict(true);`}
-      </Script>
-      <Script
-        src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"
-        strategy="lazyOnload"
-      />
-      <Script id="gymmaster-jq-conflict-post" strategy="lazyOnload">
-        {`if (typeof jQuery !== 'undefined') { jQueryX = jQuery.noConflict(true); } if (typeof oldJQuery !== 'undefined') { jQuery = oldJQuery; }`}
-      </Script>
-      <Script
-        src="https://n24pilatesstudio.gymmasteronline.com/portal/static/js/hostpage.js"
-        strategy="lazyOnload"
-      />
-
       <PremiumHero />
       <PromoVideoSection />
       <FeaturesSection />

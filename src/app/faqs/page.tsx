@@ -5,7 +5,7 @@ import { SiteLayout, PageHero } from "@/components/SiteLayout";
 import { ChevronDown, MessageCircle, ArrowRight } from "lucide-react";
 import { TypewriterText } from "@/components/TypewriterText";
 import Link from "next/link";
-import { motion, AnimatePresence } from "framer-motion";
+import { m, AnimatePresence } from "framer-motion";
 import type { Variants } from "framer-motion";
 
 const faqs = [
@@ -86,7 +86,7 @@ function AccordionItem({
   onToggle: () => void;
 }) {
   return (
-    <motion.div
+    <m.div
       initial={{ opacity: 0, y: 16 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
@@ -128,7 +128,7 @@ function AccordionItem({
       </button>
       <AnimatePresence initial={false}>
         {isOpen && (
-          <motion.div
+          <m.div
             key="answer"
             initial="collapsed"
             animate="open"
@@ -139,10 +139,10 @@ function AccordionItem({
             <p className="px-7 pb-7 text-[0.9rem] leading-[1.9] text-[#4A606A] font-light">
               <TypewriterText text={a} speed={25} />
             </p>
-          </motion.div>
+          </m.div>
         )}
       </AnimatePresence>
-    </motion.div>
+    </m.div>
   );
 }
 
@@ -181,7 +181,7 @@ export default function Faqs() {
           </div>
 
           {/* Bottom CTA */}
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -205,7 +205,7 @@ export default function Faqs() {
             >
               Contact Studio Concierge <ArrowRight className="size-4" />
             </Link>
-          </motion.div>
+          </m.div>
         </div>
       </section>
     </SiteLayout>

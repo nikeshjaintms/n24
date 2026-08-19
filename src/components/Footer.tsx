@@ -116,7 +116,7 @@ export function Footer() {
                 <div className="flex size-8 shrink-0 items-center justify-center rounded-full bg-white/5 border border-white/10 group-hover:border-[#00C8D7]/50 transition-colors">
                   <Phone className="size-3.5 text-[#00C8D7]" strokeWidth={2} />
                 </div>
-                <span className="group-hover:text-white transition-colors">0478 336 630</span>
+                <a href="tel:0478336630" className="group-hover:text-white transition-colors">0478 336 630</a>
               </li>
               <li className="flex items-center gap-3 sm:gap-4 group cursor-pointer">
                 <div className="flex size-8 shrink-0 items-center justify-center rounded-full bg-white/5 border border-white/10 group-hover:border-[#00C8D7]/50 transition-colors">
@@ -145,7 +145,7 @@ export function Footer() {
       <div className="bg-[#0A0F1E] py-5 sm:py-6 border-t border-white/5">
         <div className="mx-auto max-w-7xl px-5 sm:px-6 lg:px-10 flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-4 text-center sm:text-left">
           <p className="text-[0.7rem] sm:text-[0.75rem] text-white/40 font-light tracking-wide">
-            &copy; {new Date().getFullYear()} N24 Pilates Studio. All Rights Reserved.
+            &copy; 2026 N24 Pilates Studio. All Rights Reserved.
           </p>
           <p className="text-[0.7rem] sm:text-[0.75rem] text-white/40 font-light tracking-wide">
             Designed & Developed by{" "}

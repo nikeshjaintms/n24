@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { PricingModal } from "./PricingModal";
 import type { Variants } from "framer-motion";
@@ -41,23 +41,23 @@ export function OfferSection() {
 
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full bg-[#00C8D7]/10 blur-[150px] pointer-events-none mix-blend-screen translate-z-0" />
 
-        <motion.div
+        <m.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "0px", amount: 0.1 }}
           variants={stagger}
           className="relative z-10 mx-auto max-w-4xl px-6 text-center"
         >
-          <motion.p variants={fadeUp} className="eyebrow text-[#00C8D7] mb-6 tracking-[0.4em]">
+          <m.p variants={fadeUp} className="eyebrow text-[#00C8D7] mb-6 tracking-[0.4em]">
             Exclusive Introductory Offer
-          </motion.p>
-          <motion.h2
+          </m.p>
+          <m.h2
             variants={fadeUp}
             className="font-display text-[5rem] md:text-[7rem] leading-[0.9] text-white mb-4"
           >
             4 Intro Classes <span className="text-[#00C8D7] italic">for $40</span>
-          </motion.h2>
-          <motion.p
+          </m.h2>
+          <m.p
             variants={fadeUp}
             className="text-[1.1rem] text-white/70 font-light max-w-xl mx-auto mb-14 leading-relaxed"
           >
@@ -65,8 +65,8 @@ export function OfferSection() {
             Enjoy 2 digital reformer classes and 2 infrared sauna sessions (30 mins) over 15 days.
             Available to new clients. Special discount available when you sign up for a membership
             during the intro offer period.
-          </motion.p>
-          <motion.div
+          </m.p>
+          <m.div
             variants={fadeUp}
             className="flex flex-col sm:flex-row items-center justify-center gap-6"
           >
@@ -80,8 +80,8 @@ export function OfferSection() {
               </span>
               <div className="absolute inset-0 bg-gradient-to-r from-[#00C8D7] via-white to-[#00C8D7] opacity-0 group-hover:opacity-50 transition-opacity duration-500 mix-blend-overlay" />
             </button>
-          </motion.div>
-        </motion.div>
+          </m.div>
+        </m.div>
       </section>
 
       <PricingModal

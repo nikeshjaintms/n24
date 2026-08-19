@@ -2,8 +2,8 @@
 
 import React, { useRef } from "react";
 import Link from "next/link";
-import Image from "next/image";
-import { Variants, motion, useScroll, useTransform } from "framer-motion";
+import { getImageProps } from "next/image";
+import { Variants, m } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 
 const fadeUp: Variants = {
@@ -14,8 +14,22 @@ const stagger = { visible: { transition: { staggerChildren: 0.15 } } };
 
 export function PremiumHero() {
   const heroRef = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({ target: heroRef, offset: ["start start", "end start"] });
-  const heroOpacity = useTransform(scrollYProgress, [0, 0.7], [1, 0]);
+
+  const common = { alt: "N24 Pilates Studio", fill: true, priority: true, quality: 60 };
+  const {
+    props: { srcSet: desktop },
+  } = getImageProps({
+    ...common,
+    src: "/Copilot_20260710_105525.png",
+    sizes: "(min-width: 768px) 100vw, 0vw",
+  });
+  const {
+    props: { srcSet: mobile, ...rest },
+  } = getImageProps({
+    ...common,
+    src: "/pilates_hero_mobile.png",
+    sizes: "100vw",
+  });
 
   return (
     <div className="w-full flex flex-col" ref={heroRef}>
@@ -25,24 +39,10 @@ export function PremiumHero() {
       <section className="relative w-full min-h-[100svh] sm:min-h-[100dvh] flex flex-col justify-center bg-[#071321] overflow-hidden pt-28 sm:pt-36 lg:pt-48 pb-20 sm:pb-32 lg:pb-48">
         {/* CINEMATIC BACKGROUND */}
         <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
-          {/* Mobile Image (Portrait) */}
-          <Image 
-            src="/pilates_hero_mobile.png" 
-            alt="N24 Pilates Studio" 
-            fill 
-            className="object-cover object-center md:hidden" 
-            priority
-            sizes="100vw"
-          />
-          {/* Desktop Image (Landscape) */}
-          <Image 
-            src="/Copilot_20260710_105525.png" 
-            alt="N24 Pilates Studio" 
-            fill 
-            className="object-cover object-center hidden md:block" 
-            priority
-            sizes="100vw"
-          />
+          <picture className="absolute inset-0 w-full h-full">
+            <source media="(min-width: 768px)" srcSet={desktop} />
+            <img {...rest} fetchPriority="high" className="object-cover object-center w-full h-full" />
+          </picture>
           {/* Top gradient for Navbar visibility */}
           <div className="absolute top-0 inset-x-0 h-40 bg-gradient-to-b from-[#071321]/95 via-[#071321]/70 to-transparent" />
           
@@ -53,22 +53,22 @@ export function PremiumHero() {
           <div className="absolute bottom-0 inset-x-0 h-48 bg-gradient-to-t from-[#071321] to-transparent" />
         </div>
 
-        {/* Floating Orbs / Glows */}
-        <motion.div
+        {/* Floating Orbs / Glows (Optimized for iOS) */}
+        <m.div
           animate={{
-            scale: [1, 1.2, 1],
-            opacity: [0.15, 0.25, 0.15],
+            scale: [1, 1.1, 1],
+            opacity: [0.8, 1, 0.8],
           }}
           transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute top-[20%] left-[10%] w-[500px] h-[500px] bg-[#16D9F5]/10 rounded-full blur-[120px] pointer-events-none z-0 translate-z-0"
+          className="absolute top-[10%] left-[5%] w-[600px] h-[600px] bg-[radial-gradient(circle,rgba(22,217,245,0.15)_0%,transparent_60%)] pointer-events-none z-0 translate-z-0"
         />
-        <motion.div
+        <m.div
           animate={{
-            scale: [1, 1.3, 1],
-            opacity: [0.1, 0.2, 0.1],
+            scale: [1, 1.15, 1],
+            opacity: [0.7, 0.9, 0.7],
           }}
           transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-          className="absolute bottom-[20%] right-[10%] w-[600px] h-[600px] bg-[#0082c8]/10 rounded-full blur-[140px] pointer-events-none z-0 translate-z-0"
+          className="absolute bottom-[10%] right-[5%] w-[700px] h-[700px] bg-[radial-gradient(circle,rgba(0,130,200,0.12)_0%,transparent_60%)] pointer-events-none z-0 translate-z-0"
         />
 
         {/* Noise Texture */}
@@ -83,8 +83,7 @@ export function PremiumHero() {
         {/* =======================
             CONTENT OVERLAY
             ======================= */}
-        <motion.div
-          style={{ opacity: heroOpacity }}
+        <m.div
           className="relative z-20 w-full max-w-7xl mx-auto px-5 sm:px-6 lg:px-12 flex flex-col items-center lg:items-start justify-center h-full"
         >
           {/* TYPOGRAPHY */}
@@ -162,7 +161,7 @@ export function PremiumHero() {
               </Link>
             </div>
           </div>
-        </motion.div>
+        </m.div>
       </section>
     </div>
   );

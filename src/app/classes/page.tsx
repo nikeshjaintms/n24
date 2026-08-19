@@ -5,7 +5,7 @@ import { SiteLayout, PageHero } from "@/components/SiteLayout";
 import { classes } from "@/data/studio";
 import { Clock, Signal, ArrowRight, Phone } from "lucide-react";
 import Image from "next/image";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { m, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import { AutoPlayVideo } from "@/components/AutoPlayVideo";
 
@@ -45,7 +45,7 @@ export default function Classes() {
           {classes.map((c, i) => {
             const isEven = i % 2 === 0;
             return (
-              <motion.div
+              <m.div
                 key={c.slug}
                 initial="hidden"
                 whileInView="visible"
@@ -56,7 +56,7 @@ export default function Classes() {
                 }`}
               >
                 {/* Image with Parallax */}
-                <motion.div
+                <m.div
                   variants={fadeUp}
                   className="group relative w-full lg:w-1/2 aspect-[4/5] lg:aspect-[3/4] overflow-hidden rounded-[28px] shadow-premium"
                 >
@@ -70,7 +70,8 @@ export default function Classes() {
                       src={c.image}
                       alt={c.name}
                       fill
-                      className="object-cover transition-transform duration-[1.5s] group-hover:scale-110 filter grayscale-[15%] group-hover:grayscale-0"
+                      style={{ objectFit: "cover" }}
+                      className="transition-transform duration-[1.5s] group-hover:scale-110 filter grayscale-[15%] group-hover:grayscale-0"
                     />
                   )}
                   <div className="absolute inset-0 bg-gradient-to-t from-[#0A0F1E]/80 via-transparent to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-700" />
@@ -81,31 +82,31 @@ export default function Classes() {
                       0{i + 1}
                     </span>
                   </div>
-                </motion.div>
+                </m.div>
 
                 {/* Text Content */}
                 <div className="w-full lg:w-1/2 lg:px-8">
-                  <motion.div variants={fadeUp} className="flex items-center gap-4 mb-6">
+                  <m.div variants={fadeUp} className="flex items-center gap-4 mb-6">
                     <div className="h-px w-12 bg-gradient-to-r from-[#00C8D7] to-transparent" />
                     <p className="eyebrow text-[#00C8D7] tracking-[0.3em]">Class 0{i + 1}</p>
-                  </motion.div>
+                  </m.div>
 
-                  <motion.h2
+                  <m.h2
                     variants={fadeUp}
                     className="font-display text-4xl md:text-6xl text-[#0A0F1E] leading-tight mb-8"
                   >
                     {c.name}
-                  </motion.h2>
+                  </m.h2>
 
-                  <motion.p
+                  <m.p
                     variants={fadeUp}
                     className="text-[1.05rem] leading-[1.8] text-[#5B6B70] font-light max-w-lg mb-10"
                   >
                     {c.long}
-                  </motion.p>
+                  </m.p>
 
                 </div>
-              </motion.div>
+              </m.div>
             );
           })}
         </div>
@@ -114,7 +115,7 @@ export default function Classes() {
       {/* ── CTA Banner (Adapted for Classes) ─────────────────────────── */}
       <section className="relative overflow-hidden bg-white py-24">
         <div className="mx-auto max-w-7xl px-6 lg:px-10">
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "0px", amount: 0.1 }}
@@ -125,7 +126,8 @@ export default function Classes() {
               src="/shared image.jpg"
               alt=""
               fill
-              className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+              style={{ objectFit: "cover" }}
+              className="transition-transform duration-500 group-hover:scale-[1.03]"
             />
             <div className="absolute inset-0 bg-gradient-to-r from-[#0A0F1E]/90 via-[#0A0F1E]/60 to-[#0A0F1E]/30" />
             <div className="absolute top-1/2 left-1/4 w-96 h-96 -translate-y-1/2 rounded-full bg-[#00C8D7]/20 blur-[100px] pointer-events-none mix-blend-screen" />
@@ -194,7 +196,7 @@ export default function Classes() {
                 </a>
               </div>
             </div>
-          </motion.div>
+          </m.div>
         </div>
       </section>
     </SiteLayout>

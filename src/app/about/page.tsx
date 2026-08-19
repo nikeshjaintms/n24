@@ -5,7 +5,7 @@ import { SiteLayout, PageHero } from "@/components/SiteLayout";
 import { pillars } from "@/data/studio";
 import { Sparkles, Waves, Leaf, Heart, ArrowRight, Phone } from "lucide-react";
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 
 // ── Studio / Personal Phone Contact (Easily change to personal number, e.g. "tel:0412345678") ──
 const TRAINER_PHONE_TEL = "tel:0478336630";
@@ -36,7 +36,7 @@ export default function About() {
         <div className="mx-auto max-w-7xl px-6 lg:px-10 relative z-10">
           <div className="grid items-center gap-16 lg:grid-cols-2">
             {/* Image */}
-            <motion.div
+            <m.div
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true, margin: "0px", amount: 0.1 }}
@@ -47,67 +47,68 @@ export default function About() {
                 src="/shared image.jpg"
                 alt="N24 Pilates Studio interior"
                 fill
-                className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                style={{ objectFit: "cover" }}
+                className="transition-transform duration-500 group-hover:scale-[1.03]"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#0A0F1E]/80 via-transparent to-transparent opacity-80" />
-            </motion.div>
+            </m.div>
 
             {/* Text */}
-            <motion.div
+            <m.div
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, margin: "0px", amount: 0.1 }}
               variants={stagger}
               className="lg:pl-8"
             >
-              <motion.p variants={fadeUp} className="eyebrow text-[#00C8D7] mb-6 tracking-[0.3em]">
+              <m.p variants={fadeUp} className="eyebrow text-[#00C8D7] mb-6 tracking-[0.3em]">
                 Who We Are
-              </motion.p>
-              <motion.h2
+              </m.p>
+              <m.h2
                 variants={fadeUp}
                 className="font-display text-4xl md:text-5xl text-[#0A0F1E] leading-[1.2] mb-6"
               >
                 Our Story
-              </motion.h2>
-              <motion.div
+              </m.h2>
+              <m.div
                 variants={fadeUp}
                 className="space-y-4 text-[1.05rem] leading-[1.8] text-[#5B6B70] font-light mb-10"
               >
                 <p>
                   Our studio was born from a desire to create a wellness space that truly puts people first. After years of witnessing the drawbacks of traditional fitness environments where the focus is often on crowded classes and one-size-fits-all routines, we knew there had to be a better way. We envisioned a place where the journey to health is personal, supportive, and focused on genuine mind-body connection.
                 </p>
-              </motion.div>
+              </m.div>
 
-              <motion.h2
+              <m.h2
                 variants={fadeUp}
                 className="font-display text-4xl md:text-5xl text-[#0A0F1E] leading-[1.2] mb-6"
               >
                 Our Studio
-              </motion.h2>
-              <motion.div
+              </m.h2>
+              <m.div
                 variants={fadeUp}
                 className="space-y-4 text-[1.05rem] leading-[1.8] text-[#5B6B70] font-light mb-10"
               >
                 <p>
                   We built this studio to give you a space where you can move at your own pace and choose the workout your body needs. Our extensive Digital Library offers over 800 expert-designed programs in Reformer, Mat Pilates, Yoga, HIIT Hybrid, Stretch + Strength and much more. You'll find more than 20 different styles, from beginner fundamentals and expert-level challenges to specialized clinical Pilates and physiotherapy-focused routines. Every program is carefully created to be safe and effective and our onsite instructors are here to help you during the staff hours 6 days a week.
                 </p>
-              </motion.div>
+              </m.div>
 
-              <motion.h2
+              <m.h2
                 variants={fadeUp}
                 className="font-display text-4xl md:text-5xl text-[#0A0F1E] leading-[1.2] mb-6"
               >
                 Our Vision
-              </motion.h2>
-              <motion.div
+              </m.h2>
+              <m.div
                 variants={fadeUp}
                 className="space-y-4 text-[1.05rem] leading-[1.8] text-[#5B6B70] font-light mb-12"
               >
                 <p>
                   We believe wellness means movement and recovery, so our studio includes infrared sauna facilities. After your workout, you can relax and enjoy benefits like muscle recovery, detoxification and healthier skin. Our goal is for you to leave each session feeling stronger, more centered and confident you're getting real value. It's a complete wellness experience from building strength to restoring your body, all in one place.
                 </p>
-              </motion.div>
-              <motion.div variants={fadeUp}>
+              </m.div>
+              <m.div variants={fadeUp}>
                 <Link
                   href="/pricing"
                   className="group relative overflow-hidden inline-flex items-center gap-3 rounded-full bg-[#00C8D7] px-10 py-5 text-[0.75rem] font-bold uppercase tracking-[0.2em] text-[#0A0F1E] shadow-[0_10px_30px_rgba(0,200,215,0.3)] transition-all duration-500 hover:scale-[1.02]"
@@ -118,8 +119,8 @@ export default function About() {
                   </span>
                   <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" />
                 </Link>
-              </motion.div>
-            </motion.div>
+              </m.div>
+            </m.div>
           </div>
         </div>
       </section>
@@ -129,22 +130,22 @@ export default function About() {
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full bg-[#00C8D7]/10 blur-[150px] pointer-events-none mix-blend-screen" />
 
         <div className="mx-auto max-w-7xl px-6 lg:px-10 relative z-10">
-          <motion.div
+          <m.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "0px", amount: 0.1 }}
             variants={stagger}
             className="text-center mb-24"
           >
-            <motion.p variants={fadeUp} className="eyebrow text-[#00C8D7] mb-6 tracking-[0.3em]">
+            <m.p variants={fadeUp} className="eyebrow text-[#00C8D7] mb-6 tracking-[0.3em]">
               Our Guiding Philosophy
-            </motion.p>
-            <motion.h2 variants={fadeUp} className="font-display text-5xl md:text-7xl text-white">
+            </m.p>
+            <m.h2 variants={fadeUp} className="font-display text-5xl md:text-7xl text-white">
               Why our approach <em className="text-[#00C8D7] font-light">feels different</em>
-            </motion.h2>
-          </motion.div>
+            </m.h2>
+          </m.div>
 
-          <motion.div
+          <m.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "0px", amount: 0.1 }}
@@ -155,7 +156,7 @@ export default function About() {
               const Icon = icons[i];
               const color = accentColors[i];
               return (
-                <motion.div
+                <m.div
                   key={p.title}
                   variants={fadeUp}
                   className="group relative overflow-hidden rounded-[28px] border border-white/10 p-10 text-center glass-dark shadow-premium-dark transition-all duration-500 hover:-translate-y-2 hover:border-[#00C8D7]/30"
@@ -175,17 +176,17 @@ export default function About() {
                   <p className="relative z-10 text-[0.95rem] leading-relaxed text-white/60 font-light">
                     {p.desc}
                   </p>
-                </motion.div>
+                </m.div>
               );
             })}
-          </motion.div>
+          </m.div>
         </div>
       </section>
 
       {/* ── CTA Banner ─────────────────────────── */}
       <section id="complimentary-pass" className="relative overflow-hidden bg-white py-24">
         <div className="mx-auto max-w-7xl px-6 lg:px-10">
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "0px", amount: 0.1 }}
@@ -196,7 +197,8 @@ export default function About() {
               src="/shared image.jpg"
               alt=""
               fill
-              className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+              style={{ objectFit: "cover" }}
+              className="transition-transform duration-500 group-hover:scale-[1.03]"
             />
             <div className="absolute inset-0 bg-gradient-to-r from-[#0A0F1E]/90 via-[#0A0F1E]/60 to-[#0A0F1E]/30" />
             <div className="absolute top-1/2 left-1/4 w-96 h-96 -translate-y-1/2 rounded-full bg-[#00C8D7]/20 blur-[100px] pointer-events-none mix-blend-screen" />
@@ -254,7 +256,7 @@ export default function About() {
                 </a>
               </div>
             </div>
-          </motion.div>
+          </m.div>
         </div>
       </section>
     </SiteLayout>

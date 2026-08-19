@@ -59,10 +59,12 @@ export function AutoPlayVideo({
       (entries) => {
         if (entries[0].isIntersecting) {
           setSrcReady(true);
-          io.disconnect();
+        } else {
+          setSrcReady(false);
+          setVideoReady(false);
         }
       },
-      { rootMargin: "100px 0px" }
+      { rootMargin: "200px 0px" }
     );
     io.observe(el);
     return () => io.disconnect();
@@ -88,9 +90,7 @@ export function AutoPlayVideo({
         autoPlay
         loop
         playsInline
-        // @ts-ignore webkit-specific attribute not in React's type definitions
-        webkit-playsinline="true"
-        preload={priority ? "auto" : srcReady ? "metadata" : "none"}
+        preload={priority ? "metadata" : "none"}
         onCanPlay={() => setVideoReady(true)}
         onPlaying={() => setVideoReady(true)}
         className="absolute inset-0 w-full h-full object-cover"

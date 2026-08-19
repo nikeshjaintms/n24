@@ -7,7 +7,7 @@ import { Menu, X } from "lucide-react";
 import { Logo } from "./Logo";
 import { clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
-import { motion, AnimatePresence } from "framer-motion";
+import { m, AnimatePresence } from "framer-motion";
 
 const links = [
   { label: "Home", to: "/" },
@@ -124,7 +124,7 @@ export function Navbar() {
           >
             <AnimatePresence mode="wait" initial={false}>
               {open ? (
-                <motion.span
+                <m.span
                   key="close"
                   initial={{ rotate: -90, opacity: 0 }}
                   animate={{ rotate: 0, opacity: 1 }}
@@ -133,9 +133,9 @@ export function Navbar() {
                   className="block"
                 >
                   <X className="size-6" />
-                </motion.span>
+                </m.span>
               ) : (
-                <motion.span
+                <m.span
                   key="open"
                   initial={{ rotate: 90, opacity: 0 }}
                   animate={{ rotate: 0, opacity: 1 }}
@@ -144,7 +144,7 @@ export function Navbar() {
                   className="block"
                 >
                   <Menu className="size-6" />
-                </motion.span>
+                </m.span>
               )}
             </AnimatePresence>
           </button>
@@ -156,7 +156,7 @@ export function Navbar() {
         {open && (
           <>
             {/* Backdrop */}
-            <motion.div
+            <m.div
               key="backdrop"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -167,7 +167,7 @@ export function Navbar() {
             />
 
             {/* Slide-in panel from top */}
-            <motion.div
+            <m.div
               key="panel"
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -196,7 +196,7 @@ export function Navbar() {
                     {links.map((l, i) => {
                       const isActive = l.to === "/" ? pathname === "/" : pathname?.startsWith(l.to);
                       return (
-                        <motion.div
+                        <m.div
                           key={l.to}
                           initial={{ opacity: 0, y: 12 }}
                           animate={{ opacity: 1, y: 0 }}
@@ -214,7 +214,7 @@ export function Navbar() {
                           >
                             {l.label}
                           </Link>
-                        </motion.div>
+                        </m.div>
                       );
                     })}
                   </div>
@@ -232,7 +232,7 @@ export function Navbar() {
                   </Link>
                 </div>
               </div>
-            </motion.div>
+            </m.div>
           </>
         )}
       </AnimatePresence>

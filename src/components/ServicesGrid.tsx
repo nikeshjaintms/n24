@@ -3,7 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { classes } from "@/data/studio";
 import { AutoPlayVideo } from "./AutoPlayVideo";
 
@@ -20,7 +20,7 @@ export function ServicesGrid() {
   return (
     <section className="bg-[#F7FCFC] py-28">
       <div className="mx-auto max-w-7xl px-6 lg:px-10">
-        <motion.div
+        <m.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
@@ -33,9 +33,9 @@ export function ServicesGrid() {
           <h2 className="mt-4 font-display text-4xl text-[#1E2E32] md:text-5xl">
             Find your practice
           </h2>
-        </motion.div>
+        </m.div>
 
-        <motion.div
+        <m.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
@@ -43,7 +43,7 @@ export function ServicesGrid() {
           className="mt-16 grid gap-8 sm:grid-cols-2 lg:grid-cols-3"
         >
           {classes.map((c) => (
-            <motion.div variants={fadeUp} key={c.slug}>
+            <m.div variants={fadeUp} key={c.slug}>
               <Link
                 href="/classes"
                 className="group flex h-full flex-col overflow-hidden rounded-[2rem] glass-card shadow-soft hover:shadow-card transition-all duration-500 hover:-translate-y-2 border border-transparent hover:border-[#00C9D8]/20"
@@ -77,9 +77,9 @@ export function ServicesGrid() {
                   </span>
                 </div>
               </Link>
-            </motion.div>
+            </m.div>
           ))}
-        </motion.div>
+        </m.div>
       </div>
     </section>
   );

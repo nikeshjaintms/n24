@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef, useEffect } from "react";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import type { Variants } from "framer-motion";
 import { AutoPlayVideo } from "./AutoPlayVideo";
 
@@ -33,7 +33,7 @@ const videos = [
     sub: "Upper-Body Conditioning & Spinal Alignment",
   },
   {
-    src: "/Glute Bridging.mp4",
+    src: "/Glute%20Bridging.mp4",
     title: "Articulating Glute Bridge",
     sub: "Hamstring Length, Glute Strength & Pelvic Stability",
   },
@@ -96,7 +96,7 @@ export function GallerySection() {
   return (
     <section className="bg-[#F1FAFB] py-14 sm:py-20 overflow-hidden">
       <div className="mx-auto max-w-[105rem] px-4 lg:px-8">
-        <motion.div
+        <m.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "0px", amount: 0.1 }}
@@ -104,24 +104,24 @@ export function GallerySection() {
           className="flex flex-col md:flex-row md:items-end md:justify-between px-2 mb-12 gap-6"
         >
           <div>
-            <motion.p variants={fadeUp} className="eyebrow text-[#00C8D7] mb-4 tracking-[0.3em]">
+            <m.p variants={fadeUp} className="eyebrow text-[#00C8D7] mb-4 tracking-[0.3em]">
               The Digital Reformer Experience
-            </motion.p>
-            <motion.h2
+            </m.p>
+            <m.h2
               variants={fadeUp}
               className="font-display text-[2rem] sm:text-[2.8rem] md:text-5xl lg:text-6xl text-[#0A0F1E]"
             >
               Experience <em>N24 in Motion</em>
-            </motion.h2>
+            </m.h2>
           </div>
-        </motion.div>
+        </m.div>
 
         <div
           ref={sliderRef}
           className="flex gap-6 lg:gap-8 overflow-x-auto pb-10 pt-4 px-2 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
         >
           {[...videos, ...videos].map((item, i) => (
-            <motion.div
+            <m.div
               key={i}
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
@@ -144,7 +144,7 @@ export function GallerySection() {
                 <p className="text-[0.85rem] text-[#00C8D7] font-light mb-4">{item.sub}</p>
                 <div className="h-px w-12 bg-[#00C8D7] transition-all duration-500 group-hover:w-full opacity-50 group-hover:opacity-100" />
               </div>
-            </motion.div>
+            </m.div>
           ))}
         </div>
       </div>

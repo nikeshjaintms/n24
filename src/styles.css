@@ -32,10 +32,10 @@
   --color-input: var(--input);
   --color-ring: var(--ring);
 
-  --font-display: var(--font-cormorant), var(--font-playfair), Georgia, serif;
-  --font-serif: var(--font-playfair), Georgia, serif;
-  --font-body: var(--font-manrope), var(--font-inter), ui-sans-serif, system-ui, sans-serif;
-  --font-script: var(--font-sacramento), cursive;
+  --font-display: var(--font-cormorant), Georgia, serif;
+  --font-serif: var(--font-cormorant), Georgia, serif;
+  --font-body: var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
+  --font-script: cursive;
 
   --shadow-soft: 0 10px 40px -10px color-mix(in oklab, var(--primary) 15%, transparent);
   --shadow-card: 0 20px 50px -15px color-mix(in oklab, var(--primary) 20%, transparent);

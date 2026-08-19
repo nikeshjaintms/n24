@@ -2,6 +2,8 @@
 
 import React, { useEffect, useRef, useState } from "react";
 
+import Image from "next/image";
+
 interface AutoPlayVideoProps {
   src: string;
   poster?: string;
@@ -98,17 +100,22 @@ export function AutoPlayVideo({
 
       {/* ── Poster overlay: sits on top until video is ready ── */}
       {poster && (
-        <img
-          src={poster}
-          alt=""
-          aria-hidden="true"
-          loading={priority ? "eager" : "lazy"}
+        <div
           className={[
             "absolute inset-0 w-full h-full object-cover pointer-events-none",
             "transition-opacity duration-700",
             videoReady ? "opacity-0" : "opacity-100",
           ].join(" ")}
-        />
+        >
+          <Image
+            src={poster}
+            alt=""
+            fill
+            sizes="(max-width: 768px) 100vw, 50vw"
+            priority={priority}
+            className="object-cover"
+          />
+        </div>
       )}
     </div>
   );

@@ -68,12 +68,8 @@ export function PageHero({
             {subtitle}
           </p>
         )}
-        
-        {children && (
-          <div className="mt-8 flex justify-center">
-            {children}
-          </div>
-        )}
+
+        {children && <div className="mt-8 flex justify-center">{children}</div>}
       </div>
     </section>
   );

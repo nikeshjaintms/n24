@@ -15,7 +15,7 @@ const faqs = [
   },
   {
     q: "How does the Digital Reformer Pilates system work?",
-    a: "The N24 Pilates & Wellness system is a self-guided experience powered by technology. You get to choose from a digital library of over 800 instructor-led workouts on our built-in touch screen. You then perform the session at your own speed on our beautiful \"The Studio\" reformers beds from Your reformer. For a completely customized experience, you can log in, create a personal account, save your favorite classes and participate in challenges. Feel free to bring your own Bluetooth wireless headphones, or you can use a spare set we provide.",
+    a: 'The N24 Pilates & Wellness system is a self-guided experience powered by technology. You get to choose from a digital library of over 800 instructor-led workouts on our built-in touch screen. You then perform the session at your own speed on our beautiful "The Studio" reformers beds from Your reformer. For a completely customized experience, you can log in, create a personal account, save your favorite classes and participate in challenges. Feel free to bring your own Bluetooth wireless headphones, or you can use a spare set we provide.',
   },
   {
     q: "When can I come for a class?",

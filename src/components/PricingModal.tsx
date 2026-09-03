@@ -143,10 +143,12 @@ export function PricingModal({ isOpen, onClose, plan }: PricingModalProps) {
               {plan.iframeUrl ? (
                 <div className="flex flex-col h-full w-full">
                   <div className="md:hidden w-full text-center py-4 px-2 border-b border-[#DDEAF2] bg-[#F1FAFB]">
-                    <p className="text-xs text-[#4A606A] mb-2">Are you on a mobile device and unable to see the form?</p>
-                    <a 
-                      href={plan.iframeUrl} 
-                      target="_blank" 
+                    <p className="text-xs text-[#4A606A] mb-2">
+                      Are you on a mobile device and unable to see the form?
+                    </p>
+                    <a
+                      href={plan.iframeUrl}
+                      target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center justify-center rounded-full bg-[#00AFC2] px-5 py-2 text-[0.7rem] font-bold uppercase tracking-wider text-white shadow-sm"
                     >

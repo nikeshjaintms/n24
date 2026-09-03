@@ -2,8 +2,9 @@
 
 import Link from "next/link";
 import { SiteLayout, PageHero } from "@/components/SiteLayout";
+import { ContactForm } from "@/components/ContactForm";
 import { pillars } from "@/data/studio";
-import { Sparkles, Waves, Leaf, Heart, ArrowRight, Phone } from "lucide-react";
+import { Sparkles, Waves, Leaf, Heart, ArrowRight, Phone, FileText } from "lucide-react";
 import Image from "next/image";
 import { m } from "framer-motion";
 
@@ -75,7 +76,12 @@ export default function About() {
                 className="space-y-4 text-[1.05rem] leading-[1.8] text-[#5B6B70] font-light mb-10"
               >
                 <p>
-                  Our studio was born from a desire to create a wellness space that truly puts people first. After years of witnessing the drawbacks of traditional fitness environments where the focus is often on crowded classes and one-size-fits-all routines, we knew there had to be a better way. We envisioned a place where the journey to health is personal, supportive, and focused on genuine mind-body connection.
+                  Our studio was born from a desire to create a wellness space that truly puts
+                  people first. After years of witnessing the drawbacks of traditional fitness
+                  environments where the focus is often on crowded classes and one-size-fits-all
+                  routines, we knew there had to be a better way. We envisioned a place where the
+                  journey to health is personal, supportive, and focused on genuine mind-body
+                  connection.
                 </p>
               </m.div>
 
@@ -90,7 +96,14 @@ export default function About() {
                 className="space-y-4 text-[1.05rem] leading-[1.8] text-[#5B6B70] font-light mb-10"
               >
                 <p>
-                  We built this studio to give you a space where you can move at your own pace and choose the workout your body needs. Our extensive Digital Library offers over 800 expert-designed programs in Reformer, Mat Pilates, Yoga, HIIT Hybrid, Stretch + Strength and much more. You'll find more than 20 different styles, from beginner fundamentals and expert-level challenges to specialized clinical Pilates and physiotherapy-focused routines. Every program is carefully created to be safe and effective and our onsite instructors are here to help you during the staff hours 6 days a week.
+                  We built this studio to give you a space where you can move at your own pace and
+                  choose the workout your body needs. Our extensive Digital Library offers over 800
+                  expert-designed programs in Reformer, Mat Pilates, Yoga, HIIT Hybrid, Stretch +
+                  Strength and much more. You'll find more than 20 different styles, from beginner
+                  fundamentals and expert-level challenges to specialized clinical Pilates and
+                  physiotherapy-focused routines. Every program is carefully created to be safe and
+                  effective and our onsite instructors are here to help you during the staff hours 6
+                  days a week.
                 </p>
               </m.div>
 
@@ -105,7 +118,12 @@ export default function About() {
                 className="space-y-4 text-[1.05rem] leading-[1.8] text-[#5B6B70] font-light mb-12"
               >
                 <p>
-                  We believe wellness means movement and recovery, so our studio includes infrared sauna facilities. After your workout, you can relax and enjoy benefits like muscle recovery, detoxification and healthier skin. Our goal is for you to leave each session feeling stronger, more centered and confident you're getting real value. It's a complete wellness experience from building strength to restoring your body, all in one place.
+                  We believe wellness means movement and recovery, so our studio includes infrared
+                  sauna facilities. After your workout, you can relax and enjoy benefits like muscle
+                  recovery, detoxification and healthier skin. Our goal is for you to leave each
+                  session feeling stronger, more centered and confident you're getting real value.
+                  It's a complete wellness experience from building strength to restoring your body,
+                  all in one place.
                 </p>
               </m.div>
               <m.div variants={fadeUp}>
@@ -212,7 +230,9 @@ export default function About() {
               </h2>
 
               <p className="text-white/80 text-lg md:text-xl font-light max-w-2xl mx-auto mb-8 leading-relaxed">
-                Join our Applecross community with an exclusive complimentary pass. Experience our premium self-guided Digital Reformer Pilates or restorative Infrared Sauna sessions and start your transformation on us today.
+                Join our Applecross community with an exclusive complimentary pass. Experience our
+                premium self-guided Digital Reformer Pilates or restorative Infrared Sauna sessions
+                and start your transformation on us today.
               </p>
 
               {/* Highlight Offer Badge */}
@@ -226,7 +246,7 @@ export default function About() {
               </div>
 
               {/* Buttons Container */}
-              <div className="flex flex-col sm:flex-row items-center justify-center gap-6 w-full">
+              <div className="flex flex-col md:flex-row flex-wrap items-center justify-center gap-6 w-full">
                 {/* Button 1: Call Studio Team (Direct call) */}
                 <a
                   href={TRAINER_PHONE_TEL}
@@ -254,9 +274,39 @@ export default function About() {
                   </span>
                   <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/50 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" />
                 </a>
+
+                {/* Button 3: Fill Form */}
+                <a
+                  href="#complimentary-pass-form"
+                  className="group relative overflow-hidden inline-flex items-center gap-3 rounded-full border border-white bg-transparent px-12 py-5 text-[0.8rem] font-bold uppercase tracking-[0.2em] text-white shadow-[0_10px_30px_rgba(255,255,255,0.1)] transition-all duration-500 hover:bg-white hover:text-[#0A0F1E] hover:scale-[1.03]"
+                >
+                  <span className="relative z-10 flex items-center gap-3">
+                    <FileText className="size-4 transition-transform group-hover:scale-110" />
+                    Claim via Form
+                  </span>
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/50 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" />
+                </a>
+
+                
               </div>
             </div>
           </m.div>
+        </div>
+      </section>
+      {/* ── Enquiry Form Section ─────────────────── */}
+      <section className="relative bg-[#F5FAFB] py-24 border-t border-[#00C8D7]/10" id="complimentary-pass-form">
+        <div className="mx-auto max-w-7xl px-6 lg:px-10">
+          <div className="text-center mb-12">
+            <h2 className="font-display text-4xl md:text-5xl text-[#0A0F1E] mb-4">
+              Claim Your Complimentary Pass
+            </h2>
+            <p className="text-[#5B6B70] text-lg font-light max-w-2xl mx-auto">
+              Ready to experience N24 Pilates? Complete the form below and our team will help you take the next step.
+            </p>
+          </div>
+          <div className="max-w-3xl mx-auto bg-white p-6 sm:p-10 rounded-[28px] border border-[#00C8D7]/15 shadow-soft">
+            <ContactForm />
+          </div>
         </div>
       </section>
     </SiteLayout>

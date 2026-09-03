@@ -116,20 +116,14 @@ export function PricingContent() {
         <div className="mx-auto max-w-7xl px-6 lg:px-10">
           <div className="rounded-3xl bg-[#0A0F1E] overflow-hidden shadow-2xl p-8 lg:p-12 text-white">
             <h2 className="font-display text-4xl md:text-5xl mb-12">Events and Groups</h2>
-            
+
             <div className="grid lg:grid-cols-[1.5fr_1fr] gap-10 items-start">
-              
               {/* Left Side */}
               <div className="flex flex-col gap-8">
                 <div className="w-full aspect-[21/9] rounded-2xl overflow-hidden relative shadow-lg">
-                  <Image 
-                    src="/imgo.jpg"
-                    alt="Group Pilates Events"
-                    fill
-                    className="object-cover"
-                  />
+                  <Image src="/imgo.jpg" alt="Group Pilates Events" fill className="object-cover" />
                 </div>
-                
+
                 <ul className="list-disc pl-5 space-y-3 text-white/80 text-[1.05rem] font-light">
                   <li>Private group classes</li>
                   <li>Corporate wellness events</li>
@@ -137,8 +131,15 @@ export function PricingContent() {
                 </ul>
 
                 <div className="bg-white/5 border border-white/10 p-6 md:p-8 rounded-2xl italic text-white/80 text-[0.95rem] leading-relaxed relative shadow-inner mt-4">
-                  <span className="absolute -top-4 -left-2 text-5xl text-[#00C8D7] opacity-40 font-display">"</span>
-                  Fantastic studio with top-tier Balance Body equipment. As a complete beginner, I was nervous, but Instructor made me feel so welcome and they provided plenty of modifications to suit my level. The sessions are intense and fun. I love that the classes are small enough for the instructor to give one-on-one help with form. Reformer Pilates truly helped in toning my body increase strength giving quick results. I definitely recommend it!
+                  <span className="absolute -top-4 -left-2 text-5xl text-[#00C8D7] opacity-40 font-display">
+                    "
+                  </span>
+                  Fantastic studio with top-tier Balance Body equipment. As a complete beginner, I
+                  was nervous, but Instructor made me feel so welcome and they provided plenty of
+                  modifications to suit my level. The sessions are intense and fun. I love that the
+                  classes are small enough for the instructor to give one-on-one help with form.
+                  Reformer Pilates truly helped in toning my body increase strength giving quick
+                  results. I definitely recommend it!
                   <p className="mt-4 font-bold text-[#00C8D7] not-italic">— Sonali</p>
                 </div>
               </div>
@@ -149,21 +150,19 @@ export function PricingContent() {
                   Private Group bookings &amp; Corporate Wellness Events
                 </h3>
                 <p className="text-[#4A606A] text-[0.95rem] font-light leading-relaxed mb-10">
-                  Group bookings for the team, squad or special occasions. We offer tailored wellness
-                  experiences that combine the transformative power of Pilates with the benefits of infrared
-                  sauna sessions, creating a unique and rejuvenating experience for your team or group.
+                  Group bookings for the team, squad or special occasions. We offer tailored
+                  wellness experiences that combine the transformative power of Pilates with the
+                  benefits of infrared sauna sessions, creating a unique and rejuvenating experience
+                  for your team or group.
                 </p>
-                
+
                 <a
                   href="/contact"
                   className="group relative overflow-hidden flex items-center justify-center gap-3 rounded-full border-2 border-[#0A0F1E] px-8 py-4 text-[0.75rem] font-bold uppercase tracking-[0.2em] text-[#0A0F1E] transition-all duration-500 hover:bg-[#0A0F1E] hover:text-white text-center w-full"
                 >
-                  <span className="relative z-10 flex items-center gap-3">
-                    Request a Quote
-                  </span>
+                  <span className="relative z-10 flex items-center gap-3">Request a Quote</span>
                 </a>
               </div>
-
             </div>
           </div>
         </div>

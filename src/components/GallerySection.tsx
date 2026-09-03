@@ -135,8 +135,6 @@ export function GallerySection() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#0A0F1E]/90 via-[#0A0F1E]/20 to-transparent opacity-80 group-hover:opacity-100 transition-opacity duration-500" />
 
-
-
               <div className="absolute bottom-8 left-8 right-8 transform translate-y-3 group-hover:translate-y-0 transition-transform duration-500">
                 <h3 className="font-display text-3xl text-white leading-tight mb-3">
                   {item.title}

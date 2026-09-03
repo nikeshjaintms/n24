@@ -29,7 +29,6 @@ const benefits = [
   },
 ];
 
-
 export default function InfraredSaunas() {
   return (
     <SiteLayout>
@@ -58,8 +57,8 @@ export default function InfraredSaunas() {
                 <em className="text-[#00C8D7] font-light">stress and tension.</em>
               </h2>
               <p className="text-[#5B6B70] leading-[1.8] text-[1.1rem] font-light mb-12">
-                Our private infrared sauna suites offer an immersive sanctuary designed
-                to rejuvenate mind and body. Whether you are accelerating recovery after a 6:00 AM
+                Our private infrared sauna suites offer an immersive sanctuary designed to
+                rejuvenate mind and body. Whether you are accelerating recovery after a 6:00 AM
                 digital reformer session or seeking quiet solace from daily stress, full-spectrum
                 heat and medical-grade chromotherapy leave you profoundly restored.
               </p>
@@ -82,9 +81,12 @@ export default function InfraredSaunas() {
                 ))}
               </div>
 
-              <div className="animate-in fade-in slide-in-from-bottom-10 duration-1000 fill-mode-both" style={{ animationDelay: "500ms" }}>
+              <div
+                className="animate-in fade-in slide-in-from-bottom-10 duration-1000 fill-mode-both"
+                style={{ animationDelay: "500ms" }}
+              >
                 <BrandButton asChild size="lg" className="w-full sm:w-auto px-10">
-                  <a 
+                  <a
                     href="https://n24pilatesstudio.gymmasteronline.com/portal/book/service"
                     target="_blank"
                     rel="noopener noreferrer"
@@ -107,8 +109,6 @@ export default function InfraredSaunas() {
           </div>
         </div>
       </section>
-
-
     </SiteLayout>
   );
 }

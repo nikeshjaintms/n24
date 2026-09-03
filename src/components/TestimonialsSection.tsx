@@ -84,7 +84,7 @@ const reviews = [
     date: "Verified Member · Applecross",
     text: "Really lovely place! Owner was very friendly and helpful. Sauna was a bargain! Reformer room also looks amazing and they have so many programs for everyone",
     initial: "A",
-  }
+  },
 ];
 
 export function TestimonialsSection() {
@@ -141,10 +141,7 @@ export function TestimonialsSection() {
             variants={stagger}
             className="mt-8"
           >
-            <Carousel
-              opts={{ align: "start", loop: true }}
-              className="w-full relative"
-            >
+            <Carousel opts={{ align: "start", loop: true }} className="w-full relative">
               <CarouselContent className="-ml-4 md:-ml-8">
                 {reviews.map((r, i) => {
                   const isLong = r.text.length > 150;
@@ -161,8 +158,8 @@ export function TestimonialsSection() {
                             &ldquo;{r.text}&rdquo;
                           </p>
                           {isLong && (
-                            <button 
-                              onClick={() => setSelectedReviewIndex(i)} 
+                            <button
+                              onClick={() => setSelectedReviewIndex(i)}
                               className="text-[#00C8D7] text-sm font-medium mt-2 text-left hover:underline w-fit mb-8"
                             >
                               Read more
@@ -222,9 +219,9 @@ export function TestimonialsSection() {
                 className="h-[4px] w-full flex-shrink-0"
                 style={{ background: "linear-gradient(90deg, #00AFC2, #00C8D7)" }}
               />
-              
+
               <div className="absolute top-0 right-0 w-64 h-64 bg-[#00C8D7]/10 rounded-full blur-[40px] pointer-events-none" />
-              
+
               <div className="flex justify-between items-center px-6 sm:px-8 py-5 shrink-0 border-b border-[#DDEAF2]/60 bg-white/95 backdrop-blur z-10">
                 <Quote className="size-8 text-[#00C8D7]" />
                 <button
@@ -234,25 +231,29 @@ export function TestimonialsSection() {
                   <X className="size-5 transition-transform group-hover:rotate-90 duration-300" />
                 </button>
               </div>
-              
+
               <div className="p-6 sm:p-8 overflow-y-auto custom-scrollbar bg-[#F8FCFD]">
                 <p className="text-[1.1rem] sm:text-[1.2rem] leading-relaxed text-[#111827] font-light italic mb-8">
                   &ldquo;{reviews[selectedReviewIndex].text}&rdquo;
                 </p>
-                
+
                 <div className="flex text-yellow-400 gap-1.5 mb-6">
                   {[1, 2, 3, 4, 5].map((s) => (
                     <Star key={s} className="size-5 fill-current" />
                   ))}
                 </div>
-                
+
                 <div className="flex items-center gap-4">
                   <div className="size-14 rounded-full bg-gradient-to-br from-[#00C8D7] to-[#00AFC2] flex items-center justify-center font-display text-2xl text-white shadow-[0_4px_15px_rgba(0,200,215,0.3)] shrink-0">
                     {reviews[selectedReviewIndex].initial}
                   </div>
                   <div>
-                    <p className="text-[#0A0F1E] text-[1.1rem] font-bold">{reviews[selectedReviewIndex].name}</p>
-                    <p className="text-[#5B6B70] text-[0.85rem] mt-1">{reviews[selectedReviewIndex].date}</p>
+                    <p className="text-[#0A0F1E] text-[1.1rem] font-bold">
+                      {reviews[selectedReviewIndex].name}
+                    </p>
+                    <p className="text-[#5B6B70] text-[0.85rem] mt-1">
+                      {reviews[selectedReviewIndex].date}
+                    </p>
                   </div>
                 </div>
               </div>

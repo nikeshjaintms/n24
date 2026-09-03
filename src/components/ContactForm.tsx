@@ -1,11 +1,9 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import Script from "next/script";
 
 export function ContactForm() {
-  const [isLoading, setIsLoading] = useState(true);
-
   useEffect(() => {
     const timer = setTimeout(() => {
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -35,14 +33,6 @@ export function ContactForm() {
         strategy="afterInteractive"
       />
       <div className="relative w-full min-h-[600px]">
-        {isLoading && (
-          <div className="absolute inset-0 flex flex-col items-center justify-center bg-white/90 backdrop-blur-sm z-10 transition-opacity rounded-2xl">
-            <div className="size-10 rounded-full border-4 border-[#00C8D7]/20 border-t-[#00C8D7] animate-spin mb-3" />
-            <p className="text-sm font-light text-[#5B6B70] tracking-wide">
-              Loading secure inquiry form...
-            </p>
-          </div>
-        )}
         <div className="md:hidden w-full text-center py-4 px-2 mb-2 bg-[#F1FAFB] rounded-xl border border-[#DDEAF2]">
           <p className="text-xs text-[#4A606A] mb-2">Having trouble viewing the contact form on your phone?</p>
           <a 
@@ -60,8 +50,6 @@ export function ContactForm() {
           src="https://n24pilatesstudio.gymmasteronline.com/portal/enquiry"
           title="Contact N24 Pilates Studio"
           allow="camera *; microphone *"
-          loading="lazy"
-          onLoad={() => setIsLoading(false)}
         />
       </div>
     </>

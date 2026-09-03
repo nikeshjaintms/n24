@@ -16,16 +16,12 @@ export function PremiumHero() {
   const heroRef = useRef<HTMLDivElement>(null);
 
   const common = { alt: "N24 Pilates Studio", fill: true, priority: true, quality: 60 };
-  const {
-    props: { srcSet: desktop },
-  } = getImageProps({
+  const desktopImage = getImageProps({
     ...common,
     src: "/Copilot_20260710_105525.png",
     sizes: "(min-width: 768px) 100vw, 0vw",
   });
-  const {
-    props: { srcSet: mobile, ...rest },
-  } = getImageProps({
+  const mobileImage = getImageProps({
     ...common,
     src: "/pilates_hero_mobile.png",
     sizes: "100vw",
@@ -40,15 +36,19 @@ export function PremiumHero() {
         {/* CINEMATIC BACKGROUND */}
         <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
           <picture className="absolute inset-0 w-full h-full">
-            <source media="(min-width: 768px)" srcSet={desktop} />
-            <img {...rest} fetchPriority="high" className="object-cover object-center w-full h-full" />
+            <source media="(min-width: 768px)" srcSet={desktopImage.props.srcSet} />
+            <img
+              {...mobileImage.props}
+              fetchPriority="high"
+              className="object-cover object-center w-full h-full"
+            />
           </picture>
           {/* Top gradient for Navbar visibility */}
           <div className="absolute top-0 inset-x-0 h-40 bg-gradient-to-b from-[#071321]/95 via-[#071321]/70 to-transparent" />
-          
+
           {/* Overall overlay to keep hero text readable but image bright */}
           <div className="absolute inset-0 bg-[#071321]/50" />
-          
+
           {/* Bottom gradient to blend smoothly into the next section */}
           <div className="absolute bottom-0 inset-x-0 h-48 bg-gradient-to-t from-[#071321] to-transparent" />
         </div>
@@ -83,13 +83,9 @@ export function PremiumHero() {
         {/* =======================
             CONTENT OVERLAY
             ======================= */}
-        <m.div
-          className="relative z-20 w-full max-w-7xl mx-auto px-5 sm:px-6 lg:px-12 flex flex-col items-center lg:items-start justify-center h-full"
-        >
+        <m.div className="relative z-20 w-full max-w-7xl mx-auto px-5 sm:px-6 lg:px-12 flex flex-col items-center lg:items-start justify-center h-full">
           {/* TYPOGRAPHY */}
-          <div
-            className="w-full flex flex-col text-center lg:text-left items-center lg:items-start"
-          >
+          <div className="w-full flex flex-col text-center lg:text-left items-center lg:items-start">
             {/* Eyebrow */}
             <div className="animate-in fade-in slide-in-from-bottom-10 duration-1000 fill-mode-both flex items-center gap-3 sm:gap-4 mb-4 sm:mb-8 lg:mb-12">
               <div className="h-[2px] w-8 sm:w-12 bg-gradient-to-r from-[#16D9F5] to-transparent rounded-full hidden lg:block" />
@@ -101,9 +97,7 @@ export function PremiumHero() {
             </div>
 
             {/* Headline */}
-            <h1
-              className="animate-in fade-in slide-in-from-bottom-10 duration-1000 fill-mode-both delay-150 font-display text-[2.8rem] xs:text-[3.5rem] sm:text-[5.5rem] md:text-[7rem] lg:text-[8.5rem] xl:text-[9.5rem] leading-[0.95] text-white tracking-tight mb-6 sm:mb-8 drop-shadow-[0_4px_16px_rgba(0,0,0,0.85)]"
-            >
+            <h1 className="animate-in fade-in slide-in-from-bottom-10 duration-1000 fill-mode-both delay-150 font-display text-[2.8rem] xs:text-[3.5rem] sm:text-[5.5rem] md:text-[7rem] lg:text-[8.5rem] xl:text-[9.5rem] leading-[0.95] text-white tracking-tight mb-6 sm:mb-8 drop-shadow-[0_4px_16px_rgba(0,0,0,0.85)]">
               Intelligent{" "}
               <span className="italic relative inline-block">
                 <span className="absolute inset-0 bg-gradient-to-r from-[#16D9F5] to-[#7EE8FA] bg-clip-text text-transparent blur-[20px] opacity-40 animate-pulse-slow">
@@ -129,9 +123,7 @@ export function PremiumHero() {
             </h1>
 
             {/* Paragraph */}
-            <p
-              className="animate-in fade-in slide-in-from-bottom-10 duration-1000 fill-mode-both delay-300 text-[1.1rem] sm:text-[1.25rem] leading-relaxed text-white font-light max-w-xl mb-12 drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]"
-            >
+            <p className="animate-in fade-in slide-in-from-bottom-10 duration-1000 fill-mode-both delay-300 text-[1.1rem] sm:text-[1.25rem] leading-relaxed text-white font-light max-w-xl mb-12 drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
               Welcome to a new era of movement in Applecross. Experience Australia&apos;s most
               advanced self-guided Digital Reformer Pilates studio and restorative Infrared Sauna
               therapy. Enjoy 800+ on-demand masterclasses, complete privacy, and a schedule tailored
@@ -139,9 +131,7 @@ export function PremiumHero() {
             </p>
 
             {/* CTA Buttons */}
-            <div
-              className="animate-in fade-in slide-in-from-bottom-10 duration-1000 fill-mode-both delay-500 flex flex-col sm:flex-row gap-5 w-full sm:w-auto"
-            >
+            <div className="animate-in fade-in slide-in-from-bottom-10 duration-1000 fill-mode-both delay-500 flex flex-col sm:flex-row gap-5 w-full sm:w-auto">
               <Link
                 href="/schedule"
                 className="group relative flex items-center justify-center gap-3 overflow-hidden rounded-full bg-[#00C8D7] px-10 py-5 text-[0.85rem] font-bold uppercase tracking-[0.2em] text-[#0A0F1E] transition-all duration-500 hover:-translate-y-1.5 hover:shadow-[0_15px_35px_-5px_rgba(0,200,215,0.4)] w-full sm:w-auto"

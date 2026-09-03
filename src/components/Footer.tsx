@@ -20,7 +20,8 @@ export function Footer() {
                 Join The Inner Circle
               </h3>
               <p className="mt-1 text-[0.8rem] sm:text-[0.85rem] text-white/60 font-light">
-                Elevate your movement journey. Receive private offers, wellness insights, and studio updates.
+                Elevate your movement journey. Receive private offers, wellness insights, and studio
+                updates.
               </p>
             </div>
           </div>
@@ -56,7 +57,8 @@ export function Footer() {
               <Logo />
             </div>
             <p className="mt-3 text-[0.9rem] sm:text-[0.95rem] leading-relaxed text-white/60 font-light max-w-sm">
-              A premium sanctuary for self-guided Digital Reformer Pilates and Infrared Sauna therapy in Applecross. Empowering your body and mind, entirely on your schedule.
+              A premium sanctuary for self-guided Digital Reformer Pilates and Infrared Sauna
+              therapy in Applecross. Empowering your body and mind, entirely on your schedule.
             </p>
             <div className="mt-5 sm:mt-6 flex gap-3 sm:gap-4">
               <a
@@ -116,7 +118,9 @@ export function Footer() {
                 <div className="flex size-8 shrink-0 items-center justify-center rounded-full bg-white/5 border border-white/10 group-hover:border-[#00C8D7]/50 transition-colors">
                   <Phone className="size-3.5 text-[#00C8D7]" strokeWidth={2} />
                 </div>
-                <a href="tel:0478336630" className="group-hover:text-white transition-colors">0478 336 630</a>
+                <a href="tel:0478336630" className="group-hover:text-white transition-colors">
+                  0478 336 630
+                </a>
               </li>
               <li className="flex items-center gap-3 sm:gap-4 group cursor-pointer">
                 <div className="flex size-8 shrink-0 items-center justify-center rounded-full bg-white/5 border border-white/10 group-hover:border-[#00C8D7]/50 transition-colors">

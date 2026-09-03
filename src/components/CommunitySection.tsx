@@ -39,14 +39,16 @@ export function CommunitySection() {
           <div className="absolute top-1/4 right-0 w-[500px] h-[500px] rounded-full bg-gradient-to-tr from-[#00C8D7]/15 to-transparent blur-[120px] pointer-events-none mix-blend-screen translate-z-0" />
 
           <div className="relative z-10">
-            <p className="eyebrow text-[#00C8D7] mb-6 tracking-[0.2em] uppercase">N24 is Designed for Your Lifestyle</p>
+            <p className="eyebrow text-[#00C8D7] mb-6 tracking-[0.2em] uppercase">
+              N24 is Designed for Your Lifestyle
+            </p>
             <h2 className="font-display text-[2rem] sm:text-[2.8rem] md:text-5xl lg:text-6xl text-white leading-[1.1] mb-6 sm:mb-8">
               A Practice That <em className="text-[#00C8D7] font-light">Moves With You</em>
             </h2>
             <p className="text-[1.1rem] leading-relaxed text-[#A0B0B5] font-light max-w-lg mb-12">
-              Whether you are a busy professional craving a 6:00 AM workout, a parent needing
-              midday stress relief, an athlete seeking core conditioning, or a beginner looking
-              for low-impact rehabilitation—N24 Pilates adapts seamlessly to your lifestyle.
+              Whether you are a busy professional craving a 6:00 AM workout, a parent needing midday
+              stress relief, an athlete seeking core conditioning, or a beginner looking for
+              low-impact rehabilitation—N24 Pilates adapts seamlessly to your lifestyle.
             </p>
 
             <div className="flex flex-wrap gap-4 mb-12">

@@ -104,7 +104,6 @@ export default function Classes() {
                   >
                     {c.long}
                   </m.p>
-
                 </div>
               </m.div>
             );
@@ -141,7 +140,9 @@ export default function Classes() {
               </h2>
 
               <p className="text-white/80 text-lg md:text-xl font-light max-w-2xl mx-auto mb-8 leading-relaxed">
-                Never used a reformer before? Our digital format is designed to be completely welcoming and unintimidating. Claim your complimentary pass to experience a guided studio tour and your first session on us.
+                Never used a reformer before? Our digital format is designed to be completely
+                welcoming and unintimidating. Claim your complimentary pass to experience a guided
+                studio tour and your first session on us.
               </p>
 
               {/* Highlight Offer Badge */}
@@ -166,7 +167,7 @@ export default function Classes() {
                   </span>
                   <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/50 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" />
                 </Link>
-                
+
                 {/* Button 1: Call Studio Team (Direct call) */}
                 <a
                   href="tel:0478336630"

@@ -59,10 +59,10 @@ export function Navbar() {
         className={twMerge(
           "fixed z-50 transition-all duration-500 w-full lg:w-[94%] lg:max-w-7xl lg:left-1/2 lg:-translate-x-1/2 lg:top-5 lg:rounded-full",
           scrolled
-            ? "bg-white/70 py-2 lg:py-3 shadow-[0_8px_32px_rgba(0,0,0,0.08)] backdrop-blur-2xl top-0 border border-white/40 lg:border"
+            ? "bg-white/94 py-2 lg:py-3 shadow-[0_8px_32px_rgba(0,0,0,0.08)] backdrop-blur-md top-0 border border-white/40 lg:border"
             : isHome
               ? "bg-transparent py-3 lg:py-5 top-0 border border-transparent"
-              : "bg-white/80 py-2 lg:py-4 shadow-md backdrop-blur-lg top-0 border border-white/40 lg:border",
+              : "bg-white/96 py-2 lg:py-4 shadow-md backdrop-blur-sm top-0 border border-white/40 lg:border",
         )}
       >
         <nav className="mx-auto flex max-w-7xl items-center justify-between px-5 lg:px-10">
@@ -175,7 +175,7 @@ export function Navbar() {
               transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
               className="fixed inset-x-0 top-0 z-50 lg:hidden"
             >
-              <div className="mx-3 mt-3 rounded-[1.75rem] border border-white/30 bg-white/98 backdrop-blur-2xl shadow-[0_20px_60px_rgba(0,0,0,0.2)] overflow-hidden">
+              <div className="mx-3 mt-3 rounded-[1.75rem] border border-white/30 bg-white shadow-[0_20px_60px_rgba(0,0,0,0.2)] overflow-hidden">
                 {/* Header row */}
                 <div className="flex items-center justify-between px-6 py-4 border-b border-[#00C8D7]/10">
                   <Link href="/" onClick={() => setOpen(false)}>

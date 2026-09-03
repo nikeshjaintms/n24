@@ -3,6 +3,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 
+
 interface AutoPlayVideoProps {
   src: string;
   poster?: string;
@@ -47,7 +48,7 @@ export function AutoPlayVideo({
     if (!v) return;
     v.muted = true; // DOM property – required by iOS for autoplay
     v.load();
-    v.play().catch(() => {});
+    v.play().catch(() => { });
   }, [priority]);
 
   /* ── 2. Lazy: IntersectionObserver, disconnect after first load ─ */
@@ -78,7 +79,7 @@ export function AutoPlayVideo({
     if (!v) return;
     v.muted = true;
     v.load();
-    v.play().catch(() => {});
+    v.play().catch(() => { });
   }, [srcReady]);
 
   return (
@@ -99,18 +100,21 @@ export function AutoPlayVideo({
 
       {/* ── Poster overlay: sits on top until video is ready ── */}
       {poster && (
-        <Image
-          src={poster}
-          alt=""
-          aria-hidden="true"
-          fill
-          sizes="100vw"
-          priority={priority}
+        <div
           className={[
             "object-cover pointer-events-none transition-opacity duration-700",
             videoReady ? "opacity-0" : "opacity-100",
           ].join(" ")}
-        />
+        >
+          <Image
+            src={poster}
+            alt=""
+            fill
+            sizes="(max-width: 768px) 100vw, 50vw"
+            priority={priority}
+            className="object-cover"
+          />
+        </div>
       )}
     </div>
   );

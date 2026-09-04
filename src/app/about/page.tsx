@@ -293,22 +293,7 @@ export default function About() {
           </m.div>
         </div>
       </section>
-      {/* ── Enquiry Form Section ─────────────────── */}
-      <section className="relative bg-[#F5FAFB] py-24 border-t border-[#00C8D7]/10" id="complimentary-pass-form">
-        <div className="mx-auto max-w-7xl px-6 lg:px-10">
-          <div className="text-center mb-12">
-            <h2 className="font-display text-4xl md:text-5xl text-[#0A0F1E] mb-4">
-              Claim Your Complimentary Pass
-            </h2>
-            <p className="text-[#5B6B70] text-lg font-light max-w-2xl mx-auto">
-              Ready to experience N24 Pilates? Complete the form below and our team will help you take the next step.
-            </p>
-          </div>
-          <div className="max-w-3xl mx-auto bg-white p-6 sm:p-10 rounded-[28px] border border-[#00C8D7]/15 shadow-soft">
-            <ContactForm />
-          </div>
-        </div>
-      </section>
+
     </SiteLayout>
   );
 }

@@ -277,7 +277,7 @@ export default function About() {
 
                 {/* Button 3: Fill Form */}
                 <Link
-                  href="/inquiry"
+                  href="/claim-pass"
                   className="group relative overflow-hidden inline-flex items-center gap-3 rounded-full border border-white bg-transparent px-12 py-5 text-[0.8rem] font-bold uppercase tracking-[0.2em] text-white shadow-[0_10px_30px_rgba(255,255,255,0.1)] transition-all duration-500 hover:bg-white hover:text-[#0A0F1E] hover:scale-[1.03]"
                 >
                   <span className="relative z-10 flex items-center gap-3">
@@ -287,7 +287,7 @@ export default function About() {
                   <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/50 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" />
                 </Link>
 
-                
+
               </div>
             </div>
           </m.div>

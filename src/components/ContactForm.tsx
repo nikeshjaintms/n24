@@ -32,25 +32,17 @@ export function ContactForm() {
         src="https://n24pilatesstudio.gymmasteronline.com/portal/static/js/hostpage.js"
         strategy="afterInteractive"
       />
-      <div className="relative w-full min-h-[600px]">
-        <div className="md:hidden w-full text-center py-4 px-2 mb-2 bg-[#F1FAFB] rounded-xl border border-[#DDEAF2]">
-          <p className="text-xs text-[#4A606A] mb-2">Having trouble viewing the contact form on your phone?</p>
-          <a 
-            href="https://n24pilatesstudio.gymmasteronline.com/portal/enquiry" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="inline-flex items-center justify-center rounded-full border border-[#00AFC2] px-5 py-2 text-[0.7rem] font-bold uppercase tracking-wider text-[#00AFC2]"
-          >
-            Open Form in New Tab
-          </a>
+      <div className="relative w-full h-full overflow-hidden">
+        <div className="w-full -mb-20 pb-4">
+          <iframe
+            id="gmiframe"
+            className="gmiframe w-full min-h-[650px] border-0 bg-white"
+            src="https://n24pilatesstudio.gymmasteronline.com/portal/enquiry"
+            title="Contact N24 Pilates Studio"
+            allow="camera *; microphone *"
+            scrolling="no"
+          />
         </div>
-        <iframe
-          id="gmiframe"
-          className="gmiframe w-full min-h-[650px] border-0 rounded-2xl bg-white shadow-sm"
-          src="https://n24pilatesstudio.gymmasteronline.com/portal/enquiry"
-          title="Contact N24 Pilates Studio"
-          allow="camera *; microphone *"
-        />
       </div>
     </>
   );

@@ -3,12 +3,12 @@ import dynamic from "next/dynamic";
 import { Navbar } from "./Navbar";
 
 const Footer = dynamic(() => import("./Footer").then((mod) => mod.Footer));
-export function SiteLayout({ children }: { children: ReactNode }) {
+export function SiteLayout({ children, hideFooter, hideNavbar }: { children: ReactNode; hideFooter?: boolean; hideNavbar?: boolean }) {
   return (
     <div className="flex min-h-dvh flex-col overflow-x-clip">
-      <Navbar />
+      {!hideNavbar && <Navbar />}
       <main className="flex-1">{children}</main>
-      <Footer />
+      {!hideFooter && <Footer />}
     </div>
   );
 }

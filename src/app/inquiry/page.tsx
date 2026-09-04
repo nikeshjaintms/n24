@@ -112,15 +112,11 @@ export default function InquiryPage() {
 
             {/* Right Side: Form Card */}
             <div className="w-full lg:w-[50%] flex justify-center items-center">
-              <m.div 
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8 }}
+              <div 
                 className="w-full max-w-[480px] bg-white rounded-[24px] shadow-[0_20px_50px_rgba(0,0,0,0.08)] p-6 sm:p-8 lg:p-10 border border-[#111]/5"
               >
                 <ContactForm />
-              </m.div>
+              </div>
             </div>
 
           </div>

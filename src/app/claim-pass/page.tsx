@@ -6,6 +6,7 @@ import { ContactForm } from "@/components/ContactForm";
 import Image from "next/image";
 import heroImg from "../../../public/pilates_hero_mobile.png";
 import heroBgImage from "../../../public/8471b7a6-5ce5-4086-8774-61f1cc480f92.png";
+import newSectionImg from "../../../public/1.png";
 import { CheckCircle2, Sun, Users, Flower2, Phone, Mail, MapPin } from "lucide-react";
 import { InquiryForm } from "@/components/InquiryForm";
 
@@ -146,16 +147,85 @@ export default function InquiryPage() {
 
               <m.div variants={fadeUp} className="space-y-6 text-[1.05rem] lg:text-[1.15rem] leading-relaxed text-[#333] max-w-3xl mx-auto">
                 <p>
-                  Welcome to N24, your modern Applecross studio for Digital Reformer Pilates and Infrared Saunas. We combine the latest technology with a relaxed, uncrowded space for an easy and empowering workout.
+                  Welcome to N24, Applecross's premier sanctuary for self-guided Digital Reformer Pilates and Infrared Sauna therapy. We created this space to offer a kinder, more empowering way to move—where cutting-edge technology meets a warm, uncrowded environment.
                 </p>
                 <p>
-                  Move at your own pace with over 800 on-demand classes—including Reformer, Mat Pilates, Yoga, and HIIT. Whether you are a beginner or an expert, our friendly instructors are here 6 days a week to guide you.
+                  Whether you're a beginner or an expert, you have the freedom to move at your own pace. Choose from over 800 expert-designed, on-demand programs including Reformer, Mat Pilates, Yoga, and HIIT. Our onsite instructors are here 6 days a week to guide you, ensuring every session is safe, effective, and tailored to your body.
                 </p>
                 <p>
-                  Because true health is about exercise and recovery, you can unwind in our private infrared saunas after class. At N24, we build both strength and a welcoming community where you belong.
+                  We believe true wellness combines movement with recovery. After your class, restore your body and mind in our private infrared saunas. At N24, we're not just building strength—we're building a welcoming community where you truly belong, one class at a time.
                 </p>
               </m.div>
             </m.div>
+          </section>
+
+          {/* About N24 Section */}
+          <section className="relative py-24 bg-white overflow-hidden">
+            <div className="max-w-[1200px] mx-auto px-6 lg:px-8">
+              <div className="flex flex-col lg:flex-row items-center gap-16 lg:gap-20">
+                {/* Image Side */}
+                <m.div
+                  initial={{ opacity: 0, x: -30 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true, margin: "-100px" }}
+                  transition={{ duration: 0.8 }}
+                  className="w-full lg:w-1/2 relative h-[500px] lg:h-[700px] rounded-[24px] overflow-hidden shadow-xl"
+                >
+                  <Image
+                    src={newSectionImg}
+                    alt="N24 Studio Environment"
+                    fill
+                    className="object-cover object-center hover:scale-105 transition-transform duration-[2s] ease-out"
+                  />
+                </m.div>
+
+                {/* Content Side */}
+                <div className="w-full lg:w-1/2 flex flex-col justify-center">
+                  <m.div
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, margin: "-100px" }}
+                    variants={stagger}
+                  >
+                    <div className="flex items-center gap-4 mb-8">
+                      <span className="h-px w-10 bg-[#333]/30"></span>
+                      <span className="text-[0.65rem] font-bold uppercase tracking-[0.2em] text-[#333]">
+                        ABOUT N24
+                      </span>
+                    </div>
+
+                    <m.h2
+                      variants={fadeUp}
+                      className="font-display text-[2.5rem] lg:text-[3.5rem] leading-[1.1] text-[#111] mb-12 tracking-tight"
+                    >
+                      A modern approach to movement, wellness & recovery.
+                    </m.h2>
+
+                    <div className="space-y-10">
+                      {/* OUR STORY */}
+                      <m.div variants={fadeUp}>
+                        <h3 className="font-sans font-medium text-[1.1rem] text-[#111] uppercase tracking-[0.1em] mb-4">
+                          Our Story
+                        </h3>
+                        <p className="text-[#555] leading-relaxed text-[1.05rem] font-light">
+                          N24 was born from a desire to provide a refreshing alternative to crowded, traditional fitness environments. We envisioned a studio that prioritizes flexibility, privacy, and technology-supported workouts. Our space is intentionally designed to give members the freedom to train precisely at their own pace, free from the pressure of large group classes.
+                        </p>
+                      </m.div>
+
+                      {/* OUR STUDIO */}
+                      <m.div variants={fadeUp}>
+                        <h3 className="font-sans font-medium text-[1.1rem] text-[#111] uppercase tracking-[0.1em] mb-4">
+                          Our Studio
+                        </h3>
+                        <p className="text-[#555] leading-relaxed text-[1.05rem] font-light">
+                          Located in the heart of Applecross, our modern wellness space seamlessly combines Digital Reformer Pilates and other dynamic on-demand workouts with restorative Infrared Sauna recovery. With over 800 expert-designed programs available at your fingertips, you dictate your schedule. During staff hours, our onsite instructors are always present to provide hands-on guidance whenever you need it.
+                        </p>
+                      </m.div>
+                    </div>
+                  </m.div>
+                </div>
+              </div>
+            </div>
           </section>
 
           {/* Short Contact Section */}

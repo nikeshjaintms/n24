@@ -144,15 +144,15 @@ export default function InquiryPage() {
                 A new era of movement<br />and recovery.
               </m.h2>
 
-              <m.div variants={fadeUp} className="space-y-6 text-[1rem] lg:text-[1.1rem] leading-relaxed text-[#555] font-light max-w-3xl mx-auto">
+              <m.div variants={fadeUp} className="space-y-6 text-[1.05rem] lg:text-[1.15rem] leading-relaxed text-[#333] max-w-3xl mx-auto">
                 <p>
-                  Welcome to N24, Applecross&apos;s premier sanctuary for self-guided Digital Reformer Pilates and Infrared Sauna therapy. We created this space to offer a kinder, more empowering way to moveΓÇöwhere cutting-edge technology meets a warm, uncrowded environment.
+                  Welcome to N24, your modern Applecross studio for Digital Reformer Pilates and Infrared Saunas. We combine the latest technology with a relaxed, uncrowded space for an easy and empowering workout.
                 </p>
                 <p>
-                  Whether you&apos;re a beginner or an expert, you have the freedom to move at your own pace. Choose from over 800 expert-designed, on-demand programs including Reformer, Mat Pilates, Yoga, and HIIT. Our onsite instructors are here 6 days a week to guide you, ensuring every session is safe, effective, and tailored to your body.
+                  Move at your own pace with over 800 on-demand classes—including Reformer, Mat Pilates, Yoga, and HIIT. Whether you are a beginner or an expert, our friendly instructors are here 6 days a week to guide you.
                 </p>
                 <p>
-                  We believe true wellness combines movement with recovery. After your class, restore your body and mind in our private infrared saunas. At N24, we&apos;re not just building strengthΓÇöwe&apos;re building a welcoming community where you truly belong, one class at a time.
+                  Because true health is about exercise and recovery, you can unwind in our private infrared saunas after class. At N24, we build both strength and a welcoming community where you belong.
                 </p>
               </m.div>
             </m.div>

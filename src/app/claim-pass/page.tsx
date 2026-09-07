@@ -9,6 +9,7 @@ import heroBgImage from "../../../public/8471b7a6-5ce5-4086-8774-61f1cc480f92.pn
 import newSectionImg from "../../../public/1.png";
 import { CheckCircle2, Sun, Users, Flower2, Phone, Mail, MapPin } from "lucide-react";
 import { InquiryForm } from "@/components/InquiryForm";
+import { GallerySection } from "@/components/GallerySection";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -85,7 +86,7 @@ export default function InquiryPage() {
                     variants={fadeUp}
                     className="text-[1.1rem] lg:text-[1.15rem] leading-relaxed text-[#555] font-light mb-10"
                   >
-                    New to N24 Pilates? Discover our approach to movement with your first class complimentary.
+                    New to N24 Pilates? Discover our approach to movement with your first class complimentary. You have the flexibility to come anytime between 5:00 AM and 10:00 PM.
                   </m.p>
 
                   <m.div variants={fadeUp} className="space-y-4 flex flex-col items-center lg:items-start text-left">
@@ -147,13 +148,13 @@ export default function InquiryPage() {
 
               <m.div variants={fadeUp} className="space-y-6 text-[1.05rem] lg:text-[1.15rem] leading-relaxed text-[#333] max-w-3xl mx-auto">
                 <p>
-                  Welcome to N24, Applecross's premier sanctuary for self-guided Digital Reformer Pilates and Infrared Sauna therapy. We created this space to offer a kinder, more empowering way to move—where cutting-edge technology meets a warm, uncrowded environment.
+                  Welcome to N24, Applecross's top studio for self-guided Digital Reformer Pilates and Infrared Sauna therapy. We created this space to offer a more empowering way to move—where modern technology meets a warm, uncrowded environment.
                 </p>
                 <p>
-                  Whether you're a beginner or an expert, you have the freedom to move at your own pace. Choose from over 800 expert-designed, on-demand programs including Reformer, Mat Pilates, Yoga, and HIIT. Our onsite instructors are here 6 days a week to guide you, ensuring every session is safe, effective, and tailored to your body.
+                  Whether you're a beginner or an expert, you have the freedom to move at your own pace. Choose from over 800 expert-designed, on-demand programs including Reformer, Mat Pilates, Yoga, and HIIT. Our onsite instructors are here 6 days a week to guide you, ensuring every session is safe, effective, and right for your body.
                 </p>
                 <p>
-                  We believe true wellness combines movement with recovery. After your class, restore your body and mind in our private infrared saunas. At N24, we're not just building strength—we're building a welcoming community where you truly belong, one class at a time.
+                  We believe true wellness combines movement with recovery. After your class, relax your body and mind in our private infrared saunas. At N24, we're not just building strength—we're building a welcoming community where you truly belong.
                 </p>
               </m.div>
             </m.div>
@@ -201,32 +202,21 @@ export default function InquiryPage() {
                       A modern approach to movement, wellness & recovery.
                     </m.h2>
 
-                    <div className="space-y-10">
-                      {/* OUR STORY */}
-                      <m.div variants={fadeUp}>
-                        <h3 className="font-sans font-medium text-[1.1rem] text-[#111] uppercase tracking-[0.1em] mb-4">
-                          Our Story
-                        </h3>
-                        <p className="text-[#555] leading-relaxed text-[1.05rem] font-light">
-                          N24 was born from a desire to provide a refreshing alternative to crowded, traditional fitness environments. We envisioned a studio that prioritizes flexibility, privacy, and technology-supported workouts. Our space is intentionally designed to give members the freedom to train precisely at their own pace, free from the pressure of large group classes.
-                        </p>
-                      </m.div>
-
-                      {/* OUR STUDIO */}
-                      <m.div variants={fadeUp}>
-                        <h3 className="font-sans font-medium text-[1.1rem] text-[#111] uppercase tracking-[0.1em] mb-4">
-                          Our Studio
-                        </h3>
-                        <p className="text-[#555] leading-relaxed text-[1.05rem] font-light">
-                          Located in the heart of Applecross, our modern wellness space seamlessly combines Digital Reformer Pilates and other dynamic on-demand workouts with restorative Infrared Sauna recovery. With over 800 expert-designed programs available at your fingertips, you dictate your schedule. During staff hours, our onsite instructors are always present to provide hands-on guidance whenever you need it.
-                        </p>
-                      </m.div>
-                    </div>
+                    <m.div variants={fadeUp} className="space-y-6">
+                      <p className="text-[#333] leading-relaxed text-[1.05rem]">
+                        Our studio was born from a desire to create a wellness space that truly puts people first. After years of witnessing the drawbacks of traditional fitness environments where the focus is often on crowded classes and one-size-fits-all routines, we knew there had to be a better way. We envisioned a place where the journey to health is personal, supportive, and focused on genuine mind-body connection.
+                      </p>
+                      <p className="text-[#333] leading-relaxed text-[1.05rem]">
+                        We built this studio to give you a space where you can move at your own pace and choose the workout your body needs. Our extensive Digital Library offers over 800 expert-designed programs in Reformer, Mat Pilates, Yoga, HIIT Hybrid, Stretch + Strength and much more. You'll find more than 20 different styles, from beginner fundamentals and expert-level challenges to specialized clinical Pilates and physiotherapy-focused routines. Every program is carefully created to be safe and effective and our onsite instructors are here to help you during the staff hours 6 days a week.
+                      </p>
+                    </m.div>
                   </m.div>
                 </div>
               </div>
             </div>
           </section>
+
+          <GallerySection theme="claim-pass" />
 
           {/* Short Contact Section */}
           <section className="bg-white py-20 px-6 lg:px-8 border-t border-[#111]/10">

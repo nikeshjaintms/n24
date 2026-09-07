@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+
 import Image from "next/image";
 import { m } from "framer-motion";
 import type { Variants } from "framer-motion";
@@ -63,11 +63,15 @@ const videos = [
   },
 ];
 
-export function GallerySection() {
-  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+interface GallerySectionProps {
+  theme?: "default" | "claim-pass";
+}
+
+export function GallerySection({ theme = "default" }: GallerySectionProps) {
+  const isClaimPass = theme === "claim-pass";
 
   return (
-    <section className="bg-[#F1FAFB] py-14 sm:py-20 overflow-hidden">
+    <section className={`${isClaimPass ? "bg-[#F8F7F3]" : "bg-[#F1FAFB]"} py-14 sm:py-20 overflow-hidden`}>
       <div className="mx-auto max-w-[105rem] px-4 lg:px-8">
         <m.div
           initial="hidden"
@@ -77,12 +81,21 @@ export function GallerySection() {
           className="flex flex-col md:flex-row md:items-end md:justify-between px-2 mb-12 gap-6"
         >
           <div>
-            <m.p variants={fadeUp} className="eyebrow text-[#00C8D7] mb-4 tracking-[0.3em]">
-              The Digital Reformer Experience
-            </m.p>
+            {isClaimPass ? (
+              <m.div variants={fadeUp} className="flex items-center gap-4 mb-8">
+                <span className="h-px w-10 bg-[#333]/30"></span>
+                <span className="text-[0.65rem] font-bold uppercase tracking-[0.2em] text-[#333]">
+                  THE DIGITAL REFORMER EXPERIENCE
+                </span>
+              </m.div>
+            ) : (
+              <m.p variants={fadeUp} className="eyebrow text-[#00C8D7] mb-4 tracking-[0.3em]">
+                The Digital Reformer Experience
+              </m.p>
+            )}
             <m.h2
               variants={fadeUp}
-              className="font-display text-[2rem] sm:text-[2.8rem] md:text-5xl lg:text-6xl text-[#0A0F1E]"
+              className={`font-display text-[2rem] sm:text-[2.8rem] md:text-5xl lg:text-6xl ${isClaimPass ? "text-[#111]" : "text-[#0A0F1E]"}`}
             >
               Experience <em>N24 in Motion</em>
             </m.h2>
@@ -92,7 +105,6 @@ export function GallerySection() {
         <div className="relative w-full overflow-hidden pb-10 pt-4 px-2">
           <div className="flex gap-6 lg:gap-8 w-max animate-marquee">
             {[...videos, ...videos].map((item, i) => {
-              const isHovered = hoveredIndex === i;
               return (
                 <m.div
                   key={i}
@@ -100,31 +112,14 @@ export function GallerySection() {
                   whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true, margin: "0px", amount: 0.1 }}
                   transition={{ duration: 0.8, delay: (i % 4) * 0.1 }}
-                  onMouseEnter={() => setHoveredIndex(i)}
-                  onMouseLeave={() => setHoveredIndex(null)}
-                  onTouchStart={() => setHoveredIndex(i)}
-                  onTouchEnd={() => setHoveredIndex(null)}
                   className="group relative w-[85vw] sm:w-[45vw] md:w-[35vw] lg:w-[28vw] max-w-[400px] flex-shrink-0 aspect-[9/16] sm:aspect-[4/5] overflow-hidden rounded-[28px] shadow-soft hover:shadow-premium transition-all duration-500 bg-[#0A0F1E] cursor-pointer"
                 >
-                  {isHovered ? (
-                    <AutoPlayVideo
-                      src={item.src}
-                      poster={item.poster}
-                      priority
-                      className="absolute inset-0 size-full object-cover transition-transform duration-[1.5s] scale-105"
-                    />
-                  ) : (
-                    <div className="absolute inset-0 size-full overflow-hidden">
-                      <Image
-                        src={item.poster}
-                        alt={item.title}
-                        fill
-                        sizes="(max-width: 768px) 85vw, (max-width: 1024px) 45vw, 30vw"
-                        className="object-cover transition-transform duration-[1.5s] group-hover:scale-105"
-                        priority={i < 4}
-                      />
-                    </div>
-                  )}
+                  <AutoPlayVideo
+                    src={item.src}
+                    poster={item.poster}
+                    priority={i < 4}
+                    className="absolute inset-0 size-full object-cover transition-transform duration-[1.5s] group-hover:scale-105"
+                  />
                   
                   <div className="absolute inset-0 bg-gradient-to-t from-[#0A0F1E]/90 via-[#0A0F1E]/20 to-transparent opacity-80 group-hover:opacity-100 transition-opacity duration-500" />
 

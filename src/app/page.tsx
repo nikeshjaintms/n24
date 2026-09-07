@@ -14,6 +14,9 @@ const CommunitySection = dynamic(() =>
 const GallerySection = dynamic(() =>
   import("@/components/GallerySection").then((mod) => mod.GallerySection),
 );
+const OurStorySection = dynamic(() =>
+  import("@/components/OurStorySection").then((mod) => mod.OurStorySection),
+);
 const OfferSection = dynamic(() =>
   import("@/components/OfferSection").then((mod) => mod.OfferSection),
 );
@@ -32,6 +35,7 @@ export default function Home() {
       <PromoVideoSection />
       <FeaturesSection />
       <CommunitySection />
+      <OurStorySection />
       <GallerySection />
       <OfferSection />
       <TestimonialsSection />

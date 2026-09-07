@@ -6,7 +6,6 @@ import { ContactForm } from "@/components/ContactForm";
 import Image from "next/image";
 import heroImg from "../../../public/pilates_hero_mobile.png";
 import heroBgImage from "../../../public/8471b7a6-5ce5-4086-8774-61f1cc480f92.png";
-import newSectionImg from "../../../public/1.png";
 import { CheckCircle2, Sun, Users, Flower2, Phone, Mail, MapPin } from "lucide-react";
 import { InquiryForm } from "@/components/InquiryForm";
 import { GallerySection } from "@/components/GallerySection";
@@ -161,58 +160,35 @@ export default function InquiryPage() {
           </section>
 
           {/* About N24 Section */}
-          <section className="relative py-24 bg-white overflow-hidden">
-            <div className="max-w-[1200px] mx-auto px-6 lg:px-8">
-              <div className="flex flex-col lg:flex-row items-center gap-16 lg:gap-20">
-                {/* Image Side */}
-                <m.div
-                  initial={{ opacity: 0, x: -30 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true, margin: "-100px" }}
-                  transition={{ duration: 0.8 }}
-                  className="w-full lg:w-1/2 relative h-[500px] lg:h-[700px] rounded-[24px] overflow-hidden shadow-xl"
-                >
-                  <Image
-                    src={newSectionImg}
-                    alt="N24 Studio Environment"
-                    fill
-                    className="object-cover object-center hover:scale-105 transition-transform duration-[2s] ease-out"
-                  />
-                </m.div>
-
-                {/* Content Side */}
-                <div className="w-full lg:w-1/2 flex flex-col justify-center">
-                  <m.div
-                    initial="hidden"
-                    whileInView="visible"
-                    viewport={{ once: true, margin: "-100px" }}
-                    variants={stagger}
-                  >
-                    <div className="flex items-center gap-4 mb-8">
-                      <span className="h-px w-10 bg-[#333]/30"></span>
-                      <span className="text-[0.65rem] font-bold uppercase tracking-[0.2em] text-[#333]">
-                        ABOUT N24
-                      </span>
-                    </div>
-
-                    <m.h2
-                      variants={fadeUp}
-                      className="font-display text-[2.5rem] lg:text-[3.5rem] leading-[1.1] text-[#111] mb-12 tracking-tight"
-                    >
-                      A modern approach to movement, wellness & recovery.
-                    </m.h2>
-
-                    <m.div variants={fadeUp} className="space-y-6">
-                      <p className="text-[#333] leading-relaxed text-[1.05rem]">
-                        Our studio was born from a desire to create a wellness space that truly puts people first. After years of witnessing the drawbacks of traditional fitness environments where the focus is often on crowded classes and one-size-fits-all routines, we knew there had to be a better way. We envisioned a place where the journey to health is personal, supportive, and focused on genuine mind-body connection.
-                      </p>
-                      <p className="text-[#333] leading-relaxed text-[1.05rem]">
-                        We built this studio to give you a space where you can move at your own pace and choose the workout your body needs. Our extensive Digital Library offers over 800 expert-designed programs in Reformer, Mat Pilates, Yoga, HIIT Hybrid, Stretch + Strength and much more. You'll find more than 20 different styles, from beginner fundamentals and expert-level challenges to specialized clinical Pilates and physiotherapy-focused routines. Every program is carefully created to be safe and effective and our onsite instructors are here to help you during the staff hours 6 days a week.
-                      </p>
-                    </m.div>
-                  </m.div>
+          <section className="relative py-24 bg-white overflow-hidden text-center px-6 lg:px-8">
+            <div className="max-w-[800px] mx-auto">
+              <m.div
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: "-100px" }}
+                variants={stagger}
+              >
+                <div className="flex items-center justify-center gap-4 mb-8">
+                  <span className="h-px w-10 bg-[#333]/30"></span>
+                  <span className="text-[0.65rem] font-bold uppercase tracking-[0.2em] text-[#333]">
+                    ABOUT N24
+                  </span>
+                  <span className="h-px w-10 bg-[#333]/30"></span>
                 </div>
-              </div>
+
+                <m.h2
+                  variants={fadeUp}
+                  className="font-display text-[2.5rem] lg:text-[3.5rem] leading-[1.1] text-[#111] mb-12 tracking-tight"
+                >
+                  Our Story.
+                </m.h2>
+
+                <m.div variants={fadeUp}>
+                  <p className="text-[#333] leading-relaxed text-[1.1rem]">
+                    Our studio was born from a desire to create a wellness space that truly puts people first. After years of witnessing the drawbacks of traditional fitness environments where the focus is often on crowded classes and one-size-fits-all routines, we knew there had to be a better way. We envisioned a place where the journey to health is personal, supportive, and focused on genuine mind-body connection.
+                  </p>
+                </m.div>
+              </m.div>
             </div>
           </section>
 

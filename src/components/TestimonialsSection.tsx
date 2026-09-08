@@ -87,14 +87,23 @@ const reviews = [
   },
 ];
 
-export function TestimonialsSection() {
+interface TestimonialsSectionProps {
+  theme?: "default" | "claim-pass";
+}
+
+export function TestimonialsSection({ theme = "default" }: TestimonialsSectionProps) {
+  const isClaimPass = theme === "claim-pass";
   const [selectedReviewIndex, setSelectedReviewIndex] = useState<number | null>(null);
 
   return (
     <>
-      <section className="py-28 relative overflow-hidden bg-gradient-to-b from-[#F8FBFC] via-[#F1FAFB] to-white border-t border-b border-[#00C8D7]/15">
-        <div className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full bg-[#00C8D7]/10 blur-[140px] pointer-events-none translate-z-0" />
-        <div className="absolute bottom-0 left-0 w-[500px] h-[500px] rounded-full bg-[#00C8D7]/5 blur-[120px] pointer-events-none translate-z-0" />
+      <section className={`py-28 relative overflow-hidden border-t border-b ${isClaimPass ? "bg-[#F8F7F3] border-[#111]/5" : "bg-gradient-to-b from-[#F8FBFC] via-[#F1FAFB] to-white border-[#00C8D7]/15"}`}>
+        {!isClaimPass && (
+          <>
+            <div className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full bg-[#00C8D7]/10 blur-[140px] pointer-events-none translate-z-0" />
+            <div className="absolute bottom-0 left-0 w-[500px] h-[500px] rounded-full bg-[#00C8D7]/5 blur-[120px] pointer-events-none translate-z-0" />
+          </>
+        )}
 
         <div className="mx-auto max-w-7xl px-6 lg:px-10 relative z-10">
           <m.div
@@ -104,23 +113,33 @@ export function TestimonialsSection() {
             variants={stagger}
             className="text-center mb-16"
           >
-            <m.p
-              variants={fadeUp}
-              className="eyebrow text-[#00C8D7] mb-4 tracking-[0.3em] font-bold"
-            >
-              Real Member Transformation
-            </m.p>
+            {isClaimPass ? (
+              <m.div variants={fadeUp} className="flex items-center justify-center gap-4 mb-8">
+                <span className="h-px w-10 bg-[#333]/30"></span>
+                <span className="text-[0.65rem] font-bold uppercase tracking-[0.2em] text-[#333]">
+                  REAL MEMBER TRANSFORMATION
+                </span>
+                <span className="h-px w-10 bg-[#333]/30"></span>
+              </m.div>
+            ) : (
+              <m.p
+                variants={fadeUp}
+                className="eyebrow text-[#00C8D7] mb-4 tracking-[0.3em] font-bold"
+              >
+                Real Member Transformation
+              </m.p>
+            )}
             <m.h2
               variants={fadeUp}
-              className="font-display text-5xl md:text-6xl text-[#0A0F1E] mb-8"
+              className={`font-display text-5xl md:text-6xl mb-8 ${isClaimPass ? "text-[#111]" : "text-[#0A0F1E]"}`}
             >
               Stories of strength,
               <br />
-              <em className="text-[#00C8D7] font-light">balance &amp; renewal</em>
+              <em className={`${isClaimPass ? "text-[#111]" : "text-[#00C8D7] font-light"}`}>balance &amp; renewal</em>
             </m.h2>
             <m.div
               variants={fadeUp}
-              className="inline-flex items-center gap-4 bg-white shadow-soft rounded-full px-8 py-3.5 border border-[#00C8D7]/20 backdrop-blur-md"
+              className={`inline-flex items-center gap-4 bg-white rounded-full px-8 py-3.5 border backdrop-blur-md ${isClaimPass ? "shadow-[0_8px_30px_rgba(0,0,0,0.04)] border-[#111]/10" : "shadow-soft border-[#00C8D7]/20"}`}
             >
               <div className="flex text-yellow-400 gap-1.5">
                 {[1, 2, 3, 4, 5].map((s) => (
@@ -149,10 +168,10 @@ export function TestimonialsSection() {
                     <CarouselItem key={i} className="pl-4 md:pl-8 md:basis-1/2 lg:basis-1/3">
                       <m.div
                         variants={fadeUp}
-                        className="group relative overflow-hidden rounded-[28px] border border-[#00C8D7]/15 bg-white p-10 flex flex-col shadow-soft transition-all duration-500 hover:-translate-y-2 hover:shadow-premium hover:border-[#00C8D7]/40 h-full"
+                        className={`group relative overflow-hidden rounded-[28px] border bg-white p-10 flex flex-col transition-all duration-500 hover:-translate-y-2 h-full ${isClaimPass ? "shadow-[0_8px_30px_rgba(0,0,0,0.04)] border-[#111]/5 hover:shadow-[0_15px_40px_rgba(0,0,0,0.08)] hover:border-[#111]/20" : "shadow-soft border-[#00C8D7]/15 hover:shadow-premium hover:border-[#00C8D7]/40"}`}
                       >
-                        <div className="absolute top-0 right-0 w-28 h-28 bg-[#00C8D7]/10 rounded-full blur-[25px] opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
-                        <Quote className="size-10 text-[#00C8D7] mb-6 transition-transform duration-300 group-hover:scale-110 shrink-0" />
+                        <div className={`absolute top-0 right-0 w-28 h-28 rounded-full blur-[25px] opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none ${isClaimPass ? "bg-[#111]/5" : "bg-[#00C8D7]/10"}`} />
+                        <Quote className={`size-10 mb-6 transition-transform duration-300 group-hover:scale-110 shrink-0 ${isClaimPass ? "text-[#111]/40" : "text-[#00C8D7]"}`} />
                         <div className="flex-1 flex flex-col">
                           <p className="text-[1.05rem] leading-relaxed text-[#111827] font-light italic line-clamp-4">
                             &ldquo;{r.text}&rdquo;
@@ -160,7 +179,7 @@ export function TestimonialsSection() {
                           {isLong && (
                             <button
                               onClick={() => setSelectedReviewIndex(i)}
-                              className="text-[#00C8D7] text-sm font-medium mt-2 text-left hover:underline w-fit mb-8"
+                              className={`text-sm font-medium mt-2 text-left hover:underline w-fit mb-8 ${isClaimPass ? "text-[#111]" : "text-[#00C8D7]"}`}
                             >
                               Read more
                             </button>
@@ -173,8 +192,8 @@ export function TestimonialsSection() {
                               <Star key={s} className="size-4 fill-current" />
                             ))}
                           </div>
-                          <div className="flex items-center gap-4 pt-6 border-t border-[#00C8D7]/15">
-                            <div className="size-12 rounded-full bg-gradient-to-br from-[#00C8D7] to-[#00AFC2] flex items-center justify-center font-display text-xl text-white shadow-[0_4px_15px_rgba(0,200,215,0.3)] shrink-0">
+                          <div className={`flex items-center gap-4 pt-6 border-t ${isClaimPass ? "border-[#111]/10" : "border-[#00C8D7]/15"}`}>
+                            <div className={`size-12 rounded-full flex items-center justify-center font-display text-xl text-white shrink-0 ${isClaimPass ? "bg-[#0E2024]" : "bg-gradient-to-br from-[#00C8D7] to-[#00AFC2] shadow-[0_4px_15px_rgba(0,200,215,0.3)]"}`}>
                               {r.initial}
                             </div>
                             <div>
@@ -189,8 +208,8 @@ export function TestimonialsSection() {
                 })}
               </CarouselContent>
               <div className="flex justify-center gap-4 mt-12">
-                <CarouselPrevious className="static transform-none h-12 w-12 border-[#00C8D7] text-[#00C8D7] hover:bg-[#00C8D7] hover:text-white" />
-                <CarouselNext className="static transform-none h-12 w-12 border-[#00C8D7] text-[#00C8D7] hover:bg-[#00C8D7] hover:text-white" />
+                <CarouselPrevious className={`static transform-none h-12 w-12 border transition-colors ${isClaimPass ? "border-[#111]/20 text-[#111] hover:bg-[#111] hover:text-white" : "border-[#00C8D7] text-[#00C8D7] hover:bg-[#00C8D7] hover:text-white"}`} />
+                <CarouselNext className={`static transform-none h-12 w-12 border transition-colors ${isClaimPass ? "border-[#111]/20 text-[#111] hover:bg-[#111] hover:text-white" : "border-[#00C8D7] text-[#00C8D7] hover:bg-[#00C8D7] hover:text-white"}`} />
               </div>
             </Carousel>
           </m.div>
@@ -216,17 +235,16 @@ export function TestimonialsSection() {
               className="relative w-full max-w-2xl max-h-[90vh] bg-white rounded-[28px] sm:rounded-[32px] shadow-2xl flex flex-col overflow-hidden z-10 border border-[#DDEAF2]"
             >
               <div
-                className="h-[4px] w-full flex-shrink-0"
-                style={{ background: "linear-gradient(90deg, #00AFC2, #00C8D7)" }}
+                className={`h-[4px] w-full flex-shrink-0 ${isClaimPass ? "bg-[#111]" : "bg-gradient-to-r from-[#00AFC2] to-[#00C8D7]"}`}
               />
 
-              <div className="absolute top-0 right-0 w-64 h-64 bg-[#00C8D7]/10 rounded-full blur-[40px] pointer-events-none" />
+              <div className={`absolute top-0 right-0 w-64 h-64 rounded-full blur-[40px] pointer-events-none ${isClaimPass ? "bg-[#111]/5" : "bg-[#00C8D7]/10"}`} />
 
               <div className="flex justify-between items-center px-6 sm:px-8 py-5 shrink-0 border-b border-[#DDEAF2]/60 bg-white/95 backdrop-blur z-10">
-                <Quote className="size-8 text-[#00C8D7]" />
+                <Quote className={`size-8 ${isClaimPass ? "text-[#111]/40" : "text-[#00C8D7]"}`} />
                 <button
                   onClick={() => setSelectedReviewIndex(null)}
-                  className="group flex items-center justify-center size-10 rounded-full border border-[#DDEAF2] bg-[#F1FAFB] text-[#4A606A] transition-all duration-200 hover:border-[#00AFC2] hover:bg-[#00AFC2] hover:text-white cursor-pointer shrink-0"
+                  className={`group flex items-center justify-center size-10 rounded-full border border-[#DDEAF2] transition-all duration-200 cursor-pointer shrink-0 ${isClaimPass ? "bg-[#F8F7F3] text-[#333] hover:border-[#111] hover:bg-[#111] hover:text-white" : "bg-[#F1FAFB] text-[#4A606A] hover:border-[#00AFC2] hover:bg-[#00AFC2] hover:text-white"}`}
                 >
                   <X className="size-5 transition-transform group-hover:rotate-90 duration-300" />
                 </button>
@@ -244,7 +262,7 @@ export function TestimonialsSection() {
                 </div>
 
                 <div className="flex items-center gap-4">
-                  <div className="size-14 rounded-full bg-gradient-to-br from-[#00C8D7] to-[#00AFC2] flex items-center justify-center font-display text-2xl text-white shadow-[0_4px_15px_rgba(0,200,215,0.3)] shrink-0">
+                  <div className={`size-14 rounded-full flex items-center justify-center font-display text-2xl text-white shrink-0 ${isClaimPass ? "bg-[#0E2024]" : "bg-gradient-to-br from-[#00C8D7] to-[#00AFC2] shadow-[0_4px_15px_rgba(0,200,215,0.3)]"}`}>
                     {reviews[selectedReviewIndex].initial}
                   </div>
                   <div>

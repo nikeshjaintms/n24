@@ -10,6 +10,7 @@ import { CheckCircle2, Sun, Users, Flower2, Phone, Mail, MapPin } from "lucide-r
 import { InquiryForm } from "@/components/InquiryForm";
 import { GallerySection } from "@/components/GallerySection";
 import { OurStorySection } from "@/components/OurStorySection";
+import { TestimonialsSection } from "@/components/TestimonialsSection";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -151,6 +152,9 @@ export default function InquiryPage() {
                   Welcome to N24, Applecross's top studio for self-guided Digital Reformer Pilates and Infrared Sauna therapy. We created this space to offer a more empowering way to move—where modern technology meets a warm, uncrowded environment.
                 </p>
                 <p>
+                  We created this space so you can move at your own pace with no judgement and no pressure, knowing that everyone is simply working on their own unique strengths. With the freedom to visit anytime between 5 AM and 10 PM, fitting movement and recovery into your routine has never been easier.
+                </p>
+                <p>
                   Whether you're a beginner or an expert, you have the freedom to move at your own pace. Choose from over 800 expert-designed, on-demand programs including Reformer, Mat Pilates, Yoga, and HIIT. Our onsite instructors are here 6 days a week to guide you, ensuring every session is safe, effective, and right for your body.
                 </p>
                 <p>
@@ -164,6 +168,8 @@ export default function InquiryPage() {
           <OurStorySection />
 
           <GallerySection theme="claim-pass" />
+
+          <TestimonialsSection theme="claim-pass" />
 
           {/* Short Contact Section */}
           <section className="bg-white py-20 px-6 lg:px-8 border-t border-[#111]/10">

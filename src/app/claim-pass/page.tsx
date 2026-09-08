@@ -10,7 +10,6 @@ import { CheckCircle2, Sun, Users, Flower2, Phone, Mail, MapPin } from "lucide-r
 import { InquiryForm } from "@/components/InquiryForm";
 import { GallerySection } from "@/components/GallerySection";
 import { OurStorySection } from "@/components/OurStorySection";
-import { TestimonialsSection } from "@/components/TestimonialsSection";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -87,7 +86,8 @@ export default function InquiryPage() {
                     variants={fadeUp}
                     className="text-[1.1rem] lg:text-[1.15rem] leading-relaxed text-[#555] font-light mb-10"
                   >
-                    New to N24 Pilates? Discover our approach to movement with your first class complimentary. You have the flexibility to come anytime between 5:00 AM and 10:00 PM.
+                    New to N24 Pilates? Discover our approach to movement with your first class complimentary.
+
                   </m.p>
 
                   <m.div variants={fadeUp} className="space-y-4 flex flex-col items-center lg:items-start text-left">
@@ -149,7 +149,7 @@ export default function InquiryPage() {
 
               <m.div variants={fadeUp} className="space-y-6 text-[1.05rem] lg:text-[1.15rem] leading-relaxed text-[#333] max-w-3xl mx-auto">
                 <p>
-                  Welcome to N24, Applecross's top studio for self-guided Digital Reformer Pilates and Infrared Sauna therapy. We created this space to offer a more empowering way to move—where modern technology meets a warm, uncrowded environment.
+                  Welcome to N24, Applecross's premium studio for self-guided Digital Reformer Pilates and Infrared Sauna therapy. We created this space to offer a more empowering way to move—where modern technology meets a warm, uncrowded environment.
                 </p>
                 <p>
                   We created this space so you can move at your own pace with no judgement and no pressure, knowing that everyone is simply working on their own unique strengths. With the freedom to visit anytime between 5 AM and 10 PM, fitting movement and recovery into your routine has never been easier.
@@ -168,8 +168,6 @@ export default function InquiryPage() {
           <OurStorySection />
 
           <GallerySection theme="claim-pass" />
-
-          <TestimonialsSection theme="claim-pass" />
 
           {/* Short Contact Section */}
           <section className="bg-white py-20 px-6 lg:px-8 border-t border-[#111]/10">

@@ -3,7 +3,7 @@ import nodemailer from "nodemailer";
 
 /**
  * POST /api/contact
- * Handles Challenge Pass / Claim Pass form submissions.
+ * Handles Claim Pass form submissions.
  * Sends form details to MAIL_TO_ADDRESS via Gmail SMTP.
  * All credentials are read from environment variables — never hardcoded.
  */
@@ -57,7 +57,7 @@ export async function POST(req: NextRequest) {
       timeStyle: "short",
     });
 
-    // Build email HTML — clearly marked as Challenge Pass submission
+    // Build email HTML — clearly marked as Claim Pass submission
     const html = `
 <!DOCTYPE html>
 <html lang="en">
@@ -73,7 +73,7 @@ export async function POST(req: NextRequest) {
             <td style="background:#0E2024;padding:28px 36px;">
               <p style="margin:0 0 4px 0;color:#a8c0c8;font-size:11px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;">N24 Pilates Studio</p>
               <h1 style="margin:0;color:#ffffff;font-size:22px;font-weight:700;letter-spacing:0.02em;">
-                New Challenge Pass Submission
+                New Claim Pass Submission
               </h1>
             </td>
           </tr>
@@ -82,7 +82,7 @@ export async function POST(req: NextRequest) {
           <tr>
             <td style="padding:32px 36px;">
               <p style="margin:0 0 24px 0;color:#555;font-size:14px;line-height:1.6;">
-                A new submission has been received from the <strong>Challenge Pass / Complimentary Pass</strong> form on the N24 Pilates Studio website.
+                A new submission has been received from the <strong>Claim Pass</strong> form on the N24 Pilates Studio website.
               </p>
 
               <!-- Details Table -->
@@ -122,7 +122,7 @@ export async function POST(req: NextRequest) {
                 <tr>
                   <td style="padding:12px 16px;background:#f8f7f3;border-radius:0 0 6px 6px;">
                     <span style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:#888;">Page</span><br/>
-                    <span style="font-size:14px;color:#111;">Challenge Pass</span>
+                    <span style="font-size:14px;color:#111;">Claim Pass</span>
                   </td>
                 </tr>
               </table>
@@ -157,7 +157,7 @@ export async function POST(req: NextRequest) {
       from: `"${fromName}" <${fromAddress}>`,
       to: toAddress,
       replyTo: email, // clicking Reply goes directly to the customer
-      subject: `New Challenge Pass Submission — ${fullName}`,
+      subject: `New Claim Pass Submission — ${fullName}`,
       html,
     });
 

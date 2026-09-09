@@ -1,15 +1,15 @@
 "use client";
 
 import { useState } from "react";
-import { Loader2, CalendarDays, CheckCircle2 } from "lucide-react";
+import { Loader2, CheckCircle2 } from "lucide-react";
 import Link from "next/link";
 
 export function InquiryForm() {
   const [form, setForm] = useState({
-    name: "",
+    firstName: "",
+    lastName: "",
     email: "",
     mobile: "",
-    birthday: "",
   });
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
 
@@ -26,17 +26,24 @@ export function InquiryForm() {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          firstName: form.name,
-          lastName: "",
+          firstName: form.firstName,
+          lastName: form.lastName,
           email: form.email,
           phone: form.mobile,
-          message: `Birthday: ${form.birthday || "Not provided"}`,
+          message: `Claim Pass Inquiry`,
         }),
       });
 
       if (res.ok) {
         setStatus("success");
-        setForm({ name: "", email: "", mobile: "", birthday: "" });
+        setForm({ firstName: "", lastName: "", email: "", mobile: "" });
+
+        // Fires Meta Pixel Lead event
+        if (typeof window !== "undefined" && (window as any).fbq) {
+          (window as any).fbq('track', 'Lead', {
+            content_name: 'Contact Form Submission'
+          });
+        }
       } else {
         setStatus("error");
       }
@@ -73,20 +80,19 @@ export function InquiryForm() {
 
       <form onSubmit={handleSubmit} className="space-y-3">
         <input
-          name="name"
-          value={form.name}
+          name="firstName"
+          value={form.firstName}
           onChange={handleChange}
           required
-          placeholder="Name"
+          placeholder="First name"
           className="w-full px-4 py-3.5 border border-[#ccc] rounded-lg text-[0.95rem] text-[#111] placeholder:text-[#999] focus:outline-none focus:border-[#0E2024] bg-white transition-all"
         />
         <input
-          name="email"
-          type="email"
-          value={form.email}
+          name="lastName"
+          value={form.lastName}
           onChange={handleChange}
           required
-          placeholder="Email"
+          placeholder="Last name"
           className="w-full px-4 py-3.5 border border-[#ccc] rounded-lg text-[0.95rem] text-[#111] placeholder:text-[#999] focus:outline-none focus:border-[#0E2024] bg-white transition-all"
         />
         <input
@@ -95,19 +101,18 @@ export function InquiryForm() {
           value={form.mobile}
           onChange={handleChange}
           required
-          placeholder="Mobile"
+          placeholder="Mobile no"
           className="w-full px-4 py-3.5 border border-[#ccc] rounded-lg text-[0.95rem] text-[#111] placeholder:text-[#999] focus:outline-none focus:border-[#0E2024] bg-white transition-all"
         />
-        <div className="relative">
-          <input
-            name="birthday"
-            type="date"
-            value={form.birthday}
-            onChange={handleChange}
-            className="w-full px-4 py-3.5 border border-[#ccc] rounded-lg text-[0.95rem] text-[#999] focus:outline-none focus:border-[#0E2024] bg-white transition-all"
-          />
-          <CalendarDays className="absolute right-3 top-1/2 -translate-y-1/2 size-4 text-[#aaa] pointer-events-none" />
-        </div>
+        <input
+          name="email"
+          type="email"
+          value={form.email}
+          onChange={handleChange}
+          required
+          placeholder="Email id"
+          className="w-full px-4 py-3.5 border border-[#ccc] rounded-lg text-[0.95rem] text-[#111] placeholder:text-[#999] focus:outline-none focus:border-[#0E2024] bg-white transition-all"
+        />
 
         {status === "error" && (
           <p className="text-red-500 text-[0.8rem]">

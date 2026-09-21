@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Script from "next/script";
 import { SiteLayout, PageHero } from "@/components/SiteLayout";
 import { BrandButton } from "@/components/BrandButton";
 import { Flame, Droplets, HeartPulse, Check, ArrowRight } from "lucide-react";
@@ -106,6 +107,42 @@ export default function InfraredSaunas() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#0A0F1E]/60 via-transparent to-transparent opacity-80 pointer-events-none" />
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Booking Embed Section ─────────────────────────────────── */}
+      <section className="py-16 sm:py-24" style={{ background: "#0F172A" }}>
+        <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-10">
+          {/* GymMaster External Scripts for iframes */}
+          <Script id="gymmaster-jq-conflict-pre-sauna" strategy="afterInteractive">
+            {`if (typeof jQuery !== 'undefined') var oldJQuery = jQuery.noConflict(true);`}
+          </Script>
+          <Script
+            src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"
+            strategy="afterInteractive"
+          />
+          <Script id="gymmaster-jq-conflict-post-sauna" strategy="afterInteractive">
+            {`if (typeof jQuery !== 'undefined') { jQueryX = jQuery.noConflict(true); } if (typeof oldJQuery !== 'undefined') { jQuery = oldJQuery; }`}
+          </Script>
+          <Script
+            src="https://n24pilatesstudio.gymmasteronline.com/portal/static/js/hostpage.js"
+            strategy="afterInteractive"
+          />
+
+          <div className="bg-white rounded-3xl p-4 sm:p-8 shadow-2xl overflow-hidden min-h-[600px]">
+            <figure className="w-full h-full">
+              <iframe
+                className="gmiframe w-full min-h-[800px] border-0"
+                src="https://n24pilatesstudio.gymmasteronline.com/portal/book/service"
+                width="100%"
+                scrolling="no"
+                frameBorder="0"
+                allow="camera *"
+                loading="lazy"
+                title="Book Sauna"
+              />
+            </figure>
           </div>
         </div>
       </section>

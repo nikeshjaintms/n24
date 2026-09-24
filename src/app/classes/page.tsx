@@ -157,7 +157,7 @@ export default function Classes() {
 
               {/* Buttons Container */}
               <div className="flex flex-col sm:flex-row items-center justify-center gap-6 w-full flex-wrap">
-                <Link
+                {/* <Link
                   href="/schedule"
                   className="group relative overflow-hidden inline-flex items-center gap-3 rounded-full bg-[#00C8D7] px-12 py-5 text-[0.8rem] font-bold uppercase tracking-[0.2em] text-white shadow-[0_10px_30px_rgba(0,200,215,0.4)] transition-all duration-500 hover:scale-[1.03]"
                 >
@@ -166,7 +166,7 @@ export default function Classes() {
                     <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
                   </span>
                   <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/50 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" />
-                </Link>
+                </Link> */}
 
                 {/* Button 1: Call Studio Team (Direct call) */}
                 <a

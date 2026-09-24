@@ -50,6 +50,17 @@ export const classes: readonly ClassItem[] = [
     level: "Rehab & Recovery",
   },
   {
+    slug: "seniors-only-fitness",
+    name: "Seniors-Only Fitness Classes",
+    image: "/6.png",
+    video: "/videos/9.mp4",
+    short:
+      "Designed by healthcare professionals, our gentle, slow-paced seniors classes are tailored to look after your individual fitness level, mobility, and confidence.",
+    long: "Designed by healthcare professionals, our gentle, slow-paced seniors classes are tailored to look after your individual fitness level, mobility, and confidence. Step into a safe, supportive environment where low-impact movements protect your joints, build core strength, and improve balance—helping you stay active and feel great at a pace that works for you. Have questions about a specific health condition or physical limitation before starting? Reach out to our team—we are happy to discuss how we can adapt the class for you!",
+    duration: "45 min",
+    level: "Seniors · Gentle & Supportive",
+  },
+  {
     slug: "stretch-strength",
     name: "Stretch + Strength",
     image: "/4.png",
@@ -175,6 +186,25 @@ export const specialOffers = [
 
 export const weeklyMemberships = [
   {
+    name: "1 Reformer 1 Infrared Sauna per week",
+    price: "$29",
+    unit: "/week",
+    saveBadge: "",
+    originalPrice: "",
+    iframeUrl:
+      "https://n24pilatesstudio.gymmasteronline.com/portal/signup",
+    description:
+      "A flexible weekly routine combining digital reformer training and restorative infrared sauna recovery.",
+    features: [
+      "1 Digital Reformer Class",
+      "1 Complimentary Infrared Sauna (30 Mins)",
+      "Auto renewing",
+      "Access available from 5am to 10pm",
+      "First On-boarding session must be booked during the staff hours",
+    ],
+    buttonText: "Start Weekly Plan",
+  },
+  {
     name: "Seamless Weekly Membership",
     price: "$47.25",
     unit: "/week",
@@ -197,7 +227,7 @@ export const weeklyMemberships = [
   },
   {
     name: "6 Month Value Commitment",
-    price: "$45.50",
+    price: "$42.50",
     unit: "/week",
     saveBadge: "",
     originalPrice: "",
@@ -218,7 +248,7 @@ export const weeklyMemberships = [
   },
   {
     name: "12 Month Value Commitment",
-    price: "$42.50",
+    price: "$39.50",
     unit: "/week",
     saveBadge: "",
     originalPrice: "",

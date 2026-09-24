@@ -13,6 +13,62 @@ import {
 } from "@/data/studio";
 import { PricingCard } from "@/components/PricingCard";
 import { PricingModal } from "@/components/PricingModal";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
+
+/* ── Interactive Pricing Slider matching studio design ── */
+function PricingSlider({
+  plans,
+  onSelectPlan,
+}: {
+  plans: readonly PricingPlan[];
+  onSelectPlan: (plan: PricingPlan) => void;
+}) {
+  // Only show slider if there are more than 3 cards
+  if (plans.length <= 3) {
+    return (
+      <div
+        className={
+          plans.length === 1
+            ? "max-w-md mx-auto"
+            : plans.length === 2
+            ? "grid gap-6 sm:grid-cols-2 max-w-4xl mx-auto"
+            : "grid gap-6 sm:grid-cols-2 lg:grid-cols-3"
+        }
+      >
+        {plans.map((p, i) => (
+          <PricingCard key={p.name} plan={p} index={i} onSelect={onSelectPlan} />
+        ))}
+      </div>
+    );
+  }
+
+  return (
+    <Carousel opts={{ align: "start", loop: false }} className="w-full relative">
+      <CarouselContent className="-ml-4 md:-ml-6 py-4">
+        {plans.map((p, i) => (
+          <CarouselItem
+            key={p.name}
+            className="pl-4 md:pl-6 md:basis-1/2 lg:basis-1/3 flex flex-col"
+          >
+            <div className="h-full w-full flex flex-col">
+              <PricingCard plan={p} index={i} onSelect={onSelectPlan} />
+            </div>
+          </CarouselItem>
+        ))}
+      </CarouselContent>
+      <div className="flex justify-center gap-4 mt-10">
+        <CarouselPrevious className="static transform-none h-12 w-12 rounded-full border transition-colors border-[#00C8D7] text-[#00C8D7] hover:bg-[#00C8D7] hover:text-white cursor-pointer bg-white disabled:opacity-30 disabled:pointer-events-none disabled:border-[#00C8D7]/30 disabled:text-[#00C8D7]/40" />
+        <CarouselNext className="static transform-none h-12 w-12 rounded-full border transition-colors border-[#00C8D7] text-[#00C8D7] hover:bg-[#00C8D7] hover:text-white cursor-pointer bg-white disabled:opacity-30 disabled:pointer-events-none disabled:border-[#00C8D7]/30 disabled:text-[#00C8D7]/40" />
+      </div>
+    </Carousel>
+  );
+}
 
 /* ── Section wrapper — alternating white / very-light-teal ── */
 function Section({
@@ -69,11 +125,7 @@ export function PricingContent() {
         title="Introductory &amp; Special Offers"
         subtitle="Exclusive opportunities to experience Australia's premier digital reformer sanctuary."
       >
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {specialOffers.map((p, i) => (
-            <PricingCard key={p.name} plan={p} index={i} onSelect={handleSelectPlan} />
-          ))}
-        </div>
+        <PricingSlider plans={specialOffers} onSelectPlan={handleSelectPlan} />
       </Section>
 
       <Section
@@ -81,22 +133,14 @@ export function PricingContent() {
         subtitle="Unrestricted self-guided access from 5:00 AM to 10:00 PM."
         alt
       >
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {weeklyMemberships.map((p, i) => (
-            <PricingCard key={p.name} plan={p} index={i} onSelect={handleSelectPlan} />
-          ))}
-        </div>
+        <PricingSlider plans={weeklyMemberships} onSelectPlan={handleSelectPlan} />
       </Section>
 
       <Section
         title="Reformer Class Passes"
         subtitle="Complete scheduling freedom without weekly recurring commitments."
       >
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {pilatesSessionPacks.map((p, i) => (
-            <PricingCard key={p.name} plan={p} index={i} onSelect={handleSelectPlan} />
-          ))}
-        </div>
+        <PricingSlider plans={pilatesSessionPacks} onSelectPlan={handleSelectPlan} />
       </Section>
 
       <Section
@@ -104,11 +148,7 @@ export function PricingContent() {
         subtitle="Deep tissue cellular recovery in private sauna suites."
         alt
       >
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {infraredSaunaPacks.map((p, i) => (
-            <PricingCard key={p.name} plan={p} index={i} onSelect={handleSelectPlan} />
-          ))}
-        </div>
+        <PricingSlider plans={infraredSaunaPacks} onSelectPlan={handleSelectPlan} />
       </Section>
 
       {/* Events and Groups Custom Section */}

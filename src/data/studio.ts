@@ -192,7 +192,7 @@ export const weeklyMemberships = [
     saveBadge: "",
     originalPrice: "",
     iframeUrl:
-      "https://n24pilatesstudio.gymmasteronline.com/portal/signup",
+      "https://n24pilatesstudio.gymmasteronline.com/portal/signup/details/ee80bb43ac8fa4c2016e03452c88b5a6",
     description:
       "A flexible weekly routine combining digital reformer training and restorative infrared sauna recovery.",
     features: [

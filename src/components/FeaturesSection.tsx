@@ -47,7 +47,7 @@ export function FeaturesSection() {
           {[
             {
               title: "Digital Reformer System",
-              desc: 'Classes are self-guided using interactive touchscreen displays attached to Premium "Your Reformer" beds. Members can select from a library of over 800 instructor-led programs ranging from 15 to 50 minutes, spanning beginner fundamentals, HIIT hybrids, mat Pilates, and physio-focused clinical routines.',
+              desc: 'Classes are self-guided using interactive touchscreen displays attached to Premium "Your Reformer" beds. Members can select from a library of over 800 instructor-led programs ranging from 15 to 50 minutes, spanning beginner fundamentals, HIIT hybrids, mat Pilates, and physio-focused clinical routines.To help you get started, we offer personalized 1-on-1 onboarding sessions where we review your current fitness level and goals to curate a program tailored specifically to you.',
               icon: Laptop,
             },
             {

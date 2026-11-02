@@ -139,21 +139,24 @@ export interface PricingPlan {
 
 export const specialOffers = [
   {
-    name: "New Client Intro Offer",
-    price: "$40",
-    unit: "4 Classes",
-    saveBadge: "New Client Special",
-    originalPrice: "$84 value",
+    name: "28-Day Fitness Reset",
+    price: "$99",
+    unit: "28 Days",
+    saveBadge: "Intro Reset Special",
     iframeUrl:
-      "https://n24pilatesstudio.gymmasteronline.com/portal/signup/details/9470d85507491296a31c643e990c513d",
+      "https://n24pilatesstudio.gymmasteronline.com/portal/signup/details/699985c6f1cb9d575b1f8a26057200ad",
     description:
-      "Experience Australia's premier self-guided Digital Reformer Pilates sanctuary in Applecross over 15 days.",
+      "Designed to help busy people and nervous beginners create a movement routine that finally fits around real life — without the pressure of traditional fitness environments.",
     features: [
-      "2x Digital reformer classes & 2x Infrared sauna (30 mins)",
-      "Valid for 15 days from purchase — zero membership commitment",
-      "Special discount available when you sign up for membership during the intro offer",
+      "A pair of Grip socks, Studio Walkthrough & Private 1-on-1 Session with a coach",
+      "Unlimited access to the studio for Reformer & 8 Recovery Sessions (Infrared Sauna)",
+      "Access available anytime between 5:00 AM to 10:00 PM daily",
+      "First onboarding/goal-setting session booked during staff hours",
+      "Beginner-friendly class pathways (suitable for beginners & seniors)",
+      "Low-pressure, no-judgement environment with weekly check-ins",
+      "Choose sessions based on your confidence and energy — just show up",
     ],
-    buttonText: "Claim Intro Offer",
+    buttonText: "Claim Reset Offer",
   },
   {
     name: "Casual Reformer Pass",

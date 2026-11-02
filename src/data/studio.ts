@@ -149,7 +149,7 @@ export const specialOffers = [
       "Designed to help busy people and nervous beginners create a movement routine that finally fits around real life — without the pressure of traditional fitness environments.",
     features: [
       "A pair of Grip socks, Studio Walkthrough & Private 1-on-1 Session with a coach",
-      "Unlimited access to the studio for Reformer & 8 Recovery Sessions (Infrared Sauna)",
+      "Unlimited access to the studio for Reformer and 8 Recovery Sessions (Infrared Sauna)",
       "Access available anytime between 5:00 AM to 10:00 PM daily",
       "First onboarding/goal-setting session booked during staff hours",
       "Beginner-friendly class pathways (suitable for beginners & seniors)",

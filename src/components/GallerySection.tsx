@@ -71,8 +71,14 @@ export function GallerySection({ theme = "default" }: GallerySectionProps) {
   const isClaimPass = theme === "claim-pass";
 
   return (
-    <section className={`${isClaimPass ? "bg-[#F8F7F3]" : "bg-[#F1FAFB]"} py-14 sm:py-20 overflow-hidden`}>
-      <div className="mx-auto max-w-[105rem] px-4 lg:px-8">
+    <section className={`${isClaimPass ? "bg-[#F8F7F3]" : "bg-[#08101D]"} py-14 sm:py-20 overflow-hidden relative`}>
+      {!isClaimPass && (
+        <>
+          <div className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full bg-[#00C8D7]/5 blur-[140px] pointer-events-none translate-z-0" />
+          <div className="absolute bottom-0 left-0 w-[500px] h-[500px] rounded-full bg-[#00C8D7]/5 blur-[120px] pointer-events-none translate-z-0" />
+        </>
+      )}
+      <div className="mx-auto max-w-[105rem] px-4 lg:px-8 relative z-10">
         <m.div
           initial="hidden"
           whileInView="visible"
@@ -89,15 +95,15 @@ export function GallerySection({ theme = "default" }: GallerySectionProps) {
                 </span>
               </m.div>
             ) : (
-              <m.p variants={fadeUp} className="eyebrow text-[#00C8D7] mb-4 tracking-[0.3em]">
+              <m.p variants={fadeUp} className="eyebrow text-[#00C8D7] mb-4 tracking-[0.3em] font-semibold">
                 The Digital Reformer Experience
               </m.p>
             )}
             <m.h2
               variants={fadeUp}
-              className={`font-display text-[2rem] sm:text-[2.8rem] md:text-5xl lg:text-6xl ${isClaimPass ? "text-[#111]" : "text-[#0A0F1E]"}`}
+              className={`font-display text-[2rem] sm:text-[2.8rem] md:text-5xl lg:text-6xl ${isClaimPass ? "text-[#111]" : "text-white"}`}
             >
-              Experience <em>N24 in Motion</em>
+              Experience <em className={`${isClaimPass ? "text-[#111]" : "text-[#00C8D7] font-light"}`}>N24 in Motion</em>
             </m.h2>
           </div>
         </m.div>
@@ -112,7 +118,7 @@ export function GallerySection({ theme = "default" }: GallerySectionProps) {
                   whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true, margin: "0px", amount: 0.1 }}
                   transition={{ duration: 0.8, delay: (i % 4) * 0.1 }}
-                  className="group relative w-[85vw] sm:w-[45vw] md:w-[35vw] lg:w-[28vw] max-w-[400px] flex-shrink-0 aspect-[9/16] sm:aspect-[4/5] overflow-hidden rounded-[28px] shadow-soft hover:shadow-premium transition-all duration-500 bg-[#0A0F1E] cursor-pointer"
+                  className="group relative w-[85vw] sm:w-[45vw] md:w-[35vw] lg:w-[28vw] max-w-[400px] flex-shrink-0 aspect-[9/16] sm:aspect-[4/5] overflow-hidden rounded-[28px] border border-white/10 hover:border-[#00C8D7]/40 shadow-soft hover:shadow-premium transition-all duration-500 bg-[#0A0F1E] cursor-pointer"
                 >
                   <AutoPlayVideo
                     src={item.src}

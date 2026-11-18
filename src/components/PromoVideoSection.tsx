@@ -19,7 +19,7 @@ export function PromoVideoSection() {
         >
           <AutoPlayVideo
             src="/videos/hero%20video.mp4"
-            poster="/shared%20image.jpg"
+            poster=""
             className="absolute inset-0 w-full h-full object-cover scale-[1.02] transition-transform duration-[2000ms] group-hover:scale-100"
           />
 

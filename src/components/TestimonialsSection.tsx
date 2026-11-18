@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { m, AnimatePresence } from "framer-motion";
 import { Star, Quote, X } from "lucide-react";
 import {
@@ -9,83 +9,28 @@ import {
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
+  type CarouselApi,
 } from "./ui/carousel";
 import type { Variants } from "framer-motion";
+import rawReviews from "@/data/reviews.json";
+
+export interface Review {
+  id?: string;
+  name: string;
+  date: string;
+  text: string;
+  initial: string;
+  rating?: number;
+  source?: string;
+}
+
+const reviews: Review[] = rawReviews;
 
 const fadeUp: Variants = {
   hidden: { opacity: 0, y: 50 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.9 } },
 };
 const stagger: Variants = { visible: { transition: { staggerChildren: 0.15 } } };
-
-const reviews = [
-  {
-    name: "Rebecca Boehm",
-    date: "Verified Member · Applecross",
-    text: "Best Pilates studio ever! Sia is amazing and the environment is very clean and beautiful. I love the option to use reformers on my own with instructions. Sauna is fantastic too! 🤍",
-    initial: "R",
-  },
-  {
-    name: "Paul K",
-    date: "Verified Member · Applecross",
-    text: "Great place. Easy parking. Highly recommended.",
-    initial: "P",
-  },
-  {
-    name: "Elias Santimano",
-    date: "Verified Member · Applecross",
-    text: "I joined N24 Pilates & Wellness based on my surgeon suggesting I give it a go as no physio/chiro could help with my back pain and my knee. As they were based on the ground floor of my apartment building and based on convenience I gave it a go and found the beginner class pretty easy, and the exercises on the mat and the reformer seem to relieve some of the pain. I have been attending here for about 6 weeks, 2 classes a week supervised and 1 day unsupervised. Besides, the bonus of an infrared sauna is helpful. Currently my pain in the back and knee is manageable with little inconvenience and I can safely attribute this to Pilates. The environment is clean and healthy and I am enjoying it.",
-    initial: "E",
-  },
-  {
-    name: "Joe Angel",
-    date: "Verified Member · Applecross",
-    text: "I’m loving the whole experience. The environment is calm and beautiful. The lessons are challenging and I can feel the ongoing improvement each class. The option to have live classes or just workout on your own is wonderfully flexible. To follow the classes with meditation and then the option of going in the sauna sets the day up perfectly. I would recommend this highly.",
-    initial: "J",
-  },
-  {
-    name: "Rebecca",
-    date: "Verified Member · Applecross",
-    text: "I love being able to pick a workout time the suits my schedule and being able to pop to the studio whenever I’m motivated and not being stuck waiting for a class time has seen me doing about 3-4 sessions a week! I leave for work very early in the morning so the 5am opening time has also been awesome for me and I appreciate the privacy and calm that comes with choosing my own workout. The classes are easy to follow, the studio is gorgeous and the staff are very friendly, highly recommend their sauna too!",
-    initial: "R",
-  },
-  {
-    name: "Ashlyn Hendricks",
-    date: "Verified Member · Applecross",
-    text: "The studio is nicely laid out, clean and lovely. The infra red sauna is luxe. Sia is a good instructor, calm and is slowly building our collective repertoire to maximise outcomes and we enjoy the classes. I feel stronger and can see improvements in balance and strength.. This together with the Studio being staffed all day and the convenience of the location has been very useful.",
-    initial: "A",
-  },
-  {
-    name: "Caris Garnsey",
-    date: "Verified Member · Applecross",
-    text: "If you’re looking for the best Pilates studio in Applecross, this is definitely it! The location is so convenient, especially if you’re travelling, as it’s right off the freeway with easy access. Sia, the owner, is absolutely lovely and incredibly knowledgeable. You can truly tell she knows what she’s doing... her classes are both informative and welcoming, making you feel comfortable while still being challenged. The community here is honestly amazing and such a positive environment to be around. I even find myself coming at night because the atmosphere is so enjoyable. It’s also very rare to find a studio in Perth open as late as 9pm, which makes it perfect for busy schedules 🙌",
-    initial: "C",
-  },
-  {
-    name: "sonali dhut",
-    date: "Verified Member · Applecross",
-    text: "Fantastic studio with top-tier Balance Body equipment. As a complete beginner, I was nervous, but instructor made me feel so welcome and they provided plenty of modifications to suit my level. The sessions are intense and fun. I love that the classes are small enough for the instructor to give one-on-one help with form. Reformer Pilates truly helped in toning my body increase strength giving quick results. I definitely recommend it!!",
-    initial: "S",
-  },
-  {
-    name: "Dr Arthur Wilson",
-    date: "Verified Member · Applecross",
-    text: "Great service. Very convenient. I really appreciate the after hours access. I don’t do Pilates…but they two wonderful infrared spa that I use. They are clean comfy and quiet. I will return!",
-    initial: "D",
-  },
-  {
-    name: "Shreya Bari",
-    date: "Verified Member · Applecross",
-    text: "Absolutely loved my experience at N24 Pilates! The instructor is so supportive and make every class feel welcoming, even for beginners. The studio has such a calm and positive vibe, and I always leave feeling refreshed and stronger.",
-    initial: "S",
-  },
-  {
-    name: "Aline Marchioro",
-    date: "Verified Member · Applecross",
-    text: "Really lovely place! Owner was very friendly and helpful. Sauna was a bargain! Reformer room also looks amazing and they have so many programs for everyone",
-    initial: "A",
-  },
-];
 
 interface TestimonialsSectionProps {
   theme?: "default" | "claim-pass";
@@ -94,6 +39,18 @@ interface TestimonialsSectionProps {
 export function TestimonialsSection({ theme = "default" }: TestimonialsSectionProps) {
   const isClaimPass = theme === "claim-pass";
   const [selectedReviewIndex, setSelectedReviewIndex] = useState<number | null>(null);
+  const [api, setApi] = useState<CarouselApi>();
+  const [isHovered, setIsHovered] = useState(false);
+
+  useEffect(() => {
+    if (!api || isHovered || selectedReviewIndex !== null) return;
+
+    const timer = setInterval(() => {
+      api.scrollNext();
+    }, 3500);
+
+    return () => clearInterval(timer);
+  }, [api, isHovered, selectedReviewIndex]);
 
   return (
     <>
@@ -159,8 +116,16 @@ export function TestimonialsSection({ theme = "default" }: TestimonialsSectionPr
             viewport={{ once: true, margin: "0px", amount: 0.1 }}
             variants={stagger}
             className="mt-8"
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}
+            onTouchStart={() => setIsHovered(true)}
+            onTouchEnd={() => setIsHovered(false)}
           >
-            <Carousel opts={{ align: "start", loop: true }} className="w-full relative">
+            <Carousel
+              setApi={setApi}
+              opts={{ align: "start", loop: true }}
+              className="w-full relative"
+            >
               <CarouselContent className="-ml-4 md:-ml-8">
                 {reviews.map((r, i) => {
                   const isLong = r.text.length > 150;

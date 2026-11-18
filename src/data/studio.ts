@@ -286,6 +286,7 @@ export const pilatesSessionPacks = [
       "Enjoy 5 self-guided Digital Reformer, Mat, Yoga, or Stretch sessions with total booking freedom:",
     features: [
       "Full studio access from 5:00 AM – 10:00 PM daily",
+      "Complimentary 5 Infrared Sauna Sessions included (Black Friday sale for limited time)",
       "First On-boarding session must be booked during the staff hours",
       "Valid for 2 full months from purchase date",
       "Access to 800+ on-demand classes across all fitness levels",
@@ -305,6 +306,7 @@ export const pilatesSessionPacks = [
       "Our most popular session pack—10 self-guided Digital Reformer, Mat, Yoga, or Stretch classes with extended validity:",
     features: [
       "Full studio access from 5:00 AM – 10:00 PM daily",
+      "Complimentary 10 Infrared Sauna Sessions included (Black Friday sale for limited time)",
       "First On-boarding session must be booked during the staff hours",
       "Valid for 3 full months from purchase date",
       "Access to 800+ on-demand classes across all fitness levels",
@@ -324,6 +326,7 @@ export const pilatesSessionPacks = [
       "Our best per-session value—20 self-guided Digital Reformer, Mat, Yoga, or Stretch classes for dedicated practitioners:",
     features: [
       "Full studio access from 5:00 AM – 10:00 PM daily",
+      "Complimentary 20 Infrared Sauna Sessions included (Black Friday sale for limited time)",
       "First On-boarding session must be booked during the staff hours",
       "Valid for 6 full months from purchase date",
       "Access to 800+ on-demand classes across all fitness levels",
